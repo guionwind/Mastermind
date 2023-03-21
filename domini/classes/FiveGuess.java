@@ -1,3 +1,4 @@
+package domini.classes;
 //package Domini;
 
 public class FiveGuess implements Maquina {

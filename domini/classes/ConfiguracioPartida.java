@@ -1,3 +1,4 @@
+package domini.classes;
 //package Domini;
 // import Dominio.Persona;
 
