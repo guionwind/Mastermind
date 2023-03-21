@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:domini/classes/ConfiguracioPartida.java
 package domini.classes;
+=======
+package classes;
+>>>>>>> Stashed changes:classes/ConfiguracioPartida.java
 //package Domini;
 // import Dominio.Persona;
 
