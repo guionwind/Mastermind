@@ -3,39 +3,35 @@ public class Jugador {
     private final int id;
     private String username;
     private String password;
-    private int partidesGuanyades;
-    private int partidesJugades;
-
-    //relacions
-    private 
-    // no esta al diagrama
-    public static int nombreJugadors = 0;
+        //serveix per a generar la id
+    private static int nombreJugadors = 0;
 
     //associacions
-    private ConfiguracioGlobal config;
-    private Partida[] partides;
+    private ArrayList<EstadistiquesPartida> statsPartides;
     
+    /*creadora per defecte. 
+    * crea un nou jugador amb ID incremental (el primer jugador tindra id = 1) 
+    * despres assigna les credencials corresponents
+    * 
+    */
     public Jugador(String name, String pwd) {
-        this.id = generaID();
+        ++nombreJugadors;
+        this.id = nombreJugadors;
         this.username = name;
         this.password = pwd;
-        this.partidesGuanyades = 0;
-        this.partidesJugades = 0;
-    }
-
-    //genera la ID de cada nou jugador de manera incremental
-    private int generaID() {
-        ++nombreJugadors;
-        return nombreJugadors;
     }
     
-    //incrementar comptadors de partides
-    public incrementarPartidesGuanyades() {
-        ++partidesGuanyades;
+    //atributs derivats calculats
+    public PartidesGuanyades() {
+        int guanyades;
+        for (EstadistiquesPartida p : this.statsPartides) {
+            if (p.guanyada) ++guanyades;
+        }
+        return guanyades;
     }
 
-    public incrementarPartidesJugades() {
-        ++partidesJugades;
+    public PartidesJugades() {
+        return statsPartides.length();
     }
 
     //getters
