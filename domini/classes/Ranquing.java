@@ -1,6 +1,5 @@
 package domini.classes;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -38,5 +37,8 @@ public class Ranquing {
         this.estadistiques.add(estadisitica);
         estadisticasComparator estatComparator = new estadisticasComparator();
         Collections.sort(this.estadistiques, estatComparator);
+    }
+    public void printTopN(int n){
+        
     }
 }
