@@ -5,6 +5,9 @@ public class Jugador {
     private String password;
     private int partidesGuanyades;
     private int partidesJugades;
+
+    //relacions
+    private 
     // no esta al diagrama
     public static int nombreJugadors = 0;
 

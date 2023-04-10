@@ -9,5 +9,21 @@ public class ConfiguracioGlobal {
     private boolean modeDaltonic;
 
     //associacions
+    private int id;
     private Jugador[] jugadorsAmbAquestaConfig;
+
+    //
+    public static int nombreConfigsGlobals = 0;
+
+    public ConfiguracioGlobal() {
+        id = generaID();
+        modeDaltonic = false;
+    }
+
+    
+
+    private int generaID() {
+        ++nombreConfigsGlobals;
+        return nombreConfigsGlobals;
+    }
 }
