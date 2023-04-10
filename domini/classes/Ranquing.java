@@ -14,7 +14,7 @@ class estadisticasComparator implements Comparator<EstadistiquesPartida> {
 
 public class Ranquing {
     private int id;
-    private ArrayList<EstadistiquesPartida> estadistiques = new ArrayList<EstadistiquesPartida>(); //TODO això hauria d'estar ordenat sempre, de millor a pitjor
+    private ArrayList<EstadistiquesPartida> estadistiques = new ArrayList<EstadistiquesPartida>();
 
     //mètodes
     public int getId(){
@@ -38,7 +38,12 @@ public class Ranquing {
         estadisticasComparator estatComparator = new estadisticasComparator();
         Collections.sort(this.estadistiques, estatComparator);
     }
-    public void printTopN(int n){
-        
+    public ArrayList<EstadistiquesPartida> getTopN(int n){
+        ArrayList<EstadistiquesPartida> tempEstadistiques = new ArrayList<EstadistiquesPartida>();
+        for (int i = 0; i < n; i++){
+            tempEstadistiques.add(this.estadistiques.get(i));
+            //System.out.println(this.estadistiques.get(i).getJugador() + ": " + this.estadistiques.get(i).getPuntuacio());
+        }
+        return tempEstadistiques;
     }
 }
