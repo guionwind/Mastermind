@@ -5,8 +5,12 @@ import java.util.HashSet;
 public abstract class Partida {
     private final int id;
     private final Integer[] solutionCode;
+
+    private static int nombrePartides;
     private HashSet<Ronda> rondes; //No la he posat a la creadora ja que la relacioó és 0...*
     private final EstadistiquesPartida estadisticaPartida;
+
+    private final ConfiguracioPartida configuracioPartida;
 
     /**
      * Constructora de la classe Partida
@@ -16,9 +20,10 @@ public abstract class Partida {
      * @param solutionCode La solucio de la partida
      */
 
-    public Partida(int id, EstadistiquesPartida estadisticaPartida, Integer[] solutionCode) {
+    public Partida(int id, EstadistiquesPartida estadisticaPartida, ConfiguracioPartida configuracioPartida, Integer[] solutionCode) {
         this.id = id;
         this.estadisticaPartida = estadisticaPartida;
+        this.configuracioPartida = configuracioPartida;
         this.solutionCode = solutionCode;
     }
 
@@ -48,6 +53,18 @@ public abstract class Partida {
      */
     public Integer[] getSolutionCode() {
         return solutionCode;
+    }
+
+    public int getNombrePartides() {
+        return nombrePartides;
+    }
+
+    public void incNombrePartides() {
+        nombrePartides =+ 1;
+    }
+
+    public void decNombrePartides() {
+        nombrePartides -= 1;
     }
 
     /**
