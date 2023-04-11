@@ -1,23 +1,43 @@
+/**
+ * Aquesta classe representa una ronda.
+ * Cada ronda té un identificador únic i una combinació intentada.
+ */
 package domini.classes;
 
 public class Ronda {
+
+    // Identificador únic de la ronda
     private int id;
+    
+    // Combinació intentada en aquesta ronda
     private String combinacioIntentada;
-    /*creadora per defecte. 
-    * crea una nova Ronda amb ID incremental (partida s´encarrega de que les IDs siguien incrementals) 
-    * despres assigna la combinacions intentades
-    * 
-    */
+
+    /**
+     * Constructor de la classe Ronda.
+     *
+     * @param id Identificador únic de la ronda
+     * @param combinacioIntentada Combinació intentada en aquesta ronda
+     */
     public Ronda(int id, String combinacioIntentada) {
         this.id = id;
         this.combinacioIntentada = combinacioIntentada;
     }
 
-    //metodes
-    public int getId(){
+    /**
+     * Retorna el identificador únic de la ronda.
+     *
+     * @return El identificador de la ronda
+     */
+    public int getId() {
         return this.id;
     }
-    public String getCombinacioIntentada(){
+
+    /**
+     * Retorna la combinació intentada en aquesta ronda.
+     *
+     * @return La combinació intentada
+     */
+    public String getCombinacioIntentada() {
         return this.combinacioIntentada;
     }
 }
