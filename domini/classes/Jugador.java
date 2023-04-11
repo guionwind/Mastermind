@@ -1,3 +1,7 @@
+package domini.classes;
+
+import java.util.ArrayList;
+
 public class Jugador {
     //atributs
     private final int id;
@@ -12,7 +16,6 @@ public class Jugador {
     /*creadora per defecte. 
     * crea un nou jugador amb ID incremental (el primer jugador tindra id = 1) 
     * despres assigna les credencials corresponents
-    * 
     */
     public Jugador(String name, String pwd) {
         ++nombreJugadors;
@@ -22,37 +25,29 @@ public class Jugador {
     }
     
     //atributs derivats calculats
-    public PartidesGuanyades() {
+    public int PartidesGuanyades() {
         int guanyades;
         for (EstadistiquesPartida p : this.statsPartides) {
-            if (p.guanyada) ++guanyades;
+            if (p.esGuanyada()) ++guanyades;
         }
         return guanyades;
     }
 
-    public PartidesJugades() {
-        return statsPartides.length();
+    public int PartidesJugades() {
+        return statsPartides.size();
     }
 
     //getters
-    public getID() {
+    public int getID() {
         return id;
     }
 
-    public getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public getPassword() {
+    public String getPassword() {
         return password;
-    }
-
-    public getPartidesJugades() {
-        return partidesJugades;
-    }
-
-    public getPartidesGuanyades() {
-        return partidesGuanyades;
     }
 
     /*aixo aniria al ctrlDomini¿?
