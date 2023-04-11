@@ -1,5 +1,5 @@
 /**
- * Classe EstadistiquesPartida que conté les estadístiques d'una partida d'un videojoc.
+ * Classe EstadistiquesPartida que conté les estadístiques d'una partida.
  */
 package domini.classes;
 
