@@ -5,11 +5,8 @@
 package domini.classes;
 
 public class Ronda {
-
-    // Identificador únic de la ronda
+    // Atributs 
     private int id;
-    
-    // Combinació intentada en aquesta ronda
     private String combinacioIntentada;
 
     /**
@@ -22,6 +19,8 @@ public class Ronda {
         this.id = id;
         this.combinacioIntentada = combinacioIntentada;
     }
+
+    // Mètodes
 
     /**
      * Retorna el identificador únic de la ronda.

@@ -12,6 +12,8 @@ public class EstadistiquesPartida {
     private Boolean acabada;
     private Boolean guanyada;
 
+    // Mètodes
+
     /**
      * Mètode per obtenir el jugador de les estadístiques.
      * @return Retorna el jugador de les estadístiques.

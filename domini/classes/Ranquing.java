@@ -22,6 +22,7 @@ class estadisticasComparator implements Comparator<EstadistiquesPartida> {
  * Classe Ranquing que gestiona les estadístiques de partides.
  */
 public class Ranquing {
+    // Atributs
     private int id;
     private ArrayList<EstadistiquesPartida> estadistiques = new ArrayList<EstadistiquesPartida>();
 
