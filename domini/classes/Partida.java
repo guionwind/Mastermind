@@ -6,7 +6,7 @@ public abstract class Partida {
     private final int id;
     private final Integer[] solutionCode;
 
-    private static int nombrePartides;
+    private static int nombrePartides = 0;
     private HashSet<Ronda> rondes; //No la he posat a la creadora ja que la relacioó és 0...*
 
     private EstadistiquesPartida estadisticaPartida;
@@ -14,14 +14,14 @@ public abstract class Partida {
     private final ConfiguracioPartida configuracioPartida;
 
     /**
-     * Constructora de la classe Partida
-     *
-     * @param id Identificador de la Partida
-     * @param solutionCode La solucio de la partida
+     * Constructora de la classe partida
+     * @param configuracioPartida de la partida en questio
+     * @param solutionCode de la partida
      */
 
-    public Partida(int id, ConfiguracioPartida configuracioPartida, Integer[] solutionCode) {
-        this.id = id;
+    public Partida(ConfiguracioPartida configuracioPartida, Integer[] solutionCode) {
+        this.id = nombrePartides;
+        nombrePartides++;
         this.configuracioPartida = configuracioPartida;
         this.solutionCode = solutionCode;
     }

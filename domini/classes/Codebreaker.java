@@ -1,6 +1,6 @@
 package domini.classes;
 
-public class CodeBreaker extends Partida {
+public class Codebreaker extends Partida {
 
     /**
      * Constructora de la classe codeBreaker
@@ -9,7 +9,7 @@ public class CodeBreaker extends Partida {
      * @param configuracioPartida La configuracio de la partida
      * @param solutionCode Codi solucio de la partida creat automaticament en el controlador
      */
-    public CodeBreaker(int id, ConfiguracioPartida configuracioPartida, Integer[] solutionCode) {
-        super(id, configuracioPartida, solutionCode);
+    public Codebreaker(ConfiguracioPartida configuracioPartida, Integer[] solutionCode) {
+        super(configuracioPartida, solutionCode);
     }
 }
