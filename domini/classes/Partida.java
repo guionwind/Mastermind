@@ -94,4 +94,8 @@ public abstract class Partida {
         this.estadisticaPartida = estadisticaPartida;
     }
 
+    public ConfiguracioPartida getConfiguracioPartida() {
+        return configuracioPartida;
+    }
+
 }
