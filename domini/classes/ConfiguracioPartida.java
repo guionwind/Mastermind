@@ -14,7 +14,7 @@ public class ConfiguracioPartida {
     /**
      * Identificador de la partida a la que pertany la configuració.
      */
-    private int partida;
+    private Partida partida;
     /**
      * Tipus de partida.
      * Ha de ser un dels tipus admesos per l'Enumeration TipusPartida.
@@ -40,7 +40,7 @@ public class ConfiguracioPartida {
      * Crea una nova instància de la classe amb tots els atributs per defecte.
      */
     public ConfiguracioPartida() {
-        this.partida = -1;
+        this.partida = null;
         this.tipusPartida = null;
         this.numeroIntents = 0;
         this.numeroColors = 0;
@@ -57,7 +57,7 @@ public class ConfiguracioPartida {
      * @param   numeroColors        Número de colors diferents possibles per crear el codi.
      * @param   longitudCombinacio  Llargada del codi a crear.
      */
-    public ConfiguracioPartida(int partida, TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
+    public ConfiguracioPartida(Partida partida, TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
         this.partida = partida;
         this.tipusPartida = tipusPartida;
         this.numeroIntents = numeroIntents;
@@ -70,7 +70,7 @@ public class ConfiguracioPartida {
      *
      * @return                      Partida a la que pertany.
      */
-    public int getPartida() {
+    public Partida getPartida() {
         return partida;
     }
 
@@ -117,8 +117,8 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setPartida(int partida) {
-        if (partida > 0) {
+    public boolean setPartida(Partida partida) {
+        if (partida != null) {
             // COMPROVAR QUE NO EXISTEIXI UNA ALTRA PARTIDA
             // Controlador domini demano, existeix partida?
             // Controlador domini demana a Partida,
