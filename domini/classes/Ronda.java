@@ -8,7 +8,7 @@ public class Ronda {
     // Atributs 
     private int id;
     private String combinacioIntentada;
-
+    
     /**
      * Constructor de la classe Ronda.
      *
