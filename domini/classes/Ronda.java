@@ -7,7 +7,7 @@ package domini.classes;
 public class Ronda {
     // Atributs 
     private int id;
-    private String combinacioIntentada;
+    private Integer[] combinacioIntentada;
     
     /**
      * Constructor de la classe Ronda.
@@ -15,7 +15,7 @@ public class Ronda {
      * @param id Identificador únic de la ronda
      * @param combinacioIntentada Combinació intentada en aquesta ronda
      */
-    public Ronda(int id, String combinacioIntentada) {
+    public Ronda(int id, Integer[] combinacioIntentada) {
         this.id = id;
         this.combinacioIntentada = combinacioIntentada;
     }
@@ -36,7 +36,7 @@ public class Ronda {
      *
      * @return La combinació intentada
      */
-    public String getCombinacioIntentada() {
+    public Integer[] getCombinacioIntentada() {
         return this.combinacioIntentada;
     }
 }

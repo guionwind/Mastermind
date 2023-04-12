@@ -15,7 +15,7 @@ public class DriverRonda {
         System.out.println("testGetId: Agafem Id: "+id);
     }
     public void testGetCombinacioIntentada(){
-        Ronda test = new Ronda(6, "2341");
+        Ronda test = new Ronda(6, );
         String combinacioIntentada = test.getCombinacioIntentada();
         System.out.println("testGetCombinacioIntentada: Agafem Combinacio Intentada: "+combinacioIntentada);
     }
