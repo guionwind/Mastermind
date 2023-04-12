@@ -7,24 +7,37 @@ package domini.classes;
 public class Ronda {
     // Atributs 
     private int id;
+
+    private final Partida partida;
+
     private Integer[] combinacioIntentada;
-    private Integer[] combinacioCorrecta;
-    
+
     /**
      * Constructor de la classe Ronda.
      *
      * @param id Identificador únic de la ronda
+     * @param partida Partida a la que correspon la ronda
      * @param combinacioIntentada Combinació intentada en aquesta ronda
-     * @param combinacioCorrecta Combinació correcta en aquesta partida
      */
-    public Ronda(int id, Integer[] combinacioIntentada, Integer[] combinacioCorrecta) {
+    public Ronda(int id, Partida partida, Integer[] combinacioIntentada) {
         this.id = id;
+        this.partida = partida;
         this.combinacioIntentada = combinacioIntentada;
-        this.combinacioCorrecta = combinacioCorrecta;
+    }
+
+    /**
+     * Constructor de la classe Ronda
+     *
+     * @param id Identificador únic de la ronda
+     * @param partida Partida a la que correspon la ronda
+     */
+
+    public Ronda(int id, Partida partida) {
+        this.id = id;
+        this.partida = partida;
     }
 
     // Mètodes
-
     /**
      * Retorna el identificador únic de la ronda.
      *
@@ -33,7 +46,6 @@ public class Ronda {
     public int getId() {
         return this.id;
     }
-
     /**
      * Retorna la combinació intentada en aquesta ronda.
      *
@@ -43,14 +55,6 @@ public class Ronda {
         return this.combinacioIntentada;
     }
 
-    /**
-     * Retorna la combinació correcta en aquesta partida.
-     *
-     * @return La combinació correcta
-     */
-    public Integer[] getCombinacioCorrecta() {
-        return this.combinacioCorrecta;
-    }
 
     /**
      * Retorna la resposta que s'obtindria donat un dels codis encara no intentats i
@@ -90,5 +94,13 @@ public class Ronda {
             resposta += "X";
 
         return resposta;
+    }
+
+    public Partida getPartida() {
+        return partida;
+    }
+
+    public void setCombinacioIntentada(Integer[] combinacioIntentada) {
+        this.combinacioIntentada = combinacioIntentada;
     }
 }
