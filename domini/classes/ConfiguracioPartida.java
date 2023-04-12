@@ -57,8 +57,8 @@ public class ConfiguracioPartida {
      * @param   numeroColors        Número de colors diferents possibles per crear el codi.
      * @param   longitudCombinacio  Llargada del codi a crear.
      */
-    public ConfiguracioPartida(Partida partida, TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
-        this.partida = partida;
+    public ConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
+        this.partida = null;
         this.tipusPartida = tipusPartida;
         this.numeroIntents = numeroIntents;
         this.numeroColors = numeroColors;
