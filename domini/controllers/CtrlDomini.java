@@ -8,6 +8,7 @@ import domini.classes.ConfiguracioPartida.TipusPartida;
 public class CtrlDomini {
     private CtrlPartida ctrlPartida;
     private CtrlJugador ctrlJugador;
+    private CtrlRanquing ctrlRanquing;
 
 
     public CtrlDomini() {
@@ -15,6 +16,7 @@ public class CtrlDomini {
         ctrlJugador = new CtrlJugador();
     }
 
+    //! del CtrlPartida
     public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
         ctrlPartida.crearPartidaCodebreaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
     }
@@ -23,9 +25,37 @@ public class CtrlDomini {
         ctrlPartida.crearPartidaCodemaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio, solutionCode);
     }
 
-
-    public void crearJugador (String username, String password) {
-
+    public void creaRonda(Partida partida, int rondaId) {
     }
+
+    //! del CtrlJugador
+    public void crearJugador (String username, String password) {
+        ctrlJugador.crearJugador(username, password);
+    }
+
+    //sistema de login: comprova que coincideixin usuari i contrasenya
+    //si coincideixen, isPasswordCorrect
+    public boolean loginAuthentication (String username, String password) {
+        boolean correctCredentials = false;
+        String passwd = ctrlJugador.getPassword(username);
+        if (password != null) {
+            //throw exception
+        }
+        else if (passwd == password) {
+            correctCredentials = true;
+        }
+        return correctCredentials;
+    }
+
+    //! del CtrlRanquing
+
+    public Ranquing getRanquing() {
+        return ctrlRanquing.getRanquingActual();
+    }
+
+    public void crearRanquing() {
+        ctrlRanquing.crearRanquing();
+    }
+    
 
 }
