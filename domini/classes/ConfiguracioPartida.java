@@ -67,6 +67,7 @@ public class ConfiguracioPartida {
 
     /**
      * Retorna l'identificador de la partida a la que pertany.
+     *
      * @return                      Partida a la que pertany.
      */
     public int getPartida() {
@@ -75,6 +76,7 @@ public class ConfiguracioPartida {
 
     /**
      * Retorna el tipus de partida
+     *
      * @return                      Tipus de partida.
      */
     public TipusPartida getTipusPartida() {
@@ -83,6 +85,7 @@ public class ConfiguracioPartida {
 
     /**
      * Retorna el número d'intents permessos.
+     *
      * @return                      Número d'intents permessos.
      */
     public int getNumeroIntents() {
@@ -91,6 +94,7 @@ public class ConfiguracioPartida {
 
     /**
      * Retorna el número de colors diferents.
+     *
      * @return                      Número de colors diferents.
      */
     public int getNumeroColors() {
@@ -99,6 +103,7 @@ public class ConfiguracioPartida {
 
     /**
      * Retorna la longitud del codi.
+     *
      * @return                      Longitud del codi.
      */
     public int getLongitudCombinacio() {
@@ -106,9 +111,11 @@ public class ConfiguracioPartida {
     }
 
     /**
+     * Assigna la partida a la que pertany.
      *
-     * @param partida
-     * @return
+     * @param   partida             Partida a la que pertany.
+     * @return                      Cert si s'ha pogut assignar correctament,
+     *                              Fals en cas contrari.
      */
     public boolean setPartida(Partida partida) {
         if (partida != null) {
@@ -118,14 +125,32 @@ public class ConfiguracioPartida {
         return false;
     }
 
-    public boolean setTipusPartida(TipusPartida tipusPartida) {
-        if (tipusPartida != null) { // COMPROVAR QUE EXISTEIXI LA PARTIDA
+    /**
+     * Assigna el tipus de partida.
+     *
+     * @param tipusPartida          Tipus de la partida
+     * @return                      Cert si s'ha pogut assignar correctament,
+     *                              Fals en cas contrari.
+     */
+    public boolean setTipusPartida(TipusPartida tipusPartida) throws Exception {
+        if (tipusPartida != null) {
+            // COMPROVAR QUE EXISTEIXI LA PARTIDA
+            // Controlador domini demano, existeix partida?
+            // Controlador domini demana a Partida,
+            //      existeix partida ? (boolea) / retorna partida (amb Exception per al cas que no existeixi)
             this.tipusPartida = tipusPartida;
             return true;
         }
         return false;
     }
 
+    /**
+     * Assigna el número d'intents.
+     *
+     * @param numeroIntents         Número d'intents.
+     * @return                      Cert si s'ha pogut assignar correctament,
+     *                              Fals en cas contrari.
+     */
     public boolean setNumeroIntents(int numeroIntents) {
         if (numeroIntents >= 1 && numeroIntents <= 20) {
             this.numeroIntents = numeroIntents;
@@ -134,6 +159,13 @@ public class ConfiguracioPartida {
         return false;
     }
 
+    /**
+     * Assigna número de colors.
+     *
+     * @param numeroColors          Número de colors.
+     * @return                      Cert si s'ha pogut assignar correctament,
+     *                              Fals en cas contrari.
+     */
     public boolean setNumeroColors(int numeroColors) {
         if (numeroColors >= 4 && numeroColors <= 10) {
             this.numeroColors = numeroColors;
@@ -142,6 +174,13 @@ public class ConfiguracioPartida {
         return false;
     }
 
+    /**
+     * Assigna longitud codi.
+     *
+     * @param longitudCombinacio    Longitud del codi.
+     * @return                      Cert si s'ha pogut assignar correctament,
+     *                              Fals en cas contrari.
+     */
     public boolean setLongitudCombinacio(int longitudCombinacio) {
         if (longitudCombinacio <= 4 && longitudCombinacio <= 10) {
             this.longitudCombinacio = longitudCombinacio;
