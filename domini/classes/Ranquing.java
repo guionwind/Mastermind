@@ -51,10 +51,10 @@ public class Ranquing {
     /**
      * Afegeix una estadística al ranquing i l'ordena segons la puntuació.
      *
-     * @param estadisitica Estadística de partida a afegir al ranquing.
+     * @param estadistica Estadística de partida a afegir al ranquing.
      */
-    public void add(EstadistiquesPartida estadisitica) {
-        this.estadistiques.add(estadisitica);
+    public void addEstadistica(EstadistiquesPartida estadistica) {
+        this.estadistiques.add(estadistica);
         estadisticasComparator estatComparator = new estadisticasComparator();
         Collections.sort(this.estadistiques, estatComparator);
     }
