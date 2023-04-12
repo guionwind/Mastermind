@@ -17,7 +17,6 @@ public abstract class Partida {
      * Constructora de la classe Partida
      *
      * @param id Identificador de la Partida
-     * @param estadisticaPartida Estadistiques de la Partida
      * @param solutionCode La solucio de la partida
      */
 
