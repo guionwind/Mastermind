@@ -8,7 +8,8 @@ public abstract class Partida {
 
     private static int nombrePartides;
     private HashSet<Ronda> rondes; //No la he posat a la creadora ja que la relacioó és 0...*
-    private final EstadistiquesPartida estadisticaPartida;
+
+    private EstadistiquesPartida estadisticaPartida;
 
     private final ConfiguracioPartida configuracioPartida;
 
@@ -20,9 +21,8 @@ public abstract class Partida {
      * @param solutionCode La solucio de la partida
      */
 
-    public Partida(int id, EstadistiquesPartida estadisticaPartida, ConfiguracioPartida configuracioPartida, Integer[] solutionCode) {
+    public Partida(int id, ConfiguracioPartida configuracioPartida, Integer[] solutionCode) {
         this.id = id;
-        this.estadisticaPartida = estadisticaPartida;
         this.configuracioPartida = configuracioPartida;
         this.solutionCode = solutionCode;
     }
@@ -83,6 +83,16 @@ public abstract class Partida {
      */
     public void addRonda(Ronda r) {
         rondes.add(r);
+    }
+
+    /**
+     * Associa una EstadisticaPartida amb Partida
+     *
+     * @param estadisticaPartida a associar amb Partida
+     */
+
+    public void setEstadisticaPartida(EstadistiquesPartida estadisticaPartida) {
+        this.estadisticaPartida = estadisticaPartida;
     }
 
 }
