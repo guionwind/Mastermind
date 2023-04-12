@@ -1,4 +1,4 @@
-package domini.drivers;
+package drivers;
 
 /**
  * implementara la creacio d'una partida nova (incloent la configuracio)

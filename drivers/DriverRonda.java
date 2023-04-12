@@ -1,4 +1,4 @@
-package domini.drivers;
+package drivers;
 import domini.classes.Ronda;
 import java.util.Random;
 
