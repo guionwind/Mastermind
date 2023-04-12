@@ -14,7 +14,7 @@ import java.util.Comparator;
 class estadisticasComparator implements Comparator<EstadistiquesPartida> {
     @Override
     public int compare(EstadistiquesPartida first, EstadistiquesPartida second) {
-        return Integer.compare(first.getPuntuacio(), second.getPuntuacio());
+        return Integer.compare(second.getPuntuacio(), first.getPuntuacio()); 
     }
 }
 
@@ -25,6 +25,17 @@ public class Ranquing {
     // Atributs
     private int id;
     private ArrayList<EstadistiquesPartida> estadistiques = new ArrayList<EstadistiquesPartida>();
+    private static int nombreRanquings = 0;
+
+    /**
+     * Constructor de la classe Ranquing.
+     *
+     * Id s´assigna de manera incremental
+     */
+    public Ranquing() {
+        this.id = nombreRanquings;
+        ++nombreRanquings;
+    }
 
     // Mètodes
 
