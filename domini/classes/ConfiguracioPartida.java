@@ -40,7 +40,7 @@ public class ConfiguracioPartida {
      * Crea una nova instància de la classe amb tots els atributs per defecte.
      */
     public ConfiguracioPartida() {
-        this.partida = null;
+        this.partida = -1;
         this.tipusPartida = null;
         this.numeroIntents = 0;
         this.numeroColors = 0;
@@ -71,7 +71,7 @@ public class ConfiguracioPartida {
      * @return                      Partida a la que pertany.
      */
     public int getPartida() {
-        return Partida;
+        return partida;
     }
 
     /**
@@ -117,8 +117,12 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setPartida(Partida partida) {
-        if (partida != null) {
+    public boolean setPartida(int partida) {
+        if (partida > 0) {
+            // COMPROVAR QUE NO EXISTEIXI UNA ALTRA PARTIDA
+            // Controlador domini demano, existeix partida?
+            // Controlador domini demana a Partida,
+            //      existeix partida ? (boolea) / retorna partida (amb Exception per al cas que no existeixi)
             this.partida = partida;
             return true;
         }

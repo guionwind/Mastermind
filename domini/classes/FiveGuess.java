@@ -1,6 +1,7 @@
 package domini.classes;
 import java.util.*;
 import java.lang.*;
+import domini.classes.*;
 
 public class FiveGuess implements Maquina {
     /**
@@ -101,12 +102,12 @@ public class FiveGuess implements Maquina {
          * @param   respostaCodi    Respoasta obtinguda a l'haver intentat el codi ultimCodi.
          * @return                  Un altre codi com a possible solució.
          */
-    public Integer esbrina(Integer[] ultimCodi, String respostaCodi) {
-        Integer codi;
+    public Integer[] esbrina(Integer[] ultimCodi, String respostaCodi) {
+        Integer[] codi;
 
-        if (ultimCodi == null) codi = Integer.valueOf(1122);
+        if (ultimCodi == null) codi = new Integer[]{1,1,2,2};
         else {
-            codisDisponibles.remove(ultimCodi).
+            codisDisponibles.remove(ultimCodi);
             reduirPossibilitats(ultimCodi, respostaCodi);
             codi = esbrinaCodi();
         }
@@ -119,8 +120,8 @@ public class FiveGuess implements Maquina {
          *
          * @return                  Un codi com a possible solució.
          */
-    private Integer esbrinaCodi() {
-        Integer codiEsbrinar;
+    private Integer[] esbrinaCodi() {
+        Integer[] codiEsbrinar = new Integer[NUM_PEG];
         int minmax = 1300;
 
         Iterator<Integer[]> it = codisDisponibles.iterator();
@@ -133,7 +134,7 @@ public class FiveGuess implements Maquina {
                     max = numeroCodisPossibles;
             }
 
-            if (max != 0 and max < minmax) {
+            if (max != 0 && max < minmax) {
                 minmax = max;
                 codiEsbrinar = codiDisponible;
             }
@@ -165,8 +166,6 @@ public class FiveGuess implements Maquina {
             if (!comparaRespostes(resposta, respostaSimulada))
                 codisPossibles.remove(codiPossible);
         }
-
-        return numeroCodisPossibles;
     }
 
         /**
@@ -216,7 +215,7 @@ public class FiveGuess implements Maquina {
         for (int i=0; i<NUM_PEG; ++i) {
             if (codiDisponible[i] != -1) { // Encara no l'hem processat
                 boolean trobat = false;
-                for (int j=0; j<NUM_PEG and !trobat; ++j) {
+                for (int j=0; j<NUM_PEG && !trobat; ++j) {
                     if (codiDisponible[i] == codiPossible[j]) {
                         trobat = true;
                         resposta += "W";
@@ -255,21 +254,23 @@ public class FiveGuess implements Maquina {
          * @return                  Retorna cert si les respostes són equivalents i fals si no hi són.
          */
     boolean comparaRespostes(String resposta1, String resposta2) {
+        char[] r1 = resposta1.toCharArray();
+        char[] r2 = resposta1.toCharArray();
         int negres = 0;
         int blanques = 0;
         int buides = 0;
 
         for (int i=0; i<NUM_PEG; ++i) {
-            if (resposta1[i] == 'B') ++negres;
-            else if (resposta1[i] == 'W') ++blanques;
-            else if (resposta1[i] == ' ') ++buides;
+            if (r1[i] == 'B') ++negres;
+            else if (r1[i] == 'W') ++blanques;
+            else if (r1[i] == ' ') ++buides;
 
-            if (resposta2[i] == 'B') --negres;
-            else if (resposta2[i] == 'W') --blanques;
-            else if (resposta2[i] == ' ') --buides;
+            if (r2[i] == 'B') --negres;
+            else if (r2[i] == 'W') --blanques;
+            else if (r2[i] == ' ') --buides;
         }
 
-        if (!negres && !blanques && !buides) return true;
+        if (negres == 0 && blanques == 0 && buides == 0) return true;
         return false;
     }
 
@@ -285,21 +286,28 @@ public class FiveGuess implements Maquina {
      * @return                  List of the tried codes to break the solution code,
      *                          whether it's achieved or not.
      */
-    public List<List<Integer>>  solve (List<Integer> solution) throws Exception {
-        List<List<Integer>> codis = ArrayList<ArrayList<Integer>>(5);
-        List<<String> respostes = ArrayList<ArrayList<String>>(5);
+    public List<List<Integer>> solve (List<Integer> solution) throws Exception {
+        Integer[] solutionArray = new Integer[NUM_PEG];
+        solution.toArray(solutionArray);
+
+        ArrayList<List<Integer>> codis = new ArrayList<List<Integer>>(MAX_STEPS);
+        ArrayList<String> respostes = new ArrayList<String>(MAX_STEPS);
         int ronda = 0;
         boolean trobat = false;
         while (ronda < MAX_STEPS && !trobat) {
             Integer[] codi;
             if (ronda == 0) codi = esbrina(null, null);
-            else codi = esbrina(codis[ronda-1], respostes[ronda-1]);
+            else {
+                Integer[] codiAnterior = new Integer[NUM_PEG];
+                codis.get(ronda-1).toArray(codiAnterior);
+                codi = esbrina(codiAnterior, respostes.get(ronda-1));
+            }
 
             if (Arrays.asList(codi).equals(solution))
                 trobat = true;
 
-            codis[ronda] = Arrays.asList(codi);
-            if (!trobat) respostes[ronda] = generaResposta(codi, solution.toArray());
+            codis.set(ronda, Arrays.asList(codi));
+            if (!trobat) respostes.set(ronda, generaResposta(codi, solutionArray));
 
             ++ronda;
         }
