@@ -9,6 +9,8 @@ public abstract class Partida {
     private static int nombrePartides = 0;
     private HashSet<Ronda> rondes; //No la he posat a la creadora ja que la relacioó és 0...*
 
+    private int rondaActual;
+
     private EstadistiquesPartida estadisticaPartida;
 
     private final ConfiguracioPartida configuracioPartida;
