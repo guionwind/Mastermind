@@ -1,2 +1,6 @@
-package domini.controllers;public class CtrlPartida {
+package domini.controllers;
+
+public class CtrlPartida {
+
+
 }
