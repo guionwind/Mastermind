@@ -18,6 +18,10 @@ public class FiveGuess implements Maquina {
      */
     private static final int NUM_CODIS = 1296;
     /**
+     * Número màxim d'intents permessos.
+     */
+    private static final int MAX_STEPS = 5;
+    /**
      * Llista de totes les respostes que es poden obtenir en un intent.
      * B = Black; La fitxa del codi intentat és del color d'una de les
      * fitxes del codi solució i està a la mateixa posició.
@@ -89,8 +93,8 @@ public class FiveGuess implements Maquina {
         /**
          * Retorna un codi com a solució probable donats el codi fet a l'intent anterior i
          * la resposta obtinguda respecte el codi intentat.
-         * Si es el primer intent, per tant no s'ha intentat cap codi anteriorment, al
-         * paràmetre ultimCodi s'ha de passar una referència null.
+         * Si es el primer intent, per tant no s'ha intentat cap codi anteriorment, als
+         * paràmetres ultimCodi i respoastaCodi s'han de passar una referència null.
          *
          * @param   ultimCodi       Últim codi intentat, null si encara no s'ha intentat cap codi,
          *                          és a dir, és la primera ronda).
@@ -225,6 +229,7 @@ public class FiveGuess implements Maquina {
         while (resposta.length() < NUM_PEG)
             resposta += " ";
 
+        /*
         // Fem aleatoria l'ordre de la resposta (EN ESTE NO HACE FALTA ?? ES SIMULACION)
         List<char> respostaLlista = new ArrayList<char>(Arrays.asList(resposta.split()));
         Collections.shuffle(respostaLlista);
@@ -233,6 +238,7 @@ public class FiveGuess implements Maquina {
         for(Character ch: respostaLlista)
             builder.append(ch);
         resposta = builder.toString();
+        */
 
         return resposta;
     }
@@ -267,7 +273,38 @@ public class FiveGuess implements Maquina {
         return false;
     }
 
-    public List<List<Integer>>  solve (List<Integer> solution) {
+    /**
+     * Given the solution code, the solve operation uses one of the proposed algorithm
+     * (either five guess or the genetic one) to create the list of codes that will lead
+     * to the solution. If the algorithm is unable to find the solution in less than
+     * maxSteps steps, the returned list will contain a list composed of maxSteps codes.
+     * The operation will throw an exception in case the secret code solution is not
+     * consistent with the parameters of the current game.
+     *
+     * @param   solution        Solution code of the game to break.
+     * @return                  List of the tried codes to break the solution code,
+     *                          whether it's achieved or not.
+     */
+    public List<List<Integer>>  solve (List<Integer> solution) throws Exception {
+        List<List<Integer>> codis = ArrayList<ArrayList<Integer>>(5);
+        List<<String> respostes = ArrayList<ArrayList<String>>(5);
+        int ronda = 0;
+        boolean trobat = false;
+        while (ronda < MAX_STEPS && !trobat) {
+            Integer[] codi;
+            if (ronda == 0) codi = esbrina(null, null);
+            else codi = esbrina(codis[ronda-1], respostes[ronda-1]);
 
+            if (Arrays.asList(codi).equals(solution))
+                trobat = true;
+
+            codis[ronda] = Arrays.asList(codi);
+            if (!trobat) respostes[ronda] = generaResposta(codi, solution.toArray());
+
+            ++ronda;
+        }
+
+        while (++ronda < MAX_STEPS) codis.remove(ronda);
+        return codis;
     }
 }
