@@ -168,12 +168,14 @@ public class CtrlDomini {
      * La partida ha acabat, per tant es crea la seva estadistica pertinent. Despres afegim una nova
      * entrada al ranquing
      *
-     * @param guanyada
+     * @param guanyada Guanyada indica true si la partida s'ha guanyat.
      */
     public void partidaAcabada(Boolean guanyada) {
         Integer idPartida = ctrlPartida.getIdPartidaActual();
         Integer idJugador = ctrlJugador.getIdJugador();
-        Integer puntuacio = 10;
+        Integer numRondes = ctrlPartida.getNumeroRondes();
+
+        Integer puntuacio = 100 - numRondes;
 
         ctrlEstadistiquesPartida.creaEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
 
