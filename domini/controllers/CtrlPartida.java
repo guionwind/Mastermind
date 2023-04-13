@@ -110,6 +110,12 @@ public class CtrlPartida {
         return idPartidaActual;
     }
 
+    public Integer getNumeroRondes() {
+        Partida p = partides.get(idPartidaActual);
+
+        return p.rondesJugades();
+    }
+
     private ConfiguracioPartida creaConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {
         return new ConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
     }
