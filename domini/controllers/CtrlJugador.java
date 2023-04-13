@@ -10,7 +10,9 @@ import java.util.HashMap;
 
 
 public class CtrlJugador {
+    //id del jugador logejat actualment
     private int jugadorActual;
+
     //en crear un jugador, aqui guardarem les credencials
     private HashMap <Integer, Jugador> jugadors;
     
@@ -30,6 +32,10 @@ public class CtrlJugador {
         return jugadors.get(jugadorActual).getUsername();
     }
 
+    public String getUsernameFromID(int id) {
+        return jugadors.get(id).getUsername();
+    }
+
 
     //crea un nou jugador per al registre, afegeix les credencials a usuariContrasenya
     public void crearJugador(String username, String password) {
@@ -41,19 +47,23 @@ public class CtrlJugador {
         }
     }
 
+    //set jugador actual
+    public void setJugadorActual(String username) {
+        for (Jugador j : jugadors.values()) {
+            if (j.getUsername() == username) jugadorActual = j.getID();
+        }
+    }
+
     //treu el JugadorActual
     //
     public void logoff() {
         jugadorActual = -1;
     }
 
-    //obte la contrasenya de l'usuari a partir del seu username
-    public String getPassword(String username) {
-        if (jugadors.containsKey(username)) {
-            String pass = jugadors.get(jugadorActual).getPassword(username);
-            return pass;
-        }
-        //else throw Exception
+    //obte la contrasenya de l'usuari actual
+    public String getPassword() throws NoHiHaJugadorLoguejat {
+        String pass = jugadors.get(jugadorActual).getPassword();
+        return pass;   
     }
 
 

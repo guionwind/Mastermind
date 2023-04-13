@@ -121,6 +121,10 @@ public class CtrlDomini {
         return ctrlJugador.getUsername();
     }
 
+    public String getUsernameFromID(int id) {
+        return ctrlJugador.getUsernameFromID(id);
+    }
+
 
 
     //sistema de login: comprova que coincideixin usuari i contrasenya
