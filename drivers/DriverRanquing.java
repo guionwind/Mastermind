@@ -14,7 +14,7 @@ public class DriverRanquing {
         int id = test.getId();
         System.out.println("testGetId: Agafem Id: "+id);
     }
-    public void testAdd(){
+    public void testAddEstadistica(){
         Ranquing test = new Ranquing();
         Integer[] estadistica = {1, 2300};
         test.addEstadistica(estadistica);
