@@ -2,7 +2,6 @@ package domini.controllers;
 
 import domini.classes.*;
 import domini.classes.exceptions.*;
-import java.io.IOException;
 
 import java.util.ArrayList;
 import java.lang.String;
@@ -26,6 +25,12 @@ public class CtrlDomini {
      */
     private final CtrlRanquing ctrlRanquing;
 
+
+    /**
+     * Controlador de EstadistiquesPartida
+     */
+    private final CtrlEstadistiquesPartida ctrlEstadistiquesPartida;
+
     // METODES
 
     /**
@@ -35,6 +40,7 @@ public class CtrlDomini {
         ctrlPartida = new CtrlPartida();
         ctrlJugador = new CtrlJugador();
         ctrlRanquing = new CtrlRanquing();
+        ctrlEstadistiquesPartida = new CtrlEstadistiquesPartida();
     }
 
     //CtrlPartida
@@ -141,7 +147,7 @@ public class CtrlDomini {
     //! del CtrlRanquing
 
     public Ranquing getRanquing() {
-        return ctrlRanquing.getRanquingActual();
+        return ctrlRanquing.getRanquing();
     }
 
     public void crearRanquing() {
@@ -150,5 +156,23 @@ public class CtrlDomini {
 
     public ArrayList<Integer[]> getTop10(){
         return ctrlRanquing.getTop10();
+    }
+
+    //CtrlEstadistiquesPartida
+
+    /**
+     * La partida ha acabat, per tant es crea la seva estadistica pertinent. Despres afegim una nova
+     * entrada al ranquing
+     *
+     * @param guanyada
+     */
+    public void partidaAcabada(Boolean guanyada) {
+        Integer idPartida = ctrlPartida.getIdPartidaActual();
+        Integer idJugador = ctrlJugador.getIdJugador();
+        Integer puntuacio = 10;
+
+        ctrlEstadistiquesPartida.creaEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
+
+        ctrlRanquing.setNewRecord(idJugador, puntuacio);
     }
 }

@@ -1,5 +1,6 @@
 package domini.classes;
 
+import domini.controllers.CtrlAlgorisme;
 import domini.controllers.CtrlPartida;
 
 public class Codemaker extends Partida {
@@ -19,7 +20,7 @@ public class Codemaker extends Partida {
     }
 
     public Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta) {
-        return ctrlAlgorisme.esbrinarCodiFiveguess(ultimIntent, resposta);
+        return ctrlAlgorisme.esbrinarCodiFiveguess(this.getId(),ultimIntent, resposta);
     }
 
     public boolean esCodeMaker() {return true; }

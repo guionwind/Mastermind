@@ -59,8 +59,6 @@ public class CtrlPartida {
 
     /**
      * Crea una ronda i la corresponent associacio amb Partida
-     * @param partida de la ronda
-     * @param rondaId Identificador de la ronda
      */
     public void crearRonda() {
         Partida p = partides.get(idPartidaActual);
@@ -106,6 +104,10 @@ public class CtrlPartida {
             return p.getCodiMaquina(p.getUltimCodi(), p.getUltimaResposta());
         }
         else throw new TipusPartidaIncorrecte("Partida de tipus: codeBreaker, s'esperava una de tipus codeMaker");
+    }
+
+    public Integer getIdPartidaActual() {
+        return idPartidaActual;
     }
 
     private ConfiguracioPartida creaConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {

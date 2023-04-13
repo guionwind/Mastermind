@@ -5,10 +5,9 @@ package domini.classes;
 
 public class EstadistiquesPartida {
     // Atributs
-    private Jugador jugador;
-    private Partida partida;
+    private Integer idJugador;
+    private Integer idPartida;
     private int puntuacio;
-    private int temps;
     private Boolean guanyada;
     
     /**
@@ -21,11 +20,10 @@ public class EstadistiquesPartida {
      * @param guanyada Determina si la partida ha estat guanyada o no
      */
 
-    public EstadistiquesPartida(Jugador jugador, Partida partida, int puntuacio, int temps, Boolean guanyada) {
-        this.jugador = jugador;
-        this.partida = partida;
+    public EstadistiquesPartida(Integer idJugador, Integer idPartida, int puntuacio, Boolean guanyada) {
+        this.idJugador = idJugador;
+        this.idPartida = idPartida;
         this.puntuacio = puntuacio;
-        this.temps = temps;
         this.guanyada = guanyada;
     }
 
@@ -63,25 +61,6 @@ public class EstadistiquesPartida {
         this.puntuacio = puntuacio;
     }
 
-    /**
-     * Mètode per obtenir el temps de les estadístiques.
-     * @return Retorna el temps de les estadístiques.
-     */
-    public int getTemps(){
-        return this.temps;
-    }
-
-    /**
-     * Mètode per modificar el temps de les estadístiques.
-     *
-     */
-    public void setTemps(int temps){
-        this.temps = temps;
-    }
-    /**
-     * Mètode per obtenir si la partida ha estat guanyada.
-     * @return Retorna una booleana True si ha estat guanyada i False si no.
-     */
     public Boolean getGuanyada(){
         return this.guanyada;
     }

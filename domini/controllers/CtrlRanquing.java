@@ -2,28 +2,30 @@ package domini.controllers;
 
 import java.util.ArrayList;
 
-import domini.classes.EstadistiquesPartida;
 import domini.classes.Ranquing;
 //import java.util.ArrayList;
 
 
 public class CtrlRanquing {
-    private Ranquing RanquingActual;
+    private Ranquing ranquing;
 
     public CtrlRanquing() {
-        RanquingActual = null;
+        ranquing = null;
     }
 
     public void crearRanquing() {
-        RanquingActual = new Ranquing();
+        ranquing = new Ranquing();
     }
 
-    public Ranquing getRanquingActual() {
-        return RanquingActual;
+    public Ranquing getRanquing() {
+        return ranquing;
     }
 
     public ArrayList<Integer[]> getTop10(){
-        return RanquingActual.getTopN(10);
+        return ranquing.getTopN(10);
     }
 
+    public void setNewRecord(Integer idJugador, Integer puntacio) {
+        ranquing.addEstadistica(new Integer[] {idJugador, puntacio});
+    }
 }
