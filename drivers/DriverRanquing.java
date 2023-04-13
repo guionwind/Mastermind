@@ -38,7 +38,7 @@ public class DriverRanquing {
         DriverRanquing test = new DriverRanquing();
         test.testConstructora();
         test.testGetId();
-        test.testAdd();
+        test.testAddEstadistica();
         test.testGetTopN();
     }
 }
