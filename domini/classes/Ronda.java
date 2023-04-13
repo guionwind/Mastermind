@@ -13,6 +13,32 @@ public class Ronda {
     private Integer[] combinacioIntentada;
 
     /**
+     * Llista de totes les respostes que es poden obtenir en un intent.
+     * B = Black; La fitxa del codi intentat és del color d'una de les
+     * fitxes del codi solució i està a la mateixa posició.
+     * W = White; La fitxa del codi intentat és del color d'una de les
+     * fitxes del codi solució però està en una posició errònia.
+     * ' ' = Nothing; La fitxa del codi intentar no és de cap dels
+     * colors del codi solució.
+     */
+    private static final String[] RESPOSTES = {
+            "    ",
+            "W   ",
+            "WW  ",
+            "WWW ",
+            "WWWW",
+            "B   ",
+            "BW  ",
+            "BWW ",
+            "BWWW",
+            "BB  ",
+            "BBW ",
+            "BBWW",
+            "BBB ",
+            "BBBB"
+    };
+
+    /**
      * Constructor de la classe Ronda.
      *
      * @param id Identificador únic de la ronda

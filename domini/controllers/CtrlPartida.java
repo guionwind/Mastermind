@@ -7,21 +7,40 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 public class CtrlPartida {
-    
+
+    /**
+     * Ronda actual
+     */
+    private Ronda ronda;
+
+    /**
+     * Partida actual
+     */
+    private Partida partida;
+
+
+
     public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
         ConfiguracioPartida c = creaConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
 
         Integer[] solutionCode = generateSolutionCode(numeroColors, longitudCombinacio);
 
         Codebreaker cB = new Codebreaker(c, solutionCode);
+        partida = cB;
 
-        creaRonda(cB, 0);
+        creaRonda(0, cB);
     }
 
     public void crearPartidaCodemaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) {
         ConfiguracioPartida c = creaConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
 
-        Codemaker cB = new Codemaker(c, solutionCode);
+        Codemaker cM = new Codemaker(c, solutionCode);
+
+        creaRonda(0, cM);
+    }
+
+    public void intentRonda(Integer[] combinacioIntentada) {
+        ronda.setCombinacioIntentada(combinacioIntentada);
     }
 
     private ConfiguracioPartida creaConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
@@ -44,8 +63,9 @@ public class CtrlPartida {
      * @param partida de la ronda
      * @param rondaId Identificador de la ronda
      */
-    private void creaRonda(Partida partida, int rondaId) {
+    private void creaRonda(int rondaId, Partida partida) {
         Ronda r = new Ronda(rondaId, partida);
+        this.ronda = r;
 
         partida.addRonda(r);
     }
