@@ -128,7 +128,16 @@ public class CtrlDomini {
 
 
     //sistema de login: comprova que coincideixin usuari i contrasenya
-    //si coincideixen, isPasswordCorrect
+    //si coincideixen, retorna true
+
+    //? diria que es pot fer mes eficient si:
+    /*  1. setJugadorActual(String username)
+        2. li demanem contrasenya (sense atributs)
+        3. la comprovem
+        4. si es incorrecta, logout()
+        ens estalviem un recorregut sobre el map
+    */
+
     public boolean loginAuthentication (String username, String password) throws UsuariNoExisteix {
         boolean correctCredentials = false;
         String passwd = ctrlJugador.getPassword(username);
@@ -137,6 +146,7 @@ public class CtrlDomini {
         }
         else if (passwd == password) {
             correctCredentials = true;
+            ctrlJugador.setJugadorActual(username);
         }
         return correctCredentials;
     }
