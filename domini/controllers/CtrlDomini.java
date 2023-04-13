@@ -1,6 +1,9 @@
 package domini.controllers;
 
 import domini.classes.*;
+import domini.classes.exceptions.*;
+import java.io.IOException;
+
 //import java.util.ArrayList;
 import java.lang.String;
 import domini.classes.ConfiguracioPartida.TipusPartida;
@@ -108,9 +111,13 @@ public class CtrlDomini {
         ctrlJugador.crearJugador(username, password);
     }
 
+    public String getUsername() {
+        return ctrlJugador.getUsername();
+    }
+
     //sistema de login: comprova que coincideixin usuari i contrasenya
     //si coincideixen, isPasswordCorrect
-    public boolean loginAuthentication (String username, String password) {
+    public boolean loginAuthentication (String username, String password) throws UsuariNoExisteix {
         boolean correctCredentials = false;
         String passwd = ctrlJugador.getPassword(username);
         if (password != null) {
@@ -133,10 +140,3 @@ public class CtrlDomini {
     }
 
 }
-
-/* 
-coses a comentar-li a l'arnau
--> inclou refactoritzar les creadores de Codemaker, Codebreaker i Ronda
-
-vull getters desde CtrlPartida per als atributs de PartidaActual
-*/
