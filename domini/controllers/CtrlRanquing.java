@@ -1,5 +1,8 @@
 package domini.controllers;
 
+import java.util.ArrayList;
+
+import domini.classes.EstadistiquesPartida;
 import domini.classes.Ranquing;
 //import java.util.ArrayList;
 
@@ -17,6 +20,10 @@ public class CtrlRanquing {
 
     public Ranquing getRanquingActual() {
         return RanquingActual;
+    }
+
+    public ArrayList<EstadistiquesPartida> getTop10(){
+        return RanquingActual.getTopN(10);
     }
 
 }

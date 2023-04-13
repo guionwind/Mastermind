@@ -11,10 +11,10 @@ import java.util.Comparator;
 /**
  * Classe que implementa un comparador d'estadístiques de partides per ordenar-les segons la puntuació.
  */
-class estadisticasComparator implements Comparator<EstadistiquesPartida> {
+class estadisticasComparator implements Comparator<Integer[]> {
     @Override
-    public int compare(EstadistiquesPartida first, EstadistiquesPartida second) {
-        return Integer.compare(second.getPuntuacio(), first.getPuntuacio()); 
+    public int compare(Integer[] first, Integer[] second) {
+        return Integer.compare(second[1], first[1]); 
     }
 }
 
@@ -24,7 +24,7 @@ class estadisticasComparator implements Comparator<EstadistiquesPartida> {
 public class Ranquing {
     // Atributs
     private int id;
-    private ArrayList<EstadistiquesPartida> estadistiques = new ArrayList<EstadistiquesPartida>();
+    private ArrayList<Integer[]> estadistiques = new ArrayList<Integer[]>();
     private static int nombreRanquings = 0;
 
     /**
@@ -53,7 +53,7 @@ public class Ranquing {
      *
      * @param estadistica Estadística de partida a afegir al ranquing.
      */
-    public void addEstadistica(EstadistiquesPartida estadistica) {
+    public void addEstadistica(Integer[] estadistica) {
         this.estadistiques.add(estadistica);
         estadisticasComparator estatComparator = new estadisticasComparator();
         Collections.sort(this.estadistiques, estatComparator);
@@ -65,8 +65,8 @@ public class Ranquing {
      * @param n Nombre d'estadístiques a retornar.
      * @return Llista d'estadístiques de partides amb les puntuacions més altes.
      */
-    public ArrayList<EstadistiquesPartida> getTopN(int n) {
-        ArrayList<EstadistiquesPartida> tempEstadistiques = new ArrayList<EstadistiquesPartida>();
+    public ArrayList<Integer[]> getTopN(int n) {
+        ArrayList<Integer[]> tempEstadistiques = new ArrayList<Integer[]>();
         for (int i = 0; i < n; i++) {
             tempEstadistiques.add(this.estadistiques.get(i));
         }
