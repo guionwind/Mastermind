@@ -115,6 +115,8 @@ public class CtrlDomini {
         return ctrlJugador.getUsername();
     }
 
+
+
     //sistema de login: comprova que coincideixin usuari i contrasenya
     //si coincideixen, isPasswordCorrect
     public boolean loginAuthentication (String username, String password) throws UsuariNoExisteix {
@@ -127,6 +129,13 @@ public class CtrlDomini {
             correctCredentials = true;
         }
         return correctCredentials;
+    }
+
+    /**
+     * Logoff: posa el JugadorActual del ctrlJugador a -1
+     */
+    public void logoff() {
+        ctrlJugador.logoff();
     }
 
     //! del CtrlRanquing

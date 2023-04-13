@@ -26,7 +26,7 @@ public class CtrlJugador {
         return jugadorActual;
     }
 
-    public String getUsuariJugador() {
+    public String getUsername() {
         return jugadors.get(jugadorActual).getUsername();
     }
 
@@ -50,7 +50,7 @@ public class CtrlJugador {
     //obte la contrasenya de l'usuari a partir del seu username
     public String getPassword(String username) {
         if (jugadors.containsKey(username)) {
-            String pass = jugadors.getPassword(username);
+            String pass = jugadors.get(jugadorActual).getPassword(username);
             return pass;
         }
         //else throw Exception
