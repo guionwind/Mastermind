@@ -1,6 +1,6 @@
-package domini.classes;
+package drivers.driverConfiguracioPartida;
 
-import domini.classes.Partida;
+import drivers.driverConfiguracioPartida.Partida;
 
 public class ConfiguracioPartida {
 
