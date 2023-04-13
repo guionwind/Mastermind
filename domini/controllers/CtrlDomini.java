@@ -4,7 +4,7 @@ import domini.classes.*;
 import domini.classes.exceptions.*;
 import java.io.IOException;
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
 import java.lang.String;
 import domini.classes.ConfiguracioPartida.TipusPartida;
 import domini.classes.exceptions.TipusPartidaIncorrecte;
@@ -148,4 +148,7 @@ public class CtrlDomini {
         ctrlRanquing.crearRanquing();
     }
 
+    public ArrayList<Integer[]> getTop10(){
+        return ctrlRanquing.getTop10();
+    }
 }

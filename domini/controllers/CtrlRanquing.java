@@ -22,7 +22,7 @@ public class CtrlRanquing {
         return RanquingActual;
     }
 
-    public ArrayList<EstadistiquesPartida> getTop10(){
+    public ArrayList<Integer[]> getTop10(){
         return RanquingActual.getTopN(10);
     }
 
