@@ -254,6 +254,7 @@ public class CtrlPresentacio {
         
         switch (interaccioUsuari){
             case "0":
+                jugar();
                 break;
             case "1":
                 ranquing();
