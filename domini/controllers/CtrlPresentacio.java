@@ -3,6 +3,7 @@ import domini.controllers.CtrlDomini;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class CtrlPresentacio {
     // ATRIBUTS
@@ -119,9 +120,19 @@ public class CtrlPresentacio {
             case "0":
                 break;
             case "1":
+                netejarConsola();
+                ArrayList<Integer[]> top10 = ctrlDomini.getTop10();
+
+                System.out.println("////////////////////////////////////////////////////////");
+                System.out.println("////////////////////// MASTERMIND //////////////////////");
+                System.out.println("/////                   RANQUING                   /////");
+                for (int i = 0; i < top10.size(); i++){
+                    System.out.println("///// " + i+1 + ": " + top10.get(i)[0] + "( " + top10.get(i)[1] + ")" + "                 /////"); //TODO print el username en vez de la ID
+                }
+                System.out.println("////////////////////////////////////////////////////////");
                 break;
             case "2":
-                //ctrlDomini.logoff(); TODO
+                ctrlDomini.logoff();
                 login();
                 break;
             case "3":
