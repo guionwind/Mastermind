@@ -1,19 +1,21 @@
 package domini.classes;
 
-import java.util.HashSet;
+import domini.controllers.CtrlPartida;
+
+import java.util.HashMap;
 
 public abstract class Partida {
     private final int id;
     private final Integer[] solutionCode;
 
     private static int nombrePartides = 0;
-    private HashSet<Ronda> rondes; //No la he posat a la creadora ja que la relacioó és 0...*
-
-    private int rondaActual;
+    private HashMap<Integer, Ronda> rondes; //No la he posat a la creadora ja que la relacioó és 0...*
 
     private EstadistiquesPartida estadisticaPartida;
 
     private final ConfiguracioPartida configuracioPartida;
+
+    private final CtrlPartida ctrlPartida;
 
     /**
      * Constructora de la classe partida
@@ -21,11 +23,12 @@ public abstract class Partida {
      * @param solutionCode de la partida
      */
 
-    public Partida(ConfiguracioPartida configuracioPartida, Integer[] solutionCode) {
+    public Partida(ConfiguracioPartida configuracioPartida, Integer[] solutionCode, CtrlPartida ctrlPartida) {
         this.id = nombrePartides;
         nombrePartides++;
         this.configuracioPartida = configuracioPartida;
         this.solutionCode = solutionCode;
+        this.ctrlPartida = ctrlPartida;
     }
 
     /**
@@ -43,7 +46,6 @@ public abstract class Partida {
      * @return numero de rondes jugades
      */
     public int rondesJugades() {
-
         return rondes.size();
     }
 
@@ -60,30 +62,15 @@ public abstract class Partida {
         return nombrePartides;
     }
 
-    public void incNombrePartides() {
-        nombrePartides =+ 1;
-    }
-
-    public void decNombrePartides() {
-        nombrePartides -= 1;
-    }
-
-    /**
-     * Retorna les rondes de la partida
-     *
-     * @return rondes de la partida
-     */
-    public HashSet<Ronda> getRondes() {
-        return rondes;
-    }
-
     /**
      * Afegeix una ronda a la partida
      *
      * @param r ronda ha afegir
      */
-    public void addRonda(Ronda r) {
-        rondes.add(r);
+    public void addRonda() {
+        Integer id = Integer.valueOf(rondes.size());
+        Ronda r = new Ronda(id);
+        rondes.put(id, r);
     }
 
     /**
@@ -93,7 +80,9 @@ public abstract class Partida {
      */
 
     public void setEstadisticaPartida(EstadistiquesPartida estadisticaPartida) {
-        this.estadisticaPartida = estadisticaPartida;
+        if (estadisticaPartida == null) {
+            this.estadisticaPartida = estadisticaPartida;
+        }
     }
 
     public ConfiguracioPartida getConfiguracioPartida() {
