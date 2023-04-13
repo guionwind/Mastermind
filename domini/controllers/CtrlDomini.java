@@ -4,83 +4,104 @@ import domini.classes.*;
 //import java.util.ArrayList;
 import java.lang.String;
 import domini.classes.ConfiguracioPartida.TipusPartida;
+import domini.classes.exceptions.TipusPartidaIncorrecte;
 
 public class CtrlDomini {
+
+    // ATRIBUTS
+
+    /**
+     * Controlador de la partida
+     */
     private final CtrlPartida ctrlPartida;
+    /**
+     * Controlador de Jugador
+     */
     private final CtrlJugador ctrlJugador;
+    /**
+     * Controlador de Ranquing
+     */
     private final CtrlRanquing ctrlRanquing;
 
+    // METODES
 
+    /**
+     * Constructora del controlador domini
+     */
     public CtrlDomini() {
         ctrlPartida = new CtrlPartida();
         ctrlJugador = new CtrlJugador();
         ctrlRanquing = new CtrlRanquing();
     }
 
-    //! del CtrlPartida
+    //CtrlPartida
+
+    /**
+     * Crea una partida Codebreaker
+     *
+     * @param tipusPartida Tipuspartida de la partida
+     * @param numeroIntents Numero d'Intents permesos a la partida
+     * @param numeroColors Numero de colors de la partida
+     * @param longitudCombinacio Longitud maxima de la combinacio de colors
+     * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
+     */
     public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws Exception {
         ctrlPartida.crearPartidaCodebreaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
     }
 
+    /**
+     * Crea una partida Codemaker i una instancia de ctrlAlgorisme.
+     *
+     * @param tipusPartida Tipuspartida de la partida
+     * @param numeroIntents Numero d'Intents permesos a la partida
+     * @param numeroColors Numero de colors de la partida
+     * @param longitudCombinacio Longitud maxima de la combinacio de colors
+     * @param solutionCode Solucio de la partida indicada per l'usuari
+     * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
+     */
     public void crearPartidaCodemaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws Exception {
         CtrlAlgorisme ctrlAlgorisme = new CtrlAlgorisme();
 
         ctrlPartida.crearPartidaCodemaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio, solutionCode, ctrlAlgorisme);
     }
 
-    public Integer[] getCodiMaquina() throws tipusPartidaIncorrecte{
-        return ctrlPartida.getCodiMaquina();
-    }
-    public void jugarRonda(Integer[] combinacioIntentada) {
-
-    }
-
-    //? funcions codebreaker
     /**
-     * 1. es crea una ronda i s'estableix com a rondaActual dins CtrlPartida
-     * 2. el jugador ha fet un intent (input)
-     * 3. corregim l'intent i retornem el resultat
-    */ 
+     * Crea una ronda
+     */
+    public void crearRonda() {
+        ctrlPartida.crearRonda();
+    }
 
-    public String corregeix(Integer[] combinacioIntentada) {
+    //Funcions Codebreaker
+
+    /**
+     * Es juga una ronda com a Codebreaker. Primer, es guarda la combinacio intentada a
+     * la ronda actual de la partida, despres es corregeix la combinacio
+     * i es retorna la resposta.
+     *
+     * @param combinacioIntentada Combinacio entrada per el Usuari.
+     * @return Retorna la resposta de la correcio de la ronda.
+     */
+    public String jugarRondaCodebreaker(Integer[] combinacioIntentada) {
+        ctrlPartida.intentarCombinacio(combinacioIntentada);
         return ctrlPartida.corregeix(combinacioIntentada);
     }
 
-    public String jugaRondaCodebreaker(int rondaId, Integer[] combinacioIntentada) {
-        ctrlPartida.creaRonda(rondaId);
-        String correccio = CtrlPartida.intentarCombinacio(combinacioIntentada);
-        return correccio;
-    }
 
-    
+    //Funcions Codemaker
 
-    //? funcions codemaker
-    /** (ronda inicial: l'usuari entra el solutionCode)
-     * funcionament de cada ronda:
-     * 1. es crea una ronda
-     * 2. es genera un intent
-     * 3. l'usuari fa un input (intentCorreccio)
-     * 4. comprovem si l'intent esta be
-     * 5. en cas que no, el jugador haura de repetir
+    /**
+     * Es juga una ronda com a Codemaker. Es demana la combinacioIntentada per
+     * l'algorisme que s'utilitzi i despres es corregeix la combinacio.
+     *
+     * @return Retorna la resposta de la correcio de la ronda.
+     * @throws TipusPartidaIncorrecte Llença l'excepcio en cas que el
+     * tipus de partida no sigui Codemaker.
      */
-
-    //donats el codi intentat la ronda anterior i el feedback,
-    //genera el codi mes probable a intentar
-    //ultimCodi i respostaCodi son null si es la primera ronda
-    public void setSolutionCode(Integer[] solution) {
-        ctrlPartida.setSolutionCode(solution);
+    public String jugarRondaCodeMaker() throws TipusPartidaIncorrecte {
+        Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina();
+        return ctrlPartida.corregeix(combinacioIntentada);
     }
-
-    public String generaIntent(Integer[] ultimCodi, String respostaCodi) {
-        return ctrlPartida.esbrina(ultimCodi, respostaCodi);
-    }
-
-    //comprova si un intent de correccio es correcte
-    public boolean comprovaIntentCorreccio(String intentCorreccio, Integer[] combinacioIntentada) {
-        String correccioCorrecta = corregeix(combinacioIntentada);
-        return correccioCorrecta.equals(intentCorreccio);
-    }
-
 
     //! del CtrlJugador
     public void crearJugador (String username, String password) {
