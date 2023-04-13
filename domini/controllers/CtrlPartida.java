@@ -2,48 +2,113 @@ package domini.controllers;
 
 import domini.classes.*;
 import domini.classes.ConfiguracioPartida.TipusPartida;
+import domini.classes.exceptions.TipusPartidaIncorrecte;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Random;
-import java.util.stream.IntStream;
+
 
 public class CtrlPartida {
 
     /**
-     * Ronda actual
+     * Identificador de la partida actual
      */
-    private Ronda rondaActual;
+    private Integer idPartidaActual;
 
     /**
-     * Partida actual
+     * HashMap que conte les id's i partides
      */
-    private Partida partidaActual;
+    private HashMap<Integer, Partida> partides;
 
+    public CtrlPartida() {
+        idPartidaActual = -1;
+        partides = new HashMap<Integer, Partida>();
+    }
 
-
-    public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
+    /**
+     * sjfdksdkfjhs
+     * @param tipusPartida
+     * @param numeroIntents
+     * @param numeroColors
+     * @param longitudCombinacio
+     */
+    public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {
         ConfiguracioPartida c = creaConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
 
         Integer[] solutionCode = generateSolutionCode(numeroColors, longitudCombinacio);
 
-        Codebreaker cB = new Codebreaker(c, solutionCode);
-        partida = cB;
+        Codebreaker cB = new Codebreaker(c, solutionCode, this);
 
-        creaRonda(0, cB);
+        idPartidaActual = cB.getId();
+        partides.put(idPartidaActual, cB);
     }
 
-    public void crearPartidaCodemaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) {
+    public void crearPartidaCodemaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, CtrlAlgorisme ctrlAlgorisme) throws IOException {
         ConfiguracioPartida c = creaConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
 
-        Codemaker cM = new Codemaker(c, solutionCode);
+        Codemaker cM = new Codemaker(c, solutionCode, this, ctrlAlgorisme);
 
-        creaRonda(0, cM);
+        idPartidaActual = cM.getId();
+        partides.put(idPartidaActual, cM);
     }
 
-    public void intentRonda(Integer[] combinacioIntentada) {
-        ronda.setCombinacioIntentada(combinacioIntentada);
+    public void intentarCombinacio(Integer[] combinacioIntentada) {
+        partides.get(idPartidaActual).intentarCombinacio(combinacioIntentada);
     }
 
-    private ConfiguracioPartida creaConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
+    /**
+     * Crea una ronda i la corresponent associacio amb Partida
+     * @param partida de la ronda
+     * @param rondaId Identificador de la ronda
+     */
+    public void crearRonda() {
+        Partida p = partides.get(idPartidaActual);
+
+        p.creaRonda();
+    }
+
+    public String corregeix(Integer[] combinacioIntentada) {
+        Partida p = partides.get(idPartidaActual);
+
+        Integer[] solutionCode = p.getSolutionCode();
+        String resposta = "";
+
+        for (int i = 0; i < combinacioIntentada.length; ++i) {
+            //Black case: color i posicio correctes
+            if (combinacioIntentada[i] == solutionCode[i]) {
+                resposta += "B";
+                solutionCode[i] = -1;
+            }
+            //White case: color correcte pero posicio no
+            else {
+                for (int j = 0; j < combinacioIntentada.length; ++j) {
+                    if (combinacioIntentada[i] == solutionCode[j]) {
+                        resposta += "W";
+                        solutionCode[j] = -1;
+                    }
+                }
+            }
+        }
+
+        while (resposta.length() < combinacioIntentada.length) {
+            resposta += "-";
+        }
+
+        p.setRespostaRonda(resposta);
+        return resposta;
+    }
+
+    public Integer[] getCodiMaquina() throws TipusPartidaIncorrecte {
+        Partida p = partides.get(idPartidaActual);
+
+        if (p.esCodeMaker()) {
+            return p.getCodiMaquina(p.getUltimCodi(), p.getUltimaResposta());
+        }
+        else throw new TipusPartidaIncorrecte("Partida de tipus: codeBreaker, s'esperava una de tipus codeMaker");
+    }
+
+    private ConfiguracioPartida creaConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {
         return new ConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
     }
 
@@ -56,18 +121,6 @@ public class CtrlPartida {
         }
 
         return code;
-    }
-
-    /**
-     * Crea una ronda i la corresponent associacio amb Partida
-     * @param partida de la ronda
-     * @param rondaId Identificador de la ronda
-     */
-    private void creaRonda(int rondaId, Partida partida) {
-        Ronda r = new Ronda(rondaId, partida);
-        this.ronda = r;
-
-        partida.addRonda(r);
     }
 
 }

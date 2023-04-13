@@ -1,44 +1,60 @@
 package domini.controllers;
 
-import domini.classes.*;
+import domini.classes.Jugador;
+//per retocar
+import domini.classes.exceptions.*;
+
 import java.lang.String;
-import java.util.Map;
+import java.util.HashMap;
+
+
 
 public class CtrlJugador {
-    private Jugador JugadorActual;
+    private int jugadorActual;
     //en crear un jugador, aqui guardarem les credencials
-    private Map <String, String> usuariContrasenya;
+    private HashMap <Integer, Jugador> jugadors;
     
     //constructora
+    //si no hi ha jugador, JugadorActual = -1
     public CtrlJugador() {
-        JugadorActual = null;
+        jugadorActual = -1;
     }
 
     //retorna el jugador actual
-    //sera null si no hi ha ningu logejat
-    public Jugador getJugadorActual() {
-        return JugadorActual;
+    //sera -1 si no hi ha ningu logejat
+    public int getIdJugador() {
+        return jugadorActual;
     }
+
+    public String getUsuariJugador() {
+        return jugadors.get(jugadorActual).getUsername();
+    }
+
 
     //crea un nou jugador per al registre, afegeix les credencials a usuariContrasenya
     public void crearJugador(String username, String password) {
-        if (JugadorActual == null) {
-            new Jugador(username, password);
-            usuariContrasenya.put(username, password);
+        if (jugadorActual == -1) {
+            Jugador j = new Jugador(username, password);
+            int newId = j.getID();
+            jugadors.put(newId, j);
+            jugadorActual = newId;
         }
     }
 
-    //treu el JugadorActual, nomes si n'hi ha un actualment
+    //treu el JugadorActual
+    //
     public void logoff() {
-        if (JugadorActual != null) JugadorActual = null;
+        jugadorActual = -1;
     }
 
     //obte la contrasenya de l'usuari a partir del seu username
     public String getPassword(String username) {
-        if (usuariContrasenya.containsKey(username)) {
-            String pass = usuariContrasenya.get(username);
+        if (jugadors.containsKey(username)) {
+            String pass = jugadors.getPassword(username);
             return pass;
+        }
         //else throw Exception
     }
+
 
 }

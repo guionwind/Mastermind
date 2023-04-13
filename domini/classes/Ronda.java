@@ -6,62 +6,21 @@ package domini.classes;
 
 public class Ronda {
     // Atributs 
-    private int id;
-
-    private final Partida partida;
-
+    private final int id;
     private Integer[] combinacioIntentada;
 
-    /**
-     * Llista de totes les respostes que es poden obtenir en un intent.
-     * B = Black; La fitxa del codi intentat és del color d'una de les
-     * fitxes del codi solució i està a la mateixa posició.
-     * W = White; La fitxa del codi intentat és del color d'una de les
-     * fitxes del codi solució però està en una posició errònia.
-     * ' ' = Nothing; La fitxa del codi intentar no és de cap dels
-     * colors del codi solució.
-     */
-    private static final String[] RESPOSTES = {
-            "    ",
-            "W   ",
-            "WW  ",
-            "WWW ",
-            "WWWW",
-            "B   ",
-            "BW  ",
-            "BWW ",
-            "BWWW",
-            "BB  ",
-            "BBW ",
-            "BBWW",
-            "BBB ",
-            "BBBB"
-    };
+    private String resposta;
 
     /**
      * Constructor de la classe Ronda.
      *
      * @param id Identificador únic de la ronda
-     * @param partida Partida a la que correspon la ronda
-     * @param combinacioIntentada Combinació intentada en aquesta ronda
      */
-    public Ronda(int id, Partida partida, Integer[] combinacioIntentada) {
+    public Ronda(int id) {
         this.id = id;
-        this.partida = partida;
-        this.combinacioIntentada = combinacioIntentada;
     }
 
-    /**
-     * Constructor de la classe Ronda
-     *
-     * @param id Identificador únic de la ronda
-     * @param partida Partida a la que correspon la ronda
-     */
 
-    public Ronda(int id, Partida partida) {
-        this.id = id;
-        this.partida = partida;
-    }
 
     // Mètodes
     /**
@@ -81,52 +40,15 @@ public class Ronda {
         return this.combinacioIntentada;
     }
 
+    public void setCombinacioIntentada(Integer[] combinacioIntentada) {
+        this.combinacioIntentada = combinacioIntentada;
+    }
 
-    /**
-     * Retorna la resposta que s'obtindria donat un dels codis encara no intentats i
-     * el codi solució.
-     *
-     * @param   combinacioIntentada  Un codi del conjunt de codis que encara no s'han intentat com a solució
-     * @param   combinacioCorrecta    Un codi del conjunt de codis que poden ser solució.
-     * @return                  La resposta obtinguda per intentar un codi sobre un codi solució.
-     */
-    public String getResposta(Integer[] combinacioIntentada, Integer[] combinacioCorrecta) {
-        String resposta = "";
-
-        // Black
-        for (int i=0; i<combinacioCorrecta.length; ++i) {
-            if (combinacioIntentada[i] == combinacioCorrecta[i]) {
-                resposta += "B";
-                combinacioIntentada[i] = -1;
-                combinacioCorrecta[i] = -1;
-            }
-        }
-
-        // White
-        for (int i=0; i<combinacioCorrecta.length; ++i) {
-            if (combinacioIntentada[i] != -1) { // Encara no l'hem processat
-                boolean trobat = false;
-                for (int j=0; j<combinacioCorrecta.length && !trobat; ++j) {
-                    if (combinacioIntentada[i] == combinacioCorrecta[j]) {
-                        trobat = true;
-                        resposta += "W";
-                        combinacioCorrecta[j] = -1;
-                    }
-                }
-            }
-        }
-
-        while (resposta.length() < combinacioCorrecta.length)
-            resposta += "X";
-
+    public String getResposta() {
         return resposta;
     }
 
-    public Partida getPartida() {
-        return partida;
-    }
-
-    public void setCombinacioIntentada(Integer[] combinacioIntentada) {
-        this.combinacioIntentada = combinacioIntentada;
+    public void setResposta(String resposta) {
+        this.resposta = resposta;
     }
 }
