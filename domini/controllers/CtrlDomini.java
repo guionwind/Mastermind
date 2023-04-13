@@ -175,6 +175,19 @@ public class CtrlDomini {
 
         ctrlEstadistiquesPartida.creaEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
 
-        ctrlRanquing.setNewRecord(idJugador, puntuacio);
+        if (guanyada) ctrlRanquing.setNewRecord(idJugador, puntuacio);
     }
+
+    /**
+     * Agafem les estadistiques que volem. Actualment nomes s'agafa la puntuacio de la partida
+     *  
+     * @param idJugador Identificador del jugador
+     * @param idPartida Identificador de la partida
+     * @return retorna les estadistiques de la partida (actualment nomes la puntuacio)
+     */
+    public int getEstadistiques(Integer idJugador, Integer idPartida) {
+        return ctrlEstadistiquesPartida.getPuntuacio(idJugador, idPartida);
+    }
+
+
 }

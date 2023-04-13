@@ -1,9 +1,7 @@
 package domini.controllers;
 
 import domini.classes.EstadistiquesPartida;
-import javafx.util.Pair;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CtrlEstadistiquesPartida {
@@ -21,6 +19,10 @@ public class CtrlEstadistiquesPartida {
         estadistiquesPartida.put(pair ,eP);
     }
 
+    public Integer getPuntuacio(Integer idJugador, Integer idPartida) {
+        EstadistiquesPartida e = estadistiquesPartida.get(new Integer[]{idJugador, idPartida});
 
+        return e.getPuntuacio();
+    }
 
 }

@@ -21,17 +21,26 @@ public class CtrlPartida {
      */
     private HashMap<Integer, Partida> partides;
 
+    /**
+     * Constructora de la classe CtrlPartida
+     * Inicialitza idPartidaActual a -1 per que no s'inicialtzi automaticament a 0
+     * Inicialitza el HashMap
+     */
+
     public CtrlPartida() {
         idPartidaActual = -1;
         partides = new HashMap<Integer, Partida>();
     }
 
     /**
-     * sjfdksdkfjhs
+     * Crea una partida en mode Codebreaker.
+     * Es genera el codi solucio de la partida.
+     *
      * @param tipusPartida
      * @param numeroIntents
      * @param numeroColors
      * @param longitudCombinacio
+     * @throws IOException
      */
     public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {
         ConfiguracioPartida c = creaConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
