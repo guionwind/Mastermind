@@ -21,20 +21,29 @@ public class CtrlPartida {
      */
     private HashMap<Integer, Partida> partides;
 
+    /**
+     * Constructora de la classe CtrlPartida
+     * Inicialitza idPartidaActual a -1 per que no s'inicialtzi automaticament a 0
+     * Inicialitza el HashMap
+     */
+
     public CtrlPartida() {
         idPartidaActual = -1;
         partides = new HashMap<Integer, Partida>();
     }
 
     /**
-     * sjfdksdkfjhs
-     * @param tipusPartida
+     * Crea una partida en mode Codebreaker.
+     * Es genera el codi solucio de la partida.
+     *
      * @param numeroIntents
      * @param numeroColors
      * @param longitudCombinacio
+     * @throws IOException
      */
-    public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {
-        ConfiguracioPartida c = creaConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
+    public void crearPartidaCodebreaker(int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {
+        TipusPartida t = TipusPartida.CODEBREAKER;
+        ConfiguracioPartida c = creaConfiguracioPartida(t ,numeroIntents, numeroColors, longitudCombinacio);
 
         Integer[] solutionCode = generateSolutionCode(numeroColors, longitudCombinacio);
 
@@ -44,8 +53,9 @@ public class CtrlPartida {
         partides.put(idPartidaActual, cB);
     }
 
-    public void crearPartidaCodemaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, CtrlAlgorisme ctrlAlgorisme) throws IOException {
-        ConfiguracioPartida c = creaConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
+    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, CtrlAlgorisme ctrlAlgorisme) throws IOException {
+        TipusPartida t = TipusPartida.CODEMAKER;
+        ConfiguracioPartida c = creaConfiguracioPartida(t, numeroIntents, numeroColors, longitudCombinacio);
 
         Codemaker cM = new Codemaker(c, solutionCode, this, ctrlAlgorisme);
 

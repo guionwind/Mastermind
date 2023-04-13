@@ -54,8 +54,8 @@ public class CtrlDomini {
      * @param longitudCombinacio Longitud maxima de la combinacio de colors
      * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
      */
-    public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws Exception {
-        ctrlPartida.crearPartidaCodebreaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
+    public void crearPartidaCodebreaker(int numeroIntents, int numeroColors, int longitudCombinacio) throws Exception {
+        ctrlPartida.crearPartidaCodebreaker(numeroIntents, numeroColors, longitudCombinacio);
     }
 
     /**
@@ -68,10 +68,10 @@ public class CtrlDomini {
      * @param solutionCode Solucio de la partida indicada per l'usuari
      * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
      */
-    public void crearPartidaCodemaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws Exception {
+    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws Exception {
         CtrlAlgorisme ctrlAlgorisme = new CtrlAlgorisme();
 
-        ctrlPartida.crearPartidaCodemaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio, solutionCode, ctrlAlgorisme);
+        ctrlPartida.crearPartidaCodemaker(numeroIntents, numeroColors, longitudCombinacio, solutionCode, ctrlAlgorisme);
     }
 
     /**
@@ -113,7 +113,7 @@ public class CtrlDomini {
     }
 
     //! del CtrlJugador
-    public void crearJugador (String username, String password) {
+    public void crearJugador (String username, String password) throws JugadorJaExisteix {
         ctrlJugador.crearJugador(username, password);
     }
 
@@ -124,8 +124,6 @@ public class CtrlDomini {
     public String getUsernameFromID(int id) {
         return ctrlJugador.getUsernameFromID(id);
     }
-
-
 
     //sistema de login: comprova que coincideixin usuari i contrasenya
     //si coincideixen, retorna true
@@ -138,7 +136,7 @@ public class CtrlDomini {
         ens estalviem un recorregut sobre el map
     */
 
-    public boolean loginAuthentication (String username, String password) throws UsuariNoExisteix {
+    public boolean loginAuthentication (String username, String password) throws JugadorNoExisteix {
         boolean correctCredentials = false;
         String passwd = ctrlJugador.getPassword(username);
         if (password != null) {
@@ -189,6 +187,19 @@ public class CtrlDomini {
 
         ctrlEstadistiquesPartida.creaEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
 
-        ctrlRanquing.setNewRecord(idJugador, puntuacio);
+        if (guanyada) ctrlRanquing.setNewRecord(idJugador, puntuacio);
     }
+
+    /**
+     * Agafem les estadistiques que volem. Actualment nomes s'agafa la puntuacio de la partida
+     *  
+     * @param idJugador Identificador del jugador
+     * @param idPartida Identificador de la partida
+     * @return retorna les estadistiques de la partida (actualment nomes la puntuacio)
+     */
+    public int getEstadistiques(Integer idJugador, Integer idPartida) {
+        return ctrlEstadistiquesPartida.getPuntuacio(idJugador, idPartida);
+    }
+
+
 }

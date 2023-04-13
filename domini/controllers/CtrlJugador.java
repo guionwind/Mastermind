@@ -38,7 +38,8 @@ public class CtrlJugador {
 
 
     //crea un nou jugador per al registre, afegeix les credencials a usuariContrasenya
-    public void crearJugador(String username, String password) {
+    //* no se'l logeja automaticament
+    public void crearJugador(String username, String password) throws JugadorJaExisteix {
         if (jugadorActual == -1) {
             Jugador j = new Jugador(username, password);
             int newId = j.getID();
@@ -48,14 +49,13 @@ public class CtrlJugador {
     }
 
     //set jugador actual
-    public void setJugadorActual(String username) {
+    public void setJugadorActual(String username) throws JugadorNoExisteix{
         for (Jugador j : jugadors.values()) {
             if (j.getUsername() == username) jugadorActual = j.getID();
         }
     }
 
     //treu el JugadorActual
-    //
     public void logoff() {
         jugadorActual = -1;
     }

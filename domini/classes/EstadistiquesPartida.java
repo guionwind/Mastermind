@@ -7,7 +7,7 @@ public class EstadistiquesPartida {
     // Atributs
     private Integer idJugador;
     private Integer idPartida;
-    private int puntuacio;
+    private Integer puntuacio;
     private Boolean guanyada;
     
     /**
@@ -49,7 +49,7 @@ public class EstadistiquesPartida {
      * Mètode per obtenir la puntuació de les estadístiques.
      * @return Retorna la puntuació de les estadístiques.
      */
-    public int getPuntuacio(){
+    public Integer getPuntuacio(){
         return this.puntuacio;
     }
 
