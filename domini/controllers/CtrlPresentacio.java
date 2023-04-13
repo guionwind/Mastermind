@@ -26,6 +26,90 @@ public class CtrlPresentacio {
         System.out.flush();  
     }
 
+    private void partidaCodebreaker() throws IOException{
+        Boolean creada = false;
+        Integer numeroIntents = 0;
+        Integer longitudCombinacio = 0;
+        while (!creada){
+            System.out.println("Numero intents:");
+            numeroIntents = Integer.parseInt(reader.readLine());
+            System.out.println("Numero colors:");
+            Integer numeroColors = Integer.parseInt(reader.readLine());
+            System.out.println("Longitud combinacio:");
+            longitudCombinacio = Integer.parseInt(reader.readLine());
+            try {
+                ctrlDomini.crearPartidaCodebreaker(numeroIntents, numeroColors, longitudCombinacio);
+                creada = true;
+            }
+            catch (Exception exception){ //TODO Ficar la excepcio corresponent
+                System.out.println("!!! Configuracio incorrecte !!!");
+            }
+        }
+        codebrakerLoop(numeroIntents, longitudCombinacio);
+    }
+
+    private void codebrakerLoop(int numeroIntents, int longitudCombinacio) throws IOException{
+        Integer intents = 0;
+        Boolean guanyat = false;
+        String respostaCorrecta = "";
+        String respostaObtinguda = "";
+        ArrayList<String> combinacions = new ArrayList<String>();
+        ArrayList<String> respostes = new ArrayList<String>();
+        for (int i = 0; i < longitudCombinacio; i++){
+            respostaCorrecta += "B";
+        }
+
+        while (numeroIntents > intents && !guanyat){
+            netejarConsola();
+            System.out.println("Combinacio:");
+            String combinacioIntentada = reader.readLine();
+            combinacions.add(combinacioIntentada);
+
+            char[] combinacioIntentadaChar = combinacioIntentada.toCharArray();
+            Integer[] combinacioIntentadaInt = new Integer[longitudCombinacio];
+
+            for (int i = 0; i < combinacioIntentada.length(); i++){
+                combinacioIntentadaInt[i] = Character.getNumericValue(combinacioIntentadaChar[i]);
+            }
+            
+            respostaObtinguda = ctrlDomini.jugarRondaCodebreaker(combinacioIntentadaInt);
+            respostes.add(respostaObtinguda);
+
+            System.out.println("////////////////////////////////////////////////////////");
+            System.out.println("////////////////////// MASTERMIND //////////////////////");
+            System.out.println("/////                                              /////");
+            for (int i = 0; i < combinacions.size(); i++){
+                System.out.println("///// " + combinacioIntentada + "     " + respostaObtinguda + "           /////");
+            }
+            System.out.println("////////////////////////////////////////////////////////");
+
+            if (respostaCorrecta != respostaObtinguda) guanyat = true;
+            intents++;
+        }
+
+        Integer puntuacio = ctrlDomini.partidaAcabada(guanyat);
+
+        netejarConsola();
+        System.out.println("////////////////////////////////////////////////////////");
+        System.out.println("////////////////////// MASTERMIND //////////////////////");
+        System.out.println("/////                                              /////");
+        if (guanyat){
+            System.out.println("/////              !! HAS GUANYAT !!               /////");
+        }
+        else{     
+            System.out.println("/////               !! HAS PERDUT !!               /////");
+        }
+        System.out.println("/////                                              /////");
+        System.out.println("/////                ESTADISTIQUES                 /////");
+        System.out.println("///// Numero Intents: " + intents + "/" + numeroIntents + "                           /////");
+        System.out.println("///// Puntuació: " + puntuacio + "                           /////");
+        System.out.println("/////     Premi qualsevol tecla per continuar      /////");
+        System.out.println("////////////////////////////////////////////////////////");
+        reader.readLine();
+        ranquing();
+        menu();
+    }
+
     private void jugar() throws IOException {
         netejarConsola();
         
@@ -42,6 +126,13 @@ public class CtrlPresentacio {
         
         switch (interaccioUsuari){
             case "0":
+                partidaCodebreaker();
+                break;
+            case "1":
+                break;
+            default:
+                jugar();
+        }
         /*
          * Demanar tipus partida
          * Que em donin els parametres necessaris per fer la creacio de partida
@@ -61,15 +152,18 @@ public class CtrlPresentacio {
 
     private void ranquing() throws IOException{
         netejarConsola();
-                ArrayList<Integer[]> top10 = ctrlDomini.getTop10();
+        ArrayList<Integer[]> top10 = ctrlDomini.getTop10();
 
-                System.out.println("////////////////////////////////////////////////////////");
-                System.out.println("////////////////////// MASTERMIND //////////////////////");
-                System.out.println("/////                   RANQUING                   /////");
-                for (int i = 0; i < top10.size(); i++){
-                    System.out.println("///// " + i+1 + ": " + top10.get(i)[0] + "( " + top10.get(i)[1] + ")" + "                 /////"); //TODO print el username en vez de la ID
-                }
-                System.out.println("////////////////////////////////////////////////////////");
+        System.out.println("////////////////////////////////////////////////////////");
+        System.out.println("////////////////////// MASTERMIND //////////////////////");
+        System.out.println("/////                   RANQUING                   /////");
+        for (int i = 0; i < top10.size(); i++){
+            System.out.println("///// " + i+1 + ": " + top10.get(i)[0] + "( " + top10.get(i)[1] + ")" + "                 /////"); //TODO print el username en vez de la ID
+        }
+        System.out.println("/////                                              /////");
+        System.out.println("/////     Premi qualsevol tecla per continuar      /////");
+        System.out.println("////////////////////////////////////////////////////////");
+        reader.readLine();
     }
 
     private void login() throws IOException {
@@ -160,6 +254,7 @@ public class CtrlPresentacio {
         
         switch (interaccioUsuari){
             case "0":
+                jugar();
                 break;
             case "1":
                 ranquing();

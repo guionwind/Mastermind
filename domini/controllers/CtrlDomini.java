@@ -182,7 +182,7 @@ public class CtrlDomini {
      *
      * @param guanyada Guanyada indica true si la partida s'ha guanyat.
      */
-    public void partidaAcabada(Boolean guanyada) {
+    public Integer partidaAcabada(Boolean guanyada) {
         Integer idPartida = ctrlPartida.getIdPartidaActual();
         Integer idJugador = ctrlJugador.getIdJugador();
         Integer numRondes = ctrlPartida.getNumeroRondes();
@@ -192,6 +192,7 @@ public class CtrlDomini {
         ctrlEstadistiquesPartida.creaEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
 
         if (guanyada) ctrlRanquing.setNewRecord(idJugador, puntuacio);
+        return puntuacio;
     }
 
     /**

@@ -107,13 +107,10 @@ public class CtrlPartida {
         return resposta;
     }
 
-    public Integer[] getCodiMaquina() throws TipusPartidaIncorrecte {
+    public Integer[] getCodiMaquina() {
         Partida p = partides.get(idPartidaActual);
 
-        if (p.esCodeMaker()) {
-            return p.getCodiMaquina(p.getUltimCodi(), p.getUltimaResposta());
-        }
-        else throw new TipusPartidaIncorrecte("Partida de tipus: codeBreaker, s'esperava una de tipus codeMaker");
+        return p.getCodiMaquina(p.getUltimCodi(), p.getUltimaResposta());
     }
 
     public Integer getIdPartidaActual() {
