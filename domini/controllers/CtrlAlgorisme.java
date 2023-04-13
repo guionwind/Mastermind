@@ -23,7 +23,7 @@ public class CtrlAlgorisme {
         fiveGuess.remove(idPartida);
     }
 
-    public Integer[] esbrinaCodiFiveguess(Integer idPartida, Integer[] ultimIntent, String resposta) {
+    public Integer[] esbrinarCodiFiveguess(Integer idPartida, Integer[] ultimIntent, String resposta) {
         return fiveGuess.get(idPartida).esbrina(ultimIntent, resposta);
     }
 }
