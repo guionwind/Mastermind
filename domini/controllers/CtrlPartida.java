@@ -11,12 +11,12 @@ public class CtrlPartida {
     /**
      * Ronda actual
      */
-    private Ronda ronda;
+    private Ronda rondaActual;
 
     /**
      * Partida actual
      */
-    private Partida partida;
+    private Partida partidaActual;
 
 
 
