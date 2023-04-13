@@ -17,13 +17,15 @@ public class CtrlDomini {
     }
 
     //! del CtrlPartida
-    public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
+    public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws Exception {
         ctrlPartida.crearPartidaCodebreaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
+
     }
 
-    public void crearPartidaCodemaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) {
+    public void crearPartidaCodemaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws Exception {
         ctrlPartida.crearPartidaCodemaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio, solutionCode);
     }
+    
 
     //? funcions codebreaker
     /**
@@ -33,12 +35,12 @@ public class CtrlDomini {
     */ 
 
     public String corregeix(Integer[] combinacioIntentada) {
-        return CtrlPartida.corregeix(combinacioIntentada);
+        return ctrlPartida.corregeix(combinacioIntentada);
     }
 
     public String jugaRondaCodebreaker(int rondaId, Integer[] combinacioIntentada) {
-        CtrlPartida.creaRonda(rondaId, combinacioIntentada);
-        String correccio = CtrlPartida.corregeix(combinacioIntentada);
+        ctrlPartida.creaRonda(rondaId);
+        String correccio = CtrlPartida.intentarCombinacio(combinacioIntentada);
         return correccio;
     }
 
@@ -58,16 +60,16 @@ public class CtrlDomini {
     //genera el codi mes probable a intentar
     //ultimCodi i respostaCodi son null si es la primera ronda
     public void setSolutionCode(Integer[] solution) {
-        CtrlPartida.setSolutionCode(solution);
+        ctrlPartida.setSolutionCode(solution);
     }
 
     public String generaIntent(Integer[] ultimCodi, String respostaCodi) {
-        return CtrlPartida.esbrina(ultimCodi, respostaCodi);
+        return ctrlPartida.esbrina(ultimCodi, respostaCodi);
     }
 
     //comprova si un intent de correccio es correcte
     public boolean comprovaIntentCorreccio(String intentCorreccio, Integer[] combinacioIntentada) {
-        String correcioCorrecta = corregeix(combinacioIntentada);
+        String correccioCorrecta = corregeix(combinacioIntentada);
         return correccioCorrecta.equals(intentCorreccio);
     }
 
@@ -105,11 +107,7 @@ public class CtrlDomini {
 
 /* 
 coses a comentar-li a l'arnau
-lo de afegir classes actuals a CtrlJugador
 -> inclou refactoritzar les creadores de Codemaker, Codebreaker i Ronda
 
-De la creadora de Ronda, no necessitaras la Partida. et passo: rondaId, combinacioIntentada
-
 vull getters desde CtrlPartida per als atributs de PartidaActual
-(per la Ronda idk)
 */
