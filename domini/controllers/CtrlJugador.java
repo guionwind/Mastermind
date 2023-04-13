@@ -10,7 +10,9 @@ import java.util.HashMap;
 
 
 public class CtrlJugador {
+    //id del jugador logejat actualment
     private int jugadorActual;
+
     //en crear un jugador, aqui guardarem les credencials
     private HashMap <Integer, Jugador> jugadors;
     
@@ -30,9 +32,14 @@ public class CtrlJugador {
         return jugadors.get(jugadorActual).getUsername();
     }
 
+    public String getUsernameFromID(int id) {
+        return jugadors.get(id).getUsername();
+    }
+
 
     //crea un nou jugador per al registre, afegeix les credencials a usuariContrasenya
-    public void crearJugador(String username, String password) {
+    //* no se'l logeja automaticament
+    public void crearJugador(String username, String password) throws JugadorJaExisteix {
         if (jugadorActual == -1) {
             Jugador j = new Jugador(username, password);
             int newId = j.getID();
@@ -41,19 +48,28 @@ public class CtrlJugador {
         }
     }
 
+    //set jugador actual
+    public void setJugadorActual(String username) throws JugadorNoExisteix{
+        for (Jugador j : jugadors.values()) {
+            if (j.getUsername() == username) jugadorActual = j.getID();
+        }
+    }
+
     //treu el JugadorActual
-    //
     public void logoff() {
         jugadorActual = -1;
     }
 
-    //obte la contrasenya de l'usuari a partir del seu username
-    public String getPassword(String username) {
-        if (jugadors.containsKey(username)) {
-            String pass = jugadors.get(jugadorActual).getPassword(username);
-            return pass;
+    //obte la contrasenya a partir d'un username
+    //busca entre els valors del map la instancia de Jugador que tingui la username indicada, i retorna la contrasenya
+    public String getPassword(String username) throws UsuariNoExisteix{
+        String pass = null;
+        for (Jugador j : jugadors.values()) {
+            if (j.getUsername() == username) {
+                pass = j.getPassword();
+            }
         }
-        //else throw Exception
+        return pass;
     }
 
 

@@ -1,6 +1,8 @@
 package domini.classes;
 
 import java.util.ArrayList;
+import domini.classes.exceptions.*;
+
 
 public class Jugador {
     //atributs
@@ -13,51 +15,50 @@ public class Jugador {
     //associacions
     private ArrayList<EstadistiquesPartida> statsPartides;
     
-    /*creadora per defecte. 
+    /**creadora per defecte. 
+    * @pre name, pwd no son nulls 
     * crea un nou jugador amb ID incremental (el primer jugador tindra id = 1) 
     * despres assigna les credencials corresponents
     */
-    public Jugador(String name, String pwd) {
+    public Jugador(String name, String pwd) throws JugadorJaExisteix{
         ++nombreJugadors;
         this.id = nombreJugadors;
+
         this.username = name;
         this.password = pwd;
     }
     
-    //atributs derivats calculats
+    /**consultora de partides guanyades
+     * @pre -
+     * @return int nombre de partides guanyades
+     */
     public int PartidesGuanyades() {
-        int guanyades;
+        int guanyades = 0;
         for (EstadistiquesPartida p : this.statsPartides) {
-            if (p.esGuanyada()) ++guanyades;
+            if (p.getGuanyada()) ++guanyades;
         }
         return guanyades;
     }
 
+    /**consultora de partides jugades
+     * @pre -
+     * @return int nombre de partides jugades
+     */
     public int PartidesJugades() {
-        return statsPartides.size();
+        return this.statsPartides.size();
     }
 
     //getters
     public int getID() {
-        return id;
+        return this.id;
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
-    /*aixo aniria al ctrlDomini¿?
-    //return true if login is successful
-    public boolean login(String name, String pwd) {
-        boolean loginSuccess = false;
-        if (name == username and pwd == password) {
-            loginSuccess = true;
-        }
-        return loginSuccess;
-    }
-    */
 }

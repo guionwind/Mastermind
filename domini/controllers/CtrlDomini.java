@@ -113,7 +113,7 @@ public class CtrlDomini {
     }
 
     //! del CtrlJugador
-    public void crearJugador (String username, String password) {
+    public void crearJugador (String username, String password) throws JugadorJaExisteix {
         ctrlJugador.crearJugador(username, password);
     }
 
@@ -121,11 +121,22 @@ public class CtrlDomini {
         return ctrlJugador.getUsername();
     }
 
-
+    public String getUsernameFromID(int id) {
+        return ctrlJugador.getUsernameFromID(id);
+    }
 
     //sistema de login: comprova que coincideixin usuari i contrasenya
-    //si coincideixen, isPasswordCorrect
-    public boolean loginAuthentication (String username, String password) throws UsuariNoExisteix {
+    //si coincideixen, retorna true
+
+    //? diria que es pot fer mes eficient si:
+    /*  1. setJugadorActual(String username)
+        2. li demanem contrasenya (sense atributs)
+        3. la comprovem
+        4. si es incorrecta, logout()
+        ens estalviem un recorregut sobre el map
+    */
+
+    public boolean loginAuthentication (String username, String password) throws JugadorNoExisteix {
         boolean correctCredentials = false;
         String passwd = ctrlJugador.getPassword(username);
         if (password != null) {
@@ -133,6 +144,7 @@ public class CtrlDomini {
         }
         else if (passwd == password) {
             correctCredentials = true;
+            ctrlJugador.setJugadorActual(username);
         }
         return correctCredentials;
     }
