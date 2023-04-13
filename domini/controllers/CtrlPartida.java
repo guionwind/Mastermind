@@ -36,7 +36,6 @@ public class CtrlPartida {
      * Crea una partida en mode Codebreaker.
      * Es genera el codi solucio de la partida.
      *
-     * @param tipusPartida
      * @param numeroIntents
      * @param numeroColors
      * @param longitudCombinacio
