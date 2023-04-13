@@ -9,6 +9,8 @@ public class Ronda {
     private final int id;
     private Integer[] combinacioIntentada;
 
+    private String resposta;
+
     /**
      * Constructor de la classe Ronda.
      *
@@ -17,6 +19,7 @@ public class Ronda {
     public Ronda(int id) {
         this.id = id;
     }
+
 
     // Mètodes
     /**
@@ -35,7 +38,6 @@ public class Ronda {
     public Integer[] getCombinacioIntentada() {
         return this.combinacioIntentada;
     }
-
 
     /**
      * Retorna la resposta que s'obtindria donat un dels codis encara no intentats i
@@ -83,5 +85,9 @@ public class Ronda {
 
     public void setCombinacioIntentada(Integer[] combinacioIntentada) {
         this.combinacioIntentada = combinacioIntentada;
+    }
+
+    public String getResposta() {
+        return resposta;
     }
 }

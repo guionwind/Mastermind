@@ -67,7 +67,7 @@ public abstract class Partida {
      *
      * @param r ronda ha afegir
      */
-    public void addRonda() {
+    public void creaRonda() {
         Integer id = Integer.valueOf(rondes.size());
         Ronda r = new Ronda(id);
         rondes.put(id, r);
@@ -83,10 +83,30 @@ public abstract class Partida {
         if (estadisticaPartida == null) {
             this.estadisticaPartida = estadisticaPartida;
         }
+        //else throw excepcio propia nostre. A fer
     }
 
     public ConfiguracioPartida getConfiguracioPartida() {
         return configuracioPartida;
     }
 
+    public void intentarCombinacio(Integer[] combinacioIntentada) {
+        rondes.get(rondes.size()-1).setCombinacioIntentada(combinacioIntentada);
+    }
+
+    public abstract boolean esCodeMaker();
+
+    public abstract Integer[] getCodiMaquina();
+
+    public Integer[] getUltimCodi() {
+        Ronda r = rondes.get(rondes.size() - 1);
+
+        return r.getCombinacioIntentada();
+    }
+
+    public String getUltimaResposta() {
+        Ronda r = rondes.get(rondes.size() - 1);
+
+        return r.getResposta();
+    }
 }

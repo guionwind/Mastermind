@@ -6,26 +6,34 @@ import java.lang.String;
 import domini.classes.ConfiguracioPartida.TipusPartida;
 
 public class CtrlDomini {
-    private CtrlPartida ctrlPartida;
-    private CtrlJugador ctrlJugador;
-    private CtrlRanquing ctrlRanquing;
+    private final CtrlPartida ctrlPartida;
+    private final CtrlJugador ctrlJugador;
+    private final CtrlRanquing ctrlRanquing;
 
 
     public CtrlDomini() {
         ctrlPartida = new CtrlPartida();
         ctrlJugador = new CtrlJugador();
+        ctrlRanquing = new CtrlRanquing();
     }
 
     //! del CtrlPartida
     public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws Exception {
         ctrlPartida.crearPartidaCodebreaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
-
     }
 
     public void crearPartidaCodemaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws Exception {
-        ctrlPartida.crearPartidaCodemaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio, solutionCode);
+        CtrlAlgorisme ctrlAlgorisme = new CtrlAlgorisme();
+
+        ctrlPartida.crearPartidaCodemaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio, solutionCode, ctrlAlgorisme);
     }
-    
+
+    public Integer[] getCodiMaquina() throws tipusPartidaIncorrecte{
+        return ctrlPartida.getCodiMaquina();
+    }
+    public void jugarRonda(Integer[] combinacioIntentada) {
+
+    }
 
     //? funcions codebreaker
     /**
