@@ -27,7 +27,49 @@ public class CtrlPresentacio {
     }
 
     private void jugar() throws IOException {
+        netejarConsola();
+        
+        System.out.println("////////////////////////////////////////////////////////");
+        System.out.println("////////////////////// MASTERMIND //////////////////////");
+        System.out.println("/////                TIPUS PARTIDA                 /////");
+        System.out.println("///// 0: CodeBreaker                               /////");
+        System.out.println("///// 1: CodeMaker                                 /////");
+        System.out.println("////////////////////////////////////////////////////////");
 
+        String interaccioUsuari = reader.readLine();
+
+        netejarConsola();
+        
+        switch (interaccioUsuari){
+            case "0":
+        /*
+         * Demanar tipus partida
+         * Que em donin els parametres necessaris per fer la creacio de partida
+         * Fer un while que mentre no sigui tot Black o no s'arribi al numero d'intents segueixi deixant crear rondes
+         * Loop:
+         *  CrearRonda
+         *  jugarRondaCode----    <- Retorna un string amb la resposta
+         *      ContadorIntents++
+         *      Si es codebraker comprovem que la resposta sigui BBBB... o no
+         *      Si es codemaker he de fer que lusuari em fiqui la resposta per consola i comprovar amb la resposta de la funcio jugarRondaCodemaker (si trolleja que torni a ficar la resposta, si la maquina fa tot BBBB... i lusuari corregeix be s'acaba loop)
+         * Cridar funcio partidaAcabada(bool Guanyada)
+         * Mostrar estadistiques   <- Crida a una funcio a part (Mostrar intents, si ha guanyat i puntuacio)
+         * Mostrar ranquing   <- Crida a una funcio a part
+         * Anar al menu
+         */
+    }
+
+    private void ranquing() throws IOException{
+        netejarConsola();
+                ArrayList<Integer[]> top10 = ctrlDomini.getTop10();
+
+                System.out.println("////////////////////////////////////////////////////////");
+                System.out.println("////////////////////// MASTERMIND //////////////////////");
+                System.out.println("/////                   RANQUING                   /////");
+                for (int i = 0; i < top10.size(); i++){
+                    System.out.println("///// " + i+1 + ": " + top10.get(i)[0] + "( " + top10.get(i)[1] + ")" + "                 /////"); //TODO print el username en vez de la ID
+                }
+                System.out.println("////////////////////////////////////////////////////////");
     }
 
     private void login() throws IOException {
@@ -120,16 +162,7 @@ public class CtrlPresentacio {
             case "0":
                 break;
             case "1":
-                netejarConsola();
-                ArrayList<Integer[]> top10 = ctrlDomini.getTop10();
-
-                System.out.println("////////////////////////////////////////////////////////");
-                System.out.println("////////////////////// MASTERMIND //////////////////////");
-                System.out.println("/////                   RANQUING                   /////");
-                for (int i = 0; i < top10.size(); i++){
-                    System.out.println("///// " + i+1 + ": " + top10.get(i)[0] + "( " + top10.get(i)[1] + ")" + "                 /////"); //TODO print el username en vez de la ID
-                }
-                System.out.println("////////////////////////////////////////////////////////");
+                ranquing();
                 break;
             case "2":
                 ctrlDomini.logoff();
