@@ -113,7 +113,7 @@ public class CtrlDomini {
     }
 
     //! del CtrlJugador
-    public void crearJugador (String username, String password) {
+    public void crearJugador (String username, String password) throws JugadorJaExisteix {
         ctrlJugador.crearJugador(username, password);
     }
 
@@ -124,8 +124,6 @@ public class CtrlDomini {
     public String getUsernameFromID(int id) {
         return ctrlJugador.getUsernameFromID(id);
     }
-
-
 
     //sistema de login: comprova que coincideixin usuari i contrasenya
     //si coincideixen, retorna true
@@ -138,7 +136,7 @@ public class CtrlDomini {
         ens estalviem un recorregut sobre el map
     */
 
-    public boolean loginAuthentication (String username, String password) throws UsuariNoExisteix {
+    public boolean loginAuthentication (String username, String password) throws JugadorNoExisteix {
         boolean correctCredentials = false;
         String passwd = ctrlJugador.getPassword(username);
         if (password != null) {
