@@ -54,8 +54,8 @@ public class CtrlDomini {
      * @param longitudCombinacio Longitud maxima de la combinacio de colors
      * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
      */
-    public void crearPartidaCodebreaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws Exception {
-        ctrlPartida.crearPartidaCodebreaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
+    public void crearPartidaCodebreaker(int numeroIntents, int numeroColors, int longitudCombinacio) throws Exception {
+        ctrlPartida.crearPartidaCodebreaker(numeroIntents, numeroColors, longitudCombinacio);
     }
 
     /**
@@ -68,10 +68,10 @@ public class CtrlDomini {
      * @param solutionCode Solucio de la partida indicada per l'usuari
      * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
      */
-    public void crearPartidaCodemaker(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws Exception {
+    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws Exception {
         CtrlAlgorisme ctrlAlgorisme = new CtrlAlgorisme();
 
-        ctrlPartida.crearPartidaCodemaker(tipusPartida, numeroIntents, numeroColors, longitudCombinacio, solutionCode, ctrlAlgorisme);
+        ctrlPartida.crearPartidaCodemaker(numeroIntents, numeroColors, longitudCombinacio, solutionCode, ctrlAlgorisme);
     }
 
     /**
