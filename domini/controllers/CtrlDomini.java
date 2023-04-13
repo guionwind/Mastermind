@@ -43,7 +43,7 @@ public class CtrlDomini {
         ctrlEstadistiquesPartida = new CtrlEstadistiquesPartida();
     }
 
-    //CtrlPartida
+    //!CtrlPartida
 
     /**
      * Crea una partida Codebreaker
@@ -94,6 +94,10 @@ public class CtrlDomini {
     public String jugarRondaCodebreaker(Integer[] combinacioIntentada) {
         ctrlPartida.intentarCombinacio(combinacioIntentada);
         return ctrlPartida.corregeix(combinacioIntentada);
+    }
+
+    public Integer[] demanarPista() {
+        return ctrlPartida.getCodiMaquina();
     }
 
 
