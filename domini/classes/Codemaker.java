@@ -19,7 +19,7 @@ public class Codemaker extends Partida {
     }
 
     public Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta) {
-        ctrlAlgorisme.
+        return ctrlAlgorisme.esbrinarCodiFiveguess(ultimIntent, resposta);
     }
 
     public boolean esCodeMaker() {return true; }

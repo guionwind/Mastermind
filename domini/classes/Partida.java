@@ -96,7 +96,7 @@ public abstract class Partida {
 
     public abstract boolean esCodeMaker();
 
-    public abstract Integer[] getCodiMaquina();
+    public abstract Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta);
 
     public Integer[] getUltimCodi() {
         Ronda r = rondes.get(rondes.size() - 1);
@@ -108,5 +108,11 @@ public abstract class Partida {
         Ronda r = rondes.get(rondes.size() - 1);
 
         return r.getResposta();
+    }
+
+    public void setRespostaRonda(String respostaRonda) {
+        Ronda r = rondes.get(rondes.size() - 1);
+
+        r.setResposta(respostaRonda);
     }
 }

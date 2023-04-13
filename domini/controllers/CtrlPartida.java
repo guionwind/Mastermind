@@ -53,7 +53,7 @@ public class CtrlPartida {
         partides.put(idPartidaActual, cM);
     }
 
-    public void intentRonda(Integer[] combinacioIntentada) {
+    public void intentarCombinacio(Integer[] combinacioIntentada) {
         partides.get(idPartidaActual).intentarCombinacio(combinacioIntentada);
     }
 
@@ -62,14 +62,16 @@ public class CtrlPartida {
      * @param partida de la ronda
      * @param rondaId Identificador de la ronda
      */
-    public void creaRonda(Integer idPartidaActual) {
+    public void crearRonda() {
         Partida p = partides.get(idPartidaActual);
 
         p.creaRonda();
     }
 
     public String corregeix(Integer[] combinacioIntentada) {
-        Integer[] solutionCode = partidaActual.getSolutionCode();
+        Partida p = partides.get(idPartidaActual);
+
+        Integer[] solutionCode = p.getSolutionCode();
         String resposta = "";
 
         for (int i = 0; i < combinacioIntentada.length; ++i) {
@@ -82,11 +84,19 @@ public class CtrlPartida {
             else {
                 for (int j = 0; j < combinacioIntentada.length; ++j) {
                     if (combinacioIntentada[i] == solutionCode[j]) {
-
+                        resposta += "W";
+                        solutionCode[j] = -1;
                     }
                 }
             }
         }
+
+        while (resposta.length() < combinacioIntentada.length) {
+            resposta += "-";
+        }
+
+        p.setRespostaRonda(resposta);
+        return resposta;
     }
 
     public Integer[] getCodiMaquina() throws TipusPartidaIncorrecte {
