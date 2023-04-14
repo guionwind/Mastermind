@@ -21,6 +21,7 @@ public class CtrlJugador {
     //si no hi ha jugador, JugadorActual = -1
     public CtrlJugador() {
         jugadorActual = -1;
+        jugadors = new HashMap <Integer, Jugador>();
     }
 
     //retorna el jugador actual
@@ -46,6 +47,8 @@ public class CtrlJugador {
             int newId = j.getID();
             jugadors.put(newId, j);
             jugadorActual = newId;
+        }else{
+            if (jugadorActual == -2) throw new JugadorJaExisteix("XD");
         }
     }
 

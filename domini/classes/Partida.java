@@ -29,6 +29,7 @@ public abstract class Partida {
         this.configuracioPartida = configuracioPartida;
         this.solutionCode = solutionCode;
         this.ctrlPartida = ctrlPartida;
+        rondes = new HashMap<Integer, Ronda>();
     }
 
     /**
