@@ -27,4 +27,8 @@ public class CtrlAlgorisme {
         FiveGuess fG = fiveGuess.get(idPartida);
         return fG.esbrina(ultimIntent, resposta);
     }
+
+    public void addFiveGuess() {
+
+    }
 }
