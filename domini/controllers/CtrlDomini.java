@@ -96,7 +96,7 @@ public class CtrlDomini {
     }
 
     public Integer[] demanarPista() {
-        return ctrlPartida.getCodiMaquina();
+        return ctrlPartida.getPista();
     }
 
 
