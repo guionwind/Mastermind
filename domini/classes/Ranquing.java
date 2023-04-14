@@ -24,7 +24,7 @@ class estadisticasComparator implements Comparator<Integer[]> {
 public class Ranquing {
     // Atributs
     private int id;
-    private ArrayList<Integer[]> estadistiques;
+    private ArrayList<Integer[]> estadistiques; //cada Integer[] conté {idJugador, puntuacio}
     private static int nombreRanquings = 0;
 
     /**

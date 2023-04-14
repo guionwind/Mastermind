@@ -21,14 +21,13 @@ public class Jugador {
     * despres assigna les credencials corresponents
     */
     public Jugador(String name, String pwd) throws JugadorJaExisteix,JugadorInvalid {
-        ++nombreJugadors;
         this.id = nombreJugadors;
+        ++nombreJugadors;
 
         this.username = name;
         this.password = pwd;
 
-        statsPartides = new ArrayList<EstadistiquesPartida>();
-
+        statsPartides = new ArrayList<EstadistiquesPartida>();   
     }
     
     /**consultora de partides guanyades
