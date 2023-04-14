@@ -1,2 +1,7 @@
-package drivers.driverPartida;public class ConfiguracioPartida {
+package drivers.driverPartida;
+
+public class ConfiguracioPartida {
+    public ConfiguracioPartida() {
+
+    }
 }

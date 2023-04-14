@@ -123,6 +123,12 @@ public class CtrlPartida {
         return p.rondesJugades();
     }
 
+    public void addEstadistiquesPartida(EstadistiquesPartida estadistiquesPartida) {
+        Partida p = partides.get(idPartidaActual);
+
+        p.setEstadisticaPartida(estadistiquesPartida);
+    }
+
     private ConfiguracioPartida creaConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {
         return new ConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
     }
