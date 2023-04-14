@@ -22,4 +22,9 @@ public class Codemaker {
 
     }
 
+    public Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta) {
+        return new Integer[] {-1,-1,-1,-1};
+    }
+
+
 }
