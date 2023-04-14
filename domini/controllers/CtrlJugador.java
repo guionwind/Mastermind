@@ -6,7 +6,6 @@ import domini.classes.Jugador;
 import domini.classes.exceptions.*;
 
 import java.lang.String;
-import java.util.EmptyStackException;
 import java.util.HashMap;
 
 
@@ -64,7 +63,7 @@ public class CtrlJugador {
 
     //obte la contrasenya a partir d'un username
     //busca entre els valors del map la instancia de Jugador que tingui la username indicada, i retorna la contrasenya
-    public String getPassword(String username) throws UsuariNoExisteix{
+    public String getPassword(String username) throws JugadorNoExisteix{
         String pass = null;
         for (Jugador j : jugadors.values()) {
             if (j.getUsername() == username) {

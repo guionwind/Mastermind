@@ -6,7 +6,6 @@ import domini.classes.exceptions.*;
 import java.util.ArrayList;
 import java.lang.String;
 import domini.classes.ConfiguracioPartida.TipusPartida;
-import domini.classes.exceptions.TipusPartidaIncorrecte;
 
 public class CtrlDomini {
 
@@ -123,7 +122,7 @@ public class CtrlDomini {
     }
 
     //! del CtrlJugador
-    public void crearJugador (String username, String password) throws JugadorJaExisteix {
+    public void crearJugador (String username, String password) throws JugadorJaExisteix, JugadorInvalid {
         ctrlJugador.crearJugador(username, password);
     }
 
@@ -205,6 +204,8 @@ public class CtrlDomini {
         if (guanyada) ctrlRanquing.setNewRecord(idJugador, puntuacio);
         return puntuacio;
     }
+
+    
 
     /**
      * Agafem les estadistiques que volem. Actualment nomes s'agafa la puntuacio de la partida
