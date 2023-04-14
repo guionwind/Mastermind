@@ -2,8 +2,11 @@ package domini.controllers;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.StreamCorruptedException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+
+import domini.classes.exceptions.TipusPartidaIncorrecte;
 
 public class CtrlPresentacio {
     // ATRIBUTS
@@ -26,62 +29,76 @@ public class CtrlPresentacio {
         System.out.flush();  
     }
 
-    private void codemakerLoop(Integer numeroIntents, Integer longitudCombinacio, Integer[] combinacioCorrecteInt){ //TODO ACABAR CODEMAKERLOOP
-        String respostaObtinguda = "";
+    private void codemakerLoop(Integer numeroIntents, Integer longitudCombinacio, Integer[] combinacioCorrecteInt) throws IOException, InterruptedException, TipusPartidaIncorrecte{ 
+        Integer intents = 0;
+        Boolean guanyat = false;
+        String correccio;
         ArrayList<String> combinacions = new ArrayList<String>();
         ArrayList<String> respostes = new ArrayList<String>();
+        String respostaCorrecta = "";
+
         for (int i = 0; i < longitudCombinacio; i++){
             respostaCorrecta += "B";
         }
-
-        System.out.println("////////////////////////////////////////////////////////");
-        System.out.println("////////////////////// MASTERMIND //////////////////////");
-        System.out.println("/////                                              /////");
-        System.out.println("/////                                              /////");
-        System.out.println("/////            Envia una combinacio o            /////");
-        System.out.println("/////         Envia H per obtenir una pista        /////");
-        System.out.println("////////////////////////////////////////////////////////");
+        
+        Boolean benCorretgit = false;
         while (numeroIntents > intents && !guanyat){
             netejarConsola();
-            String combinacioIntentada = reader.readLine();
 
-            if (combinacioIntentada == "H"){
-                pista(longitudCombinacio);
+            String[] resposta = ctrlDomini.jugarRondaCodeMaker();
+            combinacions.add(resposta[0]);
+
+            System.out.println("////////////////////////////////////////////////////////");
+            System.out.println("////////////////////// MASTERMIND //////////////////////");
+            System.out.println("/////                                              /////");
+            for (int i = 0; i < respostes.size(); i++){
+                System.out.println("///// " + combinacions.get(i) + "     " + respostes.get(i) + "           /////");
+            }
+            System.out.println("///// " + resposta[0] + "                      /////");
+            System.out.println("/////                                              /////");
+            if (benCorretgit) System.out.println("/////                Ben corretgit!                /////");
+            System.out.println("/////             Envia una correccio              /////");
+            System.out.println("/////                                              /////");
+            System.out.println("////////////////////////////////////////////////////////");
+
+            correccio = reader.readLine();
+            netejarConsola();
+            if (correccio == resposta[1]){
+                benCorretgit = true;
             }
             else{
-                combinacions.add(combinacioIntentada);
+                while (correccio != resposta[1]){
+                    System.out.println("////////////////////////////////////////////////////////");
+                    System.out.println("////////////////////// MASTERMIND //////////////////////");
+                    System.out.println("/////                                              /////");
+                    for (int i = 0; i < respostes.size(); i++){
+                        System.out.println("///// " + combinacions.get(i) + "     " + respostes.get(i) + "           /////");
+                    }
+                    System.out.println("///// " + resposta[0] + "                      /////");
+                    System.out.println("/////                                              /////");
+                    System.out.println("/////        Mal corretgit! Torna a provar         /////");
+                    System.out.println("/////                 Torna a provar               /////");
+                    System.out.println("/////                                              /////");
+                    System.out.println("////////////////////////////////////////////////////////");
 
-                char[] combinacioIntentadaChar = combinacioIntentada.toCharArray();
-                Integer[] combinacioIntentadaInt = new Integer[longitudCombinacio];
-    
-                for (int i = 0; i < combinacioIntentada.length(); i++){
-                    combinacioIntentadaInt[i] = Character.getNumericValue(combinacioIntentadaChar[i]);
+                    correccio = reader.readLine();
+                    netejarConsola();
                 }
+
                 
-                respostaObtinguda = ctrlDomini.jugarRondaCodebreaker(combinacioIntentadaInt);
-                respostes.add(respostaObtinguda);
-                System.out.println("////////////////////////////////////////////////////////");
-                System.out.println("////////////////////// MASTERMIND //////////////////////");
-                System.out.println("/////                                              /////");
-                for (int i = 0; i < combinacions.size(); i++){
-                    System.out.println("///// " + combinacioIntentada + "     " + respostaObtinguda + "           /////");
-                }
-                System.out.println("/////                                              /////");
-                System.out.println("/////            Envia una combinacio o            /////");
-                System.out.println("/////         Envia H per obtenir una pista        /////");
-                System.out.println("////////////////////////////////////////////////////////");
-
-                if (respostaCorrecta != respostaObtinguda) guanyat = true;
-                intents++;
             }
+            respostes.add(correccio);
+            if (respostaCorrecta == correccio) guanyat = true;
+
+            intents++;
         }
 
-        Integer puntuacio = ctrlDomini.partidaAcabada(guanyat);
+        Integer puntuacio = ctrlDomini.partidaAcabadaCodemaker();
 
-        acabarPartida(guanyat, intents, numeroIntents, puntuacio);
+        acabarPartida(guanyat, intents, numeroIntents, puntuacio, true);
     }
 
-    private void partidaCodemaker() throws IOException{
+    private void partidaCodemaker() throws IOException, InterruptedException, TipusPartidaIncorrecte{
         Boolean creada = false;
         Integer numeroIntents = 0;
         Integer longitudCombinacio = 0;
@@ -111,12 +128,13 @@ public class CtrlPresentacio {
             }
             catch (Exception exception){ //TODO Ficar la excepcio corresponent
                 System.out.println("!!! Configuracio incorrecte !!!");
+                Thread.sleep(2000); //S'espera 2 segons
             }
         }
         codemakerLoop(numeroIntents, longitudCombinacio, combinacioCorrecteIntParam);
     }
 
-    private void partidaCodebreaker() throws IOException{
+    private void partidaCodebreaker() throws IOException, InterruptedException, TipusPartidaIncorrecte{
         Boolean creada = false;
         Integer numeroIntents = 0;
         Integer longitudCombinacio = 0;
@@ -133,6 +151,7 @@ public class CtrlPresentacio {
             }
             catch (Exception exception){ //TODO Ficar la excepcio corresponent
                 System.out.println("!!! Configuracio incorrecte !!!");
+                Thread.sleep(2000); //S'espera 2 segons
             }
         }
         codebrakerLoop(numeroIntents, longitudCombinacio);
@@ -153,16 +172,18 @@ public class CtrlPresentacio {
         System.out.println("////////////////////////////////////////////////////////");
     }
 
-    private void acabarPartida(Boolean guanyat, Integer intents, int numeroIntents, Integer puntuacio) throws IOException{
+    private void acabarPartida(Boolean guanyat, Integer intents, int numeroIntents, Integer puntuacio, Boolean codemaker) throws IOException, InterruptedException, TipusPartidaIncorrecte{
         netejarConsola();
         System.out.println("////////////////////////////////////////////////////////");
         System.out.println("////////////////////// MASTERMIND //////////////////////");
         System.out.println("/////                                              /////");
         if (guanyat){
-            System.out.println("/////              !! HAS GUANYAT !!               /////");
+            if (codemaker) System.out.println("/////              !! LA MAQUINA HA GUANYAT !!               /////");
+            else System.out.println("/////              !! HAS GUANYAT !!               /////");
         }
-        else{     
-            System.out.println("/////               !! HAS PERDUT !!               /////");
+        else{
+            if (codemaker) System.out.println("/////            !! LA MAQUINA HA PERDUT !!               /////");
+            else System.out.println("/////               !! HAS PERDUT !!               /////");
         }
         System.out.println("/////                                              /////");
         System.out.println("/////                ESTADISTIQUES                 /////");
@@ -171,11 +192,11 @@ public class CtrlPresentacio {
         System.out.println("/////     Premi qualsevol tecla per continuar      /////");
         System.out.println("////////////////////////////////////////////////////////");
         reader.readLine();
-        ranquing();
+        if (!codemaker) ranquing();
         menu();
     }
 
-    private void codebrakerLoop(int numeroIntents, int longitudCombinacio) throws IOException{
+    private void codebrakerLoop(int numeroIntents, int longitudCombinacio) throws IOException, InterruptedException, TipusPartidaIncorrecte{
         Integer intents = 0;
         Boolean guanyat = false;
         String respostaCorrecta = "";
@@ -194,8 +215,8 @@ public class CtrlPresentacio {
         System.out.println("/////         Envia H per obtenir una pista        /////");
         System.out.println("////////////////////////////////////////////////////////");
         while (numeroIntents > intents && !guanyat){
-            netejarConsola();
             String combinacioIntentada = reader.readLine();
+            netejarConsola();
 
             if (combinacioIntentada == "H"){
                 pista(longitudCombinacio);
@@ -223,17 +244,17 @@ public class CtrlPresentacio {
                 System.out.println("/////         Envia H per obtenir una pista        /////");
                 System.out.println("////////////////////////////////////////////////////////");
 
-                if (respostaCorrecta != respostaObtinguda) guanyat = true;
+                if (respostaCorrecta == respostaObtinguda) guanyat = true;
                 intents++;
             }
         }
 
         Integer puntuacio = ctrlDomini.partidaAcabada(guanyat);
 
-        acabarPartida(guanyat, intents, numeroIntents, puntuacio);
+        acabarPartida(guanyat, intents, numeroIntents, puntuacio, false);
     }
 
-    private void jugar() throws IOException {
+    private void jugar() throws IOException, InterruptedException, TipusPartidaIncorrecte {
         netejarConsola();
         
         System.out.println("////////////////////////////////////////////////////////");
@@ -290,7 +311,7 @@ public class CtrlPresentacio {
         reader.readLine();
     }
 
-    private void login() throws IOException, InterruptedException {
+    private void login() throws IOException, InterruptedException, TipusPartidaIncorrecte {
         netejarConsola();
         
         System.out.println("////////////////////////////////////////////////////////");
@@ -324,6 +345,7 @@ public class CtrlPresentacio {
                         }
                         catch(Exception JugadorJaExisteix){
                             System.out.println("!!! Usuari ja existeix !!!");
+                            Thread.sleep(2000); //S'espera 2 segons
                         }
                     }
                 }
@@ -367,7 +389,7 @@ public class CtrlPresentacio {
         }
     }
 
-    private void menu () throws IOException {
+    private void menu () throws IOException, InterruptedException, TipusPartidaIncorrecte {
         netejarConsola();
 
         System.out.println("////////////////////////////////////////////////////////");
@@ -376,7 +398,7 @@ public class CtrlPresentacio {
         System.out.println("/////  Benvingut " + ctrlDomini.getUsername() + "  /////");
         System.out.println("///// 0: Jugar                                     /////");
         System.out.println("///// 1: Rànquing                                  /////");
-        System.out.println("///// 2: Canviar usuari                            /////");
+        System.out.println("///// 2: Tancar Sessio                             /////");
         System.out.println("///// 3: Sortir                                    /////");
         System.out.println("////////////////////////////////////////////////////////");
 
@@ -409,7 +431,7 @@ public class CtrlPresentacio {
         }
     }
 
-    public void main (String [] args) throws IOException{
+    public void main (String [] args) throws IOException, InterruptedException, TipusPartidaIncorrecte{
         //CtrlDomini ctrlDomini = new CtrlDomini();
         ctrlDomini.crearRanquing();
         
