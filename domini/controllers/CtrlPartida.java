@@ -47,6 +47,7 @@ public class CtrlPartida {
 
         Integer[] solutionCode = generateSolutionCode(numeroColors, longitudCombinacio);
 
+
         Codebreaker cB = new Codebreaker(c, solutionCode, this);
 
         idPartidaActual = cB.getId();
@@ -79,7 +80,7 @@ public class CtrlPartida {
     public String corregeix(Integer[] combinacioIntentada) {
         Partida p = partides.get(idPartidaActual);
 
-        Integer[] solutionCode = p.getSolutionCode();
+        Integer[] solutionCode = p.getSolutionCode().clone();
         String resposta = "";
 
         for (int i = 0; i < combinacioIntentada.length; ++i) {
