@@ -24,7 +24,7 @@ class estadisticasComparator implements Comparator<Integer[]> {
 public class Ranquing {
     // Atributs
     private int id;
-    private ArrayList<Integer[]> estadistiques = new ArrayList<Integer[]>();
+    private ArrayList<Integer[]> estadistiques;
     private static int nombreRanquings = 0;
 
     /**
@@ -34,6 +34,7 @@ public class Ranquing {
      */
     public Ranquing() {
         this.id = nombreRanquings;
+        estadistiques = new ArrayList<Integer[]>();
         ++nombreRanquings;
     }
 
@@ -54,9 +55,9 @@ public class Ranquing {
      * @param estadistica Estadística de partida a afegir al ranquing.
      */
     public void addEstadistica(Integer[] estadistica) {
-        this.estadistiques.add(estadistica);
+        estadistiques.add(estadistica);
         estadisticasComparator estatComparator = new estadisticasComparator();
-        Collections.sort(this.estadistiques, estatComparator);
+        Collections.sort(estadistiques, estatComparator);
     }
 
     /**
@@ -67,8 +68,9 @@ public class Ranquing {
      */
     public ArrayList<Integer[]> getTopN(int n) {
         ArrayList<Integer[]> tempEstadistiques = new ArrayList<Integer[]>();
+        if (estadistiques.size() < n) n = estadistiques.size();
         for (int i = 0; i < n; i++) {
-            tempEstadistiques.add(this.estadistiques.get(i));
+            tempEstadistiques.add(estadistiques.get(i));
         }
         return tempEstadistiques;
     }
