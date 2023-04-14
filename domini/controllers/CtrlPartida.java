@@ -129,18 +129,18 @@ public class CtrlPartida {
         p.setEstadisticaPartida(estadistiquesPartida);
     }
 
-    public Integer[] getPista() {
+    public String getPista() {
         Partida p = partides.get(idPartidaActual);
 
         Random r = new Random();
 
         Integer[] solution = p.getSolutionCode();
-        Integer[] pista = new Integer[solution.length];
+        String pista = "";
 
         int posicio = r.nextInt(solution.length) - 1;
         for (int i = 0; i < solution.length; ++i) {
-            if (i != posicio) pista[i] = -1;
-            else pista[i] = solution[i];
+            if (i != posicio) pista += "?";
+            else pista += solution[i];
         }
 
         return pista;
