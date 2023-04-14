@@ -346,7 +346,7 @@ public class CtrlPresentacio {
                 menu();
                 break;
             case "1":
-                Boolean loged = false;
+                boolean loged = false;
                 while (!loged){
                     System.out.println("Usuari:");
                     String usuari = reader.readLine();
@@ -388,7 +388,7 @@ public class CtrlPresentacio {
         System.out.println("////////////////////////////////////////////////////////");
         System.out.println("////////////////////// MASTERMIND //////////////////////");
         System.out.println("/////                     MENU                     /////");
-        System.out.println("/////  Benvingut " + ctrlDomini.getUsername() + "                      /////");
+        System.out.println("/////  Benvingut " + ctrlDomini.getUsername() + "                              /////");
         System.out.println("///// 0: Jugar                                     /////");
         System.out.println("///// 1: Rànquing                                  /////");
         System.out.println("///// 2: Tancar Sessio                             /////");
@@ -419,7 +419,7 @@ public class CtrlPresentacio {
 
                 interaccioUsuari = reader.readLine();
 
-                if (interaccioUsuari == "0") break;
+                if (interaccioUsuari.equals("0")) System.exit(0);;
             default:
                 menu();
         }
