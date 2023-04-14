@@ -1,7 +1,5 @@
 package domini.classes;
 
-import domini.classes.Partida;
-
 public class ConfiguracioPartida {
 
     /**
@@ -15,7 +13,7 @@ public class ConfiguracioPartida {
     /**
      * Identificador de la partida a la que pertany la configuració.
      */
-    private Partida partida;
+    private Integer idPartida;
     /**
      * Tipus de partida.
      * Ha de ser un dels tipus admesos per l'Enumeration TipusPartida.
@@ -25,23 +23,23 @@ public class ConfiguracioPartida {
      * Número d'intents permesos per intentar trencar el codi.
      * Equivalent al número de rondes màxim.
      */
-    private int numeroIntents;
+    private Integer numeroIntents;
     /**
      * Número de colors diferents ademsos per crear el codi a trencar.
      */
-    private int numeroColors;
+    private Integer numeroColors;
     /**
      * Número de fitxes diferents admemses per crear el codi a trencar.
      * Equivalent a la longitud del codi.
      */
-    private int longitudCombinacio;
+    private Integer longitudCombinacio;
 
     /**
      * Constructora 1
      * Crea una nova instància de la classe amb tots els atributs per defecte.
      */
     public ConfiguracioPartida() {
-        this.partida = null;
+        this.idPartida = null;
         this.tipusPartida = null;
         this.numeroIntents = 0;
         this.numeroColors = 0;
@@ -58,8 +56,8 @@ public class ConfiguracioPartida {
      * @param   numeroColors        Número de colors diferents possibles per crear el codi.
      * @param   longitudCombinacio  Llargada del codi a crear.
      */
-    public ConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {
-        this.partida = null;
+    public ConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
+        this.idPartida = null;
         this.tipusPartida = tipusPartida;
 
         if (numeroIntents < 1) numeroIntents = 1;
@@ -73,6 +71,7 @@ public class ConfiguracioPartida {
         if (longitudCombinacio < 4) longitudCombinacio = 4;
         else if (longitudCombinacio > 10) longitudCombinacio = 10;
         this.longitudCombinacio = longitudCombinacio;
+
     }
 
     /**
@@ -80,8 +79,8 @@ public class ConfiguracioPartida {
      *
      * @return                      Partida a la que pertany.
      */
-    public Partida getPartida() {
-        return partida;
+    public Integer getPartida() {
+        return idPartida;
     }
 
     /**
@@ -98,7 +97,7 @@ public class ConfiguracioPartida {
      *
      * @return                      Número d'intents permessos.
      */
-    public int getNumeroIntents() {
+    public Integer getNumeroIntents() {
         return numeroIntents;
     }
 
@@ -107,7 +106,7 @@ public class ConfiguracioPartida {
      *
      * @return                      Número de colors diferents.
      */
-    public int getNumeroColors() {
+    public Integer getNumeroColors() {
         return numeroColors;
     }
 
@@ -116,7 +115,7 @@ public class ConfiguracioPartida {
      *
      * @return                      Longitud del codi.
      */
-    public int getLongitudCombinacio() {
+    public Integer getLongitudCombinacio() {
         return longitudCombinacio;
     }
 
@@ -127,13 +126,9 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setPartida(Partida partida) throws Exception {
-        if (this.partida == null && partida != null) {
-            // COMPROVAR QUE NO EXISTEIXI UNA ALTRA PARTIDA
-            // Controlador domini demano, existeix partida?
-            // Controlador domini demana a Partida,
-            //      existeix partida ? (boolea) / retorna partida (amb Exception per al cas que no existeixi)
-            this.partida = partida;
+    public boolean setPartida(Integer partida) {
+        if (this.idPartida == null && partida != null) {
+            this.idPartida = partida;
             return true;
         }
         return false;
@@ -148,10 +143,6 @@ public class ConfiguracioPartida {
      */
     public boolean setTipusPartida(TipusPartida tipusPartida) {
         if (tipusPartida != null) {
-            // COMPROVAR QUE EXISTEIXI LA PARTIDA
-            // Controlador domini demano, existeix partida?
-            // Controlador domini demana a Partida,
-            //      existeix partida ? (boolea) / retorna partida (amb Exception per al cas que no existeixi)
             this.tipusPartida = tipusPartida;
             return true;
         }
@@ -165,7 +156,7 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setNumeroIntents(int numeroIntents) {
+    public boolean setNumeroIntents(Integer numeroIntents) {
         if (numeroIntents >= 1 && numeroIntents <= 20) {
             this.numeroIntents = numeroIntents;
             return true;
@@ -180,7 +171,7 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setNumeroColors(int numeroColors) {
+    public boolean setNumeroColors(Integer numeroColors) {
         if (numeroColors >= 4 && numeroColors <= 10) {
             this.numeroColors = numeroColors;
             return true;
@@ -195,7 +186,7 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setLongitudCombinacio(int longitudCombinacio) {
+    public boolean setLongitudCombinacio(Integer longitudCombinacio) {
         if (longitudCombinacio >= 4 && longitudCombinacio <= 10) {
             this.longitudCombinacio = longitudCombinacio;
             return true;

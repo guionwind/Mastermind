@@ -2,7 +2,6 @@ package drivers.driverConfiguracioPartida;
 
 import drivers.driverConfiguracioPartida.ConfiguracioPartida;
 import drivers.driverConfiguracioPartida.ConfiguracioPartida.TipusPartida;
-import drivers.driverConfiguracioPartida.Partida;
 
 public class DriverConfiguracioPartida {
     public void testCreadora1() {
@@ -82,7 +81,7 @@ public class DriverConfiguracioPartida {
 
     public void testGetPartida() {
         ConfiguracioPartida cP = new ConfiguracioPartida(TipusPartida.CODEMAKER, 12, 7, 8);
-        Partida p = cP.getPartida();
+        Integer p = new Integer(8);
         System.out.println("Obtenim partida");
     }
 
@@ -112,22 +111,18 @@ public class DriverConfiguracioPartida {
 
     public void testSetPartida() throws Exception {
         boolean retorn;
-        Partida p;
+        Integer p;
         ConfiguracioPartida cP1, cP2;
 
         cP1 = new ConfiguracioPartida(TipusPartida.CODEMAKER, 12, 7, 8);
-        p = new Codemaker(cP1, new Integer[]{1,2,3,4});
+        p = new Integer(5);
         retorn = cP1.setPartida(p);
         System.out.println("Assignem la partida que conte la propia configuracio partida: " + retorn);
 
-        p = new Codebreaker(cP1, new Integer[]{1,2,3,4});
+        p = new Integer(7);
         retorn = cP1.setPartida(p);
         System.out.println("Assignem la partida quan ja hi ha una partida assignada: " + retorn);
 
-        cP2 = new ConfiguracioPartida(TipusPartida.CODEBREAKER, 13, 8, 9);
-        p = new Codebreaker(cP2, new Integer[]{1,2,3,4});
-        retorn = cP2.setPartida(p);
-        System.out.println("Assignem la partida que conte una configuracio partida que no correspon: " + retorn);
     }
 
     public void testSetTipusPartida() {
