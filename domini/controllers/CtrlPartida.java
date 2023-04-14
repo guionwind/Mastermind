@@ -137,7 +137,7 @@ public class CtrlPartida {
         Integer[] solution = p.getSolutionCode();
         String pista = "";
 
-        int posicio = r.nextInt(solution.length) - 1;
+        int posicio = r.nextInt(solution.length);
         for (int i = 0; i < solution.length; ++i) {
             if (i != posicio) pista += "?";
             else pista += solution[i];
