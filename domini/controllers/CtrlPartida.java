@@ -2,7 +2,9 @@ package domini.controllers;
 
 import domini.classes.*;
 import domini.classes.ConfiguracioPartida.TipusPartida;
-import domini.classes.exceptions.TipusPartidaIncorrecte;
+import domini.classes.exceptions.LongitudCombinacioIncorrecte;
+import domini.classes.exceptions.NumeroColorsIncorrecte;
+import domini.classes.exceptions.NumeroIntentsIncorrecte;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -43,8 +45,11 @@ public class CtrlPartida {
      * @param numeroColors
      * @param longitudCombinacio
      * @throws IOException
+     * @throws LongitudCombinacioIncorrecte
+     * @throws NumeroColorsIncorrecte
+     * @throws NumeroIntentsIncorrecte
      */
-    public void crearPartidaCodebreaker(int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {
+    public void crearPartidaCodebreaker(int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException, NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
         TipusPartida t = TipusPartida.CODEBREAKER;
         ConfiguracioPartida c = creaConfiguracioPartida(t ,numeroIntents, numeroColors, longitudCombinacio);
 
@@ -57,7 +62,7 @@ public class CtrlPartida {
         partides.put(idPartidaActual, cB);
     }
 
-    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws IOException {
+    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws IOException, NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
         TipusPartida t = TipusPartida.CODEMAKER;
         ConfiguracioPartida c = creaConfiguracioPartida(t, numeroIntents, numeroColors, longitudCombinacio);
 
@@ -154,7 +159,7 @@ public class CtrlPartida {
         return pista;
     }
 
-    private ConfiguracioPartida creaConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {
+    private ConfiguracioPartida creaConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException, NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
         return new ConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
     }
 
