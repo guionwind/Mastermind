@@ -20,6 +20,7 @@ public class CtrlJugador {
     //si no hi ha jugador, JugadorActual = -1
     public CtrlJugador() {
         jugadorActual = -1;
+        jugadors = new HashMap <Integer, Jugador>();
         jugadors = new HashMap<Integer, Jugador>();
     }
 
@@ -39,13 +40,15 @@ public class CtrlJugador {
 
 
     //crea un nou jugador per al registre, afegeix les credencials a usuariContrasenya
-    //* se'l logeja automaticament
+    //* no se'l logeja automaticament
     public void crearJugador(String username, String password) throws JugadorJaExisteix, JugadorInvalid {
         if (jugadorActual == -1) {
             Jugador j = new Jugador(username, password);
             int newId = j.getID();
             jugadors.put(newId, j);
             jugadorActual = newId;
+        }else{
+            if (jugadorActual == -2) throw new JugadorJaExisteix("XD");
         }
         else {
             throw new JugadorJaExisteix("matat");

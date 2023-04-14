@@ -1,10 +1,13 @@
 package drivers.driverPartida;
 
+import domini.controllers.CtrlAlgorisme;
 import drivers.driverConfiguracioPartida.ConfiguracioPartida;
 
 public class Codemaker {
+    private final CtrlAlgorisme ctrlAlgorisme;
     public Codemaker() {
         super();
+        ctrlAlgorisme = new CtrlAlgorisme();
     }
     public Integer getId() {
         return 4;
@@ -21,5 +24,10 @@ public class Codemaker {
     public void creaRonda() {
 
     }
+
+    public Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta) {
+        return ctrlAlgorisme.esbrinarCodiFiveguess(this.getId(),ultimIntent, resposta);
+    }
+
 
 }

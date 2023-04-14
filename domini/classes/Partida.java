@@ -29,6 +29,7 @@ public abstract class Partida {
         this.configuracioPartida = configuracioPartida;
         this.solutionCode = solutionCode;
         this.ctrlPartida = ctrlPartida;
+        rondes = new HashMap<Integer, Ronda>();
     }
 
     /**
@@ -96,7 +97,9 @@ public abstract class Partida {
 
     public abstract boolean esCodeMaker();
 
-    public abstract Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta);
+    public Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta) {
+        return new Integer[]{-1, -1, -1, -1};
+    }
 
     public Integer[] getUltimCodi() {
         Ronda r = rondes.get(rondes.size() - 1);

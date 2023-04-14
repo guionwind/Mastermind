@@ -47,6 +47,7 @@ public class CtrlPartida {
 
         Integer[] solutionCode = generateSolutionCode(numeroColors, longitudCombinacio);
 
+
         Codebreaker cB = new Codebreaker(c, solutionCode, this);
 
         idPartidaActual = cB.getId();
@@ -79,7 +80,7 @@ public class CtrlPartida {
     public String corregeix(Integer[] combinacioIntentada) {
         Partida p = partides.get(idPartidaActual);
 
-        Integer[] solutionCode = p.getSolutionCode();
+        Integer[] solutionCode = p.getSolutionCode().clone();
         String resposta = "";
 
         for (int i = 0; i < combinacioIntentada.length; ++i) {
@@ -127,6 +128,23 @@ public class CtrlPartida {
         Partida p = partides.get(idPartidaActual);
 
         p.setEstadisticaPartida(estadistiquesPartida);
+    }
+
+    public String getPista() {
+        Partida p = partides.get(idPartidaActual);
+
+        Random r = new Random();
+
+        Integer[] solution = p.getSolutionCode();
+        String pista = "";
+
+        int posicio = r.nextInt(solution.length);
+        for (int i = 0; i < solution.length; ++i) {
+            if (i != posicio) pista += "?";
+            else pista += solution[i];
+        }
+
+        return pista;
     }
 
     private ConfiguracioPartida creaConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException {
