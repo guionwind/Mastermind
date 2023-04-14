@@ -111,9 +111,15 @@ public class CtrlDomini {
      * @throws TipusPartidaIncorrecte Llença l'excepcio en cas que el
      * tipus de partida no sigui Codemaker.
      */
-    public String jugarRondaCodeMaker() throws TipusPartidaIncorrecte {
+    public String[] jugarRondaCodeMaker() throws TipusPartidaIncorrecte {
         Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina();
-        return ctrlPartida.corregeix(combinacioIntentada);
+        String respostaCombinacio = ctrlPartida.corregeix(combinacioIntentada);
+        String combinacioIntentadaString = "";
+        for (int i = 0; i < respostaCombinacio.length(); i++){
+            combinacioIntentadaString += combinacioIntentada[i].toString();
+        }
+        String[] resposta = new String[]{combinacioIntentadaString, respostaCombinacio};
+        return resposta;
     }
 
     //! del CtrlJugador
