@@ -1,4 +1,4 @@
-package test;
+package test.TestJugador;
 
 import domini.classes.exceptions.*;
 
@@ -28,6 +28,22 @@ public class TestJugador {
         assertEquals(2, jugador2.getID());
         System.out.println("testConstructora exitos");
     }
+
+    @Test
+    //es comprova que salta l'excepcio "JugadorJaExisteix" de la creadora
+    public void testConstructoraInvalid () throws JugadorJaExisteix, JugadorInvalid {
+        System.out.println("testConstructora (exception JugadorInvalid)");
+        Jugador jugador1 = new Jugador("", "Sheng");
+    }
+
+    @Test
+    //es comprova que salta l'excepcio "JugadorJaExisteix" de la creadora
+    public void testConstructoraJaExisteix () throws JugadorJaExisteix, JugadorInvalid {
+        System.out.println("testConstructora (exception JugadorJaExisteix)");
+        Jugador jugador1 = new Jugador("Jose", "Sheng");
+        Jugador jugador2 = new Jugador("Jose", "cordinador");
+    }
+
 
     @Test
     public void testSetEstadistica() throws JugadorJaExisteix, JugadorInvalid {

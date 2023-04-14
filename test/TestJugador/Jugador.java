@@ -1,5 +1,5 @@
 
-package drivers.driverJugador;
+package test.TestJugador;
 
 import java.util.ArrayList;
 import domini.classes.exceptions.*;

@@ -1,4 +1,4 @@
-package drivers.driverJugador;
+package test.TestJugador;
 
 public class EstadistiquesPartida {
     private boolean guanyada;
