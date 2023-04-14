@@ -1,5 +1,6 @@
 package domini.classes;
 
+import domini.controllers.CtrlAlgorisme;
 import domini.controllers.CtrlPartida;
 
 import java.util.HashMap;
@@ -16,6 +17,7 @@ public abstract class Partida {
     private final ConfiguracioPartida configuracioPartida;
 
     private final CtrlPartida ctrlPartida;
+    private final CtrlAlgorisme ctrlAlgorisme;
 
     /**
      * Constructora de la classe partida
@@ -29,6 +31,7 @@ public abstract class Partida {
         this.configuracioPartida = configuracioPartida;
         this.solutionCode = solutionCode;
         this.ctrlPartida = ctrlPartida;
+        ctrlAlgorisme = new CtrlAlgorisme();
         rondes = new HashMap<Integer, Ronda>();
     }
 
@@ -98,7 +101,7 @@ public abstract class Partida {
     public abstract boolean esCodeMaker();
 
     public Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta) {
-        return new Integer[]{-1, -1, -1, -1};
+        return ctrlAlgorisme.esbrinarCodiFiveguess(this.getId(),ultimIntent, resposta);
     }
 
     public Integer[] getUltimCodi() {
