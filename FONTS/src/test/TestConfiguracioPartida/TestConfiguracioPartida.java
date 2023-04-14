@@ -2,22 +2,22 @@ package test.TestConfiguracioPartida;
 
 import domini.classes.ConfiguracioPartida;
 import domini.classes.ConfiguracioPartida.TipusPartida;
+import domini.classes.exceptions.*;
+
+
 import static org.junit.Assert.*;
+
+import javax.imageio.plugins.tiff.GeoTIFFTagSet;
+
 import org.junit.Test;
+
 
 public class TestConfiguracioPartida {
 
-    private Integer idPartida;
-    private TipusPartida tipusPartida;
-    private Integer numeroIntents;
-    private Integer numeroColors;
-    private Integer longitudCombinacio;
     /**
      * Test de les constructores de ConfiguracioPartida
      * Estratègia caixa gris
      * Tambe comprova getters
-     * @throws JugadorInvalid
-     * @throws JugadorJaExisteix
      */
 
     @Test
@@ -31,13 +31,12 @@ public class TestConfiguracioPartida {
         assertEquals(i, cp1.getNumeroColors());
         assertEquals(i, cp1.getLongitudCombinacio());
         System.out.println("testConstructora() pass");
-
     }
 
     @Test
-    public void testConstructoraParams() {
+    public void testConstructoraParams()  throws LongitudCombinacioIncorrecte, NumeroIntentsIncorrecte,NumeroColorsIncorrecte {
         System.out.println("testConstructora CODEBREAKER amb tots els params");
-        Integer i1 = 1, i2 = 2, i3 = 3;
+        Integer i1 = 2, i2 = 5, i3 = 5;
         ConfiguracioPartida cp2 = new ConfiguracioPartida(TipusPartida.CODEBREAKER, i1, i2, i3);
         assertEquals(null, cp2.getPartida());
         assertEquals(TipusPartida.CODEBREAKER, cp2.getTipusPartida());
@@ -45,106 +44,71 @@ public class TestConfiguracioPartida {
         assertEquals(i2, cp2.getNumeroColors());
         assertEquals(i3, cp2.getLongitudCombinacio());
         System.out.println("testConstructora CODEBREAKER amb tots els params pass");
+    }
 
-        System.out.println("testConstructora CODEMAKER amb valors per sota del rang");
-        i1 = -1; i2 = -3; i3 = -4;
-        ConfiguracioPartida cp3 = new ConfiguracioPartida(TipusPartida.CODEMAKER, i1, i2, i3);
-        assertEquals(null, cp3.getPartida());
-        assertEquals(TipusPartida.CODEMAKER, cp3.getTipusPartida());
-        assertEquals(1, cp3.getNumeroIntents());
-        assertEquals(4, cp3.getNumeroColors());
-        assertEquals(4, cp3.getLongitudCombinacio());
-        System.out.println("testConstructora CODEMAKER amb valors per sota del rang pass");
 
-        
-        System.out.println("testConstructora CODEMAKER amb valors per sobre del rang");
-        i1 = 21; i2 = 21; i3 = 21;
-        ConfiguracioPartida cp4 = new ConfiguracioPartida(TipusPartida.CODEMAKER, i1, i2, i3);
-        assertEquals(TipusPartida.CODEMAKER, cp4.getTipusPartida());
-        assertEquals(null, cp4.getPartida());
-        assertEquals(TipusPartida.CODEMAKER, cp4.getTipusPartida());
-        assertEquals(20, cp4.getNumeroIntents());
-        assertEquals(10, cp4.getNumeroColors());
-        assertEquals(10, cp4.getLongitudCombinacio());
-        System.out.println("testConstructora CODEMAKER amb valors per sobre del rang pass");
+
+    @Test
+    public void testSetPartida() throws LongitudCombinacioIncorrecte, NumeroIntentsIncorrecte,NumeroColorsIncorrecte  {
+        System.out.println("test setPartida");
+
+        ConfiguracioPartida cp2 = new ConfiguracioPartida(TipusPartida.CODEBREAKER, 5, 5, 5);
+        Integer i = 10;
+        cp2.setPartida(i);
+        assertEquals(i, cp2.getPartida());
+        System.out.println("test setPartida pass");
     }
 
     @Test
-    public void testSetPartida() {
+    public void testSetTipusPartida()  throws LongitudCombinacioIncorrecte, NumeroIntentsIncorrecte,NumeroColorsIncorrecte  {
+        System.out.println("test setTipusPartida");
 
-    }
-    /**
-     * Assigna la partida a la que pertany.
-     *
-     * @param   partida             Partida a la que pertany.
-     * @return                      Cert si s'ha pogut assignar correctament,
-     *                              Fals en cas contrari.
-     */
-    public boolean setPartida(Integer partida) {
-        if (this.idPartida == null && partida != null) {
-            this.idPartida = partida;
-            return true;
-        }
-        return false;
+        ConfiguracioPartida cp2 = new ConfiguracioPartida(TipusPartida.CODEBREAKER, 5, 5, 5);
+        
+        boolean b = cp2.setTipusPartida(TipusPartida.CODEMAKER);
+        assertEquals(true, b);
+        assertEquals(TipusPartida.CODEMAKER, cp2.getTipusPartida());
+        System.out.println("test setTipusPartida pass");
     }
 
-    /**
-     * Assigna el tipus de partida.
-     *
-     * @param tipusPartida          Tipus de la partida
-     * @return                      Cert si s'ha pogut assignar correctament,
-     *                              Fals en cas contrari.
-     */
-    public boolean setTipusPartida(TipusPartida tipusPartida) {
-        if (tipusPartida != null) {
-            this.tipusPartida = tipusPartida;
-            return true;
-        }
-        return false;
+    @Test
+    public void testSetNumeroIntents()  throws LongitudCombinacioIncorrecte, NumeroIntentsIncorrecte,NumeroColorsIncorrecte  {
+        System.out.println("test setNumeroIntents");
+
+        ConfiguracioPartida cp2 = new ConfiguracioPartida(TipusPartida.CODEBREAKER, 5, 5, 5);
+        
+        Integer i = 6;
+        boolean b = cp2.setNumeroIntents(i);
+        assertEquals(true, b);
+        assertEquals(i, cp2.getNumeroIntents());
+        System.out.println("test setNumeroIntents pass");
     }
 
-    /**
-     * Assigna el número d'intents.
-     *
-     * @param numeroIntents         Número d'intents.
-     * @return                      Cert si s'ha pogut assignar correctament,
-     *                              Fals en cas contrari.
-     */
-    public boolean setNumeroIntents(Integer numeroIntents) {
-        if (numeroIntents >= 1 && numeroIntents <= 20) {
-            this.numeroIntents = numeroIntents;
-            return true;
-        }
-        return false;
+    @Test
+    public void testSetNumeroColors()  throws LongitudCombinacioIncorrecte, NumeroIntentsIncorrecte,NumeroColorsIncorrecte {
+        System.out.println("test setNumeroIntents");
+
+        ConfiguracioPartida cp2 = new ConfiguracioPartida(TipusPartida.CODEBREAKER, 5, 5, 5);
+        
+        Integer i = 6;
+        boolean b = cp2.setNumeroColors(i);
+        assertEquals(true, b);
+
+        assertEquals(i, cp2.getNumeroColors());
+        System.out.println("test setNumeroIntents pass");
     }
 
-    /**
-     * Assigna número de colors.
-     *
-     * @param numeroColors          Número de colors.
-     * @return                      Cert si s'ha pogut assignar correctament,
-     *                              Fals en cas contrari.
-     */
-    public boolean setNumeroColors(Integer numeroColors) {
-        if (numeroColors >= 4 && numeroColors <= 10) {
-            this.numeroColors = numeroColors;
-            return true;
-        }
-        return false;
-    }
+    @Test
+    public void testSetLongitudCombinacio() throws LongitudCombinacioIncorrecte, NumeroIntentsIncorrecte,NumeroColorsIncorrecte {
+        System.out.println("test setNumeroIntents");
 
-    /**
-     * Assigna longitud codi.
-     *
-     * @param longitudCombinacio    Longitud del codi.
-     * @return                      Cert si s'ha pogut assignar correctament,
-     *                              Fals en cas contrari.
-     */
-    public boolean setLongitudCombinacio(Integer longitudCombinacio) {
-        if (longitudCombinacio >= 4 && longitudCombinacio <= 10) {
-            this.longitudCombinacio = longitudCombinacio;
-            return true;
-        }
-        return false;
+        ConfiguracioPartida cp2 = new ConfiguracioPartida(TipusPartida.CODEBREAKER, 5, 5, 5);
+        
+        Integer i = 6;
+        boolean b = cp2.setLongitudCombinacio(i);
+        assertEquals(true, b);
+
+        assertEquals(i, cp2.getLongitudCombinacio());
+        System.out.println("test setNumeroIntents pass");
     }
 }
