@@ -2,6 +2,7 @@ package drivers.driverFiveGuess;
 
 import java.util.*;
 import java.lang.*;
+import java.lang.Exception;
 import drivers.driverFiveGuess.FiveGuess;
 
 public class DriverFiveGuess {
@@ -76,6 +77,73 @@ public class DriverFiveGuess {
         }
     }
 
+    public void testSolve() {
+        try {
+            FiveGuess fG = new FiveGuess(4);
+            List<Integer> solucio = Arrays.asList(new Integer[]{3,2,6,4});
+
+            System.out.print("Solucio: ");
+            for (int i=0; i<solucio.size(); ++i) {
+                System.out.print(solucio.get(i));
+            }
+            System.out.println();
+
+            List<List<Integer>> solucions = fG.solve(solucio);
+
+            for (int i=0; i<solucions.size(); ++i) {
+                List<Integer> codi = solucions.get(i);
+                System.out.println("Intent: " + (i+1) + "   Codi: " + codi.get(0) + codi.get(1) + codi.get(2) + codi.get(3));
+            }
+        }
+        catch (Exception e) {
+            System.out.println("Codi solucio de entrada incorrecte: " + e.getMessage());
+        }
+
+
+        try {
+            FiveGuess fG = new FiveGuess(4);
+            List<Integer> solucio = Arrays.asList(new Integer[]{3,2,6,4,2});
+
+            System.out.print("Solucio: ");
+            for (int i=0; i<solucio.size(); ++i) {
+                System.out.print(solucio.get(i));
+            }
+            System.out.println();
+
+            List<List<Integer>> solucions = fG.solve(solucio);
+
+            for (int i=0; i<solucions.size(); ++i) {
+                List<Integer> codi = solucions.get(i);
+                System.out.println("Intent: " + (i+1) + "   Codi: " + codi.get(0) + codi.get(1) + codi.get(2) + codi.get(3));
+            }
+        }
+        catch (Exception e) {
+            System.out.println("Codi solucio de entrada incorrecte: " + e.getMessage());
+        }
+
+
+        try {
+            FiveGuess fG = new FiveGuess(4);
+            List<Integer> solucio = Arrays.asList(new Integer[]{3,2,8,4});
+
+            System.out.print("Solucio: ");
+            for (int i=0; i<solucio.size(); ++i) {
+                System.out.print(solucio.get(i));
+            }
+            System.out.println();
+
+            List<List<Integer>> solucions = fG.solve(solucio);
+
+            for (int i=0; i<solucions.size(); ++i) {
+                List<Integer> codi = solucions.get(i);
+                System.out.println("Intent: " + (i+1) + "   Codi: " + codi.get(0) + codi.get(1) + codi.get(2) + codi.get(3));
+            }
+        }
+        catch (Exception e) {
+            System.out.println("Codi solucio de entrada incorrecte: " + e.getMessage());
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         DriverFiveGuess testFiveGuess = new DriverFiveGuess();
 
@@ -84,5 +152,9 @@ public class DriverFiveGuess {
 
         System.out.println("\ntestEsbrina");
         testFiveGuess.testEsbrina();
+
+        System.out.println("\ntestSolve");
+        testFiveGuess.testSolve();
+
     }
 }

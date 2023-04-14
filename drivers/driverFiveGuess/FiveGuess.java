@@ -1,6 +1,7 @@
 package drivers.driverFiveGuess;
 import java.util.*;
 import java.lang.*;
+import java.lang.Exception;
 
 public class FiveGuess implements Maquina {
     /**
@@ -282,32 +283,37 @@ public class FiveGuess implements Maquina {
      *                          whether it's achieved or not.
      */
     public List<List<Integer>> solve (List<Integer> solution) throws Exception {
+        if (solution.size() != 4) throw new Exception("Mida incorrecte. FiveGuess necessita mida 4");
+        for (int i = 0; i < solution.size(); i++) {
+            Integer peg = solution.get(i);
+            if (peg < 1 || peg > 6) throw new Exception("Colors incorrectes. FiveGuess necessita colors en rang [1,6]");
+        }
+
         Integer[] solutionArray = new Integer[NUM_PEG];
         solution.toArray(solutionArray);
 
-        ArrayList<List<Integer>> codis = new ArrayList<List<Integer>>(MAX_STEPS);
-        ArrayList<String> respostes = new ArrayList<String>(MAX_STEPS);
+        ArrayList<List<Integer>> codis = new ArrayList<List<Integer>>();
+        ArrayList<String> respostes = new ArrayList<String>();
         int ronda = 0;
         boolean trobat = false;
         while (ronda < MAX_STEPS && !trobat) {
             Integer[] codi;
-            if (ronda == 0) codi = esbrina(null, null);
+            if (ronda == 0) codi = esbrina(null, null).clone();
             else {
                 Integer[] codiAnterior = new Integer[NUM_PEG];
                 codis.get(ronda-1).toArray(codiAnterior);
-                codi = esbrina(codiAnterior, respostes.get(ronda-1));
+                codi = esbrina(codiAnterior, respostes.get(ronda-1)).clone();
             }
 
-            if (Arrays.asList(codi).equals(solution))
+            if (codi[0].equals(solution.get(0)) && codi[1].equals(solution.get(1)) && codi[2].equals(solution.get(2)) && codi[3].equals(solution.get(3)))
                 trobat = true;
 
-            codis.set(ronda, Arrays.asList(codi));
-            if (!trobat) respostes.set(ronda, generaResposta(codi, solutionArray));
+            codis.add(Arrays.asList(codi));
+            if (!trobat) respostes.add(generaResposta(codi, solutionArray));
 
             ++ronda;
         }
 
-        while (++ronda < MAX_STEPS) codis.remove(ronda);
         return codis;
     }
 
