@@ -151,7 +151,7 @@ public class CtrlDomini {
         if (password != null) {
             //throw exception
         }
-        else if (passwd == password) {
+        else if (passwd.equals(password)) {
             correctCredentials = true;
             ctrlJugador.setJugadorActual(username);
         }
