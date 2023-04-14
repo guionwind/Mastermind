@@ -1,5 +1,4 @@
 package domini.controllers;
-import domini.controllers.CtrlDomini;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,6 +25,96 @@ public class CtrlPresentacio {
         System.out.flush();  
     }
 
+    private void codemakerLoop(Integer numeroIntents, Integer longitudCombinacio, Integer[] combinacioCorrecteInt){ //TODO ACABAR CODEMAKERLOOP
+        String respostaObtinguda = "";
+        ArrayList<String> combinacions = new ArrayList<String>();
+        ArrayList<String> respostes = new ArrayList<String>();
+        for (int i = 0; i < longitudCombinacio; i++){
+            respostaCorrecta += "B";
+        }
+
+        System.out.println("////////////////////////////////////////////////////////");
+        System.out.println("////////////////////// MASTERMIND //////////////////////");
+        System.out.println("/////                                              /////");
+        System.out.println("/////                                              /////");
+        System.out.println("/////            Envia una combinacio o            /////");
+        System.out.println("/////         Envia H per obtenir una pista        /////");
+        System.out.println("////////////////////////////////////////////////////////");
+        while (numeroIntents > intents && !guanyat){
+            netejarConsola();
+            String combinacioIntentada = reader.readLine();
+
+            if (combinacioIntentada == "H"){
+                pista(longitudCombinacio);
+            }
+            else{
+                combinacions.add(combinacioIntentada);
+
+                char[] combinacioIntentadaChar = combinacioIntentada.toCharArray();
+                Integer[] combinacioIntentadaInt = new Integer[longitudCombinacio];
+    
+                for (int i = 0; i < combinacioIntentada.length(); i++){
+                    combinacioIntentadaInt[i] = Character.getNumericValue(combinacioIntentadaChar[i]);
+                }
+                
+                respostaObtinguda = ctrlDomini.jugarRondaCodebreaker(combinacioIntentadaInt);
+                respostes.add(respostaObtinguda);
+                System.out.println("////////////////////////////////////////////////////////");
+                System.out.println("////////////////////// MASTERMIND //////////////////////");
+                System.out.println("/////                                              /////");
+                for (int i = 0; i < combinacions.size(); i++){
+                    System.out.println("///// " + combinacioIntentada + "     " + respostaObtinguda + "           /////");
+                }
+                System.out.println("/////                                              /////");
+                System.out.println("/////            Envia una combinacio o            /////");
+                System.out.println("/////         Envia H per obtenir una pista        /////");
+                System.out.println("////////////////////////////////////////////////////////");
+
+                if (respostaCorrecta != respostaObtinguda) guanyat = true;
+                intents++;
+            }
+        }
+
+        Integer puntuacio = ctrlDomini.partidaAcabada(guanyat);
+
+        acabarPartida(guanyat, intents, numeroIntents, puntuacio);
+    }
+
+    private void partidaCodemaker() throws IOException{
+        Boolean creada = false;
+        Integer numeroIntents = 0;
+        Integer longitudCombinacio = 0;
+        Integer[] combinacioCorrecteIntParam = new Integer[]{};
+        while (!creada){
+            System.out.println("Numero intents:");
+            numeroIntents = Integer.parseInt(reader.readLine());
+
+            System.out.println("Numero colors:");
+            Integer numeroColors = Integer.parseInt(reader.readLine());
+
+            System.out.println("Longitud combinacio:");
+            longitudCombinacio = Integer.parseInt(reader.readLine());
+
+            System.out.println("Combinacio correcte:");
+            String combinacioCorrecte = reader.readLine();
+
+            char[] combinacioCorrecteChar = combinacioCorrecte.toCharArray();
+            Integer[] combinacioCorrecteInt = new Integer[longitudCombinacio];
+
+            for (int i = 0; i < combinacioCorrecte.length(); i++){
+                combinacioCorrecteInt[i] = Character.getNumericValue(combinacioCorrecteChar[i]);
+            }
+            try {
+                ctrlDomini.crearPartidaCodemaker(numeroIntents, numeroColors, longitudCombinacio, combinacioCorrecteInt);
+                creada = true;
+            }
+            catch (Exception exception){ //TODO Ficar la excepcio corresponent
+                System.out.println("!!! Configuracio incorrecte !!!");
+            }
+        }
+        codemakerLoop(numeroIntents, longitudCombinacio, combinacioCorrecteIntParam);
+    }
+
     private void partidaCodebreaker() throws IOException{
         Boolean creada = false;
         Integer numeroIntents = 0;
@@ -48,47 +137,22 @@ public class CtrlPresentacio {
         codebrakerLoop(numeroIntents, longitudCombinacio);
     }
 
-    private void codebrakerLoop(int numeroIntents, int longitudCombinacio) throws IOException{
-        Integer intents = 0;
-        Boolean guanyat = false;
-        String respostaCorrecta = "";
-        String respostaObtinguda = "";
-        ArrayList<String> combinacions = new ArrayList<String>();
-        ArrayList<String> respostes = new ArrayList<String>();
+    private void pista(int longitudCombinacio){
+        Integer[] pista = ctrlDomini.demanarPista();
+        System.out.println("////////////////////////////////////////////////////////");
+        System.out.println("////////////////////// MASTERMIND //////////////////////");
+        System.out.println("/////                                              /////");
+        System.out.println("/////               La teva pista es:              /////");
+        System.out.print("/////                  ");
         for (int i = 0; i < longitudCombinacio; i++){
-            respostaCorrecta += "B";
+            System.out.print(pista[i]);
         }
+        System.out.println("              /////");
+        System.out.println("/////                                              /////");
+        System.out.println("////////////////////////////////////////////////////////");
+    }
 
-        while (numeroIntents > intents && !guanyat){
-            netejarConsola();
-            System.out.println("Combinacio:");
-            String combinacioIntentada = reader.readLine();
-            combinacions.add(combinacioIntentada);
-
-            char[] combinacioIntentadaChar = combinacioIntentada.toCharArray();
-            Integer[] combinacioIntentadaInt = new Integer[longitudCombinacio];
-
-            for (int i = 0; i < combinacioIntentada.length(); i++){
-                combinacioIntentadaInt[i] = Character.getNumericValue(combinacioIntentadaChar[i]);
-            }
-            
-            respostaObtinguda = ctrlDomini.jugarRondaCodebreaker(combinacioIntentadaInt);
-            respostes.add(respostaObtinguda);
-
-            System.out.println("////////////////////////////////////////////////////////");
-            System.out.println("////////////////////// MASTERMIND //////////////////////");
-            System.out.println("/////                                              /////");
-            for (int i = 0; i < combinacions.size(); i++){
-                System.out.println("///// " + combinacioIntentada + "     " + respostaObtinguda + "           /////");
-            }
-            System.out.println("////////////////////////////////////////////////////////");
-
-            if (respostaCorrecta != respostaObtinguda) guanyat = true;
-            intents++;
-        }
-
-        Integer puntuacio = ctrlDomini.partidaAcabada(guanyat);
-
+    private void acabarPartida(Boolean guanyat, Integer intents, int numeroIntents, Integer puntuacio) throws IOException{
         netejarConsola();
         System.out.println("////////////////////////////////////////////////////////");
         System.out.println("////////////////////// MASTERMIND //////////////////////");
@@ -101,13 +165,71 @@ public class CtrlPresentacio {
         }
         System.out.println("/////                                              /////");
         System.out.println("/////                ESTADISTIQUES                 /////");
-        System.out.println("///// Numero Intents: " + intents + "/" + numeroIntents + "                           /////");
+        System.out.println("///// Numero Intents: " + intents + "/" + numeroIntents + "                       /////");
         System.out.println("///// Puntuació: " + puntuacio + "                           /////");
         System.out.println("/////     Premi qualsevol tecla per continuar      /////");
         System.out.println("////////////////////////////////////////////////////////");
         reader.readLine();
         ranquing();
         menu();
+    }
+
+    private void codebrakerLoop(int numeroIntents, int longitudCombinacio) throws IOException{
+        Integer intents = 0;
+        Boolean guanyat = false;
+        String respostaCorrecta = "";
+        String respostaObtinguda = "";
+        ArrayList<String> combinacions = new ArrayList<String>();
+        ArrayList<String> respostes = new ArrayList<String>();
+        for (int i = 0; i < longitudCombinacio; i++){
+            respostaCorrecta += "B";
+        }
+
+        System.out.println("////////////////////////////////////////////////////////");
+        System.out.println("////////////////////// MASTERMIND //////////////////////");
+        System.out.println("/////                                              /////");
+        System.out.println("/////                                              /////");
+        System.out.println("/////            Envia una combinacio o            /////");
+        System.out.println("/////         Envia H per obtenir una pista        /////");
+        System.out.println("////////////////////////////////////////////////////////");
+        while (numeroIntents > intents && !guanyat){
+            netejarConsola();
+            String combinacioIntentada = reader.readLine();
+
+            if (combinacioIntentada == "H"){
+                pista(longitudCombinacio);
+            }
+            else{
+                combinacions.add(combinacioIntentada);
+
+                char[] combinacioIntentadaChar = combinacioIntentada.toCharArray();
+                Integer[] combinacioIntentadaInt = new Integer[longitudCombinacio];
+    
+                for (int i = 0; i < combinacioIntentada.length(); i++){
+                    combinacioIntentadaInt[i] = Character.getNumericValue(combinacioIntentadaChar[i]);
+                }
+                
+                respostaObtinguda = ctrlDomini.jugarRondaCodebreaker(combinacioIntentadaInt);
+                respostes.add(respostaObtinguda);
+                System.out.println("////////////////////////////////////////////////////////");
+                System.out.println("////////////////////// MASTERMIND //////////////////////");
+                System.out.println("/////                                              /////");
+                for (int i = 0; i < combinacions.size(); i++){
+                    System.out.println("///// " + combinacioIntentada + "     " + respostaObtinguda + "           /////");
+                }
+                System.out.println("/////                                              /////");
+                System.out.println("/////            Envia una combinacio o            /////");
+                System.out.println("/////         Envia H per obtenir una pista        /////");
+                System.out.println("////////////////////////////////////////////////////////");
+
+                if (respostaCorrecta != respostaObtinguda) guanyat = true;
+                intents++;
+            }
+        }
+
+        Integer puntuacio = ctrlDomini.partidaAcabada(guanyat);
+
+        acabarPartida(guanyat, intents, numeroIntents, puntuacio);
     }
 
     private void jugar() throws IOException {
@@ -129,6 +251,7 @@ public class CtrlPresentacio {
                 partidaCodebreaker();
                 break;
             case "1":
+                partidaCodemaker();
                 break;
             default:
                 jugar();
@@ -195,7 +318,12 @@ public class CtrlPresentacio {
                         netejarConsola();
                     }
                     else {
-                        ctrlDomini.crearJugador(usuari, contrasenya); //TODO Falta ficar el try catch per veure que no existeixi el jugador
+                        try{
+                            ctrlDomini.crearJugador(usuari, contrasenya);
+                        }
+                        catch(Exception JugadorJaExisteix){
+                            System.out.println("!!! Usuari ja existeix !!!");
+                        }
                     }
                 }
                 //Mostrem el menú principal
@@ -208,7 +336,12 @@ public class CtrlPresentacio {
                     String usuari = reader.readLine();
                     System.out.println("Contrasenya:");
                     String contrasenya = reader.readLine();
-                    loged = ctrlDomini.loginAuthentication(usuari, contrasenya); // try catch?? TODO
+                    try{
+                        loged = ctrlDomini.loginAuthentication(usuari, contrasenya);
+                    }
+                    catch (Exception JugadorNoExisteix){
+                        System.out.println("!!! Usuari no existeix !!!");
+                    }
                     netejarConsola();
                 }
                 //Mostrem el menú principal
