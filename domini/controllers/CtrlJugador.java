@@ -70,7 +70,7 @@ public class CtrlJugador {
     public String getPassword(String username) throws JugadorNoExisteix{
         String pass = new String();
         for (Jugador j : jugadors.values()) {
-            if (j.getUsername() == username) {
+            if (j.getUsername().equals(username)) {
                 pass = j.getPassword();
             }
         }
