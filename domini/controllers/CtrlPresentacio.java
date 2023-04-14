@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class CtrlPresentacio {
     // ATRIBUTS
@@ -289,7 +290,7 @@ public class CtrlPresentacio {
         reader.readLine();
     }
 
-    private void login() throws IOException {
+    private void login() throws IOException, InterruptedException {
         netejarConsola();
         
         System.out.println("////////////////////////////////////////////////////////");
@@ -338,10 +339,13 @@ public class CtrlPresentacio {
                     String contrasenya = reader.readLine();
                     try{
                         loged = ctrlDomini.loginAuthentication(usuari, contrasenya);
+                        if (!loged) System.out.println("!!! Usuari o contrasenya incorrectes !!!");
                     }
                     catch (Exception JugadorNoExisteix){
                         System.out.println("!!! Usuari no existeix !!!");
                     }
+
+                    Thread.sleep(2000); //S'espera 2 segons
                     netejarConsola();
                 }
                 //Mostrem el menú principal
