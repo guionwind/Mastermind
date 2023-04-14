@@ -148,8 +148,8 @@ public class CtrlDomini {
     public boolean loginAuthentication (String username, String password) throws JugadorNoExisteix {
         boolean correctCredentials = false;
         String passwd = ctrlJugador.getPassword(username);
-        if (password != null) {
-            //throw exception
+        if (password.isEmpty()) {
+            throw new JugadorNoExisteix("El jugador es incorrecte");
         }
         else if (passwd.equals(password)) {
             correctCredentials = true;

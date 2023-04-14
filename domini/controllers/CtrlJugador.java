@@ -68,7 +68,7 @@ public class CtrlJugador {
     //obte la contrasenya a partir d'un username
     //busca entre els valors del map la instancia de Jugador que tingui la username indicada, i retorna la contrasenya
     public String getPassword(String username) throws JugadorNoExisteix{
-        String pass = null;
+        String pass = new String();
         for (Jugador j : jugadors.values()) {
             if (j.getUsername() == username) {
                 pass = j.getPassword();
