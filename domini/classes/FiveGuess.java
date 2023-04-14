@@ -32,19 +32,19 @@ public class FiveGuess implements Maquina {
      * colors del codi solució.
      */
     private static final String[] RESPOSTES = {
-            "    ",
-            "W   ",
-            "WW  ",
-            "WWW ",
+            "----",
+            "W---",
+            "WW--",
+            "WWW-",
             "WWWW",
-            "B   ",
-            "BW  ",
-            "BWW ",
+            "B---",
+            "BW--",
+            "BWW-",
             "BWWW",
-            "BB  ",
-            "BBW ",
+            "BB--",
+            "BBW-",
             "BBWW",
-            "BBB ",
+            "BBB-",
             "BBBB"
     };
 
@@ -236,7 +236,7 @@ public class FiveGuess implements Maquina {
         }
 
         while (resposta.length() < NUM_PEG)
-            resposta += " ";
+            resposta += "-";
 
         return resposta;
     }
@@ -262,11 +262,11 @@ public class FiveGuess implements Maquina {
         for (int i=0; i<NUM_PEG; ++i) {
             if (r1[i] == 'B') negres = negres + 1;
             else if (r1[i] == 'W') blanques = blanques + 1;
-            else if (r1[i] == ' ') buides = buides + 1;
+            else if (r1[i] == '-') buides = buides + 1;
 
             if (r2[i] == 'B') --negres;
             else if (r2[i] == 'W') --blanques;
-            else if (r2[i] == ' ') --buides;
+            else if (r2[i] == '-') --buides;
         }
 
 

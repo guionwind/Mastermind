@@ -1,5 +1,9 @@
 package domini.classes;
 
+import domini.classes.exceptions.NumeroIntentsIncorrecte;
+import domini.classes.exceptions.NumeroColorsIncorrecte;
+import domini.classes.exceptions.LongitudCombinacioIncorrecte;
+
 public class ConfiguracioPartida {
 
     /**
@@ -56,22 +60,18 @@ public class ConfiguracioPartida {
      * @param   numeroColors        Número de colors diferents possibles per crear el codi.
      * @param   longitudCombinacio  Llargada del codi a crear.
      */
-    public ConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
+    public ConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
         this.idPartida = null;
         this.tipusPartida = tipusPartida;
 
-        if (numeroIntents < 1) numeroIntents = 1;
-        else if (numeroIntents > 20) numeroIntents = 20;
+        if (numeroIntents < 1 || numeroIntents > 20) throw new NumeroIntentsIncorrecte("Numero de intents esta fora del rang permes [1,20]");
         this.numeroIntents = numeroIntents;
 
-        if (numeroColors < 4) numeroColors = 4;
-        else if (numeroColors > 10) numeroColors = 10;
+        if (numeroColors < 4 || numeroColors > 10) throw new NumeroColorsIncorrecte("Numero de colors esta fora del rang permes [4,10]");
         this.numeroColors = numeroColors;
 
-        if (longitudCombinacio < 4) longitudCombinacio = 4;
-        else if (longitudCombinacio > 10) longitudCombinacio = 10;
+        if (longitudCombinacio < 4 || longitudCombinacio > 10) throw new LongitudCombinacioIncorrecte("Longitud de la combinacio esta fora del rang permes [4,10]");
         this.longitudCombinacio = longitudCombinacio;
-
     }
 
     /**
@@ -156,12 +156,10 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setNumeroIntents(Integer numeroIntents) {
-        if (numeroIntents >= 1 && numeroIntents <= 20) {
-            this.numeroIntents = numeroIntents;
-            return true;
-        }
-        return false;
+    public boolean setNumeroIntents(Integer numeroIntents) throws NumeroIntentsIncorrecte {
+        if (numeroIntents < 1 || numeroIntents > 20) throw new NumeroIntentsIncorrecte("Numero de intents esta fora del rang permes [1,20]");
+        this.numeroIntents = numeroIntents;
+        return true;
     }
 
     /**
@@ -171,12 +169,10 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setNumeroColors(Integer numeroColors) {
-        if (numeroColors >= 4 && numeroColors <= 10) {
-            this.numeroColors = numeroColors;
-            return true;
-        }
-        return false;
+    public boolean setNumeroColors(Integer numeroColors) throws NumeroColorsIncorrecte {
+        if (numeroColors < 4 || numeroColors > 10) throw new NumeroColorsIncorrecte("Numero de colors esta fora del rang permes [4,10]");
+        this.numeroColors = numeroColors;
+        return true;
     }
 
     /**
@@ -186,11 +182,9 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setLongitudCombinacio(Integer longitudCombinacio) {
-        if (longitudCombinacio >= 4 && longitudCombinacio <= 10) {
-            this.longitudCombinacio = longitudCombinacio;
-            return true;
-        }
-        return false;
+    public boolean setLongitudCombinacio(Integer longitudCombinacio) throws LongitudCombinacioIncorrecte {
+        if (longitudCombinacio < 4 || longitudCombinacio > 10) throw new LongitudCombinacioIncorrecte("Longitud de la combinacio esta fora del rang permes [4,10]");
+        this.longitudCombinacio = longitudCombinacio;
+        return true;
     }
 }
