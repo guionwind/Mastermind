@@ -1,10 +1,10 @@
+
 package drivers.driverJugador;
 
 import java.util.ArrayList;
 import domini.classes.exceptions.*;
 
-
-public class JugadorTest {
+public class Jugador {
     //atributs
     private final int id;
     private String username;
@@ -13,20 +13,20 @@ public class JugadorTest {
     private static int nombreJugadors = 0;
 
     //associacions
-    private ArrayList<EstadistiquesPartidaTest> statsPartides;
+    private ArrayList<EstadistiquesPartida> statsPartides;
     
     /**creadora per defecte. 
     * @pre name, pwd no son nulls 
     * crea un nou jugador amb ID incremental (el primer jugador tindra id = 1) 
     * despres assigna les credencials corresponents
     */
-
-    public JugadorTest(String name, String pwd) throws JugadorJaExisteix,JugadorInvalid {
+    public Jugador(String name, String pwd) throws JugadorJaExisteix,JugadorInvalid {
         ++nombreJugadors;
         this.id = nombreJugadors;
 
         this.username = name;
         this.password = pwd;
+        statsPartides = new ArrayList<EstadistiquesPartida>();
     }
     
     /**consultora de partides guanyades
@@ -35,7 +35,7 @@ public class JugadorTest {
      */
     public int PartidesGuanyades() {
         int guanyades = 0;
-        for (EstadistiquesPartidaTest p : this.statsPartides) {
+        for (EstadistiquesPartida p : this.statsPartides) {
             if (p.getGuanyada()) ++guanyades;
         }
         return guanyades;
@@ -62,8 +62,9 @@ public class JugadorTest {
         return this.password;
     }
 
-    public void setEstadistica(EstadistiquesPartidaTest estadistiquesPartida) {
-        statsPartides.add(estadistiquesPartida);
+    public void setEstadistica(EstadistiquesPartida estadistiquesPartida) {
+        if (estadistiquesPartida != null) {
+            statsPartides.add(estadistiquesPartida);
+        }
     }
-
 }

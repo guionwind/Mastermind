@@ -20,12 +20,15 @@ public class Jugador {
     * crea un nou jugador amb ID incremental (el primer jugador tindra id = 1) 
     * despres assigna les credencials corresponents
     */
-    public Jugador(String name, String pwd) throws JugadorJaExisteix{
+    public Jugador(String name, String pwd) throws JugadorJaExisteix,JugadorInvalid {
         ++nombreJugadors;
         this.id = nombreJugadors;
 
         this.username = name;
         this.password = pwd;
+
+        statsPartides = new ArrayList<EstadistiquesPartida>();
+
     }
     
     /**consultora de partides guanyades
@@ -62,7 +65,9 @@ public class Jugador {
     }
 
     public void setEstadistica(EstadistiquesPartida estadistiquesPartida) {
-        statsPartides.add(estadistiquesPartida);
+        if (estadistiquesPartida != null) {
+            statsPartides.add(estadistiquesPartida);
+        }
     }
 
 }

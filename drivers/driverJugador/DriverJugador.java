@@ -1,78 +1,75 @@
-package drivers;
+package drivers.driverJugador;
 
-import domini.classes.Jugador;
-
-import java.io.*;
+import domini.classes.exceptions.*;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
 
 public class DriverJugador {
-    
-    private static Jugador jug;
-
-    /**
-     * setup d'un jugador generic
-     */
-
-    @Before
-    public void setup() {
-        System.out.println("setup amb constructora");
-        jug = new Jugador("generic", "111");
-        assertEquals("generic", jug.getUsername());
-        assertEquals("111", jug.getPassword());
-        assertEquals(1, jug.getID());
-
-    }
-
-    
     /**
      * Test del mètode Jugador(name, pwd) de la classe Jugador
      * Estratègia caixa gris
+     * Tambe comprova getters
+     * @throws JugadorInvalid
+     * @throws JugadorJaExisteix
      */
 
     @Test
-    public void testConstructora () {
+    public void testConstructora () throws JugadorJaExisteix, JugadorInvalid {
         System.out.println("testConstructora");
         Jugador jugador1 = new Jugador("Jose", "Sheng");
         assertEquals("Jose", jugador1.getUsername());
         assertEquals("Sheng", jugador1.getPassword());
-        assertEquals(2, jugador1.getID());
+        assertEquals(1, jugador1.getID());
 
         Jugador jugador2 = new Jugador("Marc", "cordinador");
         assertEquals("Marc", jugador2.getUsername());
         assertEquals("cordinador", jugador2.getPassword());
-        assertEquals(3, jugador2.getID());
+        assertEquals(2, jugador2.getID());
         System.out.println("testConstructora exitos");
     }
 
-    //* necessitare un stub aqui??
-    // vull 2 partides jugades i 1 guanyada
+    @Test
+    public void testSetEstadistica() throws JugadorJaExisteix, JugadorInvalid {
+        System.out.println("testPartidesJugades");
+        Jugador jug = new Jugador("generic", "111");
+        jug.setEstadistica(new EstadistiquesPartida(false));
+        System.out.println("testPartidesJugades exitos");
+    }
 
     @Test
-    public void testPartidesGuanyades() {
+    public void testPartidesGuanyades() throws JugadorJaExisteix, JugadorInvalid {
         System.out.println("testPartidesGuanyades");
-        assertEquals(1, jug.PartidesGuanyades());
+        Jugador jug = new Jugador("generic", "111");
+
+        jug.setEstadistica(new EstadistiquesPartida(false));
+        jug.setEstadistica(new EstadistiquesPartida(true));
+        jug.setEstadistica(new EstadistiquesPartida(true));
+        jug.setEstadistica(null);
+
+        assertEquals(2, jug.PartidesGuanyades());
         System.out.println("testPartidesGuanyades exitos");
     }
 
-    @Test
-    public void testPartidesJugades() {
-        System.out.println("testPartidesJugades");
-        assertEquals(2, jug.PartidesJugades());
-        System.out.println("testPartidesJugades exitos");
-    }
 
-    //necessito un stub pero no se com ferho
     @Test
-    public void testSetEstadistica() {
+    public void testPartidesJugades() throws JugadorJaExisteix, JugadorInvalid {
         System.out.println("testPartidesJugades");
+
+        Jugador jug = new Jugador("generic", "111");
+
+        jug.setEstadistica(new EstadistiquesPartida(false));
+        jug.setEstadistica(new EstadistiquesPartida(true));
+        jug.setEstadistica(new EstadistiquesPartida(true));
         jug.setEstadistica(null);
+
+        assertEquals(3, jug.PartidesJugades());
         System.out.println("testPartidesJugades exitos");
     }
 
-    //la resta de getters es fan en comprovar la creadora
+
+    //la resta de getters es testejen en comprovar la creadora
     /*
     public int testGetID() {
         return this.id;
@@ -86,4 +83,5 @@ public class DriverJugador {
         return this.password;
     }
     */
+    
 }
