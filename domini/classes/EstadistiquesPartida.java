@@ -13,10 +13,9 @@ public class EstadistiquesPartida {
     /**
      * Constructor de la classe EstadistiquesPartida.
      *
-     * @param jugador Jugador de la partida
-     * @param partida Partida que ha jugat el jugador i de la qual es faran les estadístiques
+     * @param idJugador Jugador de la partida
+     * @param idPartida Partida que ha jugat el jugador i de la qual es faran les estadístiques
      * @param puntuacio Puntuacio aconseguida pel jugador a la partida
-     * @param temps Temps que ha tardat el jugador en finalitzar la partida
      * @param guanyada Determina si la partida ha estat guanyada o no
      */
 
@@ -33,16 +32,16 @@ public class EstadistiquesPartida {
      * Mètode per obtenir el jugador de les estadístiques.
      * @return Retorna el jugador de les estadístiques.
      */
-    public Jugador getJugador(){
-        return this.jugador;
+    public Integer getIdJugador(){
+        return this.idJugador;
     }
 
     /**
      * Mètode per obtenir la partida de les estadístiques.
      * @return Retorna la partida de les estadístiques.
      */
-    public Partida getPartida(){
-        return this.partida;
+    public Integer getIdPartida(){
+        return this.idPartida;
     }
 
     /**
