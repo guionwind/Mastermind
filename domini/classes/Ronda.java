@@ -37,11 +37,11 @@ public class Ronda {
      * @return La combinació intentada
      */
     public Integer[] getCombinacioIntentada() {
-        return this.combinacioIntentada;
+        return combinacioIntentada;
     }
 
     public void setCombinacioIntentada(Integer[] combinacioIntentada) {
-        this.combinacioIntentada = combinacioIntentada;
+        this.combinacioIntentada = combinacioIntentada.clone();
     }
 
     public String getResposta() {

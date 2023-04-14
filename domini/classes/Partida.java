@@ -92,7 +92,7 @@ public abstract class Partida {
     }
 
     public void intentarCombinacio(Integer[] combinacioIntentada) {
-        rondes.get(rondes.size()-1).setCombinacioIntentada(combinacioIntentada);
+        rondes.get(rondes.size()-1).setCombinacioIntentada(combinacioIntentada.clone());
     }
 
     public abstract boolean esCodeMaker();
@@ -102,14 +102,13 @@ public abstract class Partida {
     }
 
     public Integer[] getUltimCodi() {
-        Ronda r = rondes.get(rondes.size() - 1);
-
+        Ronda r = rondes.get(rondes.size() - 2);
+    
         return r.getCombinacioIntentada();
     }
 
     public String getUltimaResposta() {
-        Ronda r = rondes.get(rondes.size() - 1);
-
+        Ronda r = rondes.get(rondes.size() - 2);
         return r.getResposta();
     }
 
