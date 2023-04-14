@@ -61,4 +61,8 @@ public class Jugador {
         return this.password;
     }
 
+    public void setEstadistica(EstadistiquesPartida estadistiquesPartida) {
+        statsPartides.add(estadistiquesPartida);
+    }
+
 }

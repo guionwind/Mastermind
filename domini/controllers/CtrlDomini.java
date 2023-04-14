@@ -186,6 +186,11 @@ public class CtrlDomini {
         Integer puntuacio = 100 - numRondes;
 
         ctrlEstadistiquesPartida.creaEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
+        EstadistiquesPartida e = ctrlEstadistiquesPartida.getEstadistiquesPartida(idJugador, idPartida);
+
+        //Afegim la estadistica creada a Jugador i a Partida
+        ctrlPartida.addEstadistiquesPartida(e);
+        ctrlJugador.addEstadistica(e);
 
         if (guanyada) ctrlRanquing.setNewRecord(idJugador, puntuacio);
         return puntuacio;

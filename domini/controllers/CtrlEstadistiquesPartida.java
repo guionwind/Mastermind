@@ -25,4 +25,8 @@ public class CtrlEstadistiquesPartida {
         return e.getPuntuacio();
     }
 
+    public EstadistiquesPartida getEstadistiquesPartida(Integer idJugador, Integer idPartida) {
+        return estadistiquesPartida.get(new Integer[]{idJugador, idPartida});
+    }
+
 }

@@ -1,10 +1,12 @@
 package domini.controllers;
 
+import domini.classes.EstadistiquesPartida;
 import domini.classes.Jugador;
 //per retocar
 import domini.classes.exceptions.*;
 
 import java.lang.String;
+import java.util.EmptyStackException;
 import java.util.HashMap;
 
 
@@ -70,6 +72,12 @@ public class CtrlJugador {
             }
         }
         return pass;
+    }
+
+    public void addEstadistica(EstadistiquesPartida estadistiquesPartida) {
+        Jugador j = jugadors.get(jugadorActual);
+
+        j.setEstadistica(estadistiquesPartida);
     }
 
 
