@@ -68,9 +68,7 @@ public class CtrlDomini {
      * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
      */
     public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws Exception {
-        CtrlAlgorisme ctrlAlgorisme = new CtrlAlgorisme();
-
-        ctrlPartida.crearPartidaCodemaker(numeroIntents, numeroColors, longitudCombinacio, solutionCode, ctrlAlgorisme);
+        ctrlPartida.crearPartidaCodemaker(numeroIntents, numeroColors, longitudCombinacio, solutionCode);
     }
 
     /**

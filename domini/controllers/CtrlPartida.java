@@ -21,6 +21,8 @@ public class CtrlPartida {
      */
     private HashMap<Integer, Partida> partides;
 
+    private final CtrlAlgorisme ctrlAlgorisme;
+
     /**
      * Constructora de la classe CtrlPartida
      * Inicialitza idPartidaActual a -1 per que no s'inicialtzi automaticament a 0
@@ -30,6 +32,7 @@ public class CtrlPartida {
     public CtrlPartida() {
         idPartidaActual = -1;
         partides = new HashMap<Integer, Partida>();
+        ctrlAlgorisme = new CtrlAlgorisme();
     }
 
     /**
@@ -54,14 +57,17 @@ public class CtrlPartida {
         partides.put(idPartidaActual, cB);
     }
 
-    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, CtrlAlgorisme ctrlAlgorisme) throws IOException {
+    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws IOException {
         TipusPartida t = TipusPartida.CODEMAKER;
         ConfiguracioPartida c = creaConfiguracioPartida(t, numeroIntents, numeroColors, longitudCombinacio);
+
 
         Codemaker cM = new Codemaker(c, solutionCode, this, ctrlAlgorisme);
 
         idPartidaActual = cM.getId();
         partides.put(idPartidaActual, cM);
+
+        ctrlAlgorisme.creaFiveGuess(idPartidaActual);
     }
 
     public void intentarCombinacio(Integer[] combinacioIntentada) {
