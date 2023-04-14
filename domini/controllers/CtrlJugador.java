@@ -9,7 +9,6 @@ import java.lang.String;
 import java.util.HashMap;
 
 
-
 public class CtrlJugador {
     //id del jugador logejat actualment
     private int jugadorActual;
@@ -21,6 +20,7 @@ public class CtrlJugador {
     //si no hi ha jugador, JugadorActual = -1
     public CtrlJugador() {
         jugadorActual = -1;
+        jugadors = new HashMap<Integer, Jugador>();
     }
 
     //retorna el jugador actual
@@ -39,13 +39,16 @@ public class CtrlJugador {
 
 
     //crea un nou jugador per al registre, afegeix les credencials a usuariContrasenya
-    //* no se'l logeja automaticament
-    public void crearJugador(String username, String password) throws JugadorJaExisteix {
+    //* se'l logeja automaticament
+    public void crearJugador(String username, String password) throws JugadorJaExisteix, JugadorInvalid {
         if (jugadorActual == -1) {
             Jugador j = new Jugador(username, password);
             int newId = j.getID();
             jugadors.put(newId, j);
             jugadorActual = newId;
+        }
+        else {
+            throw new JugadorJaExisteix("matat");
         }
     }
 
