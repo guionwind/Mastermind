@@ -96,7 +96,9 @@ public abstract class Partida {
 
     public abstract boolean esCodeMaker();
 
-    public abstract Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta);
+    public Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta) {
+        return new Integer[]{-1, -1, -1, -1};
+    }
 
     public Integer[] getUltimCodi() {
         Ronda r = rondes.get(rondes.size() - 1);

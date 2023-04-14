@@ -18,4 +18,5 @@ public class Codebreaker extends Partida {
     public boolean esCodeMaker() {
         return false;
     }
+
 }
