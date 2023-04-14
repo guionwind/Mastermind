@@ -1,4 +1,4 @@
-package domini.classes;
+package drivers.driverFiveGuess;
 import java.util.*;
 import java.lang.*;
 
@@ -61,12 +61,12 @@ public class FiveGuess implements Maquina {
      */
     private ArrayList<Integer[]> codisPossibles;
 
-    /**
-     * Constructora
-     * S'especifica a la partida que pertany.
-     *
-     * @param   idPartida       Identificador de la partida a la que pertany.
-     */
+        /**
+         * Constructora
+         * S'especifica a la partida que pertany.
+         *
+         * @param   idPartida       Identificador de la partida a la que pertany.
+         */
     public FiveGuess(int idPartida) {
         this.idPartida = idPartida;
         codisDisponibles = new ArrayList<Integer[]>(NUM_CODIS);
@@ -90,17 +90,17 @@ public class FiveGuess implements Maquina {
         }
     }
 
-    /**
-     * Retorna un codi com a solució probable donats el codi fet a l'intent anterior i
-     * la resposta obtinguda respecte el codi intentat.
-     * Si es el primer intent, per tant no s'ha intentat cap codi anteriorment, als
-     * paràmetres ultimCodi i respoastaCodi s'han de passar una referència null.
-     *
-     * @param   ultimCodi       Últim codi intentat, null si encara no s'ha intentat cap codi,
-     *                          és a dir, és la primera ronda).
-     * @param   respostaCodi    Respoasta obtinguda a l'haver intentat el codi ultimCodi.
-     * @return                  Un altre codi com a possible solució.
-     */
+        /**
+         * Retorna un codi com a solució probable donats el codi fet a l'intent anterior i
+         * la resposta obtinguda respecte el codi intentat.
+         * Si es el primer intent, per tant no s'ha intentat cap codi anteriorment, als
+         * paràmetres ultimCodi i respoastaCodi s'han de passar una referència null.
+         *
+         * @param   ultimCodi       Últim codi intentat, null si encara no s'ha intentat cap codi,
+         *                          és a dir, és la primera ronda).
+         * @param   respostaCodi    Respoasta obtinguda a l'haver intentat el codi ultimCodi.
+         * @return                  Un altre codi com a possible solució.
+         */
     public Integer[] esbrina(Integer[] ultimCodiAux, String respostaCodi) {
 
         Integer[] codi;
@@ -116,11 +116,11 @@ public class FiveGuess implements Maquina {
         return codi;
     }
 
-    /**
-     * Retorna un codi com a solució probable.
-     *
-     * @return                  Un codi com a possible solució.
-     */
+        /**
+         * Retorna un codi com a solució probable.
+         *
+         * @return                  Un codi com a possible solució.
+         */
     private Integer[] esbrinaCodi() {
         Integer[] codiEsbrinar = new Integer[NUM_PEG];
         int minmax = 1300;
@@ -148,15 +148,15 @@ public class FiveGuess implements Maquina {
         return codiEsbrinar;
     }
 
-    /**
-     * Donats un codi intentat al torn anterior i la resposta obtinguda per al mateix intent,
-     * elimina del conjunt de codis possibles com a solució, aquells codis que al simular la
-     * resposta del codi intentat sobre el codi possible, dóna una resposta diferent a la
-     * obtinguda al torn.
-     *
-     * @param   codiIntentat    Codi intentat al torn anterior.
-     * @param   resposta        Resposta obtinguda al realitzar l'intent de codiIntentat.
-     */
+        /**
+         * Donats un codi intentat al torn anterior i la resposta obtinguda per al mateix intent,
+         * elimina del conjunt de codis possibles com a solució, aquells codis que al simular la
+         * resposta del codi intentat sobre el codi possible, dóna una resposta diferent a la
+         * obtinguda al torn.
+         *
+         * @param   codiIntentat    Codi intentat al torn anterior.
+         * @param   resposta        Resposta obtinguda al realitzar l'intent de codiIntentat.
+         */
     private void reduirPossibilitats(Integer[] codiIntentatAux, String resposta) {
         Integer[] codiIntentat = codiIntentatAux.clone();
 
@@ -170,16 +170,16 @@ public class FiveGuess implements Maquina {
         }
     }
 
-    /**
-     * Reotorna el número de codis que es mantindrien, és a dir, no es podrien descartar
-     * com a possibles codis solució, per a la hipotètica situació en que per l'intent d'un
-     * dels codis del conjunt de codis encara no intentats es donés una de les respostes
-     * possibles que es poden obtenir.
-     *
-     * @param   codiDisponible  Un codi del conjunt de codis que encara no s'han intentat com a solució.
-     * @param   resposta        Una resposta del conjunt de respostes possibles que poden donar-se per un intent.
-     * @return                  Número de codi que no es poden descartar com a solució.
-     */
+        /**
+         * Reotorna el número de codis que es mantindrien, és a dir, no es podrien descartar
+         * com a possibles codis solució, per a la hipotètica situació en que per l'intent d'un
+         * dels codis del conjunt de codis encara no intentats es donés una de les respostes
+         * possibles que es poden obtenir.
+         *
+         * @param   codiDisponible  Un codi del conjunt de codis que encara no s'han intentat com a solució.
+         * @param   resposta        Una resposta del conjunt de respostes possibles que poden donar-se per un intent.
+         * @return                  Número de codi que no es poden descartar com a solució.
+         */
     private Integer reduirPossibilitatsSimulacio(Integer[] codiDisponibleAux, String resposta) {
         Integer[] codiDisponible = codiDisponibleAux.clone();
         Integer numeroCodisPossibles = 0;
@@ -194,14 +194,14 @@ public class FiveGuess implements Maquina {
         return numeroCodisPossibles;
     }
 
-    /**
-     * Retorna la resposta que s'obtindria donat un dels codis encara no intentats i
-     * el codi solució.
-     *
-     * @param   codiDisponible  Un codi del conjunt de codis que encara no s'han intentat com a solució
-     * @param   codiPossible    Un codi del conjunt de codis que poden ser solució.
-     * @return                  La resposta obtinguda per intentar un codi sobre un codi solució.
-     */
+        /**
+         * Retorna la resposta que s'obtindria donat un dels codis encara no intentats i
+         * el codi solució.
+         *
+         * @param   codiDisponible  Un codi del conjunt de codis que encara no s'han intentat com a solució
+         * @param   codiPossible    Un codi del conjunt de codis que poden ser solució.
+         * @return                  La resposta obtinguda per intentar un codi sobre un codi solució.
+         */
     protected String generaResposta(Integer[] codiDisponibleAux, Integer[] codiPossibleAux) {
         Integer[] codiDisponible = codiDisponibleAux.clone();
         Integer[] codiPossible = codiPossibleAux.clone();
@@ -236,17 +236,17 @@ public class FiveGuess implements Maquina {
         return resposta;
     }
 
-    /**
-     * Reotrna cert si les dues respostes donades són equivalents i fals en cas contrari.
-     * Una de les respostes és la respota real obtinguda al torn i l'altre és una resposta
-     * simulada per a una hipotètica situació.
-     * Dues respostes són equivalents si, sense tenir en compte l'ordre, tenen el mateix
-     * número de fitxes negres ('B'), fitxes blanques ('W'), i fitxes buides (' ').
-     *
-     * @param   resposta1       Primmera resposta.
-     * @param   resposta2       Segona resposta.
-     * @return                  Retorna cert si les respostes són equivalents i fals si no hi són.
-     */
+        /**
+         * Reotrna cert si les dues respostes donades són equivalents i fals en cas contrari.
+         * Una de les respostes és la respota real obtinguda al torn i l'altre és una resposta
+         * simulada per a una hipotètica situació.
+         * Dues respostes són equivalents si, sense tenir en compte l'ordre, tenen el mateix
+         * número de fitxes negres ('B'), fitxes blanques ('W'), i fitxes buides (' ').
+         *
+         * @param   resposta1       Primmera resposta.
+         * @param   resposta2       Segona resposta.
+         * @return                  Retorna cert si les respostes són equivalents i fals si no hi són.
+         */
     boolean comparaRespostes(String resposta1, String resposta2) {
         char[] r1 = resposta1.toCharArray();
         char[] r2 = resposta2.toCharArray();
