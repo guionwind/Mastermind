@@ -95,7 +95,7 @@ public class CtrlDomini {
         return ctrlPartida.corregeix(combinacioIntentada);
     }
 
-    public Integer[] demanarPista() {
+    public String demanarPista() {
         return ctrlPartida.getPista();
     }
 
