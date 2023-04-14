@@ -228,13 +228,6 @@ public class CtrlPresentacio {
             default:
                 login();
         }
-
-        /*if (interaccioUsuari == "0"){
-            
-        }
-        else if (interaccioUsuari == "1"){
-            
-        }*/
     }
 
     private void menu () throws IOException {
@@ -285,9 +278,5 @@ public class CtrlPresentacio {
         
         //Mostrem la pantalla de login
         login();
-
-        
-
-
     }
 }
