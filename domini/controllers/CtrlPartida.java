@@ -110,7 +110,7 @@ public class CtrlPartida {
 
     public Integer[] getCodiMaquina() {
         Partida p = partides.get(idPartidaActual);
-
+        if(p.rondesJugades() == 1) return p.getCodiMaquina(null, null);
         return p.getCodiMaquina(p.getUltimCodi(), p.getUltimaResposta());
     }
 
