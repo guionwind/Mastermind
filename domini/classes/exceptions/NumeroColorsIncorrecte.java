@@ -1,7 +1,7 @@
 package domini.classes.exceptions;
 
-public class NumeroIntentsIncorrecte extends Exception {
-    public NumeroIntentsIncorrecte(String message) {
+public class NumeroColorsIncorrecte extends Exception {
+    public NumeroColorsIncorrecte(String message) {
         super(message);
     }
 }
