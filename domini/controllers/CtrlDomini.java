@@ -110,6 +110,7 @@ public class CtrlDomini {
      */
     public String[] jugarRondaCodeMaker() throws TipusPartidaIncorrecte {
         Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina();
+        ctrlPartida.intentarCombinacio(combinacioIntentada);
         String respostaCombinacio = ctrlPartida.corregeix(combinacioIntentada);
         String combinacioIntentadaString = "";
         for (int i = 0; i < respostaCombinacio.length(); i++){
