@@ -205,7 +205,13 @@ public class CtrlDomini {
         return puntuacio;
     }
 
-    
+    public Integer partidaAcabadaCodemaker() {
+        Integer numRondes = ctrlPartida.getNumeroRondes();
+
+        Integer puntuacio = 100 - numRondes;
+
+        return puntuacio;
+    }
 
     /**
      * Agafem les estadistiques que volem. Actualment nomes s'agafa la puntuacio de la partida
