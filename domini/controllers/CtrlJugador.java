@@ -56,7 +56,7 @@ public class CtrlJugador {
     //set jugador actual
     public void setJugadorActual(String username) throws JugadorNoExisteix{
         for (Jugador j : jugadors.values()) {
-            if (j.getUsername() == username) jugadorActual = j.getID();
+            if (j.getUsername().equals(username)) jugadorActual = j.getID();
         }
     }
 
