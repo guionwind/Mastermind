@@ -1,10 +1,13 @@
-package drivers;
+package FONTS.src.drivers;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+
 import domini.classes.exceptions.TipusPartidaIncorrecte;
+import domini.classes.exceptions.JugadorInvalid;
+import domini.classes.exceptions.JugadorJaExisteix;
 import domini.controllers.CtrlDomini;
 
 public class Driver {
@@ -334,6 +337,7 @@ public class Driver {
         System.out.println("/////                    LOGIN                     /////");
         System.out.println("///// 0: Registrar-se                              /////");
         System.out.println("///// 1: Login                                     /////");
+        System.out.println("///// 2: Sortir                                    /////");
         System.out.println("////////////////////////////////////////////////////////");
 
         String interaccioUsuari = reader.readLine();
@@ -344,27 +348,35 @@ public class Driver {
             case "0":
                 Boolean registered = false;
                 while (!registered){
+
                     System.out.println("Usuari:");
                     String usuari = reader.readLine();
                     System.out.println("Contrasenya:");
                     String contrasenya = reader.readLine();
                     System.out.println("Confirma contrasenya:");
                     String confirmaContrasenya = reader.readLine();
+
                     if (!contrasenya.equals(confirmaContrasenya)){
                         System.out.println("!!! Les contrasenyes no coincideixen !!!");
-                        Thread.sleep(2000); //S'espera 2 segons
-                        netejarConsola();
+                    }
+                    else if (usuari.equals("")) {
+                        System.out.println("!!! Siusplau, introdueix un nom d'usuari correcte !!!");
                     }
                     else {
-                        try{
+                        try {
                             ctrlDomini.crearJugador(usuari, contrasenya);
                             registered = true;
+                        } catch (Exception JugadorJaExisteix) {
+                            System.out.println("!!! Usuari ja existeix !!!");
+                            Thread.sleep(2000); //S'espera 2 segons
                         }
-                        catch(Exception JugadorJaExisteix){
+                        catch (Exception JugadorInvalid) {
                             System.out.println("!!! Usuari ja existeix !!!");
                             Thread.sleep(2000); //S'espera 2 segons
                         }
                     }
+                    Thread.sleep(2000); //S'espera 2 segons
+                    netejarConsola();
                 }
                 //Mostrem el menú principal
                 menu();
@@ -400,7 +412,7 @@ public class Driver {
 
                 interaccioUsuari = reader.readLine();
 
-                if (interaccioUsuari == "0") break;
+                if (interaccioUsuari.equals("0")) System.exit(0);
             default:
                 login();
         }

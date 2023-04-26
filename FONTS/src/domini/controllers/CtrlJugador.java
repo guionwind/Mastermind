@@ -3,7 +3,8 @@ package domini.controllers;
 import domini.classes.EstadistiquesPartida;
 import domini.classes.Jugador;
 //per retocar
-import domini.classes.exceptions.*;
+import domini.classes.exceptions.JugadorJaExisteix;
+import domini.classes.exceptions.JugadorInvalid;
 
 import java.lang.String;
 import java.util.HashMap;
