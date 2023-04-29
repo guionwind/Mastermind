@@ -3,6 +3,9 @@ package domini.classes;
 import domini.classes.exceptions.NumeroIntentsIncorrecte;
 import domini.classes.exceptions.NumeroColorsIncorrecte;
 import domini.classes.exceptions.LongitudCombinacioIncorrecte;
+import domini.classes.exceptions.PartidaJaAssignada;
+import domini.classes.exceptions.TipusPartidaInvalid;
+import domini.classes.exceptions.PartidaInvalida;
 
 public class ConfiguracioPartida {
 
@@ -60,17 +63,17 @@ public class ConfiguracioPartida {
      * @param   numeroColors        Número de colors diferents possibles per crear el codi.
      * @param   longitudCombinacio  Llargada del codi a crear.
      */
-    public ConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio)  throws LongitudCombinacioIncorrecte, NumeroIntentsIncorrecte,NumeroColorsIncorrecte {
+    public ConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio)  throws LongitudCombinacioIncorrecte, NumeroIntentsIncorrecte, NumeroColorsIncorrecte {
         this.idPartida = null;
         this.tipusPartida = tipusPartida;
 
-        if (numeroIntents < 1 || numeroIntents > 20) throw new NumeroIntentsIncorrecte("Numero de intents esta fora del rang permes [1,20]");
+        if (numeroIntents < 1 || numeroIntents > 20) throw new NumeroIntentsIncorrecte("Número d'intents està fora del rang permàs [1,20]");
         this.numeroIntents = numeroIntents;
 
-        if (numeroColors < 4 || numeroColors > 10) throw new NumeroColorsIncorrecte("Numero de colors esta fora del rang permes [4,10]");
+        if (numeroColors < 4 || numeroColors > 10) throw new NumeroColorsIncorrecte("Numero de colors està fora del rang permàs [4,10]");
         this.numeroColors = numeroColors;
 
-        if (longitudCombinacio < 4 || longitudCombinacio > 10) throw new LongitudCombinacioIncorrecte("Longitud de la combinacio esta fora del rang permes [4,10]");
+        if (longitudCombinacio < 4 || longitudCombinacio > 10) throw new LongitudCombinacioIncorrecte("Longitud de la combinació està fora del rang permàs [4,10]");
         this.longitudCombinacio = longitudCombinacio;
     }
 
@@ -126,12 +129,10 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setPartida(Integer partida) {
-        if (this.idPartida == null && partida != null) {
-            this.idPartida = partida;
-            return true;
-        }
-        return false;
+    public void setPartida(Integer partida) throws PartidaJaAssignada, PartidaInvalida {
+        if (this.idPartida != null) throw new PartidaJaAssignada("La configuració de la partida ja està assignada a una partida");
+        if (partida == null || partida < 0) throw new PartidaInvalida("L'identificador de la partida és null o un valor negatiu");
+        this.idPartida = partida;
     }
 
     /**
@@ -140,13 +141,11 @@ public class ConfiguracioPartida {
      * @param tipusPartida          Tipus de la partida
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
+     * @throws TipusPartidaInvalid
      */
-    public boolean setTipusPartida(TipusPartida tipusPartida) {
-        if (tipusPartida != null) {
-            this.tipusPartida = tipusPartida;
-            return true;
-        }
-        return false;
+    public void setTipusPartida(TipusPartida tipusPartida) throws TipusPartidaInvalid {
+        if (tipusPartida == null) throw new TipusPartidaInvalid("El tipus de la partida és null");
+        this.tipusPartida = tipusPartida;
     }
 
     /**
@@ -156,10 +155,9 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setNumeroIntents(Integer numeroIntents) throws NumeroIntentsIncorrecte {
+    public void setNumeroIntents(Integer numeroIntents) throws NumeroIntentsIncorrecte {
         if (numeroIntents < 1 || numeroIntents > 20) throw new NumeroIntentsIncorrecte("Numero de intents esta fora del rang permes [1,20]");
         this.numeroIntents = numeroIntents;
-        return true;
     }
 
     /**
@@ -169,10 +167,9 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setNumeroColors(Integer numeroColors) throws NumeroColorsIncorrecte {
+    public void setNumeroColors(Integer numeroColors) throws NumeroColorsIncorrecte {
         if (numeroColors < 4 || numeroColors > 10) throw new NumeroColorsIncorrecte("Numero de colors esta fora del rang permes [4,10]");
         this.numeroColors = numeroColors;
-        return true;
     }
 
     /**
@@ -182,9 +179,8 @@ public class ConfiguracioPartida {
      * @return                      Cert si s'ha pogut assignar correctament,
      *                              Fals en cas contrari.
      */
-    public boolean setLongitudCombinacio(Integer longitudCombinacio) throws LongitudCombinacioIncorrecte {
+    public void setLongitudCombinacio(Integer longitudCombinacio) throws LongitudCombinacioIncorrecte {
         if (longitudCombinacio < 4 || longitudCombinacio > 10) throw new LongitudCombinacioIncorrecte("Longitud de la combinacio esta fora del rang permes [4,10]");
         this.longitudCombinacio = longitudCombinacio;
-        return true;
     }
 }
