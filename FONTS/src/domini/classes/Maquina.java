@@ -1,6 +1,5 @@
 package domini.classes;
 import java.util.*;
-import java.lang.*;
 
 public interface Maquina {
         /**

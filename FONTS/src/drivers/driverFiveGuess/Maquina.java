@@ -1,6 +1,5 @@
 package drivers.driverFiveGuess;
 import java.util.*;
-import java.lang.*;
 
 public interface Maquina {
         /**

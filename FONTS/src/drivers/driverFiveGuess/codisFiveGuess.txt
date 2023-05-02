@@ -1,0 +1,1298 @@
+
+testSolveTots
+Solucio = 1111 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1111
+Solucio = 1112 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1112
+Solucio = 1113 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1113
+Solucio = 1114 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1536 | Intent 4 : Codi = 1114
+Solucio = 1115 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1115
+Solucio = 1116 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1111 | Intent 5 : Codi = 1116
+Solucio = 1121 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1121
+Solucio = 1122 | Intent 1 : Codi = 1122
+Solucio = 1123 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1123
+Solucio = 1124 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1124
+Solucio = 1125 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1125
+Solucio = 1126 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1125 | Intent 5 : Codi = 1126
+Solucio = 1131 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1536 | Intent 4 : Codi = 1131
+Solucio = 1132 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 1132
+Solucio = 1133 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1536 | Intent 4 : Codi = 1131 | Intent 5 : Codi = 1133
+Solucio = 1134 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1134
+Solucio = 1135 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1536 | Intent 4 : Codi = 1135
+Solucio = 1136 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1536 | Intent 4 : Codi = 1136
+Solucio = 1141 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1113 | Intent 5 : Codi = 1141
+Solucio = 1142 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1142
+Solucio = 1143 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1143
+Solucio = 1144 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1536 | Intent 4 : Codi = 1114 | Intent 5 : Codi = 1144
+Solucio = 1145 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1145
+Solucio = 1146 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1146
+Solucio = 1151 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1151
+Solucio = 1152 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1152
+Solucio = 1153 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1146 | Intent 5 : Codi = 1153
+Solucio = 1154 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1536 | Intent 4 : Codi = 1154
+Solucio = 1155 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1155
+Solucio = 1156 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1151 | Intent 5 : Codi = 1156
+Solucio = 1161 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1161
+Solucio = 1162 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1152 | Intent 5 : Codi = 1162
+Solucio = 1163 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1145 | Intent 5 : Codi = 1163
+Solucio = 1164 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1536 | Intent 4 : Codi = 1154 | Intent 5 : Codi = 1164
+Solucio = 1165 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1155 | Intent 5 : Codi = 1165
+Solucio = 1166 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1161 | Intent 5 : Codi = 1166
+Solucio = 1211 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1211
+Solucio = 1212 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1212
+Solucio = 1213 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213
+Solucio = 1214 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1214
+Solucio = 1215 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1215
+Solucio = 1216 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 1215 | Intent 5 : Codi = 1216
+Solucio = 1221 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1221
+Solucio = 1222 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1123 | Intent 4 : Codi = 1222
+Solucio = 1223 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223
+Solucio = 1224 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 1224
+Solucio = 1225 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 1225
+Solucio = 1226 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 1226
+Solucio = 1231 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1231
+Solucio = 1232 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1232
+Solucio = 1233 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235 | Intent 4 : Codi = 1233
+Solucio = 1234 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1234
+Solucio = 1235 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235
+Solucio = 1236 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235 | Intent 4 : Codi = 1233 | Intent 5 : Codi = 1236
+Solucio = 1241 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 1241
+Solucio = 1242 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1245 | Intent 4 : Codi = 1242
+Solucio = 1243 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 1243
+Solucio = 1244 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235 | Intent 4 : Codi = 1244
+Solucio = 1245 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1245
+Solucio = 1246 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1246
+Solucio = 1251 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 1251
+Solucio = 1252 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1245 | Intent 4 : Codi = 1252
+Solucio = 1253 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1245 | Intent 5 : Codi = 1253
+Solucio = 1254 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235 | Intent 4 : Codi = 1254
+Solucio = 1255 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 1255
+Solucio = 1256 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256
+Solucio = 1261 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 1261
+Solucio = 1262 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1245 | Intent 4 : Codi = 1262
+Solucio = 1263 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1245 | Intent 5 : Codi = 1263
+Solucio = 1264 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235 | Intent 4 : Codi = 1244 | Intent 5 : Codi = 1264
+Solucio = 1265 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 1265
+Solucio = 1266 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 1255 | Intent 5 : Codi = 1266
+Solucio = 1311 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1113 | Intent 5 : Codi = 1311
+Solucio = 1312 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 2145 | Intent 4 : Codi = 1312
+Solucio = 1313 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1113 | Intent 5 : Codi = 1313
+Solucio = 1314 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1314
+Solucio = 1315 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315
+Solucio = 1316 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1113 | Intent 5 : Codi = 1316
+Solucio = 1321 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1245 | Intent 4 : Codi = 1321
+Solucio = 1322 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1322
+Solucio = 1323 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1323
+Solucio = 1324 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1324
+Solucio = 1325 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1325
+Solucio = 1326 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1323 | Intent 5 : Codi = 1326
+Solucio = 1331 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1331
+Solucio = 1332 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1332
+Solucio = 1333 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1136 | Intent 5 : Codi = 1333
+Solucio = 1334 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 1334
+Solucio = 1335 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1136 | Intent 5 : Codi = 1335
+Solucio = 1336 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1136 | Intent 5 : Codi = 1336
+Solucio = 1341 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1341
+Solucio = 1342 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1323 | Intent 4 : Codi = 1342
+Solucio = 1343 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 1343
+Solucio = 1344 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344
+Solucio = 1345 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 1334 | Intent 5 : Codi = 1345
+Solucio = 1346 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 1346
+Solucio = 1351 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1351
+Solucio = 1352 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352
+Solucio = 1353 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1356 | Intent 5 : Codi = 1353
+Solucio = 1354 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 1343 | Intent 5 : Codi = 1354
+Solucio = 1355 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1136 | Intent 5 : Codi = 1355
+Solucio = 1356 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1356
+Solucio = 1361 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1361
+Solucio = 1362 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1362
+Solucio = 1363 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1136 | Intent 5 : Codi = 1363
+Solucio = 1364 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 1346 | Intent 5 : Codi = 1364
+Solucio = 1365 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1136 | Intent 5 : Codi = 1365
+Solucio = 1366 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1136 | Intent 5 : Codi = 1366
+Solucio = 1411 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1411
+Solucio = 1412 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 4512 | Intent 4 : Codi = 1412
+Solucio = 1413 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1341 | Intent 4 : Codi = 1413
+Solucio = 1414 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1414
+Solucio = 1415 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1113 | Intent 5 : Codi = 1415
+Solucio = 1416 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1411 | Intent 5 : Codi = 1416
+Solucio = 1421 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1421
+Solucio = 1422 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1422
+Solucio = 1423 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1323 | Intent 4 : Codi = 1423
+Solucio = 1424 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1424
+Solucio = 1425 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1623 | Intent 5 : Codi = 1425
+Solucio = 1426 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1143 | Intent 5 : Codi = 1426
+Solucio = 1431 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1314 | Intent 4 : Codi = 1431
+Solucio = 1432 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1324 | Intent 4 : Codi = 1432
+Solucio = 1433 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 1433
+Solucio = 1434 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1434
+Solucio = 1435 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 1435
+Solucio = 1436 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 1436
+Solucio = 1441 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 1441
+Solucio = 1442 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1462 | Intent 5 : Codi = 1442
+Solucio = 1443 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1434 | Intent 4 : Codi = 1443
+Solucio = 1444 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 1444
+Solucio = 1445 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1445
+Solucio = 1446 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1446
+Solucio = 1451 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 6451 | Intent 5 : Codi = 1451
+Solucio = 1452 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1362 | Intent 5 : Codi = 1452
+Solucio = 1453 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 1453
+Solucio = 1454 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1454
+Solucio = 1455 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1456 | Intent 5 : Codi = 1455
+Solucio = 1456 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1456
+Solucio = 1461 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1461
+Solucio = 1462 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1462
+Solucio = 1463 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 1463
+Solucio = 1464 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1446 | Intent 5 : Codi = 1464
+Solucio = 1465 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1456 | Intent 5 : Codi = 1465
+Solucio = 1466 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1635 | Intent 5 : Codi = 1466
+Solucio = 1511 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1511
+Solucio = 1512 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 4512 | Intent 4 : Codi = 1512
+Solucio = 1513 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1351 | Intent 5 : Codi = 1513
+Solucio = 1514 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1331 | Intent 5 : Codi = 1514
+Solucio = 1515 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1511 | Intent 5 : Codi = 1515
+Solucio = 1516 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516
+Solucio = 1521 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1521
+Solucio = 1522 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1522
+Solucio = 1523 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1523
+Solucio = 1524 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1524
+Solucio = 1525 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1525
+Solucio = 1526 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1526
+Solucio = 1531 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1531
+Solucio = 1532 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1532
+Solucio = 1533 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 1533
+Solucio = 1534 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1534
+Solucio = 1535 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 1535
+Solucio = 1536 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 1536
+Solucio = 1541 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 6451 | Intent 5 : Codi = 1541
+Solucio = 1542 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1323 | Intent 5 : Codi = 1542
+Solucio = 1543 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1534 | Intent 5 : Codi = 1543
+Solucio = 1544 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 1544
+Solucio = 1545 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1545
+Solucio = 1546 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1546
+Solucio = 1551 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1551
+Solucio = 1552 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1552
+Solucio = 1553 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 1553
+Solucio = 1554 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1546 | Intent 5 : Codi = 1554
+Solucio = 1555 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 6624 | Intent 5 : Codi = 1555
+Solucio = 1556 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 1566 | Intent 5 : Codi = 1556
+Solucio = 1561 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1561
+Solucio = 1562 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1562
+Solucio = 1563 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 1563
+Solucio = 1564 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1546 | Intent 5 : Codi = 1564
+Solucio = 1565 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 6624 | Intent 5 : Codi = 1565
+Solucio = 1566 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 1566
+Solucio = 1611 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1551 | Intent 5 : Codi = 1611
+Solucio = 1612 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 4512 | Intent 4 : Codi = 1612
+Solucio = 1613 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1361 | Intent 5 : Codi = 1613
+Solucio = 1614 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1414 | Intent 5 : Codi = 1614
+Solucio = 1615 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1561 | Intent 5 : Codi = 1615
+Solucio = 1616 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1511 | Intent 5 : Codi = 1616
+Solucio = 1621 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1621
+Solucio = 1622 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1622
+Solucio = 1623 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1623
+Solucio = 1624 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1624
+Solucio = 1625 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1562 | Intent 5 : Codi = 1625
+Solucio = 1626 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1552 | Intent 5 : Codi = 1626
+Solucio = 1631 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1631
+Solucio = 1632 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1632
+Solucio = 1633 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1636 | Intent 5 : Codi = 1633
+Solucio = 1634 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1634
+Solucio = 1635 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1635
+Solucio = 1636 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1636
+Solucio = 1641 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 1641
+Solucio = 1642 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1462 | Intent 5 : Codi = 1642
+Solucio = 1643 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1634 | Intent 5 : Codi = 1643
+Solucio = 1644 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 1444 | Intent 5 : Codi = 1644
+Solucio = 1645 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1545 | Intent 5 : Codi = 1645
+Solucio = 1646 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1356 | Intent 5 : Codi = 1646
+Solucio = 1651 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1651
+Solucio = 1652 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1526 | Intent 5 : Codi = 1652
+Solucio = 1653 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1635 | Intent 5 : Codi = 1653
+Solucio = 1654 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1546 | Intent 5 : Codi = 1654
+Solucio = 1655 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 6624 | Intent 5 : Codi = 1655
+Solucio = 1656 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 1566 | Intent 5 : Codi = 1656
+Solucio = 1661 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1661
+Solucio = 1662 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 1525 | Intent 5 : Codi = 1662
+Solucio = 1663 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1636 | Intent 5 : Codi = 1663
+Solucio = 1664 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 1356 | Intent 5 : Codi = 1664
+Solucio = 1665 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 6624 | Intent 5 : Codi = 1665
+Solucio = 1666 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 1666
+Solucio = 2111 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 2111
+Solucio = 2112 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2112
+Solucio = 2113 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1231 | Intent 4 : Codi = 2113
+Solucio = 2114 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 2114
+Solucio = 2115 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 2115
+Solucio = 2116 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 2115 | Intent 5 : Codi = 2116
+Solucio = 2121 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2121
+Solucio = 2122 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2122
+Solucio = 2123 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1232 | Intent 4 : Codi = 2123
+Solucio = 2124 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 2145 | Intent 4 : Codi = 2124
+Solucio = 2125 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 2145 | Intent 4 : Codi = 2125
+Solucio = 2126 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 2145 | Intent 4 : Codi = 2126
+Solucio = 2131 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2131
+Solucio = 2132 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 2132
+Solucio = 2133 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235 | Intent 4 : Codi = 2133
+Solucio = 2134 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1234 | Intent 4 : Codi = 2134
+Solucio = 2135 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235 | Intent 4 : Codi = 2135
+Solucio = 2136 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235 | Intent 4 : Codi = 2133 | Intent 5 : Codi = 2136
+Solucio = 2141 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2141
+Solucio = 2142 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 2145 | Intent 4 : Codi = 2142
+Solucio = 2143 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 4161 | Intent 5 : Codi = 2143
+Solucio = 2144 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235 | Intent 4 : Codi = 2144
+Solucio = 2145 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 2145
+Solucio = 2146 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1245 | Intent 5 : Codi = 2146
+Solucio = 2151 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2151
+Solucio = 2152 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 2145 | Intent 4 : Codi = 2152
+Solucio = 2153 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 2145 | Intent 5 : Codi = 2153
+Solucio = 2154 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235 | Intent 4 : Codi = 2154
+Solucio = 2155 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2155
+Solucio = 2156 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 1265 | Intent 5 : Codi = 2156
+Solucio = 2161 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2161
+Solucio = 2162 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 2145 | Intent 4 : Codi = 2162
+Solucio = 2163 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 2145 | Intent 5 : Codi = 2163
+Solucio = 2164 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1235 | Intent 4 : Codi = 2144 | Intent 5 : Codi = 2164
+Solucio = 2165 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2165
+Solucio = 2166 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2155 | Intent 5 : Codi = 2166
+Solucio = 2211 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2211
+Solucio = 2212 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2212
+Solucio = 2213 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2213
+Solucio = 2214 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2214
+Solucio = 2215 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2215
+Solucio = 2216 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2216
+Solucio = 2221 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2412 | Intent 4 : Codi = 2221
+Solucio = 2222 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 2222
+Solucio = 2223 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2223
+Solucio = 2224 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2224
+Solucio = 2225 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2225
+Solucio = 2226 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2226
+Solucio = 2231 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 2231
+Solucio = 2232 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2224 | Intent 5 : Codi = 2232
+Solucio = 2233 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2236 | Intent 5 : Codi = 2233
+Solucio = 2234 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2234
+Solucio = 2235 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2235
+Solucio = 2236 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2236
+Solucio = 2241 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2241
+Solucio = 2242 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2462 | Intent 5 : Codi = 2242
+Solucio = 2243 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2234 | Intent 4 : Codi = 2243
+Solucio = 2244 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2314 | Intent 4 : Codi = 2244
+Solucio = 2245 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2245
+Solucio = 2246 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2246
+Solucio = 2251 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2251
+Solucio = 2252 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2252
+Solucio = 2253 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2253
+Solucio = 2254 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2254
+Solucio = 2255 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 2255
+Solucio = 2256 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256
+Solucio = 2261 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2261
+Solucio = 2262 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2262
+Solucio = 2263 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2236 | Intent 5 : Codi = 2263
+Solucio = 2264 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2246 | Intent 5 : Codi = 2264
+Solucio = 2265 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 2265
+Solucio = 2266 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 2255 | Intent 5 : Codi = 2266
+Solucio = 2311 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2311
+Solucio = 2312 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 2312
+Solucio = 2313 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2313
+Solucio = 2314 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2314
+Solucio = 2315 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2315
+Solucio = 2316 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2316
+Solucio = 2321 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2321
+Solucio = 2322 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 2116 | Intent 5 : Codi = 2322
+Solucio = 2323 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2323
+Solucio = 2324 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 2324
+Solucio = 2325 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2325
+Solucio = 2326 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2323 | Intent 5 : Codi = 2326
+Solucio = 2331 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2331
+Solucio = 2332 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2332
+Solucio = 2333 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 1136 | Intent 5 : Codi = 2333
+Solucio = 2334 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 2334
+Solucio = 2335 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2335
+Solucio = 2336 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 1136 | Intent 5 : Codi = 2336
+Solucio = 2341 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2314 | Intent 4 : Codi = 2341
+Solucio = 2342 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 4612 | Intent 5 : Codi = 2342
+Solucio = 2343 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 2343
+Solucio = 2344 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344
+Solucio = 2345 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 2334 | Intent 5 : Codi = 2345
+Solucio = 2346 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 2346
+Solucio = 2351 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2331 | Intent 5 : Codi = 2351
+Solucio = 2352 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352
+Solucio = 2353 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2353
+Solucio = 2354 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 2343 | Intent 5 : Codi = 2354
+Solucio = 2355 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2564 | Intent 5 : Codi = 2355
+Solucio = 2356 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2353 | Intent 5 : Codi = 2356
+Solucio = 2361 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2361
+Solucio = 2362 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2362
+Solucio = 2363 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 1136 | Intent 5 : Codi = 2363
+Solucio = 2364 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 2346 | Intent 5 : Codi = 2364
+Solucio = 2365 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2335 | Intent 5 : Codi = 2365
+Solucio = 2366 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 1136 | Intent 5 : Codi = 2366
+Solucio = 2411 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 2411
+Solucio = 2412 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2412
+Solucio = 2413 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2413
+Solucio = 2414 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2234 | Intent 4 : Codi = 2414
+Solucio = 2415 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415
+Solucio = 2416 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2416
+Solucio = 2421 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 2421
+Solucio = 2422 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4622 | Intent 5 : Codi = 2422
+Solucio = 2423 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 2423
+Solucio = 2424 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2332 | Intent 5 : Codi = 2424
+Solucio = 2425 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2223 | Intent 5 : Codi = 2425
+Solucio = 2426 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 6242 | Intent 5 : Codi = 2426
+Solucio = 2431 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2413 | Intent 4 : Codi = 2431
+Solucio = 2432 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 2324 | Intent 5 : Codi = 2432
+Solucio = 2433 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 2436 | Intent 5 : Codi = 2433
+Solucio = 2434 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2434
+Solucio = 2435 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 2435
+Solucio = 2436 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 2436
+Solucio = 2441 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2234 | Intent 4 : Codi = 2441
+Solucio = 2442 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2462 | Intent 5 : Codi = 2442
+Solucio = 2443 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2434 | Intent 4 : Codi = 2443
+Solucio = 2444 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 2444
+Solucio = 2445 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 2445
+Solucio = 2446 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 2446
+Solucio = 2451 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2451
+Solucio = 2452 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2362 | Intent 5 : Codi = 2452
+Solucio = 2453 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 2453
+Solucio = 2454 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 2454
+Solucio = 2455 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2456 | Intent 5 : Codi = 2455
+Solucio = 2456 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2456
+Solucio = 2461 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2461
+Solucio = 2462 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2462
+Solucio = 2463 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 2436 | Intent 5 : Codi = 2463
+Solucio = 2464 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 2446 | Intent 5 : Codi = 2464
+Solucio = 2465 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2456 | Intent 5 : Codi = 2465
+Solucio = 2466 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2635 | Intent 5 : Codi = 2466
+Solucio = 2511 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 2511
+Solucio = 2512 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2412 | Intent 4 : Codi = 2512
+Solucio = 2513 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2461 | Intent 5 : Codi = 2513
+Solucio = 2514 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2361 | Intent 5 : Codi = 2514
+Solucio = 2515 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 2515
+Solucio = 2516 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 2516
+Solucio = 2521 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 2521
+Solucio = 2522 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2515 | Intent 4 : Codi = 2522
+Solucio = 2523 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2523
+Solucio = 2524 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2524
+Solucio = 2525 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525
+Solucio = 2526 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2225 | Intent 5 : Codi = 2526
+Solucio = 2531 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2531
+Solucio = 2532 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2524 | Intent 5 : Codi = 2532
+Solucio = 2533 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 1635 | Intent 5 : Codi = 2533
+Solucio = 2534 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 2534
+Solucio = 2535 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 1635 | Intent 5 : Codi = 2535
+Solucio = 2536 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 1635 | Intent 5 : Codi = 2536
+Solucio = 2541 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2541
+Solucio = 2542 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2323 | Intent 5 : Codi = 2542
+Solucio = 2543 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 2534 | Intent 5 : Codi = 2543
+Solucio = 2544 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 2544
+Solucio = 2545 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2545
+Solucio = 2546 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2546
+Solucio = 2551 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 2551
+Solucio = 2552 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2552
+Solucio = 2553 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 1635 | Intent 5 : Codi = 2553
+Solucio = 2554 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2554
+Solucio = 2555 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 6614 | Intent 5 : Codi = 2555
+Solucio = 2556 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2566 | Intent 5 : Codi = 2556
+Solucio = 2561 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 2561
+Solucio = 2562 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2562
+Solucio = 2563 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 1635 | Intent 5 : Codi = 2563
+Solucio = 2564 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2564
+Solucio = 2565 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 6614 | Intent 5 : Codi = 2565
+Solucio = 2566 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2566
+Solucio = 2611 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 2611
+Solucio = 2612 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2412 | Intent 4 : Codi = 2512 | Intent 5 : Codi = 2612
+Solucio = 2613 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2235 | Intent 5 : Codi = 2613
+Solucio = 2614 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2245 | Intent 5 : Codi = 2614
+Solucio = 2615 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 2561 | Intent 5 : Codi = 2615
+Solucio = 2616 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 2551 | Intent 5 : Codi = 2616
+Solucio = 2621 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 2621
+Solucio = 2622 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2515 | Intent 4 : Codi = 2622
+Solucio = 2623 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2223 | Intent 5 : Codi = 2623
+Solucio = 2624 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2524 | Intent 5 : Codi = 2624
+Solucio = 2625 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2225 | Intent 5 : Codi = 2625
+Solucio = 2626 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2226 | Intent 5 : Codi = 2626
+Solucio = 2631 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2253 | Intent 5 : Codi = 2631
+Solucio = 2632 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2524 | Intent 5 : Codi = 2632
+Solucio = 2633 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2636 | Intent 5 : Codi = 2633
+Solucio = 2634 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 2634
+Solucio = 2635 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2635
+Solucio = 2636 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2636
+Solucio = 2641 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2254 | Intent 5 : Codi = 2641
+Solucio = 2642 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2462 | Intent 5 : Codi = 2642
+Solucio = 2643 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 2634 | Intent 5 : Codi = 2643
+Solucio = 2644 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 2444 | Intent 5 : Codi = 2644
+Solucio = 2645 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2546 | Intent 5 : Codi = 2645
+Solucio = 2646 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2335 | Intent 5 : Codi = 2646
+Solucio = 2651 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 2516 | Intent 5 : Codi = 2651
+Solucio = 2652 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2252 | Intent 5 : Codi = 2652
+Solucio = 2653 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2635 | Intent 5 : Codi = 2653
+Solucio = 2654 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2654
+Solucio = 2655 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 6614 | Intent 5 : Codi = 2655
+Solucio = 2656 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2566 | Intent 5 : Codi = 2656
+Solucio = 2661 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 2515 | Intent 5 : Codi = 2661
+Solucio = 2662 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2262 | Intent 5 : Codi = 2662
+Solucio = 2663 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2636 | Intent 5 : Codi = 2663
+Solucio = 2664 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2353 | Intent 5 : Codi = 2664
+Solucio = 2665 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 6614 | Intent 5 : Codi = 2665
+Solucio = 2666 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2666
+Solucio = 3111 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 6451 | Intent 5 : Codi = 3111
+Solucio = 3112 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 2145 | Intent 4 : Codi = 3112
+Solucio = 3113 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 6451 | Intent 5 : Codi = 3113
+Solucio = 3114 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1314 | Intent 4 : Codi = 3114
+Solucio = 3115 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1351 | Intent 5 : Codi = 3115
+Solucio = 3116 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 6451 | Intent 5 : Codi = 3116
+Solucio = 3121 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 2145 | Intent 4 : Codi = 3121
+Solucio = 3122 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 3122
+Solucio = 3123 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 3126 | Intent 5 : Codi = 3123
+Solucio = 3124 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1323 | Intent 4 : Codi = 3124
+Solucio = 3125 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 3125
+Solucio = 3126 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 3126
+Solucio = 3131 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 3131
+Solucio = 3132 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1623 | Intent 5 : Codi = 3132
+Solucio = 3133 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 3133
+Solucio = 3134 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3134
+Solucio = 3135 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135
+Solucio = 3136 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 3136
+Solucio = 3141 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1341 | Intent 4 : Codi = 3141
+Solucio = 3142 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 3142
+Solucio = 3143 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3143
+Solucio = 3144 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1434 | Intent 4 : Codi = 3144
+Solucio = 3145 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145
+Solucio = 3146 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3143 | Intent 5 : Codi = 3146
+Solucio = 3151 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 3151
+Solucio = 3152 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 3152
+Solucio = 3153 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3153
+Solucio = 3154 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3154
+Solucio = 3155 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 3155
+Solucio = 3156 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3156
+Solucio = 3161 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 4151 | Intent 5 : Codi = 3161
+Solucio = 3162 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4152 | Intent 5 : Codi = 3162
+Solucio = 3163 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3156 | Intent 5 : Codi = 3163
+Solucio = 3164 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3134 | Intent 5 : Codi = 3164
+Solucio = 3165 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 3165
+Solucio = 3166 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 3166
+Solucio = 3211 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 3211
+Solucio = 3212 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 3212
+Solucio = 3213 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 3213
+Solucio = 3214 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2413 | Intent 4 : Codi = 3214
+Solucio = 3215 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215
+Solucio = 3216 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 3213 | Intent 5 : Codi = 3216
+Solucio = 3221 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1114 | Intent 4 : Codi = 3221
+Solucio = 3222 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 3222
+Solucio = 3223 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 3226 | Intent 5 : Codi = 3223
+Solucio = 3224 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 2324 | Intent 5 : Codi = 3224
+Solucio = 3225 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 3225
+Solucio = 3226 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 3226
+Solucio = 3231 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 3231
+Solucio = 3232 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2224 | Intent 5 : Codi = 3232
+Solucio = 3233 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 3233
+Solucio = 3234 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3234
+Solucio = 3235 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235
+Solucio = 3236 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 3236
+Solucio = 3241 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2413 | Intent 4 : Codi = 3241
+Solucio = 3242 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 2423 | Intent 5 : Codi = 3242
+Solucio = 3243 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3243
+Solucio = 3244 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2434 | Intent 4 : Codi = 3244
+Solucio = 3245 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245
+Solucio = 3246 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3243 | Intent 5 : Codi = 3246
+Solucio = 3251 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 3251
+Solucio = 3252 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2325 | Intent 5 : Codi = 3252
+Solucio = 3253 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3253
+Solucio = 3254 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3254
+Solucio = 3255 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 3255
+Solucio = 3256 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3256
+Solucio = 3261 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 3231 | Intent 5 : Codi = 3261
+Solucio = 3262 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2223 | Intent 5 : Codi = 3262
+Solucio = 3263 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3256 | Intent 5 : Codi = 3263
+Solucio = 3264 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3234 | Intent 5 : Codi = 3264
+Solucio = 3265 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 3265
+Solucio = 3266 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 3266
+Solucio = 3311 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 3311
+Solucio = 3312 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 3312
+Solucio = 3313 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 3316 | Intent 5 : Codi = 3313
+Solucio = 3314 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2654 | Intent 5 : Codi = 3314
+Solucio = 3315 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315
+Solucio = 3316 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 3316
+Solucio = 3321 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 3321
+Solucio = 3322 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 2116 | Intent 5 : Codi = 3322
+Solucio = 3323 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 3326 | Intent 5 : Codi = 3323
+Solucio = 3324 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 3324
+Solucio = 3325 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325
+Solucio = 3326 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 3326
+Solucio = 3331 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 3331
+Solucio = 3332 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 3332
+Solucio = 3333 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3446 | Intent 5 : Codi = 3333
+Solucio = 3334 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3334
+Solucio = 3335 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 3335
+Solucio = 3336 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3336
+Solucio = 3341 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2564 | Intent 5 : Codi = 3341
+Solucio = 3342 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 3324 | Intent 5 : Codi = 3342
+Solucio = 3343 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 3343
+Solucio = 3344 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 3344
+Solucio = 3345 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345
+Solucio = 3346 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 3346
+Solucio = 3351 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 3351
+Solucio = 3352 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 3352
+Solucio = 3353 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3455 | Intent 5 : Codi = 3353
+Solucio = 3354 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3435 | Intent 4 : Codi = 3354
+Solucio = 3355 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 3335 | Intent 5 : Codi = 3355
+Solucio = 3356 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3356
+Solucio = 3361 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 3331 | Intent 5 : Codi = 3361
+Solucio = 3362 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 3332 | Intent 5 : Codi = 3362
+Solucio = 3363 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3363
+Solucio = 3364 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3334 | Intent 5 : Codi = 3364
+Solucio = 3365 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 3365
+Solucio = 3366 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3366
+Solucio = 3411 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 3411
+Solucio = 3412 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1312 | Intent 4 : Codi = 3412
+Solucio = 3413 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3413
+Solucio = 3414 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3414
+Solucio = 3415 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 3415
+Solucio = 3416 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3416
+Solucio = 3421 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1312 | Intent 4 : Codi = 3421
+Solucio = 3422 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 3422
+Solucio = 3423 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3423
+Solucio = 3424 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3424
+Solucio = 3425 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 3425
+Solucio = 3426 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3426
+Solucio = 3431 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 3431
+Solucio = 3432 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 3432
+Solucio = 3433 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3463 | Intent 5 : Codi = 3433
+Solucio = 3434 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3456 | Intent 5 : Codi = 3434
+Solucio = 3435 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3435
+Solucio = 3436 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3463 | Intent 5 : Codi = 3436
+Solucio = 3441 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3441
+Solucio = 3442 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3442
+Solucio = 3443 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443
+Solucio = 3444 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4645 | Intent 5 : Codi = 3444
+Solucio = 3445 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 3346 | Intent 5 : Codi = 3445
+Solucio = 3446 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3446
+Solucio = 3451 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3413 | Intent 5 : Codi = 3451
+Solucio = 3452 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3423 | Intent 5 : Codi = 3452
+Solucio = 3453 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3453
+Solucio = 3454 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454
+Solucio = 3455 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3455
+Solucio = 3456 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3456
+Solucio = 3461 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3416 | Intent 5 : Codi = 3461
+Solucio = 3462 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3426 | Intent 5 : Codi = 3462
+Solucio = 3463 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3463
+Solucio = 3464 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 1565 | Intent 5 : Codi = 3464
+Solucio = 3465 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3455 | Intent 5 : Codi = 3465
+Solucio = 3466 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3466
+Solucio = 3511 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 3511
+Solucio = 3512 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 3512
+Solucio = 3513 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1145 | Intent 5 : Codi = 3513
+Solucio = 3514 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4414 | Intent 5 : Codi = 3514
+Solucio = 3515 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1145 | Intent 5 : Codi = 3515
+Solucio = 3516 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516
+Solucio = 3521 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521
+Solucio = 3522 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 3522
+Solucio = 3523 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1145 | Intent 5 : Codi = 3523
+Solucio = 3524 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4424 | Intent 5 : Codi = 3524
+Solucio = 3525 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1145 | Intent 5 : Codi = 3525
+Solucio = 3526 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526
+Solucio = 3531 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 3551 | Intent 5 : Codi = 3531
+Solucio = 3532 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 3552 | Intent 5 : Codi = 3532
+Solucio = 3533 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3536 | Intent 5 : Codi = 3533
+Solucio = 3534 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3453 | Intent 4 : Codi = 3534
+Solucio = 3535 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3356 | Intent 5 : Codi = 3535
+Solucio = 3536 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3536
+Solucio = 3541 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 1356 | Intent 5 : Codi = 3541
+Solucio = 3542 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1356 | Intent 5 : Codi = 3542
+Solucio = 3543 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3435 | Intent 4 : Codi = 3354 | Intent 5 : Codi = 3543
+Solucio = 3544 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3544
+Solucio = 3545 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 3343 | Intent 5 : Codi = 3545
+Solucio = 3546 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3455 | Intent 5 : Codi = 3546
+Solucio = 3551 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 3551
+Solucio = 3552 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 3552
+Solucio = 3553 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3463 | Intent 5 : Codi = 3553
+Solucio = 3554 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3456 | Intent 5 : Codi = 3554
+Solucio = 3555 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4645 | Intent 5 : Codi = 3555
+Solucio = 3556 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3556
+Solucio = 3561 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1113 | Intent 5 : Codi = 3561
+Solucio = 3562 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1123 | Intent 5 : Codi = 3562
+Solucio = 3563 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3536 | Intent 5 : Codi = 3563
+Solucio = 3564 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3564
+Solucio = 3565 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3565
+Solucio = 3566 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3466 | Intent 5 : Codi = 3566
+Solucio = 3611 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 3611
+Solucio = 3612 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 3312 | Intent 5 : Codi = 3612
+Solucio = 3613 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 3551 | Intent 5 : Codi = 3613
+Solucio = 3614 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 3614
+Solucio = 3615 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1113 | Intent 5 : Codi = 3615
+Solucio = 3616 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1145 | Intent 5 : Codi = 3616
+Solucio = 3621 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 3321 | Intent 5 : Codi = 3621
+Solucio = 3622 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4522 | Intent 5 : Codi = 3622
+Solucio = 3623 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 3552 | Intent 5 : Codi = 3623
+Solucio = 3624 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 3624
+Solucio = 3625 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1123 | Intent 5 : Codi = 3625
+Solucio = 3626 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1145 | Intent 5 : Codi = 3626
+Solucio = 3631 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 3631
+Solucio = 3632 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1462 | Intent 5 : Codi = 3632
+Solucio = 3633 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3633
+Solucio = 3634 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3463 | Intent 5 : Codi = 3634
+Solucio = 3635 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3356 | Intent 5 : Codi = 3635
+Solucio = 3636 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636
+Solucio = 3641 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2456 | Intent 5 : Codi = 3641
+Solucio = 3642 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1456 | Intent 5 : Codi = 3642
+Solucio = 3643 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3643
+Solucio = 3644 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3446 | Intent 5 : Codi = 3644
+Solucio = 3645 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 3344 | Intent 5 : Codi = 3645
+Solucio = 3646 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3336 | Intent 5 : Codi = 3646
+Solucio = 3651 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 5613 | Intent 5 : Codi = 3651
+Solucio = 3652 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 5623 | Intent 5 : Codi = 3652
+Solucio = 3653 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3463 | Intent 5 : Codi = 3653
+Solucio = 3654 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3456 | Intent 5 : Codi = 3654
+Solucio = 3655 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3446 | Intent 5 : Codi = 3655
+Solucio = 3656 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3633 | Intent 5 : Codi = 3656
+Solucio = 3661 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 3661
+Solucio = 3662 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1462 | Intent 5 : Codi = 3662
+Solucio = 3663 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3663
+Solucio = 3664 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3466 | Intent 5 : Codi = 3664
+Solucio = 3665 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3665
+Solucio = 3666 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 3666
+Solucio = 4111 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 4111
+Solucio = 4112 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 4115 | Intent 4 : Codi = 4112
+Solucio = 4113 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1341 | Intent 4 : Codi = 4113
+Solucio = 4114 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 4114
+Solucio = 4115 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1361 | Intent 5 : Codi = 4115
+Solucio = 4116 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 4116
+Solucio = 4121 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 4512 | Intent 4 : Codi = 4121
+Solucio = 4122 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 4122
+Solucio = 4123 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 3142 | Intent 4 : Codi = 4123
+Solucio = 4124 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 4124
+Solucio = 4125 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4125
+Solucio = 4126 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 3422 | Intent 5 : Codi = 4126
+Solucio = 4131 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1314 | Intent 4 : Codi = 4131
+Solucio = 4132 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1323 | Intent 4 : Codi = 4132
+Solucio = 4133 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 4133
+Solucio = 4134 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4134
+Solucio = 4135 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 4135
+Solucio = 4136 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 4136
+Solucio = 4141 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 4161 | Intent 5 : Codi = 4141
+Solucio = 4142 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4162 | Intent 5 : Codi = 4142
+Solucio = 4143 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4134 | Intent 4 : Codi = 4143
+Solucio = 4144 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 4144
+Solucio = 4145 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3143 | Intent 5 : Codi = 4145
+Solucio = 4146 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3442 | Intent 5 : Codi = 4146
+Solucio = 4151 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 4151
+Solucio = 4152 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4152
+Solucio = 4153 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 4153
+Solucio = 4154 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 4154
+Solucio = 4155 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 4155
+Solucio = 4156 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3423 | Intent 5 : Codi = 4156
+Solucio = 4161 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 4161
+Solucio = 4162 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4162
+Solucio = 4163 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 4163
+Solucio = 4164 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3424 | Intent 5 : Codi = 4164
+Solucio = 4165 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 4165
+Solucio = 4166 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3426 | Intent 5 : Codi = 4166
+Solucio = 4211 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 4115 | Intent 4 : Codi = 4211
+Solucio = 4212 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 4212
+Solucio = 4213 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4213
+Solucio = 4214 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2413 | Intent 4 : Codi = 4214
+Solucio = 4215 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 3213 | Intent 5 : Codi = 4215
+Solucio = 4216 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 3411 | Intent 5 : Codi = 4216
+Solucio = 4221 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2412 | Intent 4 : Codi = 4221
+Solucio = 4222 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2156 | Intent 4 : Codi = 3222 | Intent 5 : Codi = 4222
+Solucio = 4223 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 2423 | Intent 5 : Codi = 4223
+Solucio = 4224 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 2224 | Intent 5 : Codi = 4224
+Solucio = 4225 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 3226 | Intent 5 : Codi = 4225
+Solucio = 4226 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 5621 | Intent 5 : Codi = 4226
+Solucio = 4231 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4213 | Intent 4 : Codi = 4231
+Solucio = 4232 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 2324 | Intent 5 : Codi = 4232
+Solucio = 4233 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2335 | Intent 4 : Codi = 4233
+Solucio = 4234 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4234
+Solucio = 4235 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2335 | Intent 4 : Codi = 4235
+Solucio = 4236 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2335 | Intent 4 : Codi = 4236
+Solucio = 4241 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2413 | Intent 4 : Codi = 4241
+Solucio = 4242 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 6242 | Intent 5 : Codi = 4242
+Solucio = 4243 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4234 | Intent 4 : Codi = 4243
+Solucio = 4244 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 4244
+Solucio = 4245 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3243 | Intent 5 : Codi = 4245
+Solucio = 4246 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3441 | Intent 5 : Codi = 4246
+Solucio = 4251 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 4251
+Solucio = 4252 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2323 | Intent 5 : Codi = 4252
+Solucio = 4253 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2335 | Intent 4 : Codi = 4253
+Solucio = 4254 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 4254
+Solucio = 4255 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 4255
+Solucio = 4256 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3413 | Intent 5 : Codi = 4256
+Solucio = 4261 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 4261
+Solucio = 4262 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 6242 | Intent 5 : Codi = 4262
+Solucio = 4263 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2335 | Intent 4 : Codi = 4263
+Solucio = 4264 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3414 | Intent 5 : Codi = 4264
+Solucio = 4265 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 4265
+Solucio = 4266 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3416 | Intent 5 : Codi = 4266
+Solucio = 4311 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2253 | Intent 5 : Codi = 4311
+Solucio = 4312 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1312 | Intent 4 : Codi = 4312
+Solucio = 4313 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 3614 | Intent 5 : Codi = 4313
+Solucio = 4314 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 4314
+Solucio = 4315 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4315
+Solucio = 4316 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 3614 | Intent 5 : Codi = 4316
+Solucio = 4321 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1312 | Intent 4 : Codi = 4321
+Solucio = 4322 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4322
+Solucio = 4323 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 3624 | Intent 5 : Codi = 4323
+Solucio = 4324 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 4324
+Solucio = 4325 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4325
+Solucio = 4326 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 3624 | Intent 5 : Codi = 4326
+Solucio = 4331 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4361 | Intent 5 : Codi = 4331
+Solucio = 4332 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4362 | Intent 5 : Codi = 4332
+Solucio = 4333 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 4333
+Solucio = 4334 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4356 | Intent 5 : Codi = 4334
+Solucio = 4335 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3435 | Intent 4 : Codi = 4335
+Solucio = 4336 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 4336
+Solucio = 4341 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 4314 | Intent 5 : Codi = 4341
+Solucio = 4342 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 4324 | Intent 5 : Codi = 4342
+Solucio = 4343 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 4343
+Solucio = 4344 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 6445 | Intent 5 : Codi = 4344
+Solucio = 4345 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 4345
+Solucio = 4346 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3565 | Intent 5 : Codi = 4346
+Solucio = 4351 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 1356 | Intent 5 : Codi = 4351
+Solucio = 4352 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1356 | Intent 5 : Codi = 4352
+Solucio = 4353 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3453 | Intent 4 : Codi = 4353
+Solucio = 4354 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4354
+Solucio = 4355 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 4355
+Solucio = 4356 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4356
+Solucio = 4361 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4361
+Solucio = 4362 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4362
+Solucio = 4363 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 4363
+Solucio = 4364 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4364
+Solucio = 4365 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 4355 | Intent 5 : Codi = 4365
+Solucio = 4366 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4366
+Solucio = 4411 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 4411
+Solucio = 4412 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 4612 | Intent 5 : Codi = 4412
+Solucio = 4413 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2335 | Intent 4 : Codi = 4413
+Solucio = 4414 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4414
+Solucio = 4415 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3416 | Intent 5 : Codi = 4415
+Solucio = 4416 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 4416
+Solucio = 4421 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 4621 | Intent 5 : Codi = 4421
+Solucio = 4422 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4622 | Intent 5 : Codi = 4422
+Solucio = 4423 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 4423
+Solucio = 4424 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4424
+Solucio = 4425 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3426 | Intent 5 : Codi = 4425
+Solucio = 4426 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 4426
+Solucio = 4431 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2335 | Intent 4 : Codi = 4431
+Solucio = 4432 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1335 | Intent 4 : Codi = 4432
+Solucio = 4433 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4433
+Solucio = 4434 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4654 | Intent 5 : Codi = 4434
+Solucio = 4435 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4435
+Solucio = 4436 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4656 | Intent 5 : Codi = 4436
+Solucio = 4441 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 1356 | Intent 5 : Codi = 4441
+Solucio = 4442 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1356 | Intent 5 : Codi = 4442
+Solucio = 4443 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4565 | Intent 5 : Codi = 4443
+Solucio = 4444 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 4444
+Solucio = 4445 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 1444 | Intent 5 : Codi = 4445
+Solucio = 4446 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 4446
+Solucio = 4451 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 4613 | Intent 5 : Codi = 4451
+Solucio = 4452 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 4623 | Intent 5 : Codi = 4452
+Solucio = 4453 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4453
+Solucio = 4454 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 1444 | Intent 5 : Codi = 4454
+Solucio = 4455 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4544 | Intent 5 : Codi = 4455
+Solucio = 4456 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4556 | Intent 5 : Codi = 4456
+Solucio = 4461 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 4416 | Intent 5 : Codi = 4461
+Solucio = 4462 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 4426 | Intent 5 : Codi = 4462
+Solucio = 4463 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4566 | Intent 5 : Codi = 4463
+Solucio = 4464 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 4464
+Solucio = 4465 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4565 | Intent 5 : Codi = 4465
+Solucio = 4466 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 1416 | Intent 5 : Codi = 4466
+Solucio = 4511 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 3511 | Intent 5 : Codi = 4511
+Solucio = 4512 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 3312 | Intent 5 : Codi = 4512
+Solucio = 4513 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 4513
+Solucio = 4514 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514
+Solucio = 4515 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4515
+Solucio = 4516 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1145 | Intent 5 : Codi = 4516
+Solucio = 4521 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 3321 | Intent 5 : Codi = 4521
+Solucio = 4522 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4522
+Solucio = 4523 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 4523
+Solucio = 4524 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524
+Solucio = 4525 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4525
+Solucio = 4526 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1145 | Intent 5 : Codi = 4526
+Solucio = 4531 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3413 | Intent 5 : Codi = 4531
+Solucio = 4532 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3423 | Intent 5 : Codi = 4532
+Solucio = 4533 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4533
+Solucio = 4534 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4534
+Solucio = 4535 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4535
+Solucio = 4536 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4536
+Solucio = 4541 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4541
+Solucio = 4542 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4542
+Solucio = 4543 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4543
+Solucio = 4544 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4544
+Solucio = 4545 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 1444 | Intent 5 : Codi = 4545
+Solucio = 4546 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4546
+Solucio = 4551 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4551
+Solucio = 4552 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4552
+Solucio = 4553 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4453 | Intent 5 : Codi = 4553
+Solucio = 4554 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 1444 | Intent 5 : Codi = 4554
+Solucio = 4555 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4544 | Intent 5 : Codi = 4555
+Solucio = 4556 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4556
+Solucio = 4561 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 4561
+Solucio = 4562 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1462 | Intent 5 : Codi = 4562
+Solucio = 4563 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4563
+Solucio = 4564 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5653 | Intent 5 : Codi = 4564
+Solucio = 4565 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4565
+Solucio = 4566 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4566
+Solucio = 4611 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 3611 | Intent 5 : Codi = 4611
+Solucio = 4612 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 4612
+Solucio = 4613 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 4613
+Solucio = 4614 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4414 | Intent 5 : Codi = 4614
+Solucio = 4615 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 4615
+Solucio = 4616 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4515 | Intent 5 : Codi = 4616
+Solucio = 4621 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 4621
+Solucio = 4622 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4622
+Solucio = 4623 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 4623
+Solucio = 4624 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4424 | Intent 5 : Codi = 4624
+Solucio = 4625 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1462 | Intent 5 : Codi = 4625
+Solucio = 4626 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4525 | Intent 5 : Codi = 4626
+Solucio = 4631 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3416 | Intent 5 : Codi = 4631
+Solucio = 4632 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3426 | Intent 5 : Codi = 4632
+Solucio = 4633 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4453 | Intent 5 : Codi = 4633
+Solucio = 4634 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 1413 | Intent 5 : Codi = 4634
+Solucio = 4635 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4535 | Intent 5 : Codi = 4635
+Solucio = 4636 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4636
+Solucio = 4641 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 1356 | Intent 5 : Codi = 4641
+Solucio = 4642 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1356 | Intent 5 : Codi = 4642
+Solucio = 4643 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 1565 | Intent 5 : Codi = 4643
+Solucio = 4644 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 4446 | Intent 5 : Codi = 4644
+Solucio = 4645 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4645
+Solucio = 4646 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 4646
+Solucio = 4651 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4651
+Solucio = 4652 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4652
+Solucio = 4653 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653
+Solucio = 4654 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4654
+Solucio = 4655 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4546 | Intent 5 : Codi = 4655
+Solucio = 4656 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4656
+Solucio = 4661 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 6255 | Intent 5 : Codi = 4661
+Solucio = 4662 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 6155 | Intent 5 : Codi = 4662
+Solucio = 4663 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4663
+Solucio = 4664 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 1416 | Intent 5 : Codi = 4664
+Solucio = 4665 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 1565 | Intent 5 : Codi = 4665
+Solucio = 4666 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 1416 | Intent 5 : Codi = 4666
+Solucio = 5111 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1661 | Intent 5 : Codi = 5111
+Solucio = 5112 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 4115 | Intent 4 : Codi = 5112
+Solucio = 5113 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 5113
+Solucio = 5114 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 1631 | Intent 5 : Codi = 5114
+Solucio = 5115 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1661 | Intent 5 : Codi = 5115
+Solucio = 5116 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1561 | Intent 5 : Codi = 5116
+Solucio = 5121 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 4512 | Intent 4 : Codi = 5121
+Solucio = 5122 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 4122 | Intent 5 : Codi = 5122
+Solucio = 5123 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 5123
+Solucio = 5124 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 5124
+Solucio = 5125 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 5125
+Solucio = 5126 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 3522 | Intent 5 : Codi = 5126
+Solucio = 5131 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 5131
+Solucio = 5132 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1523 | Intent 5 : Codi = 5132
+Solucio = 5133 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3153 | Intent 5 : Codi = 5133
+Solucio = 5134 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 1435 | Intent 5 : Codi = 5134
+Solucio = 5135 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 5135
+Solucio = 5136 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3156 | Intent 5 : Codi = 5136
+Solucio = 5141 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 4151 | Intent 5 : Codi = 5141
+Solucio = 5142 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4152 | Intent 5 : Codi = 5142
+Solucio = 5143 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3154 | Intent 5 : Codi = 5143
+Solucio = 5144 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 5144
+Solucio = 5145 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1456 | Intent 5 : Codi = 5145
+Solucio = 5146 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1456 | Intent 5 : Codi = 5146
+Solucio = 5151 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 5151
+Solucio = 5152 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 5162 | Intent 5 : Codi = 5152
+Solucio = 5153 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 5163 | Intent 5 : Codi = 5153
+Solucio = 5154 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4362 | Intent 5 : Codi = 5154
+Solucio = 5155 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 5155
+Solucio = 5156 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4552 | Intent 5 : Codi = 5156
+Solucio = 5161 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 5161
+Solucio = 5162 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 5162
+Solucio = 5163 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 5163
+Solucio = 5164 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4362 | Intent 5 : Codi = 5164
+Solucio = 5165 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 6155 | Intent 5 : Codi = 5165
+Solucio = 5166 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4552 | Intent 5 : Codi = 5166
+Solucio = 5211 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 4115 | Intent 4 : Codi = 5211
+Solucio = 5212 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 4212 | Intent 5 : Codi = 5212
+Solucio = 5213 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 3251 | Intent 5 : Codi = 5213
+Solucio = 5214 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 5214
+Solucio = 5215 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215
+Solucio = 5216 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 5216
+Solucio = 5221 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2412 | Intent 4 : Codi = 5221
+Solucio = 5222 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 5222
+Solucio = 5223 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 3225 | Intent 5 : Codi = 5223
+Solucio = 5224 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 5224
+Solucio = 5225 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2552 | Intent 5 : Codi = 5225
+Solucio = 5226 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2252 | Intent 5 : Codi = 5226
+Solucio = 5231 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 5231
+Solucio = 5232 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 5224 | Intent 5 : Codi = 5232
+Solucio = 5233 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3253 | Intent 5 : Codi = 5233
+Solucio = 5234 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 2435 | Intent 5 : Codi = 5234
+Solucio = 5235 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 5235
+Solucio = 5236 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3256 | Intent 5 : Codi = 5236
+Solucio = 5241 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 5241
+Solucio = 5242 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 2223 | Intent 5 : Codi = 5242
+Solucio = 5243 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3254 | Intent 5 : Codi = 5243
+Solucio = 5244 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 5244
+Solucio = 5245 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2456 | Intent 5 : Codi = 5245
+Solucio = 5246 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2456 | Intent 5 : Codi = 5246
+Solucio = 5251 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 5251
+Solucio = 5252 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 5252
+Solucio = 5253 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 5263 | Intent 5 : Codi = 5253
+Solucio = 5254 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4361 | Intent 5 : Codi = 5254
+Solucio = 5255 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 5255
+Solucio = 5256 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4551 | Intent 5 : Codi = 5256
+Solucio = 5261 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 5261
+Solucio = 5262 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 5262
+Solucio = 5263 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 5263
+Solucio = 5264 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4361 | Intent 5 : Codi = 5264
+Solucio = 5265 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 6255 | Intent 5 : Codi = 5265
+Solucio = 5266 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4551 | Intent 5 : Codi = 5266
+Solucio = 5311 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 5311
+Solucio = 5312 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 5312
+Solucio = 5313 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 3351 | Intent 5 : Codi = 5313
+Solucio = 5314 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 5314
+Solucio = 5315 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 3316 | Intent 5 : Codi = 5315
+Solucio = 5316 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 3331 | Intent 5 : Codi = 5316
+Solucio = 5321 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 3512 | Intent 5 : Codi = 5321
+Solucio = 5322 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 5125 | Intent 5 : Codi = 5322
+Solucio = 5323 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 3352 | Intent 5 : Codi = 5323
+Solucio = 5324 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 5324
+Solucio = 5325 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 3326 | Intent 5 : Codi = 5325
+Solucio = 5326 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 3332 | Intent 5 : Codi = 5326
+Solucio = 5331 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5331
+Solucio = 5332 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5332
+Solucio = 5333 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 5333
+Solucio = 5334 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3453 | Intent 4 : Codi = 5334
+Solucio = 5335 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 4355 | Intent 5 : Codi = 5335
+Solucio = 5336 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 5336
+Solucio = 5341 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2554 | Intent 5 : Codi = 5341
+Solucio = 5342 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 5324 | Intent 5 : Codi = 5342
+Solucio = 5343 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3435 | Intent 4 : Codi = 5343
+Solucio = 5344 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3334 | Intent 5 : Codi = 5344
+Solucio = 5345 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 3365 | Intent 5 : Codi = 5345
+Solucio = 5346 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3356 | Intent 5 : Codi = 5346
+Solucio = 5351 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5361 | Intent 5 : Codi = 5351
+Solucio = 5352 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5362 | Intent 5 : Codi = 5352
+Solucio = 5353 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3536 | Intent 5 : Codi = 5353
+Solucio = 5354 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3564 | Intent 5 : Codi = 5354
+Solucio = 5355 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 6445 | Intent 5 : Codi = 5355
+Solucio = 5356 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 1565 | Intent 5 : Codi = 5356
+Solucio = 5361 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5361
+Solucio = 5362 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5362
+Solucio = 5363 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 5363
+Solucio = 5364 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4356 | Intent 5 : Codi = 5364
+Solucio = 5365 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 5365
+Solucio = 5366 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4366 | Intent 5 : Codi = 5366
+Solucio = 5411 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 5411
+Solucio = 5412 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 5412
+Solucio = 5413 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 4513 | Intent 5 : Codi = 5413
+Solucio = 5414 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4541 | Intent 5 : Codi = 5414
+Solucio = 5415 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4551 | Intent 5 : Codi = 5415
+Solucio = 5416 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 3551 | Intent 5 : Codi = 5416
+Solucio = 5421 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 5421
+Solucio = 5422 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4522 | Intent 5 : Codi = 5422
+Solucio = 5423 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 4523 | Intent 5 : Codi = 5423
+Solucio = 5424 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4542 | Intent 5 : Codi = 5424
+Solucio = 5425 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4552 | Intent 5 : Codi = 5425
+Solucio = 5426 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 3552 | Intent 5 : Codi = 5426
+Solucio = 5431 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3413 | Intent 5 : Codi = 5431
+Solucio = 5432 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3423 | Intent 5 : Codi = 5432
+Solucio = 5433 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4533 | Intent 4 : Codi = 5433
+Solucio = 5434 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 5434
+Solucio = 5435 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4356 | Intent 5 : Codi = 5435
+Solucio = 5436 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 5436
+Solucio = 5441 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 5441
+Solucio = 5442 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 5442
+Solucio = 5443 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4435 | Intent 5 : Codi = 5443
+Solucio = 5444 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4544 | Intent 5 : Codi = 5444
+Solucio = 5445 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 1444 | Intent 5 : Codi = 5445
+Solucio = 5446 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4546 | Intent 5 : Codi = 5446
+Solucio = 5451 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 6255 | Intent 5 : Codi = 5451
+Solucio = 5452 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 6155 | Intent 5 : Codi = 5452
+Solucio = 5453 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 5453
+Solucio = 5454 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 1444 | Intent 5 : Codi = 5454
+Solucio = 5455 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4544 | Intent 5 : Codi = 5455
+Solucio = 5456 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4556 | Intent 5 : Codi = 5456
+Solucio = 5461 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4651 | Intent 5 : Codi = 5461
+Solucio = 5462 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4652 | Intent 5 : Codi = 5462
+Solucio = 5463 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4536 | Intent 5 : Codi = 5463
+Solucio = 5464 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5653 | Intent 5 : Codi = 5464
+Solucio = 5465 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4565 | Intent 5 : Codi = 5465
+Solucio = 5466 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4566 | Intent 5 : Codi = 5466
+Solucio = 5511 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1515 | Intent 4 : Codi = 5511
+Solucio = 5512 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 6242 | Intent 5 : Codi = 5512
+Solucio = 5513 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 3551 | Intent 5 : Codi = 5513
+Solucio = 5514 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5614 | Intent 5 : Codi = 5514
+Solucio = 5515 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515
+Solucio = 5516 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 5516
+Solucio = 5521 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 5621 | Intent 5 : Codi = 5521
+Solucio = 5522 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2515 | Intent 4 : Codi = 5522
+Solucio = 5523 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 3552 | Intent 5 : Codi = 5523
+Solucio = 5524 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5624 | Intent 5 : Codi = 5524
+Solucio = 5525 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525
+Solucio = 5526 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 5526
+Solucio = 5531 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 5531
+Solucio = 5532 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1462 | Intent 5 : Codi = 5532
+Solucio = 5533 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 5533
+Solucio = 5534 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 5434 | Intent 5 : Codi = 5534
+Solucio = 5535 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4546 | Intent 5 : Codi = 5535
+Solucio = 5536 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5653 | Intent 5 : Codi = 5536
+Solucio = 5541 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5641 | Intent 5 : Codi = 5541
+Solucio = 5542 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5642 | Intent 5 : Codi = 5542
+Solucio = 5543 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4535 | Intent 5 : Codi = 5543
+Solucio = 5544 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4544 | Intent 5 : Codi = 5544
+Solucio = 5545 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 1444 | Intent 5 : Codi = 5545
+Solucio = 5546 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4546 | Intent 5 : Codi = 5546
+Solucio = 5551 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 5551
+Solucio = 5552 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 5552
+Solucio = 5553 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5553
+Solucio = 5554 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 1444 | Intent 5 : Codi = 5554
+Solucio = 5555 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 4446 | Intent 5 : Codi = 5555
+Solucio = 5556 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 5556
+Solucio = 5561 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 5561
+Solucio = 5562 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 5562
+Solucio = 5563 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4556 | Intent 5 : Codi = 5563
+Solucio = 5564 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5653 | Intent 5 : Codi = 5564
+Solucio = 5565 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 5565
+Solucio = 5566 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 5566
+Solucio = 5611 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1515 | Intent 4 : Codi = 5611
+Solucio = 5612 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 6242 | Intent 5 : Codi = 5612
+Solucio = 5613 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 5613
+Solucio = 5614 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5614
+Solucio = 5615 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 5615
+Solucio = 5616 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 5616
+Solucio = 5621 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 5621
+Solucio = 5622 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2515 | Intent 4 : Codi = 5622
+Solucio = 5623 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 5623
+Solucio = 5624 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5624
+Solucio = 5625 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 5625
+Solucio = 5626 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 5626
+Solucio = 5631 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 5631
+Solucio = 5632 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 5632
+Solucio = 5633 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 5453 | Intent 5 : Codi = 5633
+Solucio = 5634 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4536 | Intent 5 : Codi = 5634
+Solucio = 5635 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3556 | Intent 5 : Codi = 5635
+Solucio = 5636 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5636
+Solucio = 5641 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5641
+Solucio = 5642 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5642
+Solucio = 5643 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4535 | Intent 5 : Codi = 5643
+Solucio = 5644 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4546 | Intent 5 : Codi = 5644
+Solucio = 5645 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4645 | Intent 5 : Codi = 5645
+Solucio = 5646 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3556 | Intent 5 : Codi = 5646
+Solucio = 5651 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 5651
+Solucio = 5652 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 5652
+Solucio = 5653 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5653
+Solucio = 5654 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4654 | Intent 5 : Codi = 5654
+Solucio = 5655 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 4646 | Intent 5 : Codi = 5655
+Solucio = 5656 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 5656
+Solucio = 5661 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 5661
+Solucio = 5662 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 5662
+Solucio = 5663 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4656 | Intent 5 : Codi = 5663
+Solucio = 5664 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5636 | Intent 5 : Codi = 5664
+Solucio = 5665 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 5665
+Solucio = 5666 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 5666
+Solucio = 6111 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1661 | Intent 5 : Codi = 6111
+Solucio = 6112 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 4115 | Intent 4 : Codi = 6112
+Solucio = 6113 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 6451 | Intent 5 : Codi = 6113
+Solucio = 6114 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 4114 | Intent 5 : Codi = 6114
+Solucio = 6115 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1651 | Intent 5 : Codi = 6115
+Solucio = 6116 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 1551 | Intent 5 : Codi = 6116
+Solucio = 6121 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 4512 | Intent 4 : Codi = 6121
+Solucio = 6122 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1223 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2122 | Intent 5 : Codi = 6122
+Solucio = 6123 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 3126 | Intent 5 : Codi = 6123
+Solucio = 6124 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 4124 | Intent 5 : Codi = 6124
+Solucio = 6125 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 5125 | Intent 5 : Codi = 6125
+Solucio = 6126 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4522 | Intent 5 : Codi = 6126
+Solucio = 6131 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 3131 | Intent 5 : Codi = 6131
+Solucio = 6132 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1352 | Intent 4 : Codi = 1623 | Intent 5 : Codi = 6132
+Solucio = 6133 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3156 | Intent 5 : Codi = 6133
+Solucio = 6134 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 4154 | Intent 5 : Codi = 6134
+Solucio = 6135 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 6135
+Solucio = 6136 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 1436 | Intent 5 : Codi = 6136
+Solucio = 6141 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 4161 | Intent 5 : Codi = 6141
+Solucio = 6142 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4162 | Intent 5 : Codi = 6142
+Solucio = 6143 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3145 | Intent 4 : Codi = 3134 | Intent 5 : Codi = 6143
+Solucio = 6144 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 4144 | Intent 5 : Codi = 6144
+Solucio = 6145 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1456 | Intent 5 : Codi = 6145
+Solucio = 6146 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1635 | Intent 5 : Codi = 6146
+Solucio = 6151 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 5161 | Intent 5 : Codi = 6151
+Solucio = 6152 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 5162 | Intent 5 : Codi = 6152
+Solucio = 6153 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 5163 | Intent 5 : Codi = 6153
+Solucio = 6154 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4362 | Intent 5 : Codi = 6154
+Solucio = 6155 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 6155
+Solucio = 6156 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4552 | Intent 5 : Codi = 6156
+Solucio = 6161 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1516 | Intent 4 : Codi = 5151 | Intent 5 : Codi = 6161
+Solucio = 6162 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 6162
+Solucio = 6163 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3423 | Intent 5 : Codi = 6163
+Solucio = 6164 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 6164
+Solucio = 6165 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 6155 | Intent 5 : Codi = 6165
+Solucio = 6166 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 6166
+Solucio = 6211 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 4115 | Intent 4 : Codi = 6211
+Solucio = 6212 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 1145 | Intent 4 : Codi = 2212 | Intent 5 : Codi = 6212
+Solucio = 6213 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 3231 | Intent 5 : Codi = 6213
+Solucio = 6214 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 2531 | Intent 5 : Codi = 6214
+Solucio = 6215 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 5216 | Intent 5 : Codi = 6215
+Solucio = 6216 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 5411 | Intent 5 : Codi = 6216
+Solucio = 6221 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1213 | Intent 3 : Codi = 2412 | Intent 4 : Codi = 5221 | Intent 5 : Codi = 6221
+Solucio = 6222 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1315 | Intent 4 : Codi = 2222 | Intent 5 : Codi = 6222
+Solucio = 6223 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 3226 | Intent 5 : Codi = 6223
+Solucio = 6224 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 5224 | Intent 5 : Codi = 6224
+Solucio = 6225 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2562 | Intent 5 : Codi = 6225
+Solucio = 6226 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 2262 | Intent 5 : Codi = 6226
+Solucio = 6231 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3215 | Intent 4 : Codi = 4251 | Intent 5 : Codi = 6231
+Solucio = 6232 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 1256 | Intent 4 : Codi = 5224 | Intent 5 : Codi = 6232
+Solucio = 6233 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3256 | Intent 5 : Codi = 6233
+Solucio = 6234 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 4254 | Intent 5 : Codi = 6234
+Solucio = 6235 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1536 | Intent 5 : Codi = 6235
+Solucio = 6236 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 1336 | Intent 5 : Codi = 6236
+Solucio = 6241 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2415 | Intent 4 : Codi = 6241
+Solucio = 6242 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 6242
+Solucio = 6243 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3245 | Intent 4 : Codi = 3234 | Intent 5 : Codi = 6243
+Solucio = 6244 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2425 | Intent 4 : Codi = 4244 | Intent 5 : Codi = 6244
+Solucio = 6245 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2456 | Intent 5 : Codi = 6245
+Solucio = 6246 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 2635 | Intent 5 : Codi = 6246
+Solucio = 6251 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 6251
+Solucio = 6252 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 5262 | Intent 5 : Codi = 6252
+Solucio = 6253 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 5263 | Intent 5 : Codi = 6253
+Solucio = 6254 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4361 | Intent 5 : Codi = 6254
+Solucio = 6255 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 6255
+Solucio = 6256 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4551 | Intent 5 : Codi = 6256
+Solucio = 6261 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 3511 | Intent 5 : Codi = 6261
+Solucio = 6262 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2525 | Intent 4 : Codi = 6262
+Solucio = 6263 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3413 | Intent 5 : Codi = 6263
+Solucio = 6264 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 1635 | Intent 5 : Codi = 6264
+Solucio = 6265 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 6255 | Intent 5 : Codi = 6265
+Solucio = 6266 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 6266
+Solucio = 6311 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 2256 | Intent 4 : Codi = 5311 | Intent 5 : Codi = 6311
+Solucio = 6312 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 5412 | Intent 5 : Codi = 6312
+Solucio = 6313 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 3331 | Intent 5 : Codi = 6313
+Solucio = 6314 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2654 | Intent 5 : Codi = 6314
+Solucio = 6315 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 3316 | Intent 5 : Codi = 6315
+Solucio = 6316 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 6316
+Solucio = 6321 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 5421 | Intent 5 : Codi = 6321
+Solucio = 6322 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 2116 | Intent 5 : Codi = 6322
+Solucio = 6323 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 3332 | Intent 5 : Codi = 6323
+Solucio = 6324 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 3324 | Intent 5 : Codi = 6324
+Solucio = 6325 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 3326 | Intent 5 : Codi = 6325
+Solucio = 6326 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 6326
+Solucio = 6331 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5361 | Intent 5 : Codi = 6331
+Solucio = 6332 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5362 | Intent 5 : Codi = 6332
+Solucio = 6333 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4366 | Intent 5 : Codi = 6333
+Solucio = 6334 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3536 | Intent 5 : Codi = 6334
+Solucio = 6335 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 4355 | Intent 5 : Codi = 6335
+Solucio = 6336 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3663 | Intent 5 : Codi = 6336
+Solucio = 6341 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1545 | Intent 4 : Codi = 2564 | Intent 5 : Codi = 6341
+Solucio = 6342 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 1415 | Intent 4 : Codi = 3324 | Intent 5 : Codi = 6342
+Solucio = 6343 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3443 | Intent 4 : Codi = 3544 | Intent 5 : Codi = 6343
+Solucio = 6344 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 5365 | Intent 5 : Codi = 6344
+Solucio = 6345 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3446 | Intent 4 : Codi = 4345 | Intent 5 : Codi = 6345
+Solucio = 6346 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3363 | Intent 5 : Codi = 6346
+Solucio = 6351 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5361 | Intent 5 : Codi = 6351
+Solucio = 6352 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5362 | Intent 5 : Codi = 6352
+Solucio = 6353 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3536 | Intent 5 : Codi = 6353
+Solucio = 6354 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 3564 | Intent 5 : Codi = 6354
+Solucio = 6355 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 5365 | Intent 5 : Codi = 6355
+Solucio = 6356 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4366 | Intent 5 : Codi = 6356
+Solucio = 6361 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5614 | Intent 5 : Codi = 6361
+Solucio = 6362 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5624 | Intent 5 : Codi = 6362
+Solucio = 6363 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 6363
+Solucio = 6364 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 6364
+Solucio = 6365 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 6365
+Solucio = 6366 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 5665 | Intent 5 : Codi = 6366
+Solucio = 6411 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5215 | Intent 4 : Codi = 3611 | Intent 5 : Codi = 6411
+Solucio = 6412 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 4612 | Intent 5 : Codi = 6412
+Solucio = 6413 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 4613 | Intent 5 : Codi = 6413
+Solucio = 6414 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 4315 | Intent 5 : Codi = 6414
+Solucio = 6415 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 6415
+Solucio = 6416 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4515 | Intent 5 : Codi = 6416
+Solucio = 6421 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 3521 | Intent 4 : Codi = 4621 | Intent 5 : Codi = 6421
+Solucio = 6422 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 1325 | Intent 4 : Codi = 4622 | Intent 5 : Codi = 6422
+Solucio = 6423 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 4623 | Intent 5 : Codi = 6423
+Solucio = 6424 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 4325 | Intent 5 : Codi = 6424
+Solucio = 6425 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1462 | Intent 5 : Codi = 6425
+Solucio = 6426 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4525 | Intent 5 : Codi = 6426
+Solucio = 6431 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3235 | Intent 4 : Codi = 3416 | Intent 5 : Codi = 6431
+Solucio = 6432 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3135 | Intent 4 : Codi = 3426 | Intent 5 : Codi = 6432
+Solucio = 6433 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4534 | Intent 5 : Codi = 6433
+Solucio = 6434 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 1413 | Intent 5 : Codi = 6434
+Solucio = 6435 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4356 | Intent 5 : Codi = 6435
+Solucio = 6436 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4636 | Intent 5 : Codi = 6436
+Solucio = 6441 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 4514 | Intent 4 : Codi = 6441
+Solucio = 6442 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 4524 | Intent 4 : Codi = 6442
+Solucio = 6443 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4364 | Intent 5 : Codi = 6443
+Solucio = 6444 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 6444
+Solucio = 6445 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 6445
+Solucio = 6446 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 6446
+Solucio = 6451 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4651 | Intent 5 : Codi = 6451
+Solucio = 6452 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4652 | Intent 5 : Codi = 6452
+Solucio = 6453 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4563 | Intent 5 : Codi = 6453
+Solucio = 6454 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4654 | Intent 5 : Codi = 6454
+Solucio = 6455 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4565 | Intent 5 : Codi = 6455
+Solucio = 6456 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4656 | Intent 5 : Codi = 6456
+Solucio = 6461 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 6255 | Intent 5 : Codi = 6461
+Solucio = 6462 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 6155 | Intent 5 : Codi = 6462
+Solucio = 6463 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4663 | Intent 5 : Codi = 6463
+Solucio = 6464 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 1416 | Intent 5 : Codi = 6464
+Solucio = 6465 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4364 | Intent 5 : Codi = 6465
+Solucio = 6466 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 1416 | Intent 5 : Codi = 6466
+Solucio = 6511 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1515 | Intent 4 : Codi = 6511
+Solucio = 6512 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 6242 | Intent 5 : Codi = 6512
+Solucio = 6513 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1113 | Intent 5 : Codi = 6513
+Solucio = 6514 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5614 | Intent 5 : Codi = 6514
+Solucio = 6515 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 6515
+Solucio = 6516 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 6516
+Solucio = 6521 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 5621 | Intent 5 : Codi = 6521
+Solucio = 6522 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2515 | Intent 4 : Codi = 6522
+Solucio = 6523 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1123 | Intent 5 : Codi = 6523
+Solucio = 6524 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5624 | Intent 5 : Codi = 6524
+Solucio = 6525 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 6525
+Solucio = 6526 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 6526
+Solucio = 6531 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 5613 | Intent 5 : Codi = 6531
+Solucio = 6532 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 5623 | Intent 5 : Codi = 6532
+Solucio = 6533 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 4534 | Intent 5 : Codi = 6533
+Solucio = 6534 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 4653 | Intent 4 : Codi = 5436 | Intent 5 : Codi = 6534
+Solucio = 6535 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 1565 | Intent 5 : Codi = 6535
+Solucio = 6536 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5636 | Intent 5 : Codi = 6536
+Solucio = 6541 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 5641 | Intent 5 : Codi = 6541
+Solucio = 6542 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 5642 | Intent 5 : Codi = 6542
+Solucio = 6543 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3454 | Intent 4 : Codi = 4535 | Intent 5 : Codi = 6543
+Solucio = 6544 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4565 | Intent 5 : Codi = 6544
+Solucio = 6545 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 6445 | Intent 5 : Codi = 6545
+Solucio = 6546 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 1565 | Intent 5 : Codi = 6546
+Solucio = 6551 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 5651 | Intent 5 : Codi = 6551
+Solucio = 6552 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 5652 | Intent 5 : Codi = 6552
+Solucio = 6553 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5653 | Intent 5 : Codi = 6553
+Solucio = 6554 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4654 | Intent 5 : Codi = 6554
+Solucio = 6555 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 6446 | Intent 5 : Codi = 6555
+Solucio = 6556 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 5656 | Intent 5 : Codi = 6556
+Solucio = 6561 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 5661 | Intent 5 : Codi = 6561
+Solucio = 6562 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 5662 | Intent 5 : Codi = 6562
+Solucio = 6563 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 4656 | Intent 5 : Codi = 6563
+Solucio = 6564 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5636 | Intent 5 : Codi = 6564
+Solucio = 6565 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 6565
+Solucio = 6566 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 5666 | Intent 5 : Codi = 6566
+Solucio = 6611 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 1515 | Intent 4 : Codi = 6611
+Solucio = 6612 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 6612
+Solucio = 6613 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 1461 | Intent 5 : Codi = 6613
+Solucio = 6614 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 6614
+Solucio = 6615 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 6615
+Solucio = 6616 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 6616
+Solucio = 6621 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1134 | Intent 3 : Codi = 2352 | Intent 4 : Codi = 6621
+Solucio = 6622 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1234 | Intent 3 : Codi = 2515 | Intent 4 : Codi = 6622
+Solucio = 6623 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 1462 | Intent 5 : Codi = 6623
+Solucio = 6624 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 6624
+Solucio = 6625 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 1516 | Intent 5 : Codi = 6625
+Solucio = 6626 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 6626
+Solucio = 6631 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3516 | Intent 4 : Codi = 4651 | Intent 5 : Codi = 6631
+Solucio = 6632 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3526 | Intent 4 : Codi = 4652 | Intent 5 : Codi = 6632
+Solucio = 6633 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 1413 | Intent 5 : Codi = 6633
+Solucio = 6634 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634
+Solucio = 6635 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3466 | Intent 5 : Codi = 6635
+Solucio = 6636 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 6636
+Solucio = 6641 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 3315 | Intent 4 : Codi = 2566 | Intent 5 : Codi = 6641
+Solucio = 6642 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 3325 | Intent 4 : Codi = 1566 | Intent 5 : Codi = 6642
+Solucio = 6643 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 4366 | Intent 5 : Codi = 6643
+Solucio = 6644 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 6446 | Intent 5 : Codi = 6644
+Solucio = 6645 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3636 | Intent 4 : Codi = 3565 | Intent 5 : Codi = 6645
+Solucio = 6646 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 4646 | Intent 5 : Codi = 6646
+Solucio = 6651 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 6651
+Solucio = 6652 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 6652
+Solucio = 6653 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 5636 | Intent 5 : Codi = 6653
+Solucio = 6654 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6634 | Intent 4 : Codi = 1413 | Intent 5 : Codi = 6654
+Solucio = 6655 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 6655
+Solucio = 6656 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 6636 | Intent 5 : Codi = 6656
+Solucio = 6661 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 2344 | Intent 3 : Codi = 5515 | Intent 4 : Codi = 6661
+Solucio = 6662 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 1344 | Intent 3 : Codi = 5525 | Intent 4 : Codi = 6662
+Solucio = 6663 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 5666 | Intent 5 : Codi = 6663
+Solucio = 6664 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6646 | Intent 4 : Codi = 1416 | Intent 5 : Codi = 6664
+Solucio = 6665 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 3656 | Intent 4 : Codi = 5665 | Intent 5 : Codi = 6665
+Solucio = 6666 | Intent 1 : Codi = 1122 | Intent 2 : Codi = 3345 | Intent 3 : Codi = 6666
