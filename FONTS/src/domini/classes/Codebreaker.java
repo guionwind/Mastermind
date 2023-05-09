@@ -15,8 +15,4 @@ public class Codebreaker extends Partida {
         super(configuracioPartida, solutionCode, ctrlPartida);
     }
 
-    public boolean esCodeMaker() {
-        return false;
-    }
-
 }

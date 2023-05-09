@@ -50,7 +50,7 @@ public class CtrlPresentacio {
         return false;
     }
 
-    private void codemakerLoop(Integer numeroIntents, Integer longitudCombinacio, Integer[] combinacioCorrecteInt) throws IOException, InterruptedException, PartidaInvalida{ 
+    private void codemakerLoop(Integer numeroIntents, Integer longitudCombinacio, Integer[] combinacioCorrecteInt) throws IOException, InterruptedException, PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{ 
         Integer intents = 0;
         Boolean guanyat = false;
         String correccio;
@@ -120,7 +120,7 @@ public class CtrlPresentacio {
         acabarPartida(guanyat, intents, numeroIntents, puntuacio, true);
     }
 
-    private void partidaCodemaker() throws IOException, InterruptedException, PartidaInvalida{
+    private void partidaCodemaker() throws IOException, InterruptedException, PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Boolean creada = false;
         Integer numeroIntents = 5;
         Integer numeroColors = 6;
@@ -152,7 +152,7 @@ public class CtrlPresentacio {
         codemakerLoop(numeroIntents, longitudCombinacio, combinacioCorrecteIntParam);
     }
 
-    private void partidaCodebreaker() throws IOException, InterruptedException, PartidaInvalida{
+    private void partidaCodebreaker() throws IOException, InterruptedException, PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Boolean creada = false;
         Integer numeroIntents = 0;
         Integer longitudCombinacio = 0;
@@ -188,7 +188,7 @@ public class CtrlPresentacio {
         reader.readLine();
     }
 
-    private void acabarPartida(Boolean guanyat, Integer intents, int numeroIntents, Integer puntuacio, Boolean codemaker) throws IOException, InterruptedException, PartidaInvalida{
+    private void acabarPartida(Boolean guanyat, Integer intents, int numeroIntents, Integer puntuacio, Boolean codemaker) throws IOException, InterruptedException, PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         netejarConsola();
         System.out.println("////////////////////////////////////////////////////////");
         System.out.println("////////////////////// MASTERMIND //////////////////////");
@@ -212,7 +212,7 @@ public class CtrlPresentacio {
         menu();
     }
 
-    private void codebrakerLoop(int numeroIntents, int longitudCombinacio) throws IOException, InterruptedException, PartidaInvalida{
+    private void codebrakerLoop(int numeroIntents, int longitudCombinacio) throws IOException, InterruptedException, PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Integer intents = 0;
         Boolean guanyat = false;
         String respostaCorrecta = "";
@@ -268,7 +268,7 @@ public class CtrlPresentacio {
         acabarPartida(guanyat, intents, numeroIntents, puntuacio, false);
     }
 
-    private void jugar() throws IOException, InterruptedException, PartidaInvalida {
+    private void jugar() throws IOException, InterruptedException, PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         netejarConsola();
         
         System.out.println("////////////////////////////////////////////////////////");
@@ -326,7 +326,7 @@ public class CtrlPresentacio {
         reader.readLine();
     }
 
-    private void login() throws IOException, InterruptedException, PartidaInvalida {
+    private void login() throws IOException, InterruptedException, PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         netejarConsola();
         
         System.out.println("////////////////////////////////////////////////////////");
@@ -415,7 +415,7 @@ public class CtrlPresentacio {
         }
     }
 
-    private void menu () throws IOException, InterruptedException, PartidaInvalida {
+    private void menu () throws IOException, InterruptedException, PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         netejarConsola();
 
         System.out.println("////////////////////////////////////////////////////////");
@@ -458,7 +458,7 @@ public class CtrlPresentacio {
         }
     }
 
-    public static void main (String [] args) throws IOException, InterruptedException, PartidaInvalida{
+    public static void main (String [] args) throws IOException, InterruptedException, PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         CtrlPresentacio ctrlPresentacio = new CtrlPresentacio();
         ctrlPresentacio.ctrlDomini.crearRanquing();
         //Mostrem la pantalla de login

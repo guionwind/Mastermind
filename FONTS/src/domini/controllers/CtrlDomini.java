@@ -5,7 +5,6 @@ import domini.classes.exceptions.*;
 
 import java.util.ArrayList;
 import java.lang.String;
-import domini.classes.ConfiguracioPartida.TipusPartida;
 
 public class CtrlDomini {
 
@@ -108,7 +107,7 @@ public class CtrlDomini {
      * @throws PartidaInvalida Llença l'excepcio en cas que el
      * tipus de partida no sigui Codemaker.
      */
-    public String[] jugarRondaCodeMaker() throws PartidaInvalida {
+    public String[] jugarRondaCodeMaker() throws PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina().clone();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
         String respostaCombinacio = ctrlPartida.corregeix(combinacioIntentada);

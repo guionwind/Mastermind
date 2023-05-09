@@ -1,5 +1,9 @@
 package domini.classes;
 
+import domini.classes.exceptions.LongitudCombinacioIncorrecte;
+import domini.classes.exceptions.LongitudRespostaIncorrecte;
+import domini.classes.exceptions.NumeroColorsIncorrecte;
+import domini.classes.exceptions.ValorsRespostaIncorrectes;
 import domini.controllers.CtrlAlgorisme;
 import domini.controllers.CtrlPartida;
 
@@ -19,10 +23,8 @@ public class Codemaker extends Partida {
         this.ctrlAlgorisme = ctrlAlgorisme;
     }
 
-    public Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta) {
+    public Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         return ctrlAlgorisme.esbrinarCodiFiveguess(this.getId(),ultimIntent, resposta);
     }
-
-    public boolean esCodeMaker() {return true; }
 
 }

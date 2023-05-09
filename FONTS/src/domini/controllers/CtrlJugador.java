@@ -2,7 +2,7 @@ package domini.controllers;
 
 import domini.classes.EstadistiquesPartida;
 import domini.classes.Jugador;
-//per retocar
+
 import domini.classes.exceptions.*;
 
 import java.lang.String;
@@ -10,46 +10,61 @@ import java.util.HashMap;
 
 
 public class CtrlJugador {
-    //id del jugador logejat actualment
+
+    /**
+     * Id del jugador loggejat actualment
+     */
     private int jugadorActual;
 
-    //en crear un jugador, aqui guardarem les credencials
+    /**
+     * HashMap que emmagatzema els jugadors
+     * Apunt: no es final ja que es modifica fora de la constructora
+     */
     private HashMap <Integer, Jugador> jugadors;
-    
-    //constructora
-    //si no hi ha jugador, JugadorActual = -1
+
+    /**
+     * Constructora de CtrlJugador
+     */
     public CtrlJugador() {
         jugadorActual = -1;
-        jugadors = new HashMap<Integer, Jugador>();
+        jugadors = new HashMap<>();
     }
 
-    //retorna el jugador actual
-    //sera -1 si no hi ha ningu logejat
+    /**
+     * Retorna la id del jugador actual loggejat
+     * @return la id del jugadro acutal loggejat o -1 si no hi ha cap jugador loggejat
+     */
     public int getIdJugador() {
         return jugadorActual;
     }
 
+    /**
+     * Retorna el usuari del jugador actal loggejat
+     * @return string username del jugador actual loggejat
+     */
     public String getUsername() {
         return jugadors.get(jugadorActual).getUsername();
     }
 
+    /**
+     * Retorna un username a partir de la id d'un jugador
+     * @param id d'un jugador
+     * @return el username del jugador amb id, id
+     */
     public String getUsernameFromID(int id) {
         return jugadors.get(id).getUsername();
     }
 
-    public boolean userExists(String username) {
-        boolean aux = false;
-        for (Jugador j : jugadors.values()) {
-            if (j.getUsername().equals(username)) aux = true;
-        }
-        return aux;
-    }
-
-    //crea un nou jugador per al registre, afegeix les credencials a usuariContrasenya
-    //* se'l logeja automaticament
+    /**
+     * Crea un jugador amb els seus parametres corresponents
+     * @param username username del usuari
+     * @param password contrasenya del usuari
+     * @throws JugadorJaExisteix En cas que el jugador ja existeixi
+     * @throws JugadorInvalid En cas de que el nom d'usuari no sigui correcte
+     */
     public void crearJugador(String username, String password) throws JugadorJaExisteix, JugadorInvalid {
         if (username == null || username.equals("")) throw new JugadorInvalid("Username invalid");
-        else if (userExists(username)) {
+        else if (getJugador(username) != null) {
             throw new JugadorJaExisteix("Ja hi ha un jugador amb aquest nom");
         }
         else {
@@ -60,43 +75,59 @@ public class CtrlJugador {
         }
     }
 
-    //set jugador actual
+    /**
+     * Actualitza la variable jugadorActual
+     * @param username username del jugador actual
+     * @throws JugadorNoExisteix en cas que el jugador al que es vol canviar no existeixi
+     */
     public void setJugadorActual(String username) throws JugadorNoExisteix{
-        boolean found = false;
-        for (Jugador j : jugadors.values()) {
-            if (j.getUsername().equals(username)) {
-                jugadorActual = j.getID();
-                found = true;
-            }
+        Jugador j = getJugador(username);
+        if (j != null) {
+            jugadorActual = j.getID();
         }
-        if (!found) throw new JugadorNoExisteix("El jugador no existeix");
+        else throw new JugadorNoExisteix("El jugador no existeix");
     }
 
-    //treu el JugadorActual
+    /**
+     * Desloggeja al jugador actual, basicament posant -1 a la variable que identifica el jugador actual
+     */
     public void logoff() {
         jugadorActual = -1;
     }
 
-    //obte la contrasenya a partir d'un username
-    //busca entre els valors del map la instancia de Jugador que tingui la username indicada, i retorna la contrasenya
+    /**
+     * Retorna la contrasenya del usuari indicat per el parametre username
+     * @param username username del usuari
+     * @return retorna la contrasenya del usuari indicat per el username
+     * @throws JugadorNoExisteix en cas que el jugador no existeixi es llança la excepcio
+     */
     public String getPassword(String username) throws JugadorNoExisteix {
-        String pass = new String();
-        boolean found = false;
-        for (Jugador j : jugadors.values()) {
-            if (j.getUsername().equals(username)) {
-                pass = j.getPassword();
-                found = true;
-            }
+        Jugador j = getJugador(username);
+        if (j != null) {
+            return j.getPassword();
         }
-        if (found) return pass;
         else throw new JugadorNoExisteix("El jugador no existeix");
     }
 
+    /**
+     * Afegeix la estadistica d'una partida del jugadorActual
+     * @param estadistiquesPartida Estadistiques de la partida jugada per el jugador actual
+     */
     public void addEstadistica(EstadistiquesPartida estadistiquesPartida) {
-        Jugador j = jugadors.get(jugadorActual);
+        Jugador j= jugadors.get(jugadorActual);
 
         j.setEstadistica(estadistiquesPartida);
     }
 
-
+    /**
+     * Retorna el jugador donat un username
+     * @param username Username del usuari
+     * @return el jugador identificat per el username
+     */
+    private Jugador getJugador(String username) {
+        for (Jugador j : jugadors.values()) {
+            if (j.getUsername().equals(username)) return j;
+        }
+        return null;
+    }
 }

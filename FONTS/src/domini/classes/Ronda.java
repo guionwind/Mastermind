@@ -9,7 +9,7 @@ public class Ronda {
     private final int id;
     private Integer[] combinacioIntentada;
 
-    private String resposta;
+    private String correccio;
 
     /**
      * Constructor de la classe Ronda.
@@ -44,11 +44,11 @@ public class Ronda {
         this.combinacioIntentada = combinacioIntentada.clone();
     }
 
-    public String getResposta() {
-        return resposta;
+    public String getCorreccio() {
+        return correccio;
     }
 
-    public void setResposta(String resposta) {
-        this.resposta = resposta;
+    public void setCorreccio(String correccio) {
+        this.correccio = correccio;
     }
 }
