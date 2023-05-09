@@ -2,6 +2,10 @@ package domini.controllers;
 
 import java.util.*;
 import domini.classes.FiveGuess;
+import domini.classes.exceptions.LongitudCombinacioIncorrecte;
+import domini.classes.exceptions.LongitudRespostaIncorrecte;
+import domini.classes.exceptions.NumeroColorsIncorrecte;
+import domini.classes.exceptions.ValorsRespostaIncorrectes;
 
 public class CtrlAlgorisme {
 
@@ -23,7 +27,7 @@ public class CtrlAlgorisme {
         fiveGuess.remove(idPartida);
     }
 
-    public Integer[] esbrinarCodiFiveguess(Integer idPartida, Integer[] ultimIntent, String resposta) {
+    public Integer[] esbrinarCodiFiveguess(Integer idPartida, Integer[] ultimIntent, String resposta) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         FiveGuess fG = fiveGuess.get(idPartida);
         return fG.esbrina(ultimIntent, resposta);
     }

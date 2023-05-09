@@ -105,10 +105,10 @@ public class CtrlDomini {
      * l'algorisme que s'utilitzi i despres es corregeix la combinacio.
      *
      * @return Retorna la resposta de la correcio de la ronda.
-     * @throws TipusPartidaIncorrecte Llença l'excepcio en cas que el
+     * @throws PartidaInvalida Llença l'excepcio en cas que el
      * tipus de partida no sigui Codemaker.
      */
-    public String[] jugarRondaCodeMaker() throws TipusPartidaIncorrecte {
+    public String[] jugarRondaCodeMaker() throws PartidaInvalida {
         Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina().clone();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
         String respostaCombinacio = ctrlPartida.corregeix(combinacioIntentada);
