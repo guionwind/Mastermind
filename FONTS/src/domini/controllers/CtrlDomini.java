@@ -46,7 +46,6 @@ public class CtrlDomini {
     /**
      * Crea una partida Codebreaker
      *
-     * @param tipusPartida Tipuspartida de la partida
      * @param numeroIntents Numero d'Intents permesos a la partida
      * @param numeroColors Numero de colors de la partida
      * @param longitudCombinacio Longitud maxima de la combinacio de colors
@@ -59,7 +58,6 @@ public class CtrlDomini {
     /**
      * Crea una partida Codemaker i una instancia de ctrlAlgorisme.
      *
-     * @param tipusPartida Tipuspartida de la partida
      * @param numeroIntents Numero d'Intents permesos a la partida
      * @param numeroColors Numero de colors de la partida
      * @param longitudCombinacio Longitud maxima de la combinacio de colors

@@ -57,7 +57,6 @@ public class ConfiguracioPartida {
      * Constructora 2
      * Crea una nova instància de la classe amb tots els atributs definits.s
      *
-     * @param   partida             Identificador de la partida a la que pertanys la configuració.
      * @param   tipusPartida        Tipus de partida.
      * @param   numeroIntents       Número màxim d'intents permessos.
      * @param   numeroColors        Número de colors diferents possibles per crear el codi.

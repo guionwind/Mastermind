@@ -30,7 +30,7 @@ public class CtrlPartida {
 
     public CtrlPartida() {
         idPartidaActual = -1;
-        partides = new HashMap<Integer, Partida>();
+        partides = new HashMap<>();
         ctrlAlgorisme = new CtrlAlgorisme();
     }
 

@@ -103,7 +103,7 @@ public abstract class Partida {
      */
 
     public void setEstadisticaPartida(EstadistiquesPartida estadisticaPartida) {
-        if (estadisticaPartida == null) {
+        if (this.estadisticaPartida == null) {
             this.estadisticaPartida = estadisticaPartida;
         }
         //else throw excepcio propia nostre. A fer

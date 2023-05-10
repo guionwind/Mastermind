@@ -216,7 +216,7 @@ public class CtrlPresentacio {
         Integer intents = 0;
         Boolean guanyat = false;
         String respostaCorrecta = "";
-        String respostaObtinguda = "";
+        String respostaObtinguda;
         ArrayList<String> combinacions = new ArrayList<String>();
         ArrayList<String> respostes = new ArrayList<String>();
         for (int i = 0; i < longitudCombinacio; i++){

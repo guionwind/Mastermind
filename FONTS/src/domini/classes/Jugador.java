@@ -20,7 +20,7 @@ public class Jugador {
     * crea un nou jugador amb ID incremental (el primer jugador tindra id = 1) 
     * despres assigna les credencials corresponents
     */
-    public Jugador(String name, String pwd) throws JugadorJaExisteix,JugadorInvalid {
+    public Jugador(String name, String pwd)  {
         this.id = nombreJugadors;
         ++nombreJugadors;
 
