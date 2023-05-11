@@ -20,6 +20,9 @@ public class CtrlPartida {
      */
     private HashMap<Integer, Partida> partides;
 
+    /**
+     * CtrlAlgorisme de la partida
+     */
     private final CtrlAlgorisme ctrlAlgorisme;
 
     /**
@@ -115,19 +118,19 @@ public class CtrlPartida {
         Partida p = partides.get(idPartidaActual);
 
         Integer[] solutionCode = p.getSolutionCode().clone();
-        String resposta = "";
+        StringBuilder resposta = new StringBuilder();
 
         for (int i = 0; i < combinacioIntentada.length; ++i) {
             //Black case: color i posicio correctes
             if (combinacioIntentada[i] == solutionCode[i]) {
-                resposta += "B";
+                resposta.append("B");
                 solutionCode[i] = -1;
             }
             //White case: color correcte pero posicio no
             else {
                 for (int j = 0; j < combinacioIntentada.length; ++j) {
                     if (combinacioIntentada[i] == solutionCode[j]) {
-                        resposta += "W";
+                        resposta.append("W");
                         solutionCode[j] = -1;
                     }
                 }
@@ -135,11 +138,11 @@ public class CtrlPartida {
         }
 
         while (resposta.length() < combinacioIntentada.length) {
-            resposta += "-";
+            resposta.append("-");
         }
 
-        p.setCorrecioRonda(resposta);
-        return resposta;
+        p.setCorrecioRonda(resposta.toString());
+        return resposta.toString();
     }
 
     /**
@@ -191,15 +194,15 @@ public class CtrlPartida {
         Random r = new Random();
 
         Integer[] solution = p.getSolutionCode();
-        String pista = "";
+        StringBuilder pista = new StringBuilder();
 
         int posicio = r.nextInt(solution.length);
         for (int i = 0; i < solution.length; ++i) {
-            if (i != posicio) pista += "?";
-            else pista += solution[i];
+            if (i != posicio) pista.append("?");
+            else pista.append(solution[i]);
         }
 
-        return pista;
+        return pista.toString();
     }
 
     /**
