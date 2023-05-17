@@ -52,11 +52,6 @@ public class FiveGuess implements Maquina {
     };
 
     /**
-     * Identificador de la partida a la que pertanyen la combinació dels conjunts
-     * de codis encara no intentats i codis encara possibles com a solució.
-     */
-    private Integer idPartida;
-    /**
      * Conjunt de codis que encara no s'han intentat
      */
     private ArrayList<Integer[]> codisDisponibles;
@@ -67,12 +62,9 @@ public class FiveGuess implements Maquina {
 
     /**
      * Constructora
-     * S'especifica a la partida que pertany.
-     *
-     * @param   idPartida       Identificador de la partida a la que pertany.
+     * Utilitzada per a la creació d'un algorisme nou.
      */
-    public FiveGuess(Integer idPartida) {
-        this.idPartida = idPartida;
+    public FiveGuess() {
         codisDisponibles = new ArrayList<Integer[]>(NUM_CODIS);
         codisPossibles = new ArrayList<Integer[]>(NUM_CODIS);
 
@@ -92,10 +84,6 @@ public class FiveGuess implements Maquina {
                 }
             }
         }
-    }
-
-    public Integer getId(){
-        return this.idPartida;
     }
 
     /**

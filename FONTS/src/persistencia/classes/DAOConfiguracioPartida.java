@@ -25,7 +25,7 @@ public class DAOConfiguracioPartida {
 
     /**
      * Contructora buida.
-     * Utilitzada per la deserialitzacio de l'objecte.
+     * Utilitzada per la deserialitzaciÓ de l'objecte.
      */
     public DAOConfiguracioPartida() {}
 
@@ -44,18 +44,38 @@ public class DAOConfiguracioPartida {
         this.longitudCombinacio = longitudCombinacio;
     }
 
+    /**
+     * Retorna el tipus de partida.
+     * 
+     * @return      Tipus de partida.
+     */
     public TipusPartida getTipusPartida() {
         return tipusPartida;
     }
 
+    /**
+     * Retorna el número d'intents permessos.
+     *
+     * @return      Número d'intents permessos.
+     */
     public int getNumeroIntents() {
         return numeroIntents;
     }
 
+    /**
+     * Retorna el número de colors diferents.
+     *
+     * @return      Número de colors diferents.
+     */
     public int getNumeroColors() {
         return numeroColors;
     }
 
+    /**
+     * Retorna la longitud del codi.
+     *
+     * @return      Longitud del codi.
+     */
     public int getLongitudCombinacio() {
         return longitudCombinacio;
     }

@@ -4,15 +4,44 @@ import java.io.*;
 import java.util.Base64;
 
 public class Gestor<PersistenceObject> {
-    protected static final String dir = System.getProperty("user.dir") + "/FONTS/src/persistencia/data/";
-    protected final String file;
+    /**
+     * Directori on es guarden les dades.
+     */
+    protected static final String dirPath = System.getProperty("user.dir") + "/FONTS/src/persistencia/data/";
+    /**
+     * Nom de l'arxiu on es guarden les dades.
+     */
+    private final String fileName;
+    
+    
+    /**
+     * Constructora
+     * 
+     * @param fileName          Nom de l'arxiu on es guarden les dades
+     * @throws IOException      Llença una excepció si hi ha hagut algún
+     *                          problema amb l'entrada o sortida de dades.
+     */
+    public Gestor(String fileName) throws IOException {
+        this.fileName = fileName;
 
-    public Gestor(String file) {
-        this.file = file;
+        File d = new File(dirPath);
+        if (!d.exists()) d.mkdir();
+        
+        File f = new File(dirPath, fileName);
+        f.createNewFile();
     }
 
+    /**
+     * Guarda una nova intància de l'objecte
+     * amb l'identificador donat.
+     * 
+     * @param id                        Identificador de la instància a guardar.
+     * @param obj                       Instància a guardar.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     */
     protected void afegirObjecte(String id, PersistenceObject obj) throws IOException {
-        FileOutputStream fos = new FileOutputStream(dir + file, true);
+        FileOutputStream fos = new FileOutputStream(dirPath + fileName, true);
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
         
         bw.write(id);
@@ -24,9 +53,18 @@ public class Gestor<PersistenceObject> {
         bw.close();
     }
 
+    /**
+     * Actualitza una nova intància de l'objecte
+     * amb l'identificador donat.
+     * 
+     * @param id                        Identificador de la instància a guardar.
+     * @param obj                       Instància a guardar.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     */
     protected void actualitzarObjecte(String id, PersistenceObject obj) throws IOException {
-        File oldFile = new File(dir + file);
-        File newFile = new File(dir + "Temporal" + file);
+        File oldFile = new File(dirPath + fileName);
+        File newFile = new File(dirPath + "Temporal" + fileName);
         newFile.createNewFile();
         
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(oldFile)));
@@ -51,8 +89,17 @@ public class Gestor<PersistenceObject> {
         newFile.renameTo(oldFile);
     }
 
+    /**
+     * Esborra una nova intància de l'objecte
+     * amb l'identificador donat.
+     * 
+     * @param id                        Identificador de la instància a guardar.
+     * @param obj                       Instància a guardar.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     */
     protected PersistenceObject obtenirObjecte(String id) throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream(dir + file);
+        FileInputStream fis = new FileInputStream(dirPath + fileName);
         BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 
         String line = null;
@@ -67,9 +114,18 @@ public class Gestor<PersistenceObject> {
         return obj;
     }
 
+    /**
+     * Elimina una nova intància de l'objecte
+     * amb l'identificador donat.
+     * 
+     * @param id                        Identificador de la instància a guardar.
+     * @param obj                       Instància a guardar.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     */
     public void eliminarObjecte(String id) throws IOException {
-        File oldFile = new File(dir + file);
-        File newFile = new File(dir + "Temporal" + file);
+        File oldFile = new File(dirPath + fileName);
+        File newFile = new File(dirPath + "Temporal" + fileName);
         newFile.createNewFile();
         
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(oldFile)));
@@ -94,8 +150,18 @@ public class Gestor<PersistenceObject> {
         newFile.renameTo(oldFile);
     }
 
+    /**
+     * Indica si una intància de l'objecte existeix
+     * amb l'identificador donat.
+     * 
+     * @param id                        Identificador de la instància a guardar.
+     * @return                          Cert si la instància està guardada i
+     *                                  fals en cas contrari.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     */
     protected boolean existeixObjecte(String id) throws IOException {        
-        FileInputStream fis = new FileInputStream(dir + file);
+        FileInputStream fis = new FileInputStream(dirPath + fileName);
         BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 
         String line = null;
@@ -111,6 +177,15 @@ public class Gestor<PersistenceObject> {
         return false;
     }
 
+    /**
+     * Serialitza l'objecte i el converteix en String.
+     * 
+     * @param obj                       Objecte a serialitzar.
+     * @return                          La representació en String de
+     *                                  l'objecte serialitzat.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     */
     private String serialitzarObjecte(PersistenceObject obj) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -121,15 +196,25 @@ public class Gestor<PersistenceObject> {
         return Base64.getEncoder().encodeToString(baos.toByteArray());
     }
 
-    private PersistenceObject deserialitzarObjecte(String configuracioPartida) throws IOException, ClassNotFoundException {
-        byte[] bytes = Base64.getDecoder().decode(configuracioPartida);
+    /**
+     * Deserialitza l'objecte
+     * 
+     * @param obj                       Objecte a deserialitzar.
+     * @return                          La instància de l'objecte.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     * @throws ClassNotFoundException   Llença una excepció si la classe de la instància
+     *                                  no s'ha localitzat.
+     */
+    private PersistenceObject deserialitzarObjecte(String obj) throws IOException, ClassNotFoundException {
+        byte[] bytes = Base64.getDecoder().decode(obj);
         ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
         ObjectInputStream ois = new ObjectInputStream(bais);
 
-        PersistenceObject obj = null;
-        obj = (PersistenceObject) ois.readObject();
+        PersistenceObject instancia = null;
+        instancia = (PersistenceObject) ois.readObject();
         
         ois.close();
-        return obj;
+        return instancia;
     }
 }

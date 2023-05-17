@@ -41,12 +41,19 @@ public class ConfiguracioPartida {
      * Constructora 2
      * Crea una nova instància de la classe amb tots els atributs definits.s
      *
-     * @param   tipusPartida        Tipus de partida.
-     * @param   numeroIntents       Número màxim d'intents permessos.
-     * @param   numeroColors        Número de colors diferents possibles per crear el codi.
-     * @param   longitudCombinacio  Llargada del codi a crear.
+     * @param   tipusPartida                        Tipus de partida.
+     * @param   numeroIntents                       Número màxim d'intents permessos.
+     * @param   numeroColors                        Número de colors diferents possibles per crear el codi.
+     * @param   longitudCombinacio                  Llargada del codi a crear.
+     *  
+     * @throws NumeroIntentsIncorrecte              Llença una excepció si el número d'intents no
+     *                                              està dins del rang.
+     * @throws NumeroColorsIncorrecte               Llença una excepció si el número de colors no
+     *                                              està dins del rang.
+     * @throws LongitudCombinacioIncorrecte         Llença una excepció si el la longitud de la
+     *                                              combinacio no està dins del rang.
      */
-    public ConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio)  throws LongitudCombinacioIncorrecte, NumeroIntentsIncorrecte, NumeroColorsIncorrecte {
+    public ConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio)  throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte,LongitudCombinacioIncorrecte {
         this.tipusPartida = tipusPartida;
 
         if (numeroIntents < 1 || numeroIntents > 20) throw new NumeroIntentsIncorrecte("Número d'intents està fora del rang permàs [1,20]");
@@ -98,10 +105,11 @@ public class ConfiguracioPartida {
     /**
      * Assigna el tipus de partida.
      *
-     * @param tipusPartida          Tipus de la partida
-     * @return                      Cert si s'ha pogut assignar correctament,
-     *                              Fals en cas contrari.
-     * @throws TipusPartidaInvalid
+     * @param tipusPartida              Tipus de la partida
+     * @return                          Cert si s'ha pogut assignar correctament,
+     *                                  Fals en cas contrari.
+     * @throws TipusPartidaInvalid      Llença una excepció si el tipus de la
+     *                                  partida no és correcte.
      */
     public void setTipusPartida(TipusPartida tipusPartida) throws TipusPartidaInvalid {
         if (tipusPartida == null) throw new TipusPartidaInvalid("El tipus de la partida és null");
@@ -111,9 +119,11 @@ public class ConfiguracioPartida {
     /**
      * Assigna el número d'intents.
      *
-     * @param numeroIntents         Número d'intents.
-     * @return                      Cert si s'ha pogut assignar correctament,
-     *                              Fals en cas contrari.
+     * @param numeroIntents                         Número d'intents.
+     * @return                                      Cert si s'ha pogut assignar correctament,
+     *                                              Fals en cas contrari.
+     * @throws NumeroIntentsIncorrecte              Llença una excepció si el número d'intents no
+     *                                              està dins del rang.
      */
     public void setNumeroIntents(int numeroIntents) throws NumeroIntentsIncorrecte {
         if (numeroIntents < 1 || numeroIntents > 20) throw new NumeroIntentsIncorrecte("Numero de intents esta fora del rang permes [1,20]");
@@ -123,9 +133,11 @@ public class ConfiguracioPartida {
     /**
      * Assigna número de colors.
      *
-     * @param numeroColors          Número de colors.
-     * @return                      Cert si s'ha pogut assignar correctament,
-     *                              Fals en cas contrari.
+     * @param numeroColors                          Número de colors.
+     * @return                                      Cert si s'ha pogut assignar correctament,
+     *                                              Fals en cas contrari.
+     * @throws NumeroColorsIncorrecte               Llença una excepció si el número de colors no
+     *                                              està dins del rang.
      */
     public void setNumeroColors(int numeroColors) throws NumeroColorsIncorrecte {
         if (numeroColors < 4 || numeroColors > 10) throw new NumeroColorsIncorrecte("Numero de colors esta fora del rang permes [4,10]");
@@ -135,9 +147,12 @@ public class ConfiguracioPartida {
     /**
      * Assigna longitud codi.
      *
-     * @param longitudCombinacio    Longitud del codi.
-     * @return                      Cert si s'ha pogut assignar correctament,
-     *                              Fals en cas contrari.
+     * @param longitudCombinacio                    Longitud del codi.
+     * @return                                      Cert si s'ha pogut assignar correctament,
+     *                                              Fals en cas contrari.
+     *
+     * @throws LongitudCombinacioIncorrecte         Llença una excepció si el la longitud de la
+     *                                              combinacio no està dins del rang.
      */
     public void setLongitudCombinacio(int longitudCombinacio) throws LongitudCombinacioIncorrecte {
         if (longitudCombinacio < 4 || longitudCombinacio > 10) throw new LongitudCombinacioIncorrecte("Longitud de la combinacio esta fora del rang permes [4,10]");
