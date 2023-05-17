@@ -1,3 +1,4 @@
+package domini.classes;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -53,6 +54,16 @@ public class Genetic implements Maquina {
         this.respostesCodisIntentats = new ArrayList<String>();
     }
 
+    public Genetic(Integer idPartida, Integer numPeg, Integer numCol, ArrayList<Integer[]> codisIntentats, ArrayList<String> respostesCodisIntentats) {
+        this.idPartida = idPartida;
+        this.numPeg = numPeg;
+        this.numCol = numCol;
+        this.maxMida = (numPeg+2)*10;
+        this.maxGen = 25*numPeg;
+        this.codisIntentats = codisIntentats;
+        this.respostesCodisIntentats = respostesCodisIntentats;
+    }
+
     public Integer getId(){
         return this.idPartida;
     }
@@ -77,27 +88,6 @@ public class Genetic implements Maquina {
         }
         else {
             respostesCodisIntentats.add(resposta);
-
-            // 
-            System.out.println("##############");
-            for (int i=0; i<codisIntentats.size(); ++i) {
-                Integer[] codiIntentat = codisIntentats.get(i);
-                System.out.print("Codi intentat " + i + " =");
-                for (Integer fitxa : codiIntentat) {
-                    System.out.print(" "+fitxa);
-                }
-                System.out.print("   ");
-
-                String respostaCodiIntentat = respostesCodisIntentats.get(i);
-                System.out.print("Resposta rebuda " + i + " =");
-                for (char c : respostaCodiIntentat.toCharArray()) {
-                    System.out.print(" "+c);
-                }
-                
-                System.out.println();
-            }
-            System.out.println("##############\n");
-            // 
             
             Integer[] codiIntentar = null;
             while (codiIntentar == null)
@@ -440,143 +430,81 @@ public class Genetic implements Maquina {
         throw new UnsupportedOperationException("Unimplemented method 'solve'");
     }
 
-    public static void main(String[] args) {
-        Genetic genetic = new Genetic(1, 8, 9);
+//     public static void main(String[] args) {
+//         Genetic genetic = new Genetic(1, 8, 9);
         
-        Integer[] solucio = new Integer[] {6,3,5,2,1,8,1,9};
+//         Integer[] solucio = new Integer[] {6,3,5,2,1,8,1,9};
 
-        Integer ronda = 0;
-        boolean guanyat = false;
-        Integer[] codi = genetic.esbrina(null);
-        String resposta = genetic.generaResposta2(codi, solucio);
-        guanyat = true;
-        for (char c : resposta.toCharArray()) {
-            if (c != 'B')
-                guanyat = false;
-        }
-        System.out.print("Ronda = " + ++ronda);
-        System.out.print("   Codi =");
-        for (Integer fitxa : codi)
-            System.out.print(" " + fitxa);
-        System.out.print("   Resposta =");
-        for (char car : resposta.toCharArray())
-            System.out.print(" "+car);
-        System.out.println();        
+//         Integer ronda = 0;
+//         boolean guanyat = false;
+//         Integer[] codi = genetic.esbrina(null);
+//         String resposta = genetic.generaResposta2(codi, solucio);
+//         guanyat = true;
+//         for (char c : resposta.toCharArray()) {
+//             if (c != 'B')
+//                 guanyat = false;
+//         }
+//         System.out.print("Ronda = " + ++ronda);
+//         System.out.print("   Codi =");
+//         for (Integer fitxa : codi)
+//             System.out.print(" " + fitxa);
+//         System.out.print("   Resposta =");
+//         for (char car : resposta.toCharArray())
+//             System.out.print(" "+car);
+//         System.out.println();        
         
-        while (!guanyat) {
-            codi = genetic.esbrina(resposta);
-            resposta = genetic.generaResposta2(codi, solucio);
-            guanyat = true;
-            for (char c : resposta.toCharArray()) {
-                if (c != 'B')
-                    guanyat = false;
-            }
+//         while (!guanyat) {
+//             codi = genetic.esbrina(resposta);
+//             resposta = genetic.generaResposta2(codi, solucio);
+//             guanyat = true;
+//             for (char c : resposta.toCharArray()) {
+//                 if (c != 'B')
+//                     guanyat = false;
+//             }
             
-            System.out.print("Ronda = " + ++ronda);
-            System.out.print("   Codi =");
-            for (Integer fitxa : codi)
-                System.out.print(" " + fitxa);
-            System.out.print("   Resposta =");
-            for (char car : resposta.toCharArray())
-                System.out.print(" "+car);
-            System.out.println();
-        }
-    }
+//             System.out.print("Ronda = " + ++ronda);
+//             System.out.print("   Codi =");
+//             for (Integer fitxa : codi)
+//                 System.out.print(" " + fitxa);
+//             System.out.print("   Resposta =");
+//             for (char car : resposta.toCharArray())
+//                 System.out.print(" "+car);
+//             System.out.println();
+//         }
+//     }
 
-    public String generaResposta2(Integer[] codiIntentatAux, Integer[] codiSolucioAux) {
-        Integer[] codiIntentat = codiIntentatAux.clone();
-        Integer[] codiSolucio = codiSolucioAux.clone();
-        String resposta = "";
+//     public String generaResposta2(Integer[] codiIntentatAux, Integer[] codiSolucioAux) {
+//         Integer[] codiIntentat = codiIntentatAux.clone();
+//         Integer[] codiSolucio = codiSolucioAux.clone();
+//         String resposta = "";
 
-        // Black
-        for (int i=0; i<numPeg; ++i) {
-            if (codiIntentat[i] == codiSolucio[i]) {
-                resposta += "B";
-                codiIntentat[i] = -1;
-                codiSolucio[i] = -1;
-            }
-        }
+//         // Black
+//         for (int i=0; i<numPeg; ++i) {
+//             if (codiIntentat[i] == codiSolucio[i]) {
+//                 resposta += "B";
+//                 codiIntentat[i] = -1;
+//                 codiSolucio[i] = -1;
+//             }
+//         }
 
-        // White
-        for (int i=0; i<numPeg; ++i) {
-            if (codiIntentat[i] != -1) { // Encara no l'hem processat
-                boolean trobat = false;
-                for (int j=0; j<numPeg && !trobat; ++j) {
-                    if (codiIntentat[i] == codiSolucio[j]) {
-                        trobat = true;
-                        resposta += "W";
-                        codiSolucio[j] = -1;
-                    }
-                }
-            }
-        }
+//         // White
+//         for (int i=0; i<numPeg; ++i) {
+//             if (codiIntentat[i] != -1) { // Encara no l'hem processat
+//                 boolean trobat = false;
+//                 for (int j=0; j<numPeg && !trobat; ++j) {
+//                     if (codiIntentat[i] == codiSolucio[j]) {
+//                         trobat = true;
+//                         resposta += "W";
+//                         codiSolucio[j] = -1;
+//                     }
+//                 }
+//             }
+//         }
 
-        while (resposta.length() < numPeg)
-            resposta += "-";
+//         while (resposta.length() < numPeg)
+//             resposta += "-";
 
-        return resposta;
-    }
-
+//         return resposta;
+//     }
 
 }
-
-/*
-^Cdavid@david-VivoBook-ASUSLaptop-X421EA-S433EA:~/Documents/genetic$  cd /home/david/Documents/genetic ; /usr/bin/env /usr/lib/jvm/java-11-openjdk-amd64/bin/java -cp /home/david/.config/Code/User/workspaceStorage/9c7e86901698910d9b4ef296b0ddc1f8/redhat.java/jdt_ws/genetic_cb303c86/bin Genetic 
-Ronda = 1   Codi = 1 1 2 2 3 3 4 5   Resposta = B W W W W - - -
-##############
-Codi intentat 0 = 1 1 2 2 3 3 4 5   Resposta rebuda 0 = B W W W W - - -
-##############
-
-Ronda = 2   Codi = 1 4 7 3 2 7 3 3   Resposta = W W W - - - - -
-##############
-Codi intentat 0 = 1 1 2 2 3 3 4 5   Resposta rebuda 0 = B W W W W - - -
-Codi intentat 1 = 1 4 7 3 2 7 3 3   Resposta rebuda 1 = W W W - - - - -
-##############
-
-Ronda = 3   Codi = 4 8 9 2 5 1 2 4   Resposta = B W W W W - - -
-##############
-Codi intentat 0 = 1 1 2 2 3 3 4 5   Resposta rebuda 0 = B W W W W - - -
-Codi intentat 1 = 1 4 7 3 2 7 3 3   Resposta rebuda 1 = W W W - - - - -
-Codi intentat 2 = 4 8 9 2 5 1 2 4   Resposta rebuda 2 = B W W W W - - -
-##############
-
-Ronda = 4   Codi = 5 3 2 6 9 2 2 1   Resposta = B W W W W W - -
-##############
-Codi intentat 0 = 1 1 2 2 3 3 4 5   Resposta rebuda 0 = B W W W W - - -
-Codi intentat 1 = 1 4 7 3 2 7 3 3   Resposta rebuda 1 = W W W - - - - -
-Codi intentat 2 = 4 8 9 2 5 1 2 4   Resposta rebuda 2 = B W W W W - - -
-Codi intentat 3 = 5 3 2 6 9 2 2 1   Resposta rebuda 3 = B W W W W W - -
-##############
-
-Ronda = 5   Codi = 2 2 3 5 3 9 2 8   Resposta = W W W W W - - -
-##############
-Codi intentat 0 = 1 1 2 2 3 3 4 5   Resposta rebuda 0 = B W W W W - - -
-Codi intentat 1 = 1 4 7 3 2 7 3 3   Resposta rebuda 1 = W W W - - - - -
-Codi intentat 2 = 4 8 9 2 5 1 2 4   Resposta rebuda 2 = B W W W W - - -
-Codi intentat 3 = 5 3 2 6 9 2 2 1   Resposta rebuda 3 = B W W W W W - -
-Codi intentat 4 = 2 2 3 5 3 9 2 8   Resposta rebuda 4 = W W W W W - - -
-##############
-
-Ronda = 6   Codi = 8 3 5 2 1 6 6 2   Resposta = B B B B W W - -
-##############
-Codi intentat 0 = 1 1 2 2 3 3 4 5   Resposta rebuda 0 = B W W W W - - -
-Codi intentat 1 = 1 4 7 3 2 7 3 3   Resposta rebuda 1 = W W W - - - - -
-Codi intentat 2 = 4 8 9 2 5 1 2 4   Resposta rebuda 2 = B W W W W - - -
-Codi intentat 3 = 5 3 2 6 9 2 2 1   Resposta rebuda 3 = B W W W W W - -
-Codi intentat 4 = 2 2 3 5 3 9 2 8   Resposta rebuda 4 = W W W W W - - -
-Codi intentat 5 = 8 3 5 2 1 6 6 2   Resposta rebuda 5 = B B B B W W - -
-##############
-
-Ronda = 7   Codi = 9 3 5 2 1 8 1 6   Resposta = B B B B B B W W
-##############
-Codi intentat 0 = 1 1 2 2 3 3 4 5   Resposta rebuda 0 = B W W W W - - -
-Codi intentat 1 = 1 4 7 3 2 7 3 3   Resposta rebuda 1 = W W W - - - - -
-Codi intentat 2 = 4 8 9 2 5 1 2 4   Resposta rebuda 2 = B W W W W - - -
-Codi intentat 3 = 5 3 2 6 9 2 2 1   Resposta rebuda 3 = B W W W W W - -
-Codi intentat 4 = 2 2 3 5 3 9 2 8   Resposta rebuda 4 = W W W W W - - -
-Codi intentat 5 = 8 3 5 2 1 6 6 2   Resposta rebuda 5 = B B B B W W - -
-Codi intentat 6 = 9 3 5 2 1 8 1 6   Resposta rebuda 6 = B B B B B B W W
-##############
-
-Ronda = 8   Codi = 6 3 5 2 1 8 1 9   Resposta = B B B B B B B B
- */

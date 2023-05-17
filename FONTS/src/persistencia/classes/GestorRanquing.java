@@ -1,9 +1,5 @@
 package persistencia.classes;
 
-public class GestorRanquing extends GestorGeneric {
+public class GestorRanquing {
     
-    public GestorRanquing() {
-        super(TipusClasse.RANQUING);
-    }
-
 }

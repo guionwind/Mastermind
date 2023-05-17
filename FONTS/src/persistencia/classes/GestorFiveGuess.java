@@ -1,9 +1,5 @@
 package persistencia.classes;
 
-public class GestorFiveGuess extends GestorGeneric {
+public class GestorFiveGuess {
     
-    public GestorFiveGuess() {
-        super(TipusClasse.FIVEGUESS);
-    }
-
 }
