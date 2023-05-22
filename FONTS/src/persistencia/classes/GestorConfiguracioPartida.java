@@ -23,7 +23,7 @@ public class GestorConfiguracioPartida extends Gestor<DAOConfiguracioPartida> {
 
     /**
      * Guarda una nova intància de configuració partida
-     * amb el seu identificador.
+     * amb l'identificador donat.
      * 
      * @param id                        Identificador de la instància a guardar.
      * @param cp                        Instància a guardar.
@@ -40,7 +40,7 @@ public class GestorConfiguracioPartida extends Gestor<DAOConfiguracioPartida> {
 
     /**
      * Actualitza una intància de configuració partida
-     * amb el seu identificador
+     * amb l'identificador donat.
      * 
      * @param id                        Identificador de la instància a guardar.
      * @param cp                        Instància a guardar.
