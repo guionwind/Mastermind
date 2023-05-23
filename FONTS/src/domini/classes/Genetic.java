@@ -1,7 +1,11 @@
 package domini.classes;
 
+import java.sql.Time;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+
+import domini.classes.exceptions.LongitudCombinacioIncorrecte;
+import domini.classes.exceptions.NumeroColorsIncorrecte;
 
 public class Genetic implements Maquina {
 
@@ -12,7 +16,7 @@ public class Genetic implements Maquina {
     /*
      * Número de codis de la població
      */
-    private static final int POPULATION_CAPACITY = 200;
+    private static final int POPULATION_CAPACITY = 100;
 
     /**
      * Número de fitxes del codi.
@@ -220,7 +224,7 @@ public class Genetic implements Maquina {
      * i el codi donat.
      * 
      * @param cromosoma         Codi a commparar.
-     * @return                  Diferències de número de fitxes begres i blanques.
+     * @return                  Diferències de número de fitxes negres i blanques.
      */
     private Integer[] fitness(Integer[] cromosoma) {
         int puntuacioNegres = 0;
@@ -557,6 +561,66 @@ public class Genetic implements Maquina {
     }
 
     public List<List<Integer>> solve(List<Integer> solution) throws Exception {
-        throw new UnsupportedOperationException("Unimplemented method 'solve'");
+        if (solution.size() != numPeg) throw new LongitudCombinacioIncorrecte("Mida incorrecte. FiveGuess necessita mida 4");
+        for (int i=0; i<solution.size(); ++i) {
+            Integer fitxa = solution.get(i);
+            if (fitxa < 1 || fitxa > numCol) throw new NumeroColorsIncorrecte("Colors incorrectes. FiveGuess necessita colors en rang [1,6]");
+        }
+
+        Integer[] solutionArray = new Integer[numPeg];
+        solution.toArray(solutionArray);
+
+        ArrayList<List<Integer>> codis = new ArrayList<List<Integer>>();
+        ArrayList<String> respostes = new ArrayList<String>();
+        int ronda = 0;
+        boolean trobat = false;
+        while (ronda < MAX_STEPS && !trobat) {
+            Integer[] codi;
+            if (ronda == 0) codi = esbrina(null).clone();
+            else {
+                Integer[] codiAnterior = new Integer[numPeg];
+            
+                codis.get(ronda-1).toArray(codiAnterior);
+                codi = esbrina(respostes.get(ronda-1)).clone();
+            }
+            
+            boolean coincideix = true;
+            for (int i=0; i<numPeg && coincideix; ++i) {
+                if (!codi[i].equals(solution.get(i)))
+                    coincideix = false;
+            }
+            if (coincideix) trobat = true;
+
+            codis.add(Arrays.asList(codi));
+            if (!trobat) respostes.add(generaResposta(codi, solutionArray));
+
+            ++ronda;
+        }
+
+        return codis;
+    }
+
+    public static void main(String[] args) throws Exception {
+        int p = ThreadLocalRandom.current().nextInt(4,8);
+        int c = ThreadLocalRandom.current().nextInt(4,8);
+        p = 8;
+        c = 8;
+        System.out.println("NumPeg: " + p + "   NumCol: " + c);
+        
+        Genetic g = new Genetic(p, c);
+
+        List<Integer> codiSolucio = new ArrayList<>(p);
+        for (int i=0; i<p; ++i) codiSolucio.add(ThreadLocalRandom.current().nextInt(1, c+1));
+        System.out.println("Codi solucio: " + codiSolucio);
+
+        long temps_ini = System.nanoTime();
+        List<List<Integer>> solucions = g.solve(codiSolucio);
+        long temps_fin = System.nanoTime();
+
+        for (int i=0; i<solucions.size(); ++i) {
+            System.out.println("Solucio " + (i+1) + ":    " + solucions.get(i));
+        }
+
+        System.out.println((temps_fin - temps_ini) / 1000000000);
     }
 }
