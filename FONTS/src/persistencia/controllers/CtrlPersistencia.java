@@ -14,7 +14,6 @@ public class CtrlPersistencia {
     GestorConfiguracioPartida gestorConfiguracioPartida;
     GestorFiveGuess gestorFiveGuess;
     GestorEstadistiquesPartida gestorEstadistiquesPartida;
-    GestorRanquing gestorRanquing;
     
     public CtrlPersistencia() throws IOException {
         gestorJugador = new GestorJugador();
@@ -22,16 +21,15 @@ public class CtrlPersistencia {
         gestorConfiguracioPartida = new GestorConfiguracioPartida();
         gestorFiveGuess = new GestorFiveGuess();
         gestorEstadistiquesPartida = new GestorEstadistiquesPartida();
-        gestorRanquing = new GestorRanquing();
     }
     
-    public void afegirJugador(String idJugador, ) throws IOException, InstanciaJaExisteix {
-        DAOJugador daoJ = new DAOJugador();
+    public void afegirJugador(String idJugador, String username, String password) throws IOException, InstanciaJaExisteix {
+        DAOJugador daoJ = new DAOJugador(username, password);
         gestorJugador.afegirJugador(idJugador, daoJ);
     }
 
-    public void actualitzarJugador(String idJugador, ) throws IOException, InstanciaNoExisteix  {
-        DAOJugador daoJ = new DAOJugador();
+    public void actualitzarJugador(String idJugador, String username, String password) throws IOException, InstanciaNoExisteix  {
+        DAOJugador daoJ = new DAOJugador(username, password);
         gestorJugador.actualitzarJugador(idJugador, daoJ);
     }
 
@@ -40,7 +38,9 @@ public class CtrlPersistencia {
         Jugador j = null;
         try {
             j = new Jugador(
-                
+                Integer.valueOf(idJugador),
+                daoJ.getUsername(),
+                daoJ.getPassword()
             );
         }
         catch (Exception e) {
@@ -57,13 +57,13 @@ public class CtrlPersistencia {
         return gestorJugador.existeixJugador(idJugador);
     }
 
-    public void afegirPartida(String idPartida, ) throws IOException, InstanciaJaExisteix {
-        DaoPartida daoP = new DaoPartida();
+    public void afegirPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) throws IOException, InstanciaJaExisteix {
+        DaoPartida daoP = new DAOPartida(idPartida, solutionCode, rondes, tipusAlgorisme);
         gestorPartida.afegirPartida(idPartida, daoP);
     }
 
-    public void actualitzarPartida(String idPartida, ) throws IOException, InstanciaNoExisteix  {
-        DAOPartida daoP = new DAOPartida();
+    public void actualitzarPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) throws IOException, InstanciaNoExisteix  {
+        DAOPartida daoP = new DAOPartida(idPartida, solutionCode, rondes, tipusAlgorisme);
         gestorPartida.actualitzarPartida(idPartida, daoP);
     }
 
@@ -72,7 +72,10 @@ public class CtrlPersistencia {
         Partida p = null;
         try {
             p = new Partida(
-                
+                Integer.valueOf(idPartida),
+                daoP.getSolutionCode(),
+                daoP.getRondes(),
+                daoP.getTipusAlgorisme()
             );
         }
         catch (Exception e) {
@@ -164,22 +167,25 @@ public class CtrlPersistencia {
         return gestorFiveGuess.existeixFiveGuess(idPartida);
     }
 
-    public void afegirEstadistiquesPartida(String idEstadistiquesPartida, ) throws IOException, InstanciaJaExisteix {
-        DaoEstadistiquesPartida daoEP = new DaoEstadistiquesPartida();
-        gestorEstadistiquesPartida.afegirEstadistiquesPartida(idEstadistiquesPartida, daoEP);
+    public void afegirEstadistiquesPartida(String idJugador, String idPartida, Integer puntuacio, boolean guanyada) throws IOException, InstanciaJaExisteix {
+        DAOEstadistiquesPartida daoEP = new DAOEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
+        gestorEstadistiquesPartida.afegirEstadistiquesPartida(idJugador, idPartida, daoEP);
     }
 
-    public void actualitzarEstadistiquesPartida(String idEstadistiquesPartida, ) throws IOException, InstanciaNoExisteix  {
-        DAOEstadistiquesPartida daoEP = new DAOEstadistiquesPartida();
-        gestorEstadistiquesPartida.actualitzarEstadistiquesPartida(idEstadistiquesPartida, daoEP);
+    public void actualitzarEstadistiquesPartida(String idJugador, String idPartida, Integer puntuacio, boolean guanyada) throws IOException, InstanciaNoExisteix  {
+        DAOEstadistiquesPartida daoEP = new DAOEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
+        gestorEstadistiquesPartida.actualitzarEstadistiquesPartida(idJugador, idPartida, daoEP);
     }
 
-    public EstadistiquesPartida obtenirEstadistiquesPartida(String idEstadistiquesPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
-        DAOEstadistiquesPartida daoEP = gestorEstadistiquesPartida.obtenirEstadistiquesPartida(idEstadistiquesPartida);
+    public EstadistiquesPartida obtenirEstadistiquesPartida(String idJugador, String idPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        DAOEstadistiquesPartida daoEP = gestorEstadistiquesPartida.obtenirEstadistiquesPartida(idJugador, idPartida);
         EstadistiquesPartida eP = null;
         try {
             eP = new EstadistiquesPartida(
-                
+                Integer.valueOf(idJugador),
+                Integer.valueOf(idPartida),
+                daoEP.getPuntuacio(),
+                daoEP.getGuanyada()
             );
         }
         catch (Exception e) {
@@ -194,37 +200,5 @@ public class CtrlPersistencia {
 
     public boolean existeixEstadistiquesPartida(String idEstadistiquesPartida) throws IOException {
         return gestorEstadistiquesPartida.existeixEstadistiquesPartida(idEstadistiquesPartida);
-    }
-
-    public void afegirRanquing(String idRanquing, ) throws IOException, InstanciaJaExisteix {
-        DaoRanquing daoR = new DaoRanquing();
-        gestorRanquing.afegirRanquing(idRanquing, daoR);
-    }
-
-    public void actualitzarRanquing(String idRanquing, ) throws IOException, InstanciaNoExisteix  {
-        DAORanquing daoR = new DAORanquing();
-        gestorRanquing.actualitzarRanquing(idRanquing, daoR);
-    }
-
-    public Ranquing obtenirRanquing(String idRanquing) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
-        DAORanquing daoR = gestorRanquing.obtenirRanquing(idRanquing);
-        Ranquing r = null;
-        try {
-            r = new Ranquing(
-                
-            );
-        }
-        catch (Exception e) {
-            System.out.println("Aquest error no hauria de passar.");
-        }
-        return r;
-    }
-
-    public void eliminarRanquing(String idRanquing) throws IOException, InstanciaNoExisteix {        
-        gestorRanquing.eliminarRanquing(idRanquing);
-    }
-
-    public boolean existeixRanquing(String idRanquing) throws IOException {
-        return gestorRanquing.existeixRanquing(idRanquing);
     }
 }
