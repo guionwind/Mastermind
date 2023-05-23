@@ -1,21 +1,19 @@
 package presentacio.views;
 
-import presentacio.controllers.CtrlPresentacio;
-
 import javax.swing.*;
 import java.awt.event.*;
 
-public class VistaPrincipal extends JDialog {
+public class vistaMenuInicial extends JDialog {
     private JPanel contentPane;
     private JButton buttonCancel;
-    private JButton loginButton;
-    private JButton tutorialButton;
-    private JButton registerButton;
+    private JButton bRanquing;
+    private JButton bTancarSessio;
+    private JButton bPlay;
 
-    public VistaPrincipal() {
+    public vistaMenuInicial() {
         setContentPane(contentPane);
         setModal(true);
-        //setResizable(false); Serveix per fer que la finestra no pugui ser resizable.
+
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
@@ -36,17 +34,6 @@ public class VistaPrincipal extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-
-        tutorialButton.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-
-                loginButton.setVisible(false);
-                CtrlPresentacio.vistaTutorial();
-                setVisible(false);
-            }
-        });
     }
 
     private void onCancel() {
@@ -54,12 +41,10 @@ public class VistaPrincipal extends JDialog {
         dispose();
     }
 
-
     public static void main(String[] args) {
-        VistaPrincipal dialog = new VistaPrincipal();
+        vistaMenuInicial dialog = new vistaMenuInicial();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
     }
-
 }

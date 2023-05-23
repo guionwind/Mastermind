@@ -5,24 +5,19 @@ import presentacio.controllers.CtrlPresentacio;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class VistaTutorial extends JDialog {
+public class vistaLogin extends JDialog {
     private JPanel contentPane;
-    private JButton bEnrere;
-    private JLabel lDefinicio3;
-    private JLabel lDefinicio;
-    private JLabel lDefinicio2;
-    private JButton bSeguent;
-    private JPanel pPg1;
-    private JPanel pPg2;
-    private JPanel pPg3;
+    private JTextField fUsername;
+    private JTextField fPassword;
+    private JButton bLogin;
+    private JButton bCancel;
 
-    public VistaTutorial() {
+    public vistaLogin() {
         setContentPane(contentPane);
         setModal(true);
-        this.pack();
-        setVisible(true);
 
-        bEnrere.addMouseListener(new MouseAdapter() {
+
+        bCancel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
@@ -33,13 +28,9 @@ public class VistaTutorial extends JDialog {
         });
     }
 
-    private void onCancel() {
-        // add your code here if necessary
-        dispose();
-    }
 
     public static void main(String[] args) {
-        VistaTutorial dialog = new VistaTutorial();
+        vistaLogin dialog = new vistaLogin();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
