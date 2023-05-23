@@ -19,12 +19,6 @@ run:
 clean:
 ifeq ($(OS), Windows_NT)
 	rmdir /s bin
-	del /f domini\classes\*.class
-	del /f domini\classes\exceptions\*.class
-	del /f domini\controllers\*.class
 else
 	rm -rf bin
-	rm -f domini\classes\*.class
-	rm -f domini\classes\exceptions\*.class
-	rm -f domini\controllers\*.class
 endif
