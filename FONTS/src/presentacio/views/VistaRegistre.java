@@ -11,6 +11,7 @@ public class VistaRegistre extends javax.swing.JDialog {
     private javax.swing.JButton bEnrere;
     private JTextField tfNomUsuari;
     private JPasswordField pfContrasenya;
+    private JPasswordField pfConfirmaContrasenya;
     private String usuari;
     private String contrasenya;
 
