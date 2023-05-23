@@ -13,6 +13,16 @@ public class VistaConfiguracioPartida extends JDialog {
     private JButton bAcceptar;
     private JButton bEnrere;
     private JComboBox cbTipusPartida;
+    private JSlider sIntents;
+    private JSlider sColors;
+    private JSlider sLongitud;
+    private JButton button1;
+    private JButton button2;
+    private JButton button3;
+    private int pgActual = 0;
+    private int longitud = 4;
+    private int colors = 6;
+    private int intents = 5;
 
     public VistaConfiguracioPartida() {
         setContentPane(contentPane);
@@ -30,6 +40,34 @@ public class VistaConfiguracioPartida extends JDialog {
                 onCancel();
             }
         });
+
+        cbTipusPartida.addActionListener((new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker")){
+                    sIntents.setEnabled(false);
+                    sColors.setEnabled(false);
+                    sLongitud.setEnabled(false);
+
+                    intents = sIntents.getValue();
+                    colors = sColors.getValue();
+                    longitud = sLongitud.getValue();
+
+                    sIntents.setValue(5);
+                    sColors.setValue(6);
+                    sLongitud.setValue(4);
+                }
+                else{
+                    sIntents.setValue(intents);
+                    sColors.setValue(colors);
+                    sLongitud.setValue(longitud);
+
+                    sIntents.setEnabled(true);
+                    sColors.setEnabled(true);
+                    sLongitud.setEnabled(true);
+                }
+            }
+        }));
 
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
