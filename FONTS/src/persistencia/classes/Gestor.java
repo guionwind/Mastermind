@@ -7,7 +7,7 @@ public class Gestor<PersistenceObject> {
     /**
      * Directori on es guarden les dades.
      */
-    protected static final String dirPath = System.getProperty("user.dir") + "/FONTS/src/persistencia/data/";
+    private static final String dirPath = System.getProperty("user.dir") + "/FONTS/src/persistencia/data/";
     /**
      * Nom de l'arxiu on es guarden les dades.
      */

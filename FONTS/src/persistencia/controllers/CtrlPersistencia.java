@@ -1,6 +1,7 @@
 package persistencia.controllers;
 
 import java.io.IOException;
+import java.util.*;
 
 import domini.classes.*;
 import domini.classes.exceptions.InstanciaJaExisteix;
@@ -130,22 +131,23 @@ public class CtrlPersistencia {
         return gestorConfiguracioPartida.existeixConfiguracioPartida(idPartida);
     }
 
-    public void afegirFiveGuess(String idFiveGuess, ) throws IOException, InstanciaJaExisteix {
-        DaoFiveGuess daoFG = new DaoFiveGuess();
-        gestorFiveGuess.afegirFiveGuess(idFiveGuess, daoFG);
+    public void afegirFiveGuess(String idPartida, ArrayList<Integer[]> codisDisponibles, ArrayList<Integer[]> codisPossibles) throws IOException, InstanciaJaExisteix {
+        DAOFiveGuess daoFG = new DAOFiveGuess(codisDisponibles, codisPossibles);
+        gestorFiveGuess.afegirFiveGuess(idPartida, daoFG);
     }
 
-    public void actualitzarFiveGuess(String idFiveGuess, ) throws IOException, InstanciaNoExisteix  {
+    public void actualitzarFiveGuess(String idPartida, ArrayList<Integer[]> codisDisponibles, ArrayList<Integer[]> codisPossibles) throws IOException, InstanciaNoExisteix  {
         DAOFiveGuess daoFG = new DAOFiveGuess();
-        gestorFiveGuess.actualitzarFiveGuess(idFiveGuess, daoFG);
+        gestorFiveGuess.actualitzarFiveGuess(idPartida, daoFG);
     }
 
-    public FiveGuess obtenirFiveGuess(String idFiveGuess) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
-        DAOFiveGuess daoFG = gestorFiveGuess.obtenirFiveGuess(idFiveGuess);
+    public FiveGuess obtenirFiveGuess(String idPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        DAOFiveGuess daoFG = gestorFiveGuess.obtenirFiveGuess(idPartida);
         FiveGuess fG = null;
         try {
             fG = new FiveGuess(
-                
+                daoFG.getCodisDisponibles(),
+                daoFG.getCodisPossibles()
             );
         }
         catch (Exception e) {
@@ -154,12 +156,12 @@ public class CtrlPersistencia {
         return fG;
     }
 
-    public void eliminarFiveGuess(String idFiveGuess) throws IOException, InstanciaNoExisteix {        
-        gestorFiveGuess.eliminarFiveGuess(idFiveGuess);
+    public void eliminarFiveGuess(String idPartida) throws IOException, InstanciaNoExisteix {        
+        gestorFiveGuess.eliminarFiveGuess(idPartida);
     }
 
-    public boolean existeixFiveGuess(String idFiveGuess) throws IOException {
-        return gestorFiveGuess.existeixFiveGuess(idFiveGuess);
+    public boolean existeixFiveGuess(String idPartida) throws IOException {
+        return gestorFiveGuess.existeixFiveGuess(idPartida);
     }
 
     public void afegirEstadistiquesPartida(String idEstadistiquesPartida, ) throws IOException, InstanciaJaExisteix {

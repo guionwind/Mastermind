@@ -47,7 +47,7 @@ public class Genetic implements Maquina {
      * @param numPeg        Número de fitxes del codi.
      * @param numCol        Número de colors possibles.
      */
-    public Genetic(Integer numPeg, Integer numCol) {
+    public Genetic(int numPeg, int numCol) {
         this.numPeg = numPeg;
         this.numCol = numCol;
         this.maxMida = (numPeg+2)*10;
@@ -65,7 +65,10 @@ public class Genetic implements Maquina {
      * @param codisIntentats
      * @param respostesCodisIntentats
      */
-    public Genetic(Integer numPeg, Integer numCol, ArrayList<Integer[]> codisIntentats, ArrayList<String> respostesCodisIntentats) {
+    public Genetic(int numPeg, int numCol, ArrayList<Integer[]> codisIntentats, ArrayList<String> respostesCodisIntentats) {
+        if (codisIntentats == null)  throw new IllegalArgumentException("El conjunt d'intents no pot ser nul.");
+        if (respostesCodisIntentats == null) throw new IllegalArgumentException("El conjunt de respostes dels codis intentats no pot ser nul.");
+        
         this.numPeg = numPeg;
         this.numCol = numCol;
         this.maxMida = (numPeg+2)*10;
@@ -556,82 +559,4 @@ public class Genetic implements Maquina {
     public List<List<Integer>> solve(List<Integer> solution) throws Exception {
         throw new UnsupportedOperationException("Unimplemented method 'solve'");
     }
-
-//     public static void main(String[] args) {
-//         Genetic genetic = new Genetic(1, 8, 9);
-        
-//         Integer[] solucio = new Integer[] {6,3,5,2,1,8,1,9};
-
-//         Integer ronda = 0;
-//         boolean guanyat = false;
-//         Integer[] codi = genetic.esbrina(null);
-//         String resposta = genetic.generaResposta2(codi, solucio);
-//         guanyat = true;
-//         for (char c : resposta.toCharArray()) {
-//             if (c != 'B')
-//                 guanyat = false;
-//         }
-//         System.out.print("Ronda = " + ++ronda);
-//         System.out.print("   Codi =");
-//         for (Integer fitxa : codi)
-//             System.out.print(" " + fitxa);
-//         System.out.print("   Resposta =");
-//         for (char car : resposta.toCharArray())
-//             System.out.print(" "+car);
-//         System.out.println();        
-        
-//         while (!guanyat) {
-//             codi = genetic.esbrina(resposta);
-//             resposta = genetic.generaResposta2(codi, solucio);
-//             guanyat = true;
-//             for (char c : resposta.toCharArray()) {
-//                 if (c != 'B')
-//                     guanyat = false;
-//             }
-            
-//             System.out.print("Ronda = " + ++ronda);
-//             System.out.print("   Codi =");
-//             for (Integer fitxa : codi)
-//                 System.out.print(" " + fitxa);
-//             System.out.print("   Resposta =");
-//             for (char car : resposta.toCharArray())
-//                 System.out.print(" "+car);
-//             System.out.println();
-//         }
-//     }
-
-//     public String generaResposta2(Integer[] codiIntentatAux, Integer[] codiSolucioAux) {
-//         Integer[] codiIntentat = codiIntentatAux.clone();
-//         Integer[] codiSolucio = codiSolucioAux.clone();
-//         String resposta = "";
-
-//         // Black
-//         for (int i=0; i<numPeg; ++i) {
-//             if (codiIntentat[i] == codiSolucio[i]) {
-//                 resposta += "B";
-//                 codiIntentat[i] = -1;
-//                 codiSolucio[i] = -1;
-//             }
-//         }
-
-//         // White
-//         for (int i=0; i<numPeg; ++i) {
-//             if (codiIntentat[i] != -1) { // Encara no l'hem processat
-//                 boolean trobat = false;
-//                 for (int j=0; j<numPeg && !trobat; ++j) {
-//                     if (codiIntentat[i] == codiSolucio[j]) {
-//                         trobat = true;
-//                         resposta += "W";
-//                         codiSolucio[j] = -1;
-//                     }
-//                 }
-//             }
-//         }
-
-//         while (resposta.length() < numPeg)
-//             resposta += "-";
-
-//         return resposta;
-//     }
-
 }

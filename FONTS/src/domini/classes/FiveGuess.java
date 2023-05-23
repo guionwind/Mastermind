@@ -31,7 +31,7 @@ public class FiveGuess implements Maquina {
      * fitxes del codi solució i està a la mateixa posició.
      * W = White; La fitxa del codi intentat és del color d'una de les
      * fitxes del codi solució però està en una posició errònia.
-     * ' ' = Nothing; La fitxa del codi intentar no és de cap dels
+     * '-' = Nothing; La fitxa del codi intentar no és de cap dels
      * colors del codi solució.
      */
     private static final String[] RESPOSTES = {
@@ -84,6 +84,18 @@ public class FiveGuess implements Maquina {
                 }
             }
         }
+    }
+
+    /**
+     * Constructora
+     * Utilitzada per carregar algorismes
+     */
+    public FiveGuess(ArrayList<Integer[]> codisDisponibles, ArrayList<Integer[]> codisPossibles) {
+        if (codisDisponibles == null)  throw new IllegalArgumentException("El conjunt d'intents no pot ser nul.");
+        if (codisPossibles == null) throw new IllegalArgumentException("El conjunt de respostes dels codis intentats no pot ser nul.");
+        
+        this.codisDisponibles = codisDisponibles;
+        this.codisPossibles = codisPossibles;
     }
 
     /**
