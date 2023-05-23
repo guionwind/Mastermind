@@ -8,6 +8,8 @@ public class VistaEstadistiquesPartida extends JDialog {
     private JPanel contentPane;
     private JButton bAcceptar;
     private JLabel lStatus;
+    private JLabel lIntents;
+    private JLabel lPuntuacio;
 
     public VistaEstadistiquesPartida() {
         setContentPane(contentPane);
@@ -23,7 +25,7 @@ public class VistaEstadistiquesPartida extends JDialog {
         initialize_parameters();
     }
 
-    private void initialize_parameters(){
+    private void initialize_parameters() {
 //TODO    if (persistencia.status_partida == perduda){
 //            lStatus.setText("Has perdut!");
 //            lStatus.setForeground(Color.RED);
@@ -33,6 +35,7 @@ public class VistaEstadistiquesPartida extends JDialog {
 //        }
         //TODO asignar puntuacio i intents
     }
+
     private void onAcceptar() {
         // TODO passem a la seguent vista (ranquing)
         dispose();
@@ -44,4 +47,5 @@ public class VistaEstadistiquesPartida extends JDialog {
         dialog.setVisible(true);
         System.exit(0);
     }
+
 }
