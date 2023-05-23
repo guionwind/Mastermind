@@ -1,6 +1,6 @@
 @echo off
 echo Compilant projecte Mastermind...
-javac presentacio/controllers/CtrlPresentacio.java
+javac -cp ../../lib/forms_rt-7.0.3.jar presentacio/controllers/CtrlPresentacio.java
 echo Compilacio finalitzada.
 if "%1"=="jar" (
     echo Creant arxiu JAR...
