@@ -2,8 +2,11 @@ CLASSES = domini/classes
 CONTROLADORES = domini/controllers
 VISTA = presentacio/views
 
+ifeq ($(OS), Windows_NT)
 CLPTH = "bin;../../lib/forms_rt-7.0.3.jar"
-
+else
+CLPTH = "bin:../../lib/forms_rt-7.0.3.jar"
+endif
 
 default: class
 
