@@ -160,7 +160,7 @@ public class Gestor<PersistenceObject> {
      * @throws IOException              Llença una excepció si hi ha hagut algún
      *                                  problema amb l'entrada o sortida de dades.
      */
-    protected boolean existeixObjecte(String id) throws IOException {        
+    protected boolean existeixObjecte(String id) throws IOException {
         FileInputStream fis = new FileInputStream(dirPath + fileName);
         BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 
@@ -175,6 +175,27 @@ public class Gestor<PersistenceObject> {
 
         br.close();
         return false;
+    }
+
+    /**
+     * Retorna quantes intancies del tipus d'objecte existeixen.
+     * 
+     * @return                          Nombre d'instàncies del tipus d'objecte.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     */
+    protected int nombreObjectes() throws IOException {
+        FileInputStream fis = new FileInputStream(dirPath + fileName);
+        BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+
+        int nombreObjectes = 0;
+        while ((br.readLine()) != null) {
+            ++nombreObjectes;
+            br.readLine(); // Saltem una línia perquè és la linia del objecte serialitzat
+        }
+
+        br.close();
+        return nombreObjectes;
     }
 
     /**

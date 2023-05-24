@@ -57,13 +57,17 @@ public class CtrlPersistencia {
         return gestorJugador.existeixJugador(idJugador);
     }
 
-    public void afegirPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) throws IOException, InstanciaJaExisteix {
-        DaoPartida daoP = new DAOPartida(idPartida, solutionCode, rondes, tipusAlgorisme);
+    public int totalJugadors() {
+        return gestorJugador.totalJugadors();
+    }
+
+    public void afegirPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, TipusAlgorisme tipusAlgorisme) throws IOException, InstanciaJaExisteix {
+        DAOPartida daoP = new DAOPartida(solutionCode, rondes, tipusAlgorisme);
         gestorPartida.afegirPartida(idPartida, daoP);
     }
 
-    public void actualitzarPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) throws IOException, InstanciaNoExisteix  {
-        DAOPartida daoP = new DAOPartida(idPartida, solutionCode, rondes, tipusAlgorisme);
+    public void actualitzarPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, TipusAlgorisme tipusAlgorisme) throws IOException, InstanciaNoExisteix  {
+        DAOPartida daoP = new DAOPartida(solutionCode, rondes, tipusAlgorisme);
         gestorPartida.actualitzarPartida(idPartida, daoP);
     }
 
@@ -92,6 +96,10 @@ public class CtrlPersistencia {
         return gestorPartida.existeixPartida(idPartida);
     }
     
+    public int totalPartides() {
+        return gestorPartida.totalPartides();
+    }
+
     public void afegirConfiguracioPartida(String idPartida, TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException, InstanciaJaExisteix {
         DAOConfiguracioPartida daoCP = new DAOConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
         gestorConfiguracioPartida.afegirConfiguracioPartida(idPartida, daoCP);
@@ -105,13 +113,6 @@ public class CtrlPersistencia {
     public ConfiguracioPartida obtenirConfiguracioPartida(String idPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         DAOConfiguracioPartida daoCP = gestorConfiguracioPartida.obtenirConfiguracioPartida(idPartida);
         ConfiguracioPartida cp = null;
-        // ########### PREGUNTAR ###########
-        // cp = new ConfiguracioPartida(
-        //         daoCP.getTipusPartida(),
-        //         daoCP.getNumeroIntents(),
-        //         daoCP.getNumeroColors(),
-        //         daoCP.getLongitudCombinacio()
-        //     );
         try {
             cp = new ConfiguracioPartida(
                 daoCP.getTipusPartida(),
@@ -168,12 +169,12 @@ public class CtrlPersistencia {
     }
 
     public void afegirEstadistiquesPartida(String idJugador, String idPartida, Integer puntuacio, boolean guanyada) throws IOException, InstanciaJaExisteix {
-        DAOEstadistiquesPartida daoEP = new DAOEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
+        DAOEstadistiquesPartida daoEP = new DAOEstadistiquesPartida(puntuacio, guanyada);
         gestorEstadistiquesPartida.afegirEstadistiquesPartida(idJugador, idPartida, daoEP);
     }
 
     public void actualitzarEstadistiquesPartida(String idJugador, String idPartida, Integer puntuacio, boolean guanyada) throws IOException, InstanciaNoExisteix  {
-        DAOEstadistiquesPartida daoEP = new DAOEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
+        DAOEstadistiquesPartida daoEP = new DAOEstadistiquesPartida(puntuacio, guanyada);
         gestorEstadistiquesPartida.actualitzarEstadistiquesPartida(idJugador, idPartida, daoEP);
     }
 
@@ -194,11 +195,11 @@ public class CtrlPersistencia {
         return eP;
     }
 
-    public void eliminarEstadistiquesPartida(String idEstadistiquesPartida) throws IOException, InstanciaNoExisteix {        
-        gestorEstadistiquesPartida.eliminarEstadistiquesPartida(idEstadistiquesPartida);
+    public void eliminarEstadistiquesPartida(String idJugador, String idPartida) throws IOException, InstanciaNoExisteix {        
+        gestorEstadistiquesPartida.eliminarEstadistiquesPartida(idJugador, idPartida);
     }
 
-    public boolean existeixEstadistiquesPartida(String idEstadistiquesPartida) throws IOException {
-        return gestorEstadistiquesPartida.existeixEstadistiquesPartida(idEstadistiquesPartida);
+    public boolean existeixEstadistiquesPartida(String idJugador, String idPartida) throws IOException {
+        return gestorEstadistiquesPartida.existeixEstadistiquesPartida(idJugador, idPartida);
     }
 }
