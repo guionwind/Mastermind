@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Locale;
 
-public class vistaTutorial extends JDialog {
+public class VistaTutorial extends JDialog {
     private JPanel contentPane;
     private JButton bEnrere;
     private JLabel lDefinicio3;
@@ -26,7 +26,7 @@ public class vistaTutorial extends JDialog {
 
     private int pgActual = 0;
 
-    public vistaTutorial() {
+    public VistaTutorial() {
         setContentPane(contentPane);
         this.pack();
         setVisible(true);
@@ -65,7 +65,7 @@ public class vistaTutorial extends JDialog {
     }
 
     public static void main(String[] args) {
-        vistaTutorial dialog = new vistaTutorial();
+        VistaTutorial dialog = new VistaTutorial();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);

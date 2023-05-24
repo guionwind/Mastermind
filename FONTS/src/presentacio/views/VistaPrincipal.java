@@ -12,14 +12,14 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Locale;
 
-public class vistaPrincipal extends JDialog {
+public class VistaPrincipal extends JDialog {
     private JPanel contentPane;
-    private JButton buttonCancel;
-    private JButton loginButton;
-    private JButton tutorialButton;
-    private JButton registerButton;
+    private JButton bSortir;
+    private JButton bLogin;
+    private JButton bTutorial;
+    private JButton bRegister;
 
-    public vistaPrincipal() {
+    public VistaPrincipal() {
         setContentPane(contentPane);
         //setModal(true);
         this.pack();
@@ -27,12 +27,38 @@ public class vistaPrincipal extends JDialog {
         //setResizable(false); Serveix per fer que la finestra no pugui ser resizable.
 
 
-        tutorialButton.addMouseListener(new MouseAdapter() {
+        bTutorial.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
 
                 CtrlPresentacio.vistaTutorial();
+                setVisible(false);
+            }
+        });
+        bSortir.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+                System.exit(0);
+            }
+        });
+        bLogin.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+                CtrlPresentacio.vistaLogin();
+                setVisible(false);
+            }
+        });
+        bRegister.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+                CtrlPresentacio.vistaRegistre();
                 setVisible(false);
             }
         });
@@ -64,11 +90,11 @@ public class vistaPrincipal extends JDialog {
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(panel2, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        buttonCancel = new JButton();
-        buttonCancel.setBackground(new Color(-6075570));
-        buttonCancel.setFocusPainted(false);
-        buttonCancel.setText("Sortir");
-        panel2.add(buttonCancel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bSortir = new JButton();
+        bSortir.setBackground(new Color(-6075570));
+        bSortir.setFocusPainted(false);
+        bSortir.setText("Sortir");
+        panel2.add(bSortir, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel3, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -80,33 +106,33 @@ public class vistaPrincipal extends JDialog {
         final JPanel panel4 = new JPanel();
         panel4.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel4, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        loginButton = new JButton();
-        loginButton.setBackground(new Color(-18308));
-        loginButton.setFocusPainted(false);
-        Font loginButtonFont = this.$$$getFont$$$(null, -1, 36, loginButton.getFont());
-        if (loginButtonFont != null) loginButton.setFont(loginButtonFont);
-        loginButton.setText("Login");
-        panel4.add(loginButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bLogin = new JButton();
+        bLogin.setBackground(new Color(-18308));
+        bLogin.setFocusPainted(false);
+        Font bLoginFont = this.$$$getFont$$$(null, -1, 36, bLogin.getFont());
+        if (bLoginFont != null) bLogin.setFont(bLoginFont);
+        bLogin.setText("Login");
+        panel4.add(bLogin, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel5 = new JPanel();
         panel5.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel5, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        tutorialButton = new JButton();
-        tutorialButton.setBackground(new Color(-8415661));
-        tutorialButton.setFocusPainted(false);
-        Font tutorialButtonFont = this.$$$getFont$$$(null, -1, 36, tutorialButton.getFont());
-        if (tutorialButtonFont != null) tutorialButton.setFont(tutorialButtonFont);
-        tutorialButton.setText("Tutorial");
-        panel5.add(tutorialButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bTutorial = new JButton();
+        bTutorial.setBackground(new Color(-8415661));
+        bTutorial.setFocusPainted(false);
+        Font bTutorialFont = this.$$$getFont$$$(null, -1, 36, bTutorial.getFont());
+        if (bTutorialFont != null) bTutorial.setFont(bTutorialFont);
+        bTutorial.setText("Tutorial");
+        panel5.add(bTutorial, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel6 = new JPanel();
         panel6.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel6, new GridConstraints(7, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        registerButton = new JButton();
-        registerButton.setBackground(new Color(-10189664));
-        registerButton.setFocusPainted(false);
-        Font registerButtonFont = this.$$$getFont$$$(null, -1, 36, registerButton.getFont());
-        if (registerButtonFont != null) registerButton.setFont(registerButtonFont);
-        registerButton.setText("Register");
-        panel6.add(registerButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bRegister = new JButton();
+        bRegister.setBackground(new Color(-10189664));
+        bRegister.setFocusPainted(false);
+        Font bRegisterFont = this.$$$getFont$$$(null, -1, 36, bRegister.getFont());
+        if (bRegisterFont != null) bRegister.setFont(bRegisterFont);
+        bRegister.setText("Register");
+        panel6.add(bRegister, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
         contentPane.add(spacer2, new GridConstraints(8, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final Spacer spacer3 = new Spacer();
@@ -147,13 +173,5 @@ public class vistaPrincipal extends JDialog {
     public JComponent $$$getRootComponent$$$() {
         return contentPane;
     }
-
-
-//    public static void main(String[] args) {
-//        vistaPrincipal dialog = new vistaPrincipal();
-//        dialog.pack();
-//        dialog.setVisible(true);
-//        System.exit(0);
-//    }
 
 }

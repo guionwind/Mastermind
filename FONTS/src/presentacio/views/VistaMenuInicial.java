@@ -11,14 +11,14 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Locale;
 
-public class vistaMenuInicial extends JDialog {
+public class VistaMenuInicial extends JDialog {
     private JPanel contentPane;
     private JButton buttonCancel;
     private JButton bRanquing;
     private JButton bTancarSessio;
     private JButton bPlay;
 
-    public vistaMenuInicial() {
+    public VistaMenuInicial() {
         setContentPane(contentPane);
         setModal(true);
 
@@ -50,7 +50,7 @@ public class vistaMenuInicial extends JDialog {
     }
 
     public static void main(String[] args) {
-        vistaMenuInicial dialog = new vistaMenuInicial();
+        VistaMenuInicial dialog = new VistaMenuInicial();
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
