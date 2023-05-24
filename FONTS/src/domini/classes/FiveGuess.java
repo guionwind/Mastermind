@@ -5,6 +5,7 @@ import domini.classes.exceptions.LongitudCombinacioIncorrecte;
 import domini.classes.exceptions.NumeroColorsIncorrecte;
 import domini.classes.exceptions.LongitudRespostaIncorrecte;
 import domini.classes.exceptions.ValorsRespostaIncorrectes;
+import domini.actions.*;
 
 public class FiveGuess implements Maquina {
     /**
@@ -176,8 +177,8 @@ public class FiveGuess implements Maquina {
         
         for (int i=0; i<codisPossibles.size(); ++i) {
             Integer[] codiPossible = codisPossibles.get(i);
-            String respostaSimulada = generaResposta(codiIntentat, codiPossible);
-            if (!comparaRespostes(resposta, respostaSimulada)) {
+            String respostaSimulada = CorregeixAction.corregeix(codiIntentat, codiPossible);
+            if (!ComparaRespostesAction.comparaRespostes(resposta, respostaSimulada)) {
                 codisPossibles.remove(codiPossible);
                 --i;
             }
@@ -200,87 +201,12 @@ public class FiveGuess implements Maquina {
 
         Iterator<Integer[]> it = codisPossibles.iterator();
         while (it.hasNext()) {
-            String respostaSimulada = generaResposta(codiDisponible, it.next().clone());
-            if (comparaRespostes(resposta, respostaSimulada))
+            String respostaSimulada = CorregeixAction.corregeix(codiDisponible, it.next().clone());
+            if (ComparaRespostesAction.comparaRespostes(resposta, respostaSimulada))
                 ++numeroCodisPossibles;
         }
 
         return numeroCodisPossibles;
-    }
-
-    /**
-     * Retorna la resposta que s'obtindria donat un dels codis encara no intentats i
-     * el codi solució.
-     *
-     * @param   codiDisponible  Un codi del conjunt de codis que encara no s'han intentat com a solució
-     * @param   codiPossible    Un codi del conjunt de codis que poden ser solució.
-     * @return                  La resposta obtinguda per intentar un codi sobre un codi solució.
-     */
-    protected String generaResposta(Integer[] codiDisponibleAux, Integer[] codiPossibleAux) {
-        Integer[] codiDisponible = codiDisponibleAux.clone();
-        Integer[] codiPossible = codiPossibleAux.clone();
-        String resposta = "";
-
-        // Black
-        for (int i=0; i<NUM_PEG; ++i) {
-            if (codiDisponible[i] == codiPossible[i]) {
-                resposta += "B";
-                codiDisponible[i] = -1;
-                codiPossible[i] = -1;
-            }
-        }
-
-        // White
-        for (int i=0; i<NUM_PEG; ++i) {
-            if (codiDisponible[i] != -1) { // Encara no l'hem processat
-                boolean trobat = false;
-                for (int j=0; j<NUM_PEG && !trobat; ++j) {
-                    if (codiDisponible[i] == codiPossible[j]) {
-                        trobat = true;
-                        resposta += "W";
-                        codiPossible[j] = -1;
-                    }
-                }
-            }
-        }
-
-        while (resposta.length() < NUM_PEG)
-            resposta += "-";
-
-        return resposta;
-    }
-
-    /**
-     * Reotrna cert si les dues respostes donades són equivalents i fals en cas contrari.
-     * Una de les respostes és la respota real obtinguda al torn i l'altre és una resposta
-     * simulada per a una hipotètica situació.
-     * Dues respostes són equivalents si, sense tenir en compte l'ordre, tenen el mateix
-     * número de fitxes negres ('B'), fitxes blanques ('W'), i fitxes buides (' ').
-     *
-     * @param   resposta1       Primmera resposta.
-     * @param   resposta2       Segona resposta.
-     * @return                  Retorna cert si les respostes són equivalents i fals si no hi són.
-     */
-    private boolean comparaRespostes(String resposta1, String resposta2) {
-        char[] r1 = resposta1.toCharArray();
-        char[] r2 = resposta2.toCharArray();
-        int negres = 0;
-        int blanques = 0;
-        int buides = 0;
-
-        for (int i=0; i<NUM_PEG; ++i) {
-            if (r1[i] == 'B') ++negres;
-            else if (r1[i] == 'W') ++blanques;
-            else if (r1[i] == '-') ++buides;
-
-            if (r2[i] == 'B') --negres;
-            else if (r2[i] == 'W') --blanques;
-            else if (r2[i] == '-') --buides;
-        }
-
-
-        if (negres == 0 && blanques == 0 && buides == 0) return true;
-        return false;
     }
 
     /**
@@ -358,7 +284,7 @@ public class FiveGuess implements Maquina {
                 trobat = true;
 
             codis.add(Arrays.asList(codi));
-            if (!trobat) respostes.add(generaResposta(codi, solutionArray));
+            if (!trobat) respostes.add(CorregeixAction.corregeix(codi, solutionArray));
 
             ++ronda;
         }

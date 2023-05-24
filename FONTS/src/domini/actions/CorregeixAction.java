@@ -7,7 +7,7 @@ public class CorregeixAction {
      * @param combinacioIntentada Combinacio intentada
      * @return retorna un string amb la correcio
      */
-    public String corregeix(Integer[] combinacioIntentada, Integer[] solutionCode) {
+    public static String corregeix(Integer[] combinacioIntentada, Integer[] solutionCode) {
         StringBuilder resposta = new StringBuilder();
 
         for (int i = 0; i < combinacioIntentada.length; ++i) {
@@ -31,7 +31,6 @@ public class CorregeixAction {
             resposta.append("-");
         }
 
-        partidaActual.setCorrecioRonda(resposta.toString());
         return resposta.toString();
     }
 }

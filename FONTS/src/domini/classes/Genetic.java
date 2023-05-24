@@ -4,6 +4,7 @@ import java.sql.Time;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
+import domini.actions.*;
 import domini.classes.exceptions.LongitudCombinacioIncorrecte;
 import domini.classes.exceptions.NumeroColorsIncorrecte;
 
@@ -16,7 +17,7 @@ public class Genetic implements Maquina {
     /*
      * Número de codis de la població
      */
-    private static final int POPULATION_CAPACITY = 100;
+    private static final int POPULATION_CAPACITY = 150;
 
     /**
      * Número de fitxes del codi.
@@ -233,7 +234,7 @@ public class Genetic implements Maquina {
             Integer[] intentReal = codisIntentats.get(j);
             String respostaReal = respostesCodisIntentats.get(j);
 
-            String respostaSim = generaResposta(cromosoma, intentReal);
+            String respostaSim = CorregeixAction.corregeix(cromosoma, intentReal);
             
             Integer[] puntuacioSim = puntuacio(respostaSim);
             Integer[] puntuacioReal = puntuacio(respostaReal);
@@ -243,48 +244,6 @@ public class Genetic implements Maquina {
         }
 
         return new Integer[] {puntuacioNegres, puntuacioBlanques};
-    }
-
-    /**
-     * Retorna la resposta que s'obtindria donat un dels codis encara no intentats i
-     * el codi solució.
-     *
-     * @param   codiIntentatAux     Un codi del conjunt de codis que encara no s'han intentat com a solució
-     * @param   codiSolucioAux      Un codi del conjunt de codis que poden ser solució.
-     * @return                      La resposta obtinguda per intentar un codi sobre un codi solució.
-     */
-    private String generaResposta(Integer[] codiIntentatAux, Integer[] codiSolucioAux) {
-        Integer[] codiIntentat = codiIntentatAux.clone();
-        Integer[] codiSolucio = codiSolucioAux.clone();
-        String resposta = "";
-
-        // Black
-        for (int i=0; i<numPeg; ++i) {
-            if (codiIntentat[i] == codiSolucio[i]) {
-                resposta += "B";
-                codiIntentat[i] = -1;
-                codiSolucio[i] = -1;
-            }
-        }
-
-        // White
-        for (int i=0; i<numPeg; ++i) {
-            if (codiIntentat[i] != -1) { // Encara no l'hem processat
-                boolean trobat = false;
-                for (int j=0; j<numPeg && !trobat; ++j) {
-                    if (codiIntentat[i] == codiSolucio[j]) {
-                        trobat = true;
-                        resposta += "W";
-                        codiSolucio[j] = -1;
-                    }
-                }
-            }
-        }
-
-        while (resposta.length() < numPeg)
-            resposta += "-";
-
-        return resposta;
     }
 
     /**
@@ -318,6 +277,19 @@ public class Genetic implements Maquina {
      * @param generacio             Conjunt de la nova població.
      */
     private void novaGeneracio(ArrayList<Integer[]> poblacio, ArrayList<Integer> fitnessPoblacio, ArrayList<Integer[]> generacio) {
+        int index_best = 0;
+        for (int i=0; i<POPULATION_CAPACITY; ++i) {
+            if (fitnessPoblacio.get(i) > fitnessPoblacio.get(index_best))
+                index_best = i;
+        }
+        int index_second_best = 0;
+        for (int i=0; i<POPULATION_CAPACITY; ++i) {
+            if (fitnessPoblacio.get(i) > fitnessPoblacio.get(index_second_best) && index_second_best != index_best)
+                index_second_best = i;
+        }
+        generacio.add(poblacio.get(index_best));
+        generacio.add(poblacio.get(index_second_best));
+
         while (generacio.size() < POPULATION_CAPACITY) {
             Integer[][] parents = randomParents(poblacio, fitnessPoblacio);
 
@@ -501,11 +473,11 @@ public class Genetic implements Maquina {
             int romanen = 0;
             for (Integer[] codiSolucio : codisEscollibles) {
                 if (codiSolucio != codiEscollible) {
-                    String solucioSolucio = generaResposta(codiEscollible, codiSolucio);
+                    String solucioSolucio = CorregeixAction.corregeix(codiEscollible, codiSolucio);
                     for (Integer[] codiRoman : codisEscollibles) {
                         if (codiRoman != codiEscollible && codiRoman != codiSolucio) {
-                            String solucioRoman = generaResposta(codiEscollible, codiRoman);
-                            if (comparaRespostes(solucioSolucio, solucioRoman))
+                            String solucioRoman = CorregeixAction.corregeix(codiEscollible, codiRoman);
+                            if (ComparaRespostesAction.comparaRespostes(solucioSolucio, solucioRoman))
                                 ++romanen;
                         }
                     }
@@ -524,40 +496,14 @@ public class Genetic implements Maquina {
                 intent = codisEscollibles.get(i);
             }
         }
+        
+        // System.out.print(codisEscollibles.size() + "        ");
+        // if (intent != null) {
+        //     for (Integer fitxa : intent)
+        //         System.out.print(" " + fitxa);
+        // }
+        //     System.out.println();
         return intent;
-    }
-
-    /**
-     * Reotrna cert si les dues respostes donades són equivalents i fals en cas contrari.
-     * Una de les respostes és la respota real obtinguda al torn i l'altre és una resposta
-     * simulada per a una hipotètica situació.
-     * Dues respostes són equivalents si, sense tenir en compte l'ordre, tenen el mateix
-     * número de fitxes negres ('B'), fitxes blanques ('W'), i fitxes buides (' ').
-     *
-     * @param   resposta1       Primmera resposta.
-     * @param   resposta2       Segona resposta.
-     * @return                  Retorna cert si les respostes són equivalents i fals si no hi són.
-     */
-    private boolean comparaRespostes(String resposta1, String resposta2) {
-        char[] r1 = resposta1.toCharArray();
-        char[] r2 = resposta2.toCharArray();
-        int negres = 0;
-        int blanques = 0;
-        int buides = 0;
-
-        for (int i=0; i<numPeg; ++i) {
-            if (r1[i] == 'B') ++negres;
-            else if (r1[i] == 'W') ++blanques;
-            else if (r1[i] == '-') ++buides;
-
-            if (r2[i] == 'B') --negres;
-            else if (r2[i] == 'W') --blanques;
-            else if (r2[i] == '-') --buides;
-        }
-
-
-        if (negres == 0 && blanques == 0 && buides == 0) return true;
-        return false;
     }
 
     public List<List<Integer>> solve(List<Integer> solution) throws Exception {
@@ -592,7 +538,7 @@ public class Genetic implements Maquina {
             if (coincideix) trobat = true;
 
             codis.add(Arrays.asList(codi));
-            if (!trobat) respostes.add(generaResposta(codi, solutionArray));
+            if (!trobat) respostes.add(CorregeixAction.corregeix(codi, solutionArray));
 
             ++ronda;
         }
