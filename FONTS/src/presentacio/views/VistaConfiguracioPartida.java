@@ -3,12 +3,14 @@ package presentacio.views;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import presentacio.custom.RoundButton;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class VistaConfiguracioPartida extends JDialog {
     private JPanel contentPane;
@@ -24,11 +26,22 @@ public class VistaConfiguracioPartida extends JDialog {
     private int colors = 6;
     private int intents = 5;
 
+    ArrayList<Color> colorList = new ArrayList<>();
+
     public VistaConfiguracioPartida() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(bAcceptar);
         initButtonsPanel();
+
+        colorList.add(Color.RED);
+        colorList.add(Color.GREEN);
+        colorList.add(Color.BLUE);
+        colorList.add(Color.YELLOW);
+        colorList.add(Color.ORANGE);
+        colorList.add(Color.CYAN);
+        colorList.add(Color.MAGENTA);
+        colorList.add(Color.PINK);
 
         bAcceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -52,7 +65,17 @@ public class VistaConfiguracioPartida extends JDialog {
 
 
                 for (int i = 0; i < numButtons; i++) {
-                    JButton button = new JButton();
+                    RoundButton button = new RoundButton("");
+                    button.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            int current = button.getCurrentColor();
+                            current = (current == 7) ? 0 : (current + 1);
+                            button.setCurrentColor(colorList.get(current), current);
+                            super.mouseClicked(e);
+                        }
+                    });
+
                     pCombinacio.add(button);
                 }
 
@@ -84,19 +107,30 @@ public class VistaConfiguracioPartida extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
     }
+
     private void initButtonsPanel() {
         pCombinacio.setLayout(new FlowLayout());
 
         // Código para agregar los botones al panel pCombinacio
         int numButtons = sLongitud.getValue();
         for (int i = 0; i < numButtons; i++) {
-            JButton button = new JButton();
+            RoundButton button = new RoundButton("");
+            button.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    int current = button.getCurrentColor();
+                    current = (current == 7) ? 0 : (current + 1);
+                    button.setCurrentColor(colorList.get(current), current);
+                    super.mouseClicked(e);
+                }
+            });
             pCombinacio.add(button);
         }
 
         pCombinacio.revalidate();
         pCombinacio.repaint();
     }
+
     private void handleFields() {
         if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker")) {
             sIntents.setEnabled(false);
