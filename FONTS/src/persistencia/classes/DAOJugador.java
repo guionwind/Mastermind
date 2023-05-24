@@ -3,11 +3,6 @@ package persistencia.classes;
 public class DAOJugador {
 
     /**
-     * Identificador del jugador.
-     */
-    private int id;
-
-    /**
      * Nom d'usuari del jugador.
      */
     private String username;
@@ -26,23 +21,12 @@ public class DAOJugador {
     /**
      * Constructora amb paràmetres.
      * 
-     * @param id                    Identificador del jugador
      * @param username        Algorisme utilitzat en la partida
      * @param rondes                Conjunt de les rondes jugades
      */
-    public DAOJugador(int id, String user, String pass) {
-        this.id = id;
+    public DAOJugador(String user, String pass) {
         this.username = user;
         this.password = pass;
-    }
-
-    /**
-     * Retorna la id del jugador.
-     * 
-     * @return id del jugador
-     */
-    public int getId() {
-        return id;
     }
 
     /**

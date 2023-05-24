@@ -7,11 +7,6 @@ import java.util.*;
 public class DAOPartida {
 
     /**
-     * Identificador de la partida.
-     */
-    private int id;
-
-    /**
      * Codi solució de la partida.
      */
     private Integer[] solutionCode;
@@ -43,21 +38,15 @@ public class DAOPartida {
     /**
      * Constructora amb paràmetres.
      * 
-     * @param id                    Identificador de la partida
      * @param solutionCode          Codi solució de la partida
      * @param tipusAlgorisme        Algorisme utilitzat en la partida
      * @param rondes                Conjunt de les rondes jugades
      */
 
-    public DAOPartida(int id, Integer[] solutionCode, TipusAlgorisme tipusAlgorisme, HashMap<Integer, Ronda> rondes) {
-        this.id = id;
+    public DAOPartida(Integer[] solutionCode, HashMap<Integer, Ronda> rondes, TipusAlgorisme tipusAlgorisme) {
         this.solutionCode = solutionCode;
         this.tipusAlgorisme = tipusAlgorisme;
         this.rondes = rondes;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public Integer[] getSolutionCode() {
