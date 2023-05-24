@@ -23,7 +23,7 @@ public class CtrlPresentacio {
     }
 
     public static void vistaRegistre() {
-        VistaRegistre vL = new VistaRegistre();
+        VistaRegister vL = new VistaRegister();
     }
 
     public static void vistaMenuInicial() {
