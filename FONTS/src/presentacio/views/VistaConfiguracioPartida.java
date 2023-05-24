@@ -5,6 +5,8 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -16,9 +18,7 @@ public class VistaConfiguracioPartida extends JDialog {
     private JSlider sIntents;
     private JSlider sColors;
     private JSlider sLongitud;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
+    private JPanel pCombinacio;
     private int pgActual = 0;
     private int longitud = 4;
     private int colors = 6;
@@ -28,6 +28,7 @@ public class VistaConfiguracioPartida extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(bAcceptar);
+        initButtonsPanel();
 
         bAcceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -41,31 +42,29 @@ public class VistaConfiguracioPartida extends JDialog {
             }
         });
 
+        sLongitud.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                int numButtons = sLongitud.getValue();
+                System.out.println(numButtons);
+
+                pCombinacio.removeAll();
+                pCombinacio.setLayout(new FlowLayout());
+
+
+                for (int i = 0; i < numButtons; i++) {
+                    JButton button = new JButton();
+                    pCombinacio.add(button);
+                }
+
+                pCombinacio.revalidate();
+                pCombinacio.repaint();
+            }
+        });
+
         cbTipusPartida.addActionListener((new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker")){
-                    sIntents.setEnabled(false);
-                    sColors.setEnabled(false);
-                    sLongitud.setEnabled(false);
-
-                    intents = sIntents.getValue();
-                    colors = sColors.getValue();
-                    longitud = sLongitud.getValue();
-
-                    sIntents.setValue(5);
-                    sColors.setValue(6);
-                    sLongitud.setValue(4);
-                }
-                else{
-                    sIntents.setValue(intents);
-                    sColors.setValue(colors);
-                    sLongitud.setValue(longitud);
-
-                    sIntents.setEnabled(true);
-                    sColors.setEnabled(true);
-                    sLongitud.setEnabled(true);
-                }
+                handleFields();
             }
         }));
 
@@ -83,6 +82,43 @@ public class VistaConfiguracioPartida extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+    }
+    private void initButtonsPanel() {
+        pCombinacio.setLayout(new FlowLayout());
+
+        // Código para agregar los botones al panel pCombinacio
+        int numButtons = sLongitud.getValue();
+        for (int i = 0; i < numButtons; i++) {
+            JButton button = new JButton();
+            pCombinacio.add(button);
+        }
+
+        pCombinacio.revalidate();
+        pCombinacio.repaint();
+    }
+    private void handleFields() {
+        if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker")) {
+            sIntents.setEnabled(false);
+            sColors.setEnabled(false);
+            sLongitud.setEnabled(false);
+
+            intents = sIntents.getValue();
+            colors = sColors.getValue();
+            longitud = sLongitud.getValue();
+
+            sIntents.setValue(5);
+            sColors.setValue(6);
+            sLongitud.setValue(4);
+        } else {
+            sIntents.setValue(intents);
+            sColors.setValue(colors);
+            sLongitud.setValue(longitud);
+
+            sIntents.setEnabled(true);
+            sColors.setEnabled(true);
+            sLongitud.setEnabled(true);
+        }
     }
 
     private void onOK() {
@@ -134,22 +170,52 @@ public class VistaConfiguracioPartida extends JDialog {
         bEnrere.setText("Enrere");
         panel2.add(bEnrere, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel3 = new JPanel();
-        panel3.setLayout(new GridLayoutManager(4, 1, new Insets(0, 0, 0, 0), -1, -1));
+        panel3.setLayout(new GridLayoutManager(11, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel3, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
-        label1.setText("Configuració Partida");
+        label1.setText("Configuracio Partida");
         panel3.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
-        panel3.add(spacer2, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        panel3.add(spacer2, new GridConstraints(10, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         cbTipusPartida = new JComboBox();
         final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
         defaultComboBoxModel1.addElement("Codebreaker");
         defaultComboBoxModel1.addElement("Codemaker");
+        defaultComboBoxModel1.addElement("Genetic");
         cbTipusPartida.setModel(defaultComboBoxModel1);
         panel3.add(cbTipusPartida, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JPanel panel4 = new JPanel();
-        panel4.setLayout(new CardLayout(0, 0));
-        panel3.add(panel4, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        final JLabel label2 = new JLabel();
+        label2.setText("Numero Intents:");
+        panel3.add(label2, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        sIntents = new JSlider();
+        sIntents.setMaximum(20);
+        sIntents.setMinimum(1);
+        sIntents.setValue(5);
+        panel3.add(sIntents, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label3 = new JLabel();
+        label3.setText("Numero Colors:");
+        panel3.add(label3, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        sColors = new JSlider();
+        sColors.setMaximum(8);
+        sColors.setMinimum(1);
+        sColors.setPaintLabels(false);
+        sColors.setPaintTicks(false);
+        sColors.setValue(6);
+        panel3.add(sColors, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label4 = new JLabel();
+        label4.setText("Longitud Combinacio:");
+        panel3.add(label4, new GridConstraints(6, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        sLongitud = new JSlider();
+        sLongitud.setMaximum(8);
+        sLongitud.setMinimum(1);
+        sLongitud.setValue(4);
+        panel3.add(sLongitud, new GridConstraints(7, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label5 = new JLabel();
+        label5.setText("Combinacio:");
+        panel3.add(label5, new GridConstraints(8, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        pCombinacio = new JPanel();
+        pCombinacio.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        panel3.add(pCombinacio, new GridConstraints(9, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
     }
 
     /**
@@ -158,4 +224,5 @@ public class VistaConfiguracioPartida extends JDialog {
     public JComponent $$$getRootComponent$$$() {
         return contentPane;
     }
+
 }
