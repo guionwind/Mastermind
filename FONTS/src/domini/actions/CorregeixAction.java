@@ -8,6 +8,9 @@ public class CorregeixAction {
      * @return retorna un string amb la correcio
      */
     public static String corregeix(Integer[] combinacioIntentada, Integer[] solutionCode) {
+        combinacioIntentada = combinacioIntentada.clone();
+        solutionCode = solutionCode.clone();
+
         StringBuilder resposta = new StringBuilder();
 
         for (int i = 0; i < combinacioIntentada.length; ++i) {

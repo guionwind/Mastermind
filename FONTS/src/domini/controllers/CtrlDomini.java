@@ -1,5 +1,6 @@
 package domini.controllers;
 
+import domini.actions.CorregeixAction;
 import domini.classes.*;
 import domini.classes.exceptions.*;
 import persistencia.controllers.CtrlPersistencia;
@@ -92,7 +93,7 @@ public class CtrlDomini {
      */
     public String jugarRondaCodebreaker(Integer[] combinacioIntentada) {
         ctrlPartida.intentarCombinacio(combinacioIntentada);
-        return ctrlPartida.corregeix(combinacioIntentada);
+        return CorregeixAction.corregeix(combinacioIntentada, ctrlPartida.getSolutionCode());
     }
 
     public String demanarPista() {
@@ -113,7 +114,8 @@ public class CtrlDomini {
     public String[] jugarRondaCodeMaker() throws PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina().clone();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
-        String respostaCombinacio = ctrlPartida.corregeix(combinacioIntentada);
+        String respostaCombinacio = CorregeixAction.corregeix(combinacioIntentada, ctrlPartida.getSolutionCode());
+        ctrlPartida.setCorreccioRonda(respostaCombinacio);
         String combinacioIntentadaString = "";
         for (int i = 0; i < respostaCombinacio.length(); i++){
             combinacioIntentadaString += combinacioIntentada[i].toString();
