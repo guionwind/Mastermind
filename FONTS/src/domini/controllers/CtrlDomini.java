@@ -125,9 +125,10 @@ public class CtrlDomini {
     }
 
     //! del CtrlJugador
-    public void crearJugador (String username, String password) throws JugadorJaExisteix, JugadorInvalid {
+    public void crearJugador (String username, String password) throws JugadorJaExisteix, JugadorInvalid, IOException, InstanciaJaExisteix {
         int newId = ctrlPersistencia.totalJugadors();
-        ctrlJugador.crearJugador(newId, username, password);
+        Jugador j = ctrlJugador.crearJugador(newId, username, password);
+        ctrlPersistencia.afegirJugador(String.valueOf(newId), username, password);
     }
 
     public String getUsername() {
