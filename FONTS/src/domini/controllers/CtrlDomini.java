@@ -2,14 +2,15 @@ package domini.controllers;
 
 import domini.classes.*;
 import domini.classes.exceptions.*;
+import persistencia.controllers.CtrlPersistencia;
 
 import java.util.ArrayList;
 import java.lang.String;
+import java.io.*;
 
 public class CtrlDomini {
 
-    // ATRIBUTS
-
+    // Altres controladors de domini
     /**
      * Controlador de la partida
      */
@@ -22,26 +23,30 @@ public class CtrlDomini {
      * Controlador de Ranquing
      */
     private final CtrlRanquing ctrlRanquing;
-
-
     /**
      * Controlador de EstadistiquesPartida
      */
     private final CtrlEstadistiquesPartida ctrlEstadistiquesPartida;
 
-    // METODES
+
+    // Controlador de persistencia
+    private final CtrlPersistencia ctrlPersistencia;
+
+
+    //! METODES
 
     /**
      * Constructora del controlador domini
      */
-    public CtrlDomini() {
-        ctrlPartida = new CtrlPartida();
-        ctrlJugador = new CtrlJugador();
-        ctrlRanquing = new CtrlRanquing();
-        ctrlEstadistiquesPartida = new CtrlEstadistiquesPartida();
+    public CtrlDomini() throws IOException {
+        this.ctrlPartida = new CtrlPartida();
+        this.ctrlJugador = new CtrlJugador();
+        this.ctrlRanquing = new CtrlRanquing();
+        this.ctrlEstadistiquesPartida = new CtrlEstadistiquesPartida();
+        this.ctrlPersistencia = new CtrlPersistencia();
     }
 
-    //!CtrlPartida
+    // CtrlPartida
 
     /**
      * Crea una partida Codebreaker
@@ -119,7 +124,8 @@ public class CtrlDomini {
 
     //! del CtrlJugador
     public void crearJugador (String username, String password) throws JugadorJaExisteix, JugadorInvalid {
-        ctrlJugador.crearJugador(username, password);
+        int newId = ctrlPersistencia.totalJugadors();
+        ctrlJugador.crearJugador(newId, username, password);
     }
 
     public String getUsername() {

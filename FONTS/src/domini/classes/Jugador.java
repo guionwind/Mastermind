@@ -9,8 +9,6 @@ public class Jugador {
     private final int id;
     private String username;
     private String password;
-        //serveix per a generar la id
-    private static int nombreJugadors = 0;
 
     //associacions
     private ArrayList<EstadistiquesPartida> statsPartides;
@@ -20,10 +18,8 @@ public class Jugador {
     * crea un nou jugador amb ID incremental (el primer jugador tindra id = 1) 
     * despres assigna les credencials corresponents
     */
-    public Jugador(String name, String pwd)  {
-        this.id = nombreJugadors;
-        ++nombreJugadors;
-
+    public Jugador(int id, String name, String pwd)  {
+        this.id = id;
         this.username = name;
         this.password = pwd;
 

@@ -31,7 +31,7 @@ public class FiveGuess implements Maquina {
      * fitxes del codi solució i està a la mateixa posició.
      * W = White; La fitxa del codi intentat és del color d'una de les
      * fitxes del codi solució però està en una posició errònia.
-     * ' ' = Nothing; La fitxa del codi intentar no és de cap dels
+     * '-' = Nothing; La fitxa del codi intentar no és de cap dels
      * colors del codi solució.
      */
     private static final String[] RESPOSTES = {
@@ -52,11 +52,6 @@ public class FiveGuess implements Maquina {
     };
 
     /**
-     * Identificador de la partida a la que pertanyen la combinació dels conjunts
-     * de codis encara no intentats i codis encara possibles com a solució.
-     */
-    private Integer idPartida;
-    /**
      * Conjunt de codis que encara no s'han intentat
      */
     private ArrayList<Integer[]> codisDisponibles;
@@ -67,12 +62,9 @@ public class FiveGuess implements Maquina {
 
     /**
      * Constructora
-     * S'especifica a la partida que pertany.
-     *
-     * @param   idPartida       Identificador de la partida a la que pertany.
+     * Utilitzada per a la creació d'un algorisme nou.
      */
-    public FiveGuess(Integer idPartida) {
-        this.idPartida = idPartida;
+    public FiveGuess() {
         codisDisponibles = new ArrayList<Integer[]>(NUM_CODIS);
         codisPossibles = new ArrayList<Integer[]>(NUM_CODIS);
 
@@ -94,8 +86,16 @@ public class FiveGuess implements Maquina {
         }
     }
 
-    public Integer getId(){
-        return this.idPartida;
+    /**
+     * Constructora
+     * Utilitzada per carregar algorismes
+     */
+    public FiveGuess(ArrayList<Integer[]> codisDisponibles, ArrayList<Integer[]> codisPossibles) {
+        if (codisDisponibles == null)  throw new IllegalArgumentException("El conjunt d'intents no pot ser nul.");
+        if (codisPossibles == null) throw new IllegalArgumentException("El conjunt de respostes dels codis intentats no pot ser nul.");
+        
+        this.codisDisponibles = codisDisponibles;
+        this.codisPossibles = codisPossibles;
     }
 
     /**
