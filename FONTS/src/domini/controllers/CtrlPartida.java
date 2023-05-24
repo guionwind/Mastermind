@@ -1,29 +1,25 @@
 package domini.controllers;
 
 import domini.classes.*;
-import domini.classes.ConfiguracioPartida.TipusPartida;
+import domini.classes.TipusPartida;
 import domini.classes.exceptions.*;
 
-import java.util.HashMap;
 import java.util.Random;
 
 
 public class CtrlPartida {
 
     /**
-     * Identificador de la partida actual
+     * Partida actual
      */
-    private Integer idPartidaActual;
-
-    /**
-     * HashMap que conte les id's i partides
-     */
-    private HashMap<Integer, Partida> partides;
+    private Partida partidaActual;
 
     /**
      * CtrlAlgorisme de la partida
      */
     private final CtrlAlgorisme ctrlAlgorisme;
+
+    private final CtrlDomini ctrlDomini;
 
     /**
      * Constructora de la classe CtrlPartida
@@ -31,10 +27,9 @@ public class CtrlPartida {
      * Inicialitza el HashMap
      */
 
-    public CtrlPartida() {
+    public CtrlPartida(CtrlAlgorisme ctrlAlgorisme, CtrlDomini ctrlDomini) {
         idPartidaActual = -1;
-        partides = new HashMap<>();
-        ctrlAlgorisme = new CtrlAlgorisme();
+        this.ctrlAlgorisme = ctrlAlgorisme;
     }
 
     /**
@@ -50,17 +45,15 @@ public class CtrlPartida {
      * @throws NumeroColorsIncorrecte Salta l'excepcio en cas que el numero de colors sigui incorrecte
      * @throws NumeroIntentsIncorrecte Salta l'excepcio en cas que el numero d'intents sigui incorrecte
      */
-    public void crearPartidaCodebreaker(int numeroIntents, int numeroColors, int longitudCombinacio) throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
+    public Codebreaker crearPartidaCodebreaker(int idPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
         TipusPartida t = TipusPartida.CODEBREAKER;
-        ConfiguracioPartida c = creaConfiguracioPartida(t ,numeroIntents, numeroColors, longitudCombinacio);
+        ConfiguracioPartida configPartida = creaConfiguracioPartida(t ,numeroIntents, numeroColors, longitudCombinacio);
 
         Integer[] solutionCode = generateSolutionCode(numeroColors, longitudCombinacio);
 
+        partidaActual = new Codebreaker(idPartida, configPartida, solutionCode, this);
 
-        Codebreaker cB = new Codebreaker(c, solutionCode, this);
-
-        idPartidaActual = cB.getId();
-        partides.put(idPartidaActual, cB);
+        return (Codebreaker) partidaActual;
     }
 
     /**
@@ -77,17 +70,19 @@ public class CtrlPartida {
      * @throws LongitudCombinacioIncorrecte Salta l'excepcio en cas que la longitud sigui massa gran o massa petita
      */
 
-    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode) throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
+    public Codemaker crearPartidaCodemaker(int idPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, TipusAlgorisme tipusAlgorisme) throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
         TipusPartida t = TipusPartida.CODEMAKER;
-        ConfiguracioPartida c = creaConfiguracioPartida(t, numeroIntents, numeroColors, longitudCombinacio);
+        ConfiguracioPartida configPartida = creaConfiguracioPartida(t, numeroIntents, numeroColors, longitudCombinacio);
 
+        if (tipusAlgorisme == TipusAlgorisme.FIVEGUESS) {
+            FiveGuess fiveGuess = ctrlAlgorisme.crearFiveGuess();
+            partidaActual = new Codemaker(idPartida, configPartida, solutionCode, fiveGuess, this);
+        } else {
+            Genetic genetic = ctrlAlgorisme.crearGenetic(longitudCombinacio, numeroColors);
+            partidaActual = new Codemaker(idPartida, configPartida, solutionCode, genetic, this);
+        }
 
-        Codemaker cM = new Codemaker(c, solutionCode, this, ctrlAlgorisme);
-
-        idPartidaActual = cM.getId();
-        partides.put(idPartidaActual, cM);
-
-        ctrlAlgorisme.creaFiveGuess(idPartidaActual);
+        return (Codemaker) partidaActual;
     }
 
     /**
@@ -96,16 +91,14 @@ public class CtrlPartida {
      */
 
     public void intentarCombinacio(Integer[] combinacioIntentada) {
-        partides.get(idPartidaActual).intentarCombinacio(combinacioIntentada.clone());
+        partidaActual.guardarCombinacio(combinacioIntentada.clone());
     }
 
     /**
      * Crea una ronda i la corresponent associacio amb Partida
      */
     public void crearRonda() {
-        Partida p = partides.get(idPartidaActual);
-
-        p.creaRonda();
+        partidaActual.creaRonda();
     }
 
 
@@ -115,9 +108,7 @@ public class CtrlPartida {
      * @return retorna un string amb la correcio
      */
     public String corregeix(Integer[] combinacioIntentada) {
-        Partida p = partides.get(idPartidaActual);
-
-        Integer[] solutionCode = p.getSolutionCode().clone();
+        Integer[] solutionCode = partidaActual.getSolutionCode().clone();
         StringBuilder resposta = new StringBuilder();
 
         for (int i = 0; i < combinacioIntentada.length; ++i) {
@@ -141,7 +132,7 @@ public class CtrlPartida {
             resposta.append("-");
         }
 
-        p.setCorrecioRonda(resposta.toString());
+        partidaActual.setCorrecioRonda(resposta.toString());
         return resposta.toString();
     }
 
@@ -150,10 +141,10 @@ public class CtrlPartida {
      * @return retorna un integer[] amb la combinacio intentada per la maquina
      */
     public Integer[] getCodiMaquina() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
-        Partida p = partides.get(idPartidaActual);
-        if(p.rondesJugades() == 1) return p.getCodiMaquina(null, null);
+        Codemaker codemaker = (Codemaker) partidaActual;
+        if(partidaActual.rondesJugades() == 1) return codemaker.getCodiMaquinaFiveGuess(null, null);
 
-        return p.getCodiMaquina(p.getUltimaCombIntentada(), p.getUltimaCorreccio());
+        return codemaker.getCodiMaquinaFiveGuess(codemaker.getUltimaCombIntentada(), codemaker.getUltimaCorreccio());
     }
 
     /**
@@ -161,7 +152,7 @@ public class CtrlPartida {
      * @return retorna el id de la partida actual
      */
     public Integer getIdPartidaActual() {
-        return idPartidaActual;
+        return partidaActual.getId();
     }
 
     /**

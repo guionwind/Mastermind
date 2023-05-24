@@ -2,8 +2,6 @@ package domini.classes;
 
 import domini.controllers.CtrlPartida;
 
-import domini.classes.exceptions.*;
-
 import java.util.HashMap;
 
 public abstract class Partida {
@@ -16,11 +14,6 @@ public abstract class Partida {
      * Solucio de la partida
      */
     private final Integer[] solutionCode;
-
-    /**
-     * Numero de partides utilitzat per saber la id de la partida creada
-      */
-    private static int nombrePartides = 0;
 
     /**
      * Rondes jugades de la partida
@@ -50,9 +43,8 @@ public abstract class Partida {
      * @param solutionCode de la partida
      * @param ctrlPartida Controlador de la partida
      */
-    public Partida(ConfiguracioPartida configuracioPartida, Integer[] solutionCode, CtrlPartida ctrlPartida) {
-        this.id = nombrePartides;
-        nombrePartides++;
+    public Partida(int idPartida, ConfiguracioPartida configuracioPartida, Integer[] solutionCode, CtrlPartida ctrlPartida) {
+        this.id = idPartida;
         this.configuracioPartida = configuracioPartida;
         this.solutionCode = solutionCode;
         this.ctrlPartida = ctrlPartida;
@@ -113,18 +105,8 @@ public abstract class Partida {
      * Metdode per afegir una combinacio intentada a la ronda de la partida
      * @param combinacioIntentada Combinacio intentada per l'ususari
      */
-    public void intentarCombinacio(Integer[] combinacioIntentada) {
+    public void guardarCombinacio(Integer[] combinacioIntentada) {
         rondes.get(rondes.size()-1).setCombinacioIntentada(combinacioIntentada.clone());
-    }
-
-    /**
-     * Funcio per obtenir el codi de la maquina.
-     * @param ultimIntent Ultim intent fet per la maquina
-     * @param resposta Correcio donada per l'usuari
-     * @return Retorna un integer ple de -1 ja que esta reimplementada a codeMaker
-     */
-    public Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
-        return new Integer[]{-1, -1, -1, -1};
     }
 
     /**
@@ -155,5 +137,9 @@ public abstract class Partida {
         Ronda r = rondes.get(rondes.size() - 1);
 
         r.setCorreccio(correcioRonda);
+    }
+
+    public HashMap<Integer, Ronda> getRondes() {
+        return rondes;
     }
 }

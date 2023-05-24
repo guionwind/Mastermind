@@ -9,7 +9,8 @@ import domini.controllers.CtrlPartida;
 
 public class Codemaker extends Partida {
 
-    private final CtrlAlgorisme ctrlAlgorisme;
+    private final FiveGuess fiveGuess;
+    private final Genetic genetic;
 
     /**
      * Constructora de la classe CodeMaker
@@ -17,14 +18,26 @@ public class Codemaker extends Partida {
      * @param configuracioPartida La configuracio de la partida
      * @param solutionCode Codi solucio de la partida indicat per l'usuari
      */
-    public Codemaker(ConfiguracioPartida configuracioPartida , Integer[] solutionCode, CtrlPartida ctrlPartida, CtrlAlgorisme ctrlAlgorisme) {
-        super(configuracioPartida, solutionCode, ctrlPartida);
+    public Codemaker(int idPartida, ConfiguracioPartida configuracioPartida , Integer[] solutionCode, FiveGuess fiveGuess, CtrlPartida ctrlPartida) {
+        super(idPartida, configuracioPartida, solutionCode, ctrlPartida);
 
-        this.ctrlAlgorisme = ctrlAlgorisme;
+        this.fiveGuess = fiveGuess;
+        this.genetic = null;
     }
 
-    public Integer[] getCodiMaquina(Integer[] ultimIntent, String resposta) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
-        return ctrlAlgorisme.esbrinarCodiFiveguess(this.getId(),ultimIntent, resposta);
+    public Codemaker(int idPartida, ConfiguracioPartida configuracioPartida , Integer[] solutionCode, Genetic genetic, CtrlPartida ctrlPartida) {
+        super(idPartida, configuracioPartida, solutionCode, ctrlPartida);
+
+        this.genetic = genetic;
+        this.fiveGuess = null;
+    }
+
+    public Integer[] getCodiMaquinaFiveGuess(Integer[] ultimIntent, String resposta) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+        return fiveGuess.esbrina(ultimIntent, resposta);
+    }
+
+    public Integer[] getCodiMaquinaGenetic(String resposta) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+        return genetic.esbrina(resposta);
     }
 
 }
