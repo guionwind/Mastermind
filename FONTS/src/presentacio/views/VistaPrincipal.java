@@ -35,8 +35,7 @@ public class VistaPrincipal extends JDialog {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
 
-                CtrlPresentacio.vistaTutorial(getLocation());
-                dispose();
+                onTutorial();
             }
         });
         bSortir.addMouseListener(new MouseAdapter() {
@@ -52,8 +51,7 @@ public class VistaPrincipal extends JDialog {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
 
-                CtrlPresentacio.vistaLogin(getLocation());
-                dispose();
+                onLogin();
             }
         });
         bRegister.addMouseListener(new MouseAdapter() {
@@ -61,10 +59,24 @@ public class VistaPrincipal extends JDialog {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
 
-                CtrlPresentacio.vistaRegistre(getLocation());
-                dispose();
+                onRegister();
             }
         });
+    }
+
+    private void onTutorial() {
+        CtrlPresentacio.vistaTutorial(getLocation());
+        dispose();
+    }
+
+    private void onLogin() {
+        CtrlPresentacio.vistaLogin(getLocation());
+        dispose();
+    }
+
+    private void onRegister() {
+        CtrlPresentacio.vistaRegistre(getLocation());
+        dispose();
     }
 
     {

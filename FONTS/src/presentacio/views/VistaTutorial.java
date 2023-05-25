@@ -23,7 +23,6 @@ public class VistaTutorial extends JDialog {
     private JPanel pPg2;
     private JPanel pPg3;
     private JPanel pCardTutorial;
-
     private int pgActual = 0;
 
     public VistaTutorial(Point location) {
@@ -37,17 +36,7 @@ public class VistaTutorial extends JDialog {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
 
-                CardLayout cl = (CardLayout) pCardTutorial.getLayout();
-                if (pCardTutorial.getComponent(pgActual) == pPg1) {
-                    CtrlPresentacio.vistaPrincipal(getLocation());
-                    dispose();
-                } else {
-                    cl.previous(pCardTutorial);
-                }
-
-                if (pgActual == 0) pgActual = 2;
-                else pgActual--;
-
+                onEnrere();
             }
         });
         bSeguent.addMouseListener(new MouseAdapter() {
@@ -55,14 +44,31 @@ public class VistaTutorial extends JDialog {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
 
-                if (pgActual == 2) pgActual = 0;
-                else pgActual++;
-
-                CardLayout cl = (CardLayout) pCardTutorial.getLayout();
-
-                cl.next(pCardTutorial);
+                onSeguent();
             }
         });
+    }
+
+    private void onEnrere() {
+        CardLayout cl = (CardLayout) pCardTutorial.getLayout();
+        if (pCardTutorial.getComponent(pgActual) == pPg1) {
+            CtrlPresentacio.vistaPrincipal(getLocation());
+            dispose();
+        } else {
+            cl.previous(pCardTutorial);
+        }
+
+        if (pgActual == 0) pgActual = 2;
+        else pgActual--;
+    }
+
+    private void onSeguent() {
+        if (pgActual == 2) pgActual = 0;
+        else pgActual++;
+
+        CardLayout cl = (CardLayout) pCardTutorial.getLayout();
+
+        cl.next(pCardTutorial);
     }
 
     {

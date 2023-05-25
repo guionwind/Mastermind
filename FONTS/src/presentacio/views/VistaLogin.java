@@ -37,8 +37,7 @@ public class VistaLogin extends JDialog {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                CtrlPresentacio.vistaPrincipal(getLocation());
-                dispose();
+                onCancel();
             }
         });
         bLogin.addMouseListener(new MouseAdapter() {
@@ -46,44 +45,49 @@ public class VistaLogin extends JDialog {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                lUsernameError.setVisible(false);
-                lUserNotExists.setVisible(false);
-                lPwdError.setVisible(false);
-                lContrasenyaIncorrecte.setVisible(false);
-
-                if (tFNomUsuari.getText().isEmpty() || String.valueOf(pFContrasenya.getPassword()).isEmpty()) {
-                    if (tFNomUsuari.getText().isEmpty()) {
-                        lUsernameError.setText("Siusplau indica un nom d'Usuari");
-                        lUsernameError.setVisible(true);
-                    }
-                    if (String.valueOf(pFContrasenya.getPassword()).isEmpty()) {
-                        lPwdError.setText("Siusplau indica una contrasenya");
-                        lPwdError.setVisible(true);
-                    }
-
-                } else {
-                    try {
-                        CtrlPresentacio.login(tFNomUsuari.getText(), String.valueOf(pFContrasenya.getPassword()));
-                        CtrlPresentacio.vistaMenuInicial(getLocation());
-                        dispose();
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    } catch (InstanciaNoExisteix ex) {
-                        lUserNotExists.setText("L'usuari no existeix, registra't siusplau");
-                        lUserNotExists.setVisible(true);
-                    } catch (ClassNotFoundException ex) {
-                        throw new RuntimeException(ex);
-                    } catch (ContrasenyaIncorrecte ex) {
-                        lContrasenyaIncorrecte.setText("La contrasenya és incorrecte");
-                        lContrasenyaIncorrecte.setVisible(true);
-                    }
-                }
+                onLogin();
             }
         });
     }
 
-    private onLogin() {
+    private void onCancel() {
+        CtrlPresentacio.vistaPrincipal(getLocation());
+        dispose();
+    }
 
+    private void onLogin() {
+        lUsernameError.setVisible(false);
+        lUserNotExists.setVisible(false);
+        lPwdError.setVisible(false);
+        lContrasenyaIncorrecte.setVisible(false);
+
+        if (tFNomUsuari.getText().isEmpty() || String.valueOf(pFContrasenya.getPassword()).isEmpty()) {
+            if (tFNomUsuari.getText().isEmpty()) {
+                lUsernameError.setText("Siusplau indica un nom d'Usuari");
+                lUsernameError.setVisible(true);
+            }
+            if (String.valueOf(pFContrasenya.getPassword()).isEmpty()) {
+                lPwdError.setText("Siusplau indica una contrasenya");
+                lPwdError.setVisible(true);
+            }
+
+        } else {
+            try {
+                CtrlPresentacio.login(tFNomUsuari.getText(), String.valueOf(pFContrasenya.getPassword()));
+                CtrlPresentacio.vistaMenuInicial(getLocation());
+                dispose();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            } catch (InstanciaNoExisteix ex) {
+                lUserNotExists.setText("L'usuari no existeix, registra't siusplau");
+                lUserNotExists.setVisible(true);
+            } catch (ClassNotFoundException ex) {
+                throw new RuntimeException(ex);
+            } catch (ContrasenyaIncorrecte ex) {
+                lContrasenyaIncorrecte.setText("La contrasenya és incorrecte");
+                lContrasenyaIncorrecte.setVisible(true);
+            }
+        }
     }
 
 
