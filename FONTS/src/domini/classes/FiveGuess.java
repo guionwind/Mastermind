@@ -18,7 +18,7 @@ public class FiveGuess implements Maquina {
      * Número de colors per al funcionament de l'algorisme FiveGuess.
      */
     private static final int NUM_COL = 6;
-    /**6
+    /**
      * Número de codis diferents que es poden obtenir utilitzant
      * 4 fitxes i 6 colors.
      * Càlcul: 6 * 6 * 6 * 6 = 1296
@@ -247,8 +247,7 @@ public class FiveGuess implements Maquina {
     }
 
     /**
-     * Given the solution code, the solve operation uses one of the proposed algorithm
-     * (either five guess or the genetic one) to create the list of codes that will lead
+     * Given the solution code, the solve operation uses the five guess algorithm to create the list of codes that will lead
      * to the solution. If the algorithm is unable to find the solution in less than
      * maxSteps steps, the returned list will contain a list composed of maxSteps codes.
      * The operation will throw an exception in case the secret code solution is not
@@ -294,6 +293,7 @@ public class FiveGuess implements Maquina {
         return codis;
     }
 
+    /*
     public static void main(String[] args) throws Exception {
         int p = 4;
         int c = 6;
@@ -315,4 +315,5 @@ public class FiveGuess implements Maquina {
 
         System.out.println((temps_fin - temps_ini) / 1000000000);
     }
+    */
 }

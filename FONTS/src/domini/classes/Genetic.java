@@ -13,7 +13,7 @@ public class Genetic implements Maquina {
      * Número màxim d'intents permessos.
      */
     private static final int MAX_STEPS = 20;
-    /*
+    /**
      * Número de codis de la població
      */
     private static final int POPULATION_CAPACITY = 150;
@@ -35,17 +35,17 @@ public class Genetic implements Maquina {
      * Número màxim de generacions.
      */
     private final int maxGen;
-    /*
+    /**
      * Històric de codis intentats
      */
     private ArrayList<Integer[]> codisIntentats;
-    /*
+    /**
      * Històric de respostes per als codis intentats.
      */
     private ArrayList<String> respostesCodisIntentats;
 
     /**
-     * Construcctora amb 2 paràmetres.
+     * Constructora amb 2 paràmetres.
      * Utilitzada per a la creació d'un algorisme nou.
      * 
      * @param numPeg        Número de fitxes del codi.
@@ -485,7 +485,18 @@ public class Genetic implements Maquina {
         
         return intent;
     }
-    
+
+    /**
+     * Given the solution code, the solve operation uses the genetic algorithm to create the list of codes that will lead
+     * to the solution. If the algorithm is unable to find the solution in less than
+     * maxSteps steps, the returned list will contain a list composed of maxSteps codes.
+     * The operation will throw an exception in case the secret code solution is not
+     * consistent with the parameters of the current game.
+     *
+     * @param   solution        Solution code of the game to break.
+     * @return                  List of the tried codes to break the solution code,
+     *                          whether it's achieved or not.
+     */
     public List<List<Integer>> solve(List<Integer> solution) throws Exception {
         if (solution.size() != numPeg) throw new LongitudCombinacioIncorrecte("Mida incorrecte. FiveGuess necessita mida 4");
         for (int i=0; i<solution.size(); ++i) {
@@ -526,6 +537,7 @@ public class Genetic implements Maquina {
         return codis;
     }
 
+    /*
     public static void main(String[] args) throws Exception {
         int p = ThreadLocalRandom.current().nextInt(4,8);
         int c = ThreadLocalRandom.current().nextInt(4,8);
@@ -547,4 +559,5 @@ public class Genetic implements Maquina {
 
         System.out.println((temps_fin - temps_ini) / 1000000000);
     }
+    */
 }

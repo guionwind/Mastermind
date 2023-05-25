@@ -35,8 +35,8 @@ public abstract class Partida {
     /**
      * Constructora de la classe partida
      * La id es extreta apartir d'incrementar l'atribut nombre partides
-     * @param configuracioPartida de la partida en questio
-     * @param solutionCode de la partida
+     * @param configuracioPartida Configuracio de la partida en questio
+     * @param solutionCode Codi solucio de la partida
      * @param ctrlPartida Controlador de la partida
      */
     public Partida(int idPartida, ConfiguracioPartida configuracioPartida, Integer[] solutionCode) {
@@ -46,6 +46,12 @@ public abstract class Partida {
         rondes = new HashMap<Integer, Ronda>();
     }
 
+    /**
+     * Constructora utilitzada per a reconstruir una partida en curs des del disc.
+     * @param idPartida id de la partida
+     * @param solutionCode codi solució de la partida
+     * @param rondes conjunt de rondes jugades a la partida
+     */
     public Partida(int idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes) {
         this.id = idPartida;
         this.solutionCode = solutionCode;

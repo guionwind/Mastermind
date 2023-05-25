@@ -55,18 +55,24 @@ public class EstadistiquesPartida {
     /**
      * Mètode per modificar la puntuació de les estadístiques.
      * 
+     * @param puntuacio Puntuacio de la partida
      */
     public void setPuntuacio(int puntuacio){
         this.puntuacio = puntuacio;
     }
 
+
+    /**
+     * Retorna el resultat de la partida.
+     * @return Cert si la partida és guanyada, fals si no.
+     */
     public Boolean getGuanyada(){
         return this.guanyada;
     }
 
     /**
-     * Mètode per modificar si la partida ha estat guanyada.
-     *
+     * Mètode per modificar el resultat de la partida.
+     * @param flag Cert si la partida és guanyada, fals si no.
      */
     public void setGuanyada(Boolean flag){
         this.guanyada = flag;
