@@ -2,7 +2,9 @@ package persistencia.classes;
 
 import domini.classes.TipusPartida;
 
-public class DAOConfiguracioPartida {
+import java.io.Serializable;
+
+public class DAOConfiguracioPartida implements Serializable {
     /**
      * Tipus de partida.
      * Ha de ser un dels tipus admesos per l'Enumeration TipusPartida.

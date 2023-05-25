@@ -7,7 +7,7 @@ import domini.classes.exceptions.LongitudCombinacioIncorrecte;
 import domini.classes.exceptions.NumeroColorsIncorrecte;
 import domini.classes.exceptions.LongitudRespostaIncorrecte;
 import domini.classes.exceptions.ValorsRespostaIncorrectes;
-import domini.actions.*;
+import domini.classes.actions.*;
 
 public class FiveGuess implements Maquina {
     /**

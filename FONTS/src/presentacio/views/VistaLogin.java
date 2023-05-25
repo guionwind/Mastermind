@@ -3,6 +3,8 @@ package presentacio.views;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import domini.classes.exceptions.ContrasenyaIncorrecte;
+import domini.classes.exceptions.InstanciaNoExisteix;
 import presentacio.controllers.CtrlPresentacio;
 
 import javax.swing.*;
@@ -10,6 +12,7 @@ import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.Locale;
 
 public class VistaLogin extends JDialog {
@@ -20,6 +23,8 @@ public class VistaLogin extends JDialog {
     private JPasswordField pFContrasenya;
     private JLabel lPwdError;
     private JLabel lUsernameError;
+    private JLabel lUserNotExists;
+    private JLabel lContrasenyaIncorrecte;
 
     public VistaLogin(Point point) {
         setLocation(point);
@@ -32,8 +37,7 @@ public class VistaLogin extends JDialog {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                CtrlPresentacio.vistaPrincipal(getLocation());
-                dispose();
+                onCancel();
             }
         });
         bLogin.addMouseListener(new MouseAdapter() {
@@ -41,18 +45,49 @@ public class VistaLogin extends JDialog {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                if (tFNomUsuari.getText().isEmpty()) {
-                    lUsernameError.setText("Siusplau indica un nom d'Usuari");
-                    lUsernameError.setVisible(true);
-                }
-
-                if (String.valueOf(pFContrasenya.getPassword()).isEmpty()) {
-                    lPwdError.setText("Siusplau indica una contrasenya");
-                    lPwdError.setVisible(true);
-                }
-
+                onLogin();
             }
         });
+    }
+
+    private void onCancel() {
+        CtrlPresentacio.vistaPrincipal(getLocation());
+        dispose();
+    }
+
+    private void onLogin() {
+        lUsernameError.setVisible(false);
+        lUserNotExists.setVisible(false);
+        lPwdError.setVisible(false);
+        lContrasenyaIncorrecte.setVisible(false);
+
+        if (tFNomUsuari.getText().isEmpty() || String.valueOf(pFContrasenya.getPassword()).isEmpty()) {
+            if (tFNomUsuari.getText().isEmpty()) {
+                lUsernameError.setText("Siusplau indica un nom d'Usuari");
+                lUsernameError.setVisible(true);
+            }
+            if (String.valueOf(pFContrasenya.getPassword()).isEmpty()) {
+                lPwdError.setText("Siusplau indica una contrasenya");
+                lPwdError.setVisible(true);
+            }
+
+        } else {
+            try {
+                CtrlPresentacio.login(tFNomUsuari.getText(), String.valueOf(pFContrasenya.getPassword()));
+                CtrlPresentacio.vistaMenuInicial(getLocation());
+                dispose();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            } catch (InstanciaNoExisteix ex) {
+                lUserNotExists.setText("L'usuari no existeix, registra't siusplau");
+                lUserNotExists.setVisible(true);
+            } catch (ClassNotFoundException ex) {
+                throw new RuntimeException(ex);
+            } catch (ContrasenyaIncorrecte ex) {
+                lContrasenyaIncorrecte.setText("La contrasenya és incorrecte");
+                lContrasenyaIncorrecte.setVisible(true);
+            }
+        }
     }
 
 
@@ -83,7 +118,7 @@ public class VistaLogin extends JDialog {
         label1.setText("Login");
         panel1.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel2 = new JPanel();
-        panel2.setLayout(new GridLayoutManager(4, 2, new Insets(0, 0, 0, 0), -1, -1));
+        panel2.setLayout(new GridLayoutManager(6, 2, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel2, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
@@ -120,6 +155,16 @@ public class VistaLogin extends JDialog {
         lUsernameError.setText("Label");
         lUsernameError.setVisible(false);
         panel2.add(lUsernameError, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        lUserNotExists = new JLabel();
+        lUserNotExists.setForeground(new Color(-4520936));
+        lUserNotExists.setText("Label");
+        lUserNotExists.setVisible(false);
+        panel2.add(lUserNotExists, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        lContrasenyaIncorrecte = new JLabel();
+        lContrasenyaIncorrecte.setForeground(new Color(-4520936));
+        lContrasenyaIncorrecte.setText("Label");
+        lContrasenyaIncorrecte.setVisible(false);
+        panel2.add(lContrasenyaIncorrecte, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         contentPane.add(spacer1, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();

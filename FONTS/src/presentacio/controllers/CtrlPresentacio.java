@@ -1,5 +1,6 @@
 package presentacio.controllers;
 
+import domini.classes.exceptions.*;
 import domini.controllers.CtrlDomini;
 import presentacio.views.*;
 
@@ -7,11 +8,19 @@ import java.awt.*;
 import java.io.IOException;
 
 public class CtrlPresentacio {
-    private CtrlDomini cd;
+    private static final CtrlDomini ctrlDomini;
 
-    public CtrlPresentacio() throws IOException {
-        cd = new CtrlDomini();
+    static {
+        try {
+            ctrlDomini = new CtrlDomini();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public CtrlPresentacio() {
         iniPresentacio();
+
     }
 
     public static void iniPresentacio() {
@@ -52,5 +61,17 @@ public class CtrlPresentacio {
 
     public static void main (String [] args)  {
         iniPresentacio();
+    }
+
+    public static void login(String username, String password) throws IOException, InstanciaNoExisteix, ClassNotFoundException, ContrasenyaIncorrecte {
+        ctrlDomini.loginAuthentication(username, password);
+    }
+
+    public static void register(String username, String password, String confirmPassword) throws InstanciaJaExisteix, JugadorJaExisteix, IOException, ContrasenyaNoCoincideix {
+        ctrlDomini.registrarJugador(username, password, confirmPassword);
+    }
+
+    public static void tancarSessio() {
+        ctrlDomini.logoff();
     }
 }
