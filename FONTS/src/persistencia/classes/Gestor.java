@@ -7,7 +7,7 @@ public class Gestor<PersistenceObject> {
     /**
      * Directori on es guarden les dades.
      */
-    private static final String dirPath = System.getProperty("user.dir") + "/FONTS/src/persistencia/data/";
+    private static final String dirPath = System.getProperty("user.dir") + "\\persistencia\\data\\";
     /**
      * Nom de l'arxiu on es guarden les dades.
      */
@@ -26,9 +26,9 @@ public class Gestor<PersistenceObject> {
 
         File d = new File(dirPath);
         if (!d.exists()) d.mkdir();
-        
+
         File f = new File(dirPath, fileName);
-        f.createNewFile();
+        if (!f.exists()) f.createNewFile();
     }
 
     /**

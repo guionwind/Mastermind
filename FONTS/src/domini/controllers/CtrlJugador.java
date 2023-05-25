@@ -46,13 +46,10 @@ public class CtrlJugador {
      * @param password contrasenya del usuari
      * @throws JugadorInvalid En cas de que el nom d'usuari no sigui correcte
      */
-    public Jugador crearJugador(int newId, String username, String password) throws JugadorInvalid {
-        if (username == null || username.equals("")) throw new JugadorInvalid("Username invalid");
-        else {
-            jugadorActual = new Jugador(newId, username, password);
+    public Jugador crearJugador(int newId, String username, String password) {
+        jugadorActual = new Jugador(newId, username, password);
 
-            return jugadorActual;
-        }
+        return jugadorActual;
     }
 
     /**

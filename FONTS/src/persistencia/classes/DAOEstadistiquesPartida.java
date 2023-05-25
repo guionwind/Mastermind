@@ -1,6 +1,8 @@
 package persistencia.classes;
 
-public class DAOEstadistiquesPartida {
+import java.io.Serializable;
+
+public class DAOEstadistiquesPartida implements Serializable {
 
     /**
      * Puntuació obtinguda a la partida.

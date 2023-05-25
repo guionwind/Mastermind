@@ -128,11 +128,13 @@ public class CtrlDomini {
     }
 
     //! del CtrlJugador
-    public void registrarJugador(String username, String password) throws JugadorJaExisteix, JugadorInvalid, IOException, InstanciaJaExisteix {
+    public void registrarJugador(String username, String password, String confirmPassowrd) throws JugadorJaExisteix, IOException, InstanciaJaExisteix, ContrasenyaNoCoincideix {
         int newId = ctrlPersistencia.totalJugadors();
 
         if (ctrlPersistencia.existeixJugador(username)) {
             throw new JugadorJaExisteix("Ja hi ha un jugador amb aquest nom");
+        } else if (!password.equals(confirmPassowrd)) {
+            throw new ContrasenyaNoCoincideix("Les contrasenyes no coincideixen");
         }
         Jugador j = ctrlJugador.crearJugador(newId, username, password);
         ctrlPersistencia.afegirJugador(newId, username, password);
@@ -163,16 +165,14 @@ public class CtrlDomini {
         ens estalviem un recorregut sobre el map
     */
 
-    public boolean loginAuthentication (String username, String password) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
-        boolean correctCredentials = false;
+    public void loginAuthentication (String username, String password) throws IOException, InstanciaNoExisteix, ClassNotFoundException, ContrasenyaIncorrecte {
         String passwd = ctrlPersistencia.obtenirPasswordJugador(username);
 
         if (passwd.equals(password)) {
-            correctCredentials = true;
-
             ctrlJugador.setJugadorActual(ctrlPersistencia.obtenirJugador(username));
+        } else {
+            throw new ContrasenyaIncorrecte("La contrasenya es incorrecte");
         }
-        return correctCredentials;
     }
 
     /**

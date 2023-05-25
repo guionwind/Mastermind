@@ -1,8 +1,9 @@
 package persistencia.classes;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class DAOFiveGuess {
+public class DAOFiveGuess implements Serializable {
     /**
      * Conjunt de codis que encara no s'han intentat
      */

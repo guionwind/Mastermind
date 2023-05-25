@@ -1,6 +1,8 @@
 package persistencia.classes;
 
-public class DAOJugador {
+import java.io.Serializable;
+
+public class DAOJugador implements Serializable {
 
     /**
      * Id del jugador.

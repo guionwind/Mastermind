@@ -1,11 +1,12 @@
 package persistencia.classes;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 import domini.classes.exceptions.InstanciaJaExisteix;
 import domini.classes.exceptions.InstanciaNoExisteix;
 
-public class GestorPartida extends Gestor<DAOPartida>{
+public class GestorPartida extends Gestor<DAOPartida> {
     
     /**
      * Nom de l'arxiu a on es guarde les dades.

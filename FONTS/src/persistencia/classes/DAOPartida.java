@@ -2,9 +2,11 @@ package persistencia.classes;
 
 import domini.classes.TipusAlgorisme;
 import domini.classes.Ronda;
+
+import java.io.Serializable;
 import java.util.*;
 
-public class DAOPartida {
+public class DAOPartida implements Serializable {
 
     /**
      * Codi solució de la partida.
