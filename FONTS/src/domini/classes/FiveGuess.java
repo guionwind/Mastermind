@@ -1,6 +1,8 @@
 package domini.classes;
 
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+
 import domini.classes.exceptions.LongitudCombinacioIncorrecte;
 import domini.classes.exceptions.NumeroColorsIncorrecte;
 import domini.classes.exceptions.LongitudRespostaIncorrecte;
@@ -290,5 +292,27 @@ public class FiveGuess implements Maquina {
         }
 
         return codis;
+    }
+
+    public static void main(String[] args) throws Exception {
+        int p = 4;
+        int c = 6;
+        System.out.println("NumPeg: " + p + "   NumCol: " + c);
+        
+        Genetic g = new Genetic(p, c);
+
+        List<Integer> codiSolucio = new ArrayList<>(p);
+        for (int i=0; i<p; ++i) codiSolucio.add(ThreadLocalRandom.current().nextInt(1, c+1));
+        System.out.println("Codi solucio: " + codiSolucio);
+
+        long temps_ini = System.nanoTime();
+        List<List<Integer>> solucions = g.solve(codiSolucio);
+        long temps_fin = System.nanoTime();
+
+        for (int i=0; i<solucions.size(); ++i) {
+            System.out.println("Solucio " + (i+1) + ":    " + solucions.get(i));
+        }
+
+        System.out.println((temps_fin - temps_ini) / 1000000000);
     }
 }

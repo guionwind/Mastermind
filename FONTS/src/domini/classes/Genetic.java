@@ -1,6 +1,5 @@
 package domini.classes;
 
-import java.sql.Time;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -277,19 +276,6 @@ public class Genetic implements Maquina {
      * @param generacio             Conjunt de la nova població.
      */
     private void novaGeneracio(ArrayList<Integer[]> poblacio, ArrayList<Integer> fitnessPoblacio, ArrayList<Integer[]> generacio) {
-        int index_best = 0;
-        for (int i=0; i<POPULATION_CAPACITY; ++i) {
-            if (fitnessPoblacio.get(i) > fitnessPoblacio.get(index_best))
-                index_best = i;
-        }
-        int index_second_best = 0;
-        for (int i=0; i<POPULATION_CAPACITY; ++i) {
-            if (fitnessPoblacio.get(i) > fitnessPoblacio.get(index_second_best) && index_second_best != index_best)
-                index_second_best = i;
-        }
-        generacio.add(poblacio.get(index_best));
-        generacio.add(poblacio.get(index_second_best));
-
         while (generacio.size() < POPULATION_CAPACITY) {
             Integer[][] parents = randomParents(poblacio, fitnessPoblacio);
 
@@ -497,15 +483,9 @@ public class Genetic implements Maquina {
             }
         }
         
-        // System.out.print(codisEscollibles.size() + "        ");
-        // if (intent != null) {
-        //     for (Integer fitxa : intent)
-        //         System.out.print(" " + fitxa);
-        // }
-        //     System.out.println();
         return intent;
     }
-
+    
     public List<List<Integer>> solve(List<Integer> solution) throws Exception {
         if (solution.size() != numPeg) throw new LongitudCombinacioIncorrecte("Mida incorrecte. FiveGuess necessita mida 4");
         for (int i=0; i<solution.size(); ++i) {
@@ -549,8 +529,6 @@ public class Genetic implements Maquina {
     public static void main(String[] args) throws Exception {
         int p = ThreadLocalRandom.current().nextInt(4,8);
         int c = ThreadLocalRandom.current().nextInt(4,8);
-        p = 8;
-        c = 8;
         System.out.println("NumPeg: " + p + "   NumCol: " + c);
         
         Genetic g = new Genetic(p, c);
