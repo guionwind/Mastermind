@@ -27,12 +27,16 @@ public class VistaConfiguracioPartida extends JDialog {
     private int intents = 5;
 
     ArrayList<Color> colorList = new ArrayList<>();
+    ArrayList<RoundButton> buttonList = new ArrayList<>();
 
     public VistaConfiguracioPartida() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(bAcceptar);
         initButtonsPanel();
+        sLongitud.setPaintLabels(true);
+        sLongitud.setPaintTicks(true);
+
 
         colorList.add(Color.RED);
         colorList.add(Color.GREEN);
@@ -65,17 +69,7 @@ public class VistaConfiguracioPartida extends JDialog {
 
 
                 for (int i = 0; i < numButtons; i++) {
-                    RoundButton button = new RoundButton("");
-                    button.addMouseListener(new MouseAdapter() {
-                        @Override
-                        public void mouseClicked(MouseEvent e) {
-                            int current = button.getCurrentColor();
-                            current = (current == 7) ? 0 : (current + 1);
-                            button.setCurrentColor(colorList.get(current), current);
-                            super.mouseClicked(e);
-                        }
-                    });
-
+                    RoundButton button = buttonList.get(i);
                     pCombinacio.add(button);
                 }
 
@@ -112,19 +106,20 @@ public class VistaConfiguracioPartida extends JDialog {
         pCombinacio.setLayout(new FlowLayout());
 
         // Código para agregar los botones al panel pCombinacio
-        int numButtons = sLongitud.getValue();
+        int numButtons = 8;
         for (int i = 0; i < numButtons; i++) {
             RoundButton button = new RoundButton("");
             button.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     int current = button.getCurrentColor();
-                    current = (current == 7) ? 0 : (current + 1);
+                    current = (current == sColors.getValue()) ? 0 : (current + 1);
                     button.setCurrentColor(colorList.get(current), current);
                     super.mouseClicked(e);
                 }
             });
-            pCombinacio.add(button);
+            buttonList.add(button);
+            if (i < 4) pCombinacio.add(button);
         }
 
         pCombinacio.revalidate();
@@ -133,6 +128,9 @@ public class VistaConfiguracioPartida extends JDialog {
 
     private void handleFields() {
         if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker")) {
+            sColors.setMaximum(8);
+            sLongitud.setMaximum(8);
+
             sIntents.setEnabled(false);
             sColors.setEnabled(false);
             sLongitud.setEnabled(false);
@@ -144,7 +142,15 @@ public class VistaConfiguracioPartida extends JDialog {
             sIntents.setValue(5);
             sColors.setValue(6);
             sLongitud.setValue(4);
+
         } else {
+            if (cbTipusPartida.getSelectedItem().toString().equals("Genetic")) {
+                sColors.setMaximum(7);
+                sLongitud.setMaximum(7);
+            } else {
+                sColors.setMaximum(8);
+                sLongitud.setMaximum(8);
+            }
             sIntents.setValue(intents);
             sColors.setValue(colors);
             sLongitud.setValue(longitud);
@@ -224,6 +230,8 @@ public class VistaConfiguracioPartida extends JDialog {
         sIntents = new JSlider();
         sIntents.setMaximum(20);
         sIntents.setMinimum(1);
+        sIntents.setPaintLabels(true);
+        sIntents.setPaintTicks(true);
         sIntents.setValue(5);
         panel3.add(sIntents, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label3 = new JLabel();
@@ -232,8 +240,8 @@ public class VistaConfiguracioPartida extends JDialog {
         sColors = new JSlider();
         sColors.setMaximum(8);
         sColors.setMinimum(1);
-        sColors.setPaintLabels(false);
-        sColors.setPaintTicks(false);
+        sColors.setPaintLabels(true);
+        sColors.setPaintTicks(true);
         sColors.setValue(6);
         panel3.add(sColors, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label4 = new JLabel();
@@ -242,6 +250,8 @@ public class VistaConfiguracioPartida extends JDialog {
         sLongitud = new JSlider();
         sLongitud.setMaximum(8);
         sLongitud.setMinimum(1);
+        sLongitud.setPaintLabels(true);
+        sLongitud.setPaintTicks(true);
         sLongitud.setValue(4);
         panel3.add(sLongitud, new GridConstraints(7, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label5 = new JLabel();
