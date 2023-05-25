@@ -1,7 +1,5 @@
 package domini.classes;
 
-import domini.controllers.CtrlPartida;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
