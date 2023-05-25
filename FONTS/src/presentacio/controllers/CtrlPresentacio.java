@@ -39,7 +39,7 @@ public class CtrlPresentacio {
     }
 
     public static void vistaPartida() {
-
+        VistaPartida vE = new VistaPartida();
     }
 
     public static void main (String [] args) {
