@@ -4,6 +4,7 @@ import domini.classes.EstadistiquesPartida;
 import domini.classes.Jugador;
 
 import domini.classes.exceptions.*;
+import persistencia.controllers.CtrlPersistencia;
 
 import java.lang.String;
 import java.util.HashMap;
@@ -62,16 +63,15 @@ public class CtrlJugador {
      * @throws JugadorJaExisteix En cas que el jugador ja existeixi
      * @throws JugadorInvalid En cas de que el nom d'usuari no sigui correcte
      */
-    public void crearJugador(String username, String password) throws JugadorJaExisteix, JugadorInvalid {
+    public Jugador crearJugador(int newId, String username, String password) throws JugadorJaExisteix, JugadorInvalid {
         if (username == null || username.equals("")) throw new JugadorInvalid("Username invalid");
         else if (getJugador(username) != null) {
             throw new JugadorJaExisteix("Ja hi ha un jugador amb aquest nom");
         }
         else {
-            Jugador j = new Jugador(username, password);
-            int newId = j.getID();
-            jugadors.put(newId, j);
+            Jugador j = new Jugador(newId, username, password);
             jugadorActual = newId;
+            return j;
         }
     }
 
