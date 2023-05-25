@@ -24,7 +24,8 @@ public class VistaConfiguracioPartida extends JDialog {
     private int colors = 6;
     private int intents = 5;
 
-    public VistaConfiguracioPartida() {
+    public VistaConfiguracioPartida(Point location) {
+        setLocation(location);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(bAcceptar);
@@ -129,13 +130,6 @@ public class VistaConfiguracioPartida extends JDialog {
     private void onCancel() {
         // add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-        VistaConfiguracioPartida dialog = new VistaConfiguracioPartida();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 
     {

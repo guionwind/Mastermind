@@ -18,7 +18,8 @@ public class VistaMenuInicial extends JDialog {
     private JButton bTancarSessio;
     private JButton bPlay;
 
-    public VistaMenuInicial() {
+    public VistaMenuInicial(Point location) {
+        setLocation(location);
         setContentPane(contentPane);
         setModal(true);
 
@@ -47,13 +48,6 @@ public class VistaMenuInicial extends JDialog {
     private void onCancel() {
         // add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-        VistaMenuInicial dialog = new VistaMenuInicial();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 
     {

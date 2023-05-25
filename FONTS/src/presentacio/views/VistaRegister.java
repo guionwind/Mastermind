@@ -21,7 +21,8 @@ public class VistaRegister extends JDialog {
     private JButton bRegister;
     private JButton bCancel;
 
-    public VistaRegister() {
+    public VistaRegister(Point location) {
+        setLocation(location);
         setContentPane(contentPane);
         this.pack();
         setVisible(true);
@@ -31,8 +32,8 @@ public class VistaRegister extends JDialog {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
 
-                CtrlPresentacio.iniPresentacio();
-                setVisible(false);
+                CtrlPresentacio.vistaPrincipal(getLocation());
+                dispose();
             }
         });
         bRegister.addMouseListener(new MouseAdapter() {

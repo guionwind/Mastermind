@@ -16,7 +16,8 @@ public class VistaEstadistiquesPartida extends JDialog {
     private JLabel lIntents;
     private JLabel lPuntuacio;
 
-    public VistaEstadistiquesPartida() {
+    public VistaEstadistiquesPartida(Point location) {
+        setLocation(location);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(bAcceptar);
@@ -44,13 +45,6 @@ public class VistaEstadistiquesPartida extends JDialog {
     private void onAcceptar() {
         // TODO passem a la seguent vista (ranquing)
         dispose();
-    }
-
-    public static void main(String[] args) {
-        VistaEstadistiquesPartida dialog = new VistaEstadistiquesPartida();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 
     {

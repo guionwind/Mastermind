@@ -18,30 +18,39 @@ public class VistaLogin extends JDialog {
     private JButton bLogin;
     private JButton bCancel;
     private JPasswordField pFContrasenya;
+    private JLabel lPwdError;
+    private JLabel lUsernameError;
 
-    public VistaLogin() {
+    public VistaLogin(Point point) {
+        setLocation(point);
         setContentPane(contentPane);
         this.pack();
         setVisible(true);
 
         bCancel.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-            super.mouseClicked(e);
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
 
-            CtrlPresentacio.iniPresentacio();
-            setVisible(false);
+                CtrlPresentacio.vistaPrincipal(getLocation());
+                dispose();
             }
         });
         bLogin.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-            super.mouseClicked(e);
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+
+                if (tFNomUsuari.getText().isEmpty()) {
+                    lUsernameError.setText("Siusplau indica un nom d'Usuari");
+                    lUsernameError.setVisible(true);
+                }
 
                 if (String.valueOf(pFContrasenya.getPassword()).isEmpty()) {
-                    //Mostrar per pantalla que la contrasenya esta buida
+                    lPwdError.setText("Siusplau indica una contrasenya");
+                    lPwdError.setVisible(true);
                 }
-            System.out.println(tFNomUsuari.getText());
+
             }
         });
     }
@@ -63,7 +72,7 @@ public class VistaLogin extends JDialog {
      */
     private void $$$setupUI$$$() {
         contentPane = new JPanel();
-        contentPane.setLayout(new GridLayoutManager(4, 3, new Insets(0, 0, 0, 0), -1, -1));
+        contentPane.setLayout(new GridLayoutManager(6, 3, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.setPreferredSize(new Dimension(1080, 720));
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
@@ -74,7 +83,7 @@ public class VistaLogin extends JDialog {
         label1.setText("Login");
         panel1.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel2 = new JPanel();
-        panel2.setLayout(new GridLayoutManager(2, 2, new Insets(0, 0, 0, 0), -1, -1));
+        panel2.setLayout(new GridLayoutManager(4, 2, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel2, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
@@ -101,8 +110,18 @@ public class VistaLogin extends JDialog {
         bLogin = new JButton();
         bLogin.setText("Login");
         panel5.add(bLogin, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        lPwdError = new JLabel();
+        lPwdError.setForeground(new Color(-4520936));
+        lPwdError.setText("Label");
+        lPwdError.setVisible(false);
+        panel2.add(lPwdError, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        lUsernameError = new JLabel();
+        lUsernameError.setForeground(new Color(-4520936));
+        lUsernameError.setText("Label");
+        lUsernameError.setVisible(false);
+        panel2.add(lUsernameError, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        contentPane.add(spacer1, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        contentPane.add(spacer1, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
         contentPane.add(spacer2, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final Spacer spacer3 = new Spacer();

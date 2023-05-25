@@ -26,7 +26,8 @@ public class VistaTutorial extends JDialog {
 
     private int pgActual = 0;
 
-    public VistaTutorial() {
+    public VistaTutorial(Point location) {
+        setLocation(location);
         setContentPane(contentPane);
         this.pack();
         setVisible(true);
@@ -38,8 +39,8 @@ public class VistaTutorial extends JDialog {
 
                 CardLayout cl = (CardLayout) pCardTutorial.getLayout();
                 if (pCardTutorial.getComponent(pgActual) == pPg1) {
-                    CtrlPresentacio.iniPresentacio();
-                    setVisible(false);
+                    CtrlPresentacio.vistaPrincipal(getLocation());
+                    dispose();
                 } else {
                     cl.previous(pCardTutorial);
                 }
@@ -62,13 +63,6 @@ public class VistaTutorial extends JDialog {
                 cl.next(pCardTutorial);
             }
         });
-    }
-
-    public static void main(String[] args) {
-        VistaTutorial dialog = new VistaTutorial();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 
     {
