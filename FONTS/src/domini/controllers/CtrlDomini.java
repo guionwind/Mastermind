@@ -1,6 +1,6 @@
 package domini.controllers;
 
-import domini.actions.CorregeixAction;
+import domini.classes.actions.CorregeixAction;
 import domini.classes.*;
 import domini.classes.exceptions.*;
 import persistencia.controllers.CtrlPersistencia;

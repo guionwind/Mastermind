@@ -1,4 +1,4 @@
-package domini.actions;
+package domini.classes.actions;
 
 public class ComparaRespostesAction {
 

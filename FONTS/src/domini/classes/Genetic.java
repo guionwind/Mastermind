@@ -3,7 +3,7 @@ package domini.classes;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-import domini.actions.*;
+import domini.classes.actions.*;
 import domini.classes.exceptions.LongitudCombinacioIncorrecte;
 import domini.classes.exceptions.NumeroColorsIncorrecte;
 

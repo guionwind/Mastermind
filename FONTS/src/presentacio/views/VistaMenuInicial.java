@@ -18,7 +18,8 @@ public class VistaMenuInicial extends JDialog {
     private JButton bSortir;
     private JButton bRanquing;
     private JButton bTancarSessio;
-    private JButton bPlay;
+    private JButton bNovaPartida;
+    private JButton bCarregarPartida;
 
     public VistaMenuInicial(Point location) {
         setLocation(location);
@@ -94,13 +95,13 @@ public class VistaMenuInicial extends JDialog {
         final JPanel panel4 = new JPanel();
         panel4.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel4, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        bPlay = new JButton();
-        bPlay.setBackground(new Color(-14121578));
-        bPlay.setFocusPainted(false);
-        Font bPlayFont = this.$$$getFont$$$(null, -1, 36, bPlay.getFont());
-        if (bPlayFont != null) bPlay.setFont(bPlayFont);
-        bPlay.setText("Play");
-        panel4.add(bPlay, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bNovaPartida = new JButton();
+        bNovaPartida.setBackground(new Color(-14121578));
+        bNovaPartida.setFocusPainted(false);
+        Font bPlayFont = this.$$$getFont$$$(null, -1, 36, bNovaPartida.getFont());
+        if (bPlayFont != null) bNovaPartida.setFont(bPlayFont);
+        bNovaPartida.setText("Play");
+        panel4.add(bNovaPartida, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel5 = new JPanel();
         panel5.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel5, new GridConstraints(7, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
