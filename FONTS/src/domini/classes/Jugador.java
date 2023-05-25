@@ -1,7 +1,6 @@
 package domini.classes;
 
 import java.util.ArrayList;
-import domini.classes.exceptions.*;
 
 
 public class Jugador {
@@ -11,19 +10,19 @@ public class Jugador {
     private String password;
 
     //associacions
-    private ArrayList<EstadistiquesPartida> statsPartides;
+    private ArrayList<EstadistiquesPartida> estadistiquesPartides;
     
     /**creadora per defecte. 
     * @pre name, pwd no son nulls 
     * crea un nou jugador amb ID incremental (el primer jugador tindra id = 1) 
     * despres assigna les credencials corresponents
     */
-    public Jugador(int id, String name, String pwd)  {
+    public Jugador(int id, String username, String pwd)  {
         this.id = id;
-        this.username = name;
+        this.username = username;
         this.password = pwd;
 
-        statsPartides = new ArrayList<EstadistiquesPartida>();   
+        estadistiquesPartides = new ArrayList<EstadistiquesPartida>();
     }
     
     /**consultora de partides guanyades
@@ -32,7 +31,7 @@ public class Jugador {
      */
     public int PartidesGuanyades() {
         int guanyades = 0;
-        for (EstadistiquesPartida p : this.statsPartides) {
+        for (EstadistiquesPartida p : estadistiquesPartides) {
             if (p.getGuanyada()) ++guanyades;
         }
         return guanyades;
@@ -43,26 +42,24 @@ public class Jugador {
      * @return int nombre de partides jugades
      */
     public int PartidesJugades() {
-        return this.statsPartides.size();
+        return estadistiquesPartides.size();
     }
 
     //getters
     public int getID() {
-        return this.id;
+        return id;
     }
 
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     public void setEstadistica(EstadistiquesPartida estadistiquesPartida) {
-        if (estadistiquesPartida != null) {
-            statsPartides.add(estadistiquesPartida);
-        }
+        estadistiquesPartides.add(estadistiquesPartida);
     }
 
 }

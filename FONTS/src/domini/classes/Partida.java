@@ -2,6 +2,7 @@ package domini.classes;
 
 import domini.controllers.CtrlPartida;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class Partida {
@@ -29,12 +30,7 @@ public abstract class Partida {
     /**
      * Configuracio de la partida
      */
-    private final ConfiguracioPartida configuracioPartida;
-
-    /**
-     * Controlador de la partida
-     */
-    private final CtrlPartida ctrlPartida;
+    private ConfiguracioPartida configuracioPartida;
 
     /**
      * Constructora de la classe partida
@@ -43,12 +39,17 @@ public abstract class Partida {
      * @param solutionCode de la partida
      * @param ctrlPartida Controlador de la partida
      */
-    public Partida(int idPartida, ConfiguracioPartida configuracioPartida, Integer[] solutionCode, CtrlPartida ctrlPartida) {
+    public Partida(int idPartida, ConfiguracioPartida configuracioPartida, Integer[] solutionCode) {
         this.id = idPartida;
         this.configuracioPartida = configuracioPartida;
         this.solutionCode = solutionCode;
-        this.ctrlPartida = ctrlPartida;
         rondes = new HashMap<Integer, Ronda>();
+    }
+
+    public Partida(int idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes) {
+        this.id = idPartida;
+        this.solutionCode = solutionCode;
+        this.rondes = rondes;
     }
 
     /**
@@ -141,5 +142,29 @@ public abstract class Partida {
 
     public HashMap<Integer, Ronda> getRondes() {
         return rondes;
+    }
+
+    public void setConfiguracioPartida(ConfiguracioPartida configuracioPartida) {
+        this.configuracioPartida = configuracioPartida;
+    }
+
+    public ArrayList<Integer[]> getCodisIntentats() {
+        ArrayList<Integer[]> codisIntentats = new ArrayList<Integer[]>(rondes.size());
+
+        for (Ronda ronda : rondes.values()) {
+            codisIntentats.add(ronda.getCombinacioIntentada());
+        }
+
+        return codisIntentats;
+    }
+
+    public ArrayList<String> getRespostes() {
+        ArrayList<String> respostes = new ArrayList<String>(rondes.size());
+
+        for (Ronda ronda : rondes.values()) {
+            respostes.add(ronda.getCorreccio());
+        }
+
+        return respostes;
     }
 }

@@ -9,18 +9,12 @@ import domini.classes.exceptions.NumeroColorsIncorrecte;
 import domini.classes.exceptions.ValorsRespostaIncorrectes;
 
 public class CtrlAlgorisme {
-    /**
-     * Controlador de domini.
-     */
-    private final CtrlDomini ctrlDomini;
 
     /**
      * Constructora
-     * 
-     * @param ctrlDomini        Controlador de domini.
+     *
      */
-    public CtrlAlgorisme(CtrlDomini ctrlDomini) {
-        this.ctrlDomini = ctrlDomini;
+    public CtrlAlgorisme() {
     }
 
     /**
@@ -30,45 +24,6 @@ public class CtrlAlgorisme {
      */
     public FiveGuess crearFiveGuess() {
         return new FiveGuess();
-    }
-
-    /**
-     * Guarda a dades la instància de l'algorisme 
-     * FiveGuess de la partida especificats.
-     * 
-     * @param idPartida             Identificador de la partida a la
-     *                              que pertany l'algorisme.
-     * @param fG                    Instancia de l'algorisme
-     */
-    public void guardarFiveGuess(String idPartida, FiveGuess fG) {
-        if(ctrlDomini.existeixFiveGuess(idPartida))
-            ctrlDomini.actualitzarFiveGuess(idPartida, fG);
-        else
-            ctrlDomini.afegirFiveGuess(idPartida, fG);
-    }
-
-    /**
-     * Obté i retorna de dades la instància de l'algorisme
-     * FiveGuess de la partida especificada.
-     * 
-     * @param idPartida             Identificador de la partida a la
-     *                              que pertany l'algorisme.
-     * @return                      L'algorisme de la partida.
-     */
-    public FiveGuess carregarFiveGuess(String idPartida) {
-        return ctrlDomini.obtenirFiveGuess(idPartida);
-    }
-
-    /**
-     * Esborra de dades l'algorisme FiveGuess
-     * que pertany a la partida especificada.
-     * Utilitzada quan na partida ha acabat.
-     * 
-     * @param idPartida             Identificador de la partida a la
-     *                              que pertany l'algorisme.
-     */
-    public void esborrarFiveGuess(String idPartida) {
-        ctrlDomini.esborrarFiveGuess(idPartida);
     }
 
     /**

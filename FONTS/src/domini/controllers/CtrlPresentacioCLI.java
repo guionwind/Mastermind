@@ -361,7 +361,7 @@ public class CtrlPresentacioCLI {
                     }
                     else {
                         try {
-                            ctrlDomini.crearJugador(usuari, contrasenya);
+                            ctrlDomini.registrarJugador(usuari, contrasenya);
                             registered = true;
                         } catch (Exception JugadorJaExisteix) {
                             System.out.println("!!! Usuari ja existeix !!!");

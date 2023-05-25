@@ -27,18 +27,21 @@ public class VistaLogin extends JDialog {
         bCancel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+            super.mouseClicked(e);
 
-                CtrlPresentacio.iniPresentacio();
-                setVisible(false);
+            CtrlPresentacio.iniPresentacio();
+            setVisible(false);
             }
         });
         bLogin.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+            super.mouseClicked(e);
 
-                System.out.println(tFNomUsuari.getText());
+                if (String.valueOf(pFContrasenya.getPassword()).isEmpty()) {
+                    //Mostrar per pantalla que la contrasenya esta buida
+                }
+            System.out.println(tFNomUsuari.getText());
             }
         });
     }

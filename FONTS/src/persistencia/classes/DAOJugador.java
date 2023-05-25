@@ -3,9 +3,9 @@ package persistencia.classes;
 public class DAOJugador {
 
     /**
-     * Nom d'usuari del jugador.
+     * Id del jugador.
      */
-    private String username;
+    private int idJugador;
 
     /**
      * Contrassenya que fa servir el jugador per autenticar-se.
@@ -21,12 +21,11 @@ public class DAOJugador {
     /**
      * Constructora amb paràmetres.
      * 
-     * @param username        Algorisme utilitzat en la partida
-     * @param rondes                Conjunt de les rondes jugades
+     *
      */
-    public DAOJugador(String user, String pass) {
-        this.username = user;
-        this.password = pass;
+    public DAOJugador(int idJugador, String password) {
+        this.idJugador = idJugador;
+        this.password = password;
     }
 
     /**
@@ -34,8 +33,8 @@ public class DAOJugador {
      * 
      * @return username del jugador
      */
-    public String getUsername() {
-        return username;
+    public int getId() {
+        return idJugador;
     }
 
     /**

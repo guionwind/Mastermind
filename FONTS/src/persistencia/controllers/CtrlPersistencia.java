@@ -23,23 +23,23 @@ public class CtrlPersistencia {
         gestorEstadistiquesPartida = new GestorEstadistiquesPartida();
     }
     
-    public void afegirJugador(String idJugador, String username, String password) throws IOException, InstanciaJaExisteix {
-        DAOJugador daoJ = new DAOJugador(username, password);
-        gestorJugador.afegirJugador(idJugador, daoJ);
+    public void afegirJugador(int idJugador, String username, String password) throws IOException, InstanciaJaExisteix {
+        DAOJugador daoJ = new DAOJugador(idJugador, password);
+        gestorJugador.afegirJugador(username, daoJ);
     }
 
-    public void actualitzarJugador(String idJugador, String username, String password) throws IOException, InstanciaNoExisteix  {
-        DAOJugador daoJ = new DAOJugador(username, password);
-        gestorJugador.actualitzarJugador(idJugador, daoJ);
+    public void actualitzarJugador(int idJugador, String username, String password) throws IOException, InstanciaNoExisteix  {
+        DAOJugador daoJ = new DAOJugador(idJugador, password);
+        gestorJugador.actualitzarJugador(username, daoJ);
     }
 
-    public Jugador obtenirJugador(String idJugador) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
-        DAOJugador daoJ = gestorJugador.obtenirJugador(idJugador);
+    public Jugador obtenirJugador(String username) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        DAOJugador daoJ = gestorJugador.obtenirJugador(username);
         Jugador j = null;
         try {
             j = new Jugador(
-                Integer.valueOf(idJugador),
-                daoJ.getUsername(),
+                daoJ.getId(),
+                username,
                 daoJ.getPassword()
             );
         }
@@ -49,16 +49,20 @@ public class CtrlPersistencia {
         return j;
     }
 
-    public void eliminarJugador(String idJugador) throws IOException, InstanciaNoExisteix {        
-        gestorJugador.eliminarJugador(idJugador);
+    public void eliminarJugador(String username) throws IOException, InstanciaNoExisteix {
+        gestorJugador.eliminarJugador(username);
     }
 
-    public boolean existeixJugador(String idJugador) throws IOException {
-        return gestorJugador.existeixJugador(idJugador);
+    public boolean existeixJugador(String username) throws IOException {
+        return gestorJugador.existeixJugador(username);
     }
 
     public int totalJugadors() {
         return gestorJugador.totalJugadors();
+    }
+
+    public String obtenirPasswordJugador(String username) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        return gestorJugador.obtenirPassword(username);
     }
 
     public void afegirPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, TipusAlgorisme tipusAlgorisme) throws IOException, InstanciaJaExisteix {
@@ -71,16 +75,24 @@ public class CtrlPersistencia {
         gestorPartida.actualitzarPartida(idPartida, daoP);
     }
 
-    public Partida obtenirPartida(String idPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+    public Partida obtenirPartida(String idPartida, TipusPartida tipusPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         DAOPartida daoP = gestorPartida.obtenirPartida(idPartida);
         Partida p = null;
         try {
-            p = new Partida(
-                Integer.valueOf(idPartida),
-                daoP.getSolutionCode(),
-                daoP.getRondes(),
-                daoP.getTipusAlgorisme()
-            );
+            if (tipusPartida == TipusPartida.CODEBREAKER) {
+                p = new Codebreaker(Integer.valueOf(idPartida),
+                        daoP.getSolutionCode(),
+                        daoP.getRondes()
+                );
+            } else {
+                p = new Codemaker(
+                        Integer.valueOf(idPartida),
+                        daoP.getSolutionCode(),
+                        daoP.getRondes(),
+                        daoP.getTipusAlgorisme()
+                );
+            }
+
         }
         catch (Exception e) {
             System.out.println("Aquest error no hauria de passar.");
@@ -133,6 +145,10 @@ public class CtrlPersistencia {
 
     public boolean existeixConfiguracioPartida(String idPartida) throws IOException {
         return gestorConfiguracioPartida.existeixConfiguracioPartida(idPartida);
+    }
+
+    public TipusPartida obtenirTipusPartida(String strIdpartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        return gestorConfiguracioPartida.obtenirTipusPartida(strIdpartida);
     }
 
     public void afegirFiveGuess(String idPartida, ArrayList<Integer[]> codisDisponibles, ArrayList<Integer[]> codisPossibles) throws IOException, InstanciaJaExisteix {

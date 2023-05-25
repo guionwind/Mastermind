@@ -33,6 +33,8 @@ public class CtrlDomini {
     // Controlador de persistencia
     private final CtrlPersistencia ctrlPersistencia;
 
+    private final CtrlAlgorisme ctrlAlgorisme;
+
 
     //! METODES
 
@@ -40,11 +42,12 @@ public class CtrlDomini {
      * Constructora del controlador domini
      */
     public CtrlDomini() throws IOException {
-        this.ctrlPartida = new CtrlPartida();
         this.ctrlJugador = new CtrlJugador();
         this.ctrlRanquing = new CtrlRanquing();
         this.ctrlEstadistiquesPartida = new CtrlEstadistiquesPartida();
         this.ctrlPersistencia = new CtrlPersistencia();
+        this.ctrlAlgorisme = new CtrlAlgorisme();
+        this.ctrlPartida = new CtrlPartida(ctrlAlgorisme);
     }
 
     // CtrlPartida
@@ -125,18 +128,28 @@ public class CtrlDomini {
     }
 
     //! del CtrlJugador
-    public void crearJugador (String username, String password) throws JugadorJaExisteix, JugadorInvalid, IOException, InstanciaJaExisteix {
+    public void registrarJugador(String username, String password) throws JugadorJaExisteix, JugadorInvalid, IOException, InstanciaJaExisteix {
         int newId = ctrlPersistencia.totalJugadors();
+
+        if (ctrlPersistencia.existeixJugador(username)) {
+            throw new JugadorJaExisteix("Ja hi ha un jugador amb aquest nom");
+        }
         Jugador j = ctrlJugador.crearJugador(newId, username, password);
-        ctrlPersistencia.afegirJugador(String.valueOf(newId), username, password);
+        ctrlPersistencia.afegirJugador(newId, username, password);
     }
 
     public String getUsername() {
-        return ctrlJugador.getUsername();
+        return ctrlJugador.getLoggedPlayerUsername();
     }
 
-    public String getUsernameFromID(int id) {
-        return ctrlJugador.getUsernameFromID(id);
+    /**
+     * Retorna la contrasenya del usuari indicat per el parametre username
+     * @param username username del usuari
+     * @return retorna la contrasenya del usuari indicat per el username
+     * @throws JugadorNoExisteix en cas que el jugador no existeixi es llança la excepcio
+     */
+    public String getPassword(String username) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        return ctrlPersistencia.obtenirPasswordJugador(username);
     }
 
     //sistema de login: comprova que coincideixin usuari i contrasenya
@@ -150,15 +163,14 @@ public class CtrlDomini {
         ens estalviem un recorregut sobre el map
     */
 
-    public boolean loginAuthentication (String username, String password) throws JugadorNoExisteix {
+    public boolean loginAuthentication (String username, String password) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         boolean correctCredentials = false;
-        String passwd = ctrlJugador.getPassword(username);
-        if (password.isEmpty()) {
-            throw new JugadorNoExisteix("El jugador es incorrecte");
-        }
-        else if (passwd.equals(password)) {
+        String passwd = ctrlPersistencia.obtenirPasswordJugador(username);
+
+        if (passwd.equals(password)) {
             correctCredentials = true;
-            ctrlJugador.setJugadorActual(username);
+
+            ctrlJugador.setJugadorActual(ctrlPersistencia.obtenirJugador(username));
         }
         return correctCredentials;
     }
@@ -227,6 +239,36 @@ public class CtrlDomini {
      */
     public int getEstadistiques(Integer idJugador, Integer idPartida) {
         return ctrlEstadistiquesPartida.getPuntuacio(idJugador, idPartida);
+    }
+
+    public void carregarPartida(int idPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        String strIdpartida = String.valueOf(idPartida);
+
+        TipusPartida tipusPartida = ctrlPersistencia.obtenirTipusPartida(strIdpartida);
+        Partida p = ctrlPersistencia.obtenirPartida(strIdpartida, tipusPartida);
+
+        ConfiguracioPartida configuracioPartida = ctrlPersistencia.obtenirConfiguracioPartida(strIdpartida);
+        p.setConfiguracioPartida(configuracioPartida);
+
+        EstadistiquesPartida estadistiquesPartida = ctrlPersistencia.obtenirEstadistiquesPartida(ctrlJugador.getLoggedPlayerUsername(), strIdpartida);
+        p.setEstadisticaPartida(estadistiquesPartida);
+
+        if (tipusPartida == TipusPartida.CODEMAKER) {
+            TipusAlgorisme tipusAlgorisme = ((Codemaker) p).getTipusAlgorisme();
+
+            if (tipusAlgorisme == TipusAlgorisme.FIVEGUESS) {
+                FiveGuess fiveGuess = ctrlPersistencia.obtenirFiveGuess(strIdpartida);
+                ((Codemaker) p).setFiveGuess(fiveGuess);
+            } else {
+                Genetic genetic = ctrlAlgorisme.crearGenetic(
+                        configuracioPartida.getLongitudCombinacio(),
+                        configuracioPartida.getNumeroColors(),
+                        p.getCodisIntentats(),
+                        p.getRespostes()
+                );
+            }
+        }
+        ctrlPartida.setPartidaActual(p);
     }
 
 

@@ -7,10 +7,14 @@ import domini.classes.exceptions.ValorsRespostaIncorrectes;
 import domini.controllers.CtrlAlgorisme;
 import domini.controllers.CtrlPartida;
 
+import java.util.HashMap;
+
 public class Codemaker extends Partida {
 
-    private final FiveGuess fiveGuess;
-    private final Genetic genetic;
+    private FiveGuess fiveGuess;
+    private Genetic genetic;
+
+    private TipusAlgorisme tipusAlgorisme;
 
     /**
      * Constructora de la classe CodeMaker
@@ -18,18 +22,22 @@ public class Codemaker extends Partida {
      * @param configuracioPartida La configuracio de la partida
      * @param solutionCode Codi solucio de la partida indicat per l'usuari
      */
-    public Codemaker(int idPartida, ConfiguracioPartida configuracioPartida , Integer[] solutionCode, FiveGuess fiveGuess, CtrlPartida ctrlPartida) {
-        super(idPartida, configuracioPartida, solutionCode, ctrlPartida);
+    public Codemaker(int idPartida, ConfiguracioPartida configuracioPartida , Integer[] solutionCode, FiveGuess fiveGuess) {
+        super(idPartida, configuracioPartida, solutionCode);
 
         this.fiveGuess = fiveGuess;
-        this.genetic = null;
     }
 
-    public Codemaker(int idPartida, ConfiguracioPartida configuracioPartida , Integer[] solutionCode, Genetic genetic, CtrlPartida ctrlPartida) {
-        super(idPartida, configuracioPartida, solutionCode, ctrlPartida);
+    public Codemaker(int idPartida, ConfiguracioPartida configuracioPartida , Integer[] solutionCode, Genetic genetic) {
+        super(idPartida, configuracioPartida, solutionCode);
 
         this.genetic = genetic;
-        this.fiveGuess = null;
+    }
+
+    public Codemaker(int idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, TipusAlgorisme tipusAlgorisme) {
+        super(idPartida, solutionCode, rondes);
+
+        this.tipusAlgorisme = tipusAlgorisme;
     }
 
     public Integer[] getCodiMaquinaFiveGuess(Integer[] ultimIntent, String resposta) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
@@ -38,6 +46,18 @@ public class Codemaker extends Partida {
 
     public Integer[] getCodiMaquinaGenetic(String resposta) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         return genetic.esbrina(resposta);
+    }
+
+    public void setFiveGuess(FiveGuess fiveGuess) {
+        this.fiveGuess = fiveGuess;
+    }
+
+    public void setGenetic(Genetic genetic) {
+        this.genetic = genetic;
+    }
+
+    public TipusAlgorisme getTipusAlgorisme() {
+        return tipusAlgorisme;
     }
 
 }

@@ -19,16 +19,13 @@ public class CtrlPartida {
      */
     private final CtrlAlgorisme ctrlAlgorisme;
 
-    private final CtrlDomini ctrlDomini;
-
     /**
      * Constructora de la classe CtrlPartida
      * Inicialitza idPartidaActual a -1 per que no s'inicialtzi automaticament a 0
      * Inicialitza el HashMap
      */
 
-    public CtrlPartida(CtrlAlgorisme ctrlAlgorisme, CtrlDomini ctrlDomini) {
-        idPartidaActual = -1;
+    public CtrlPartida(CtrlAlgorisme ctrlAlgorisme) {
         this.ctrlAlgorisme = ctrlAlgorisme;
     }
 
@@ -51,7 +48,7 @@ public class CtrlPartida {
 
         Integer[] solutionCode = generateSolutionCode(numeroColors, longitudCombinacio);
 
-        partidaActual = new Codebreaker(idPartida, configPartida, solutionCode, this);
+        partidaActual = new Codebreaker(idPartida, configPartida, solutionCode);
 
         return (Codebreaker) partidaActual;
     }
@@ -76,13 +73,17 @@ public class CtrlPartida {
 
         if (tipusAlgorisme == TipusAlgorisme.FIVEGUESS) {
             FiveGuess fiveGuess = ctrlAlgorisme.crearFiveGuess();
-            partidaActual = new Codemaker(idPartida, configPartida, solutionCode, fiveGuess, this);
+            partidaActual = new Codemaker(idPartida, configPartida, solutionCode, fiveGuess);
         } else {
             Genetic genetic = ctrlAlgorisme.crearGenetic(longitudCombinacio, numeroColors);
-            partidaActual = new Codemaker(idPartida, configPartida, solutionCode, genetic, this);
+            partidaActual = new Codemaker(idPartida, configPartida, solutionCode, genetic);
         }
 
         return (Codemaker) partidaActual;
+    }
+
+    public void setPartidaActual(Partida partidaActual) {
+        this.partidaActual = partidaActual;
     }
 
     /**
