@@ -2,10 +2,13 @@ package presentacio.controllers;
 
 import domini.controllers.CtrlDomini;
 import presentacio.views.*;
+
+import java.io.IOException;
+
 public class CtrlPresentacio {
     private CtrlDomini cd;
 
-    public CtrlPresentacio() {
+    public CtrlPresentacio() throws IOException {
         cd = new CtrlDomini();
         iniPresentacio();
     }
