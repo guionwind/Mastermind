@@ -48,15 +48,29 @@ public class DAOPartida {
         this.tipusAlgorisme = tipusAlgorisme;
         this.rondes = rondes;
     }
-
+    /**
+     * Retorna el codi solució de la partida.
+     * 
+     * @return Codi solució de la partida
+     */
     public Integer[] getSolutionCode() {
         return solutionCode;
     }
-
+    /**
+     * Retorna l'algorisme que s'està utilitzant en aquesta partida.
+     * És null si la partida és de tipus Codebreaker.
+     * 
+     * @return El tipus d'algorisme utilitzat (FiveGuess)
+     */
     public TipusAlgorisme getTipusAlgorisme() {
         return tipusAlgorisme;
     }
 
+    /**
+     * Retorna el conjunt de rondes jugades en la partida en un HashMap indexat per la idRonda.
+     * 
+     * @return HashMap<Integer, Ronda> Conjunt de rondes jugades
+     */
     public HashMap<Integer, Ronda> getRondes() {
         return rondes;
     }

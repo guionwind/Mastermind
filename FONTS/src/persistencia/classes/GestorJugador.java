@@ -105,13 +105,34 @@ public class GestorJugador extends Gestor<DAOJugador> {
         return existeixObjecte(id);
     }
 
+    /**
+     * Indica el total de partides que hi ha desades en el disc.
+     * 
+     * @return Nombre de partides guardades al disc
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida
+     *                                  de dades.
+     */
     public int totalJugadors() throws IOException {
         return nombreObjectes();
     }
 
+    /**
+     * Indica la contrasenya del jugador.
+     * 
+     * @param id
+     * @return Contrasenya del jugador
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida
+     *                                  de dades.   
+     * @throws InstanciaNoExisteix      Llença una excepció si la instancia no  
+     *                                  existeix.
+     * @throws ClassNotFoundException   Llença una excepció si la classe
+     *                                  de la instància no s'ha localitzat.
+     */
     public String obtenirPassword(String id) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         if (!existeixObjecte(id))
-            throw new InstanciaNoExisteix("Obtenir Passoword: La instancia amb identificador (" + id + ") no és a l'arxiu.");
+            throw new InstanciaNoExisteix("Obtenir Password: La instancia amb identificador (" + id + ") no és a l'arxiu.");
 
         return obtenirObjecte(id).getPassword();
     }

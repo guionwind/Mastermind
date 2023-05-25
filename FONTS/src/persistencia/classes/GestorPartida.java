@@ -105,6 +105,12 @@ public class GestorPartida extends Gestor<DAOPartida>{
         return existeixObjecte(id);
     }
 
+    /**
+     * Indica el total de partides que hi ha desades en el disc.
+     * 
+     * @return Nombre de partides guardades al disc
+     * @throws IOException
+     */
     public int totalPartides() throws IOException {
         return nombreObjectes();
     }
