@@ -6,9 +6,17 @@ package domini.classes;
 
 public class Ronda {
     // Atributs 
+    /**
+     * Numero de la ronda actual, s'assignen en ordre incremental dins de cada partida començant pel 0 
+     */
     private final int id;
+    /**
+     * Combinacio intentada en la ronda
+     */
     private Integer[] combinacioIntentada;
-
+    /**
+     * Correccio corresponent a l'intent
+     */
     private String correccio;
 
     /**
@@ -19,8 +27,6 @@ public class Ronda {
     public Ronda(int id) {
         this.id = id;
     }
-
-
 
     // Mètodes
     /**
@@ -34,20 +40,32 @@ public class Ronda {
     /**
      * Retorna la combinació intentada en aquesta ronda.
      *
-     * @return La combinació intentada
+     * @return La combinació intentada en la ronda
      */
     public Integer[] getCombinacioIntentada() {
         return combinacioIntentada;
     }
 
+    /**
+     * Estableix la combinacio intentada en aquesta ronda.
+     * @param combinacioIntentada
+     */
     public void setCombinacioIntentada(Integer[] combinacioIntentada) {
         this.combinacioIntentada = combinacioIntentada.clone();
     }
 
+    /**
+     * Obte la correccio corresponent a l'intent
+     * @return Correccio de l'intent de la ronda
+     */
     public String getCorreccio() {
         return correccio;
     }
 
+    /**
+     * Estableix la correccio corresponent a l'intent
+     * @param correccio
+     */
     public void setCorreccio(String correccio) {
         this.correccio = correccio;
     }

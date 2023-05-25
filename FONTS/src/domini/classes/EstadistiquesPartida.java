@@ -4,10 +4,21 @@
 package domini.classes;
 
 public class EstadistiquesPartida {
-    // Atributs
+    /**
+     * Identificador del jugador. Part de la clau primària amb idPartida
+     */
     private Integer idJugador;
+    /**
+     * Identificador de la partida. Part de la clau primària amb idJugador
+     */
     private Integer idPartida;
+    /**
+     * Puntuacio obtinguda a la partida
+     */
     private Integer puntuacio;
+    /**
+     * Resultat de la partida: true si s'ha guanyat, false si s'ha perdut
+     */
     private Boolean guanyada;
     
     /**

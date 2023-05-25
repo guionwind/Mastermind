@@ -23,9 +23,20 @@ class estadisticasComparator implements Comparator<Integer[]> {
  */
 public class Ranquing {
     // Atributs
-    private int id;
-    private ArrayList<Integer[]> estadistiques; //cada Integer[] conté {idJugador, puntuacio}
-    private static int nombreRanquings = 0;
+    /**
+     * Identificador del ranquing
+     */
+    //! NO ES FA SERVIR
+    //private int id;
+
+    /**
+     * Conjunt d'estadistiques que conte el ranquing
+     * Cada Integer[] conté {idJugador, puntuacio}
+     */
+    private ArrayList<Integer[]> estadistiques;
+
+    //! NO ES FA SERVIR
+    //private static int nombreRanquings = 0;
 
     /**
      * Constructor de la classe Ranquing.
@@ -33,9 +44,9 @@ public class Ranquing {
      * Id s´assigna de manera incremental
      */
     public Ranquing() {
-        this.id = nombreRanquings;
+        //this.id = nombreRanquings;
         estadistiques = new ArrayList<Integer[]>();
-        ++nombreRanquings;
+        //++nombreRanquings;
     }
 
     // Mètodes
@@ -45,9 +56,12 @@ public class Ranquing {
      *
      * @return ID del ranquing.
      */
+    //! NO ES FA SERVIR
+    /*
     public int getId() {
         return this.id;
     }
+    */
 
     /**
      * Afegeix una estadística al ranquing i l'ordena segons la puntuació.

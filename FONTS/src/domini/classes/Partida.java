@@ -146,14 +146,35 @@ public abstract class Partida {
         r.setCorreccio(correcioRonda);
     }
 
+    /**
+     * Retorna el conjunt de rondes jugades a la partida.
+     * @return Rondes jugades
+     */
     public HashMap<Integer, Ronda> getRondes() {
         return rondes;
     }
 
+    /**
+     * Estableix la configuracio de la partida
+     * @param configuracioPartida Configuracio a establir a la partida
+     */
     public void setConfiguracioPartida(ConfiguracioPartida configuracioPartida) {
         this.configuracioPartida = configuracioPartida;
     }
 
+    /**
+     * Retorna la configuracio de la partida
+     * @param configuracioPartida Configuracio a establir a la partida
+     */
+    public ConfiguracioPartida getConfiguracioPartida() {
+        return configuracioPartida;
+    }
+
+
+    /**
+     * Retorna el conjunt de codis que s'han intentat en les rondes
+     * @return Els codisIntentats a totes les rondes jugades en la partida
+     */
     public ArrayList<Integer[]> getCodisIntentats() {
         ArrayList<Integer[]> codisIntentats = new ArrayList<Integer[]>(rondes.size());
 
@@ -164,6 +185,10 @@ public abstract class Partida {
         return codisIntentats;
     }
 
+    /**
+     * Retorna el conjunt de respostes (correccions) que s'han intentat en les rondes
+     * @return Les correccions de totes les rondes jugades en la partida
+     */
     public ArrayList<String> getRespostes() {
         ArrayList<String> respostes = new ArrayList<String>(rondes.size());
 
