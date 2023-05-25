@@ -1,6 +1,6 @@
 package persistencia.classes;
 
-import domini.classes.TipusPartida;
+import domini.classes.exceptions.InstanciaJaExisteix;
 import domini.classes.exceptions.InstanciaNoExisteix;
 
 import java.io.IOException;
@@ -20,6 +20,93 @@ public class GestorJugador extends Gestor<DAOJugador> {
      */
     public GestorJugador() throws IOException {
         super(fileName);
+    }
+
+    /**
+     * Guarda una nova intància de jugador
+     * amb l'identificador donat.
+     * 
+     * @param id                        Identificador de la instància a guardar.
+     * @param j                        Instància a guardar.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     * @throws InstanciaJaExisteix      Llença una excepció si la instància ja existeix.
+     */
+    public void afegirJugador(String id, DAOJugador j) throws IOException, InstanciaJaExisteix {
+        if (existeixObjecte(id))
+            throw new InstanciaJaExisteix("Afegir Jugador: La instancia amb identificador (" + id + ") ja és a l'arxiu.");
+
+        afegirObjecte(id, j);
+    }
+
+    /**
+     * Actualitza una intància de jugador
+     * amb l'identificador donat.
+     * 
+     * @param id                        Identificador de la instància a guardar.
+     * @param j                        Instància a guardar.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     * @throws InstanciaNoExisteix      Llença una excepció si la instància no existeix.
+     */
+    public void actualitzarJugador(String id, DAOJugador j) throws IOException, InstanciaNoExisteix {
+        if (!existeixObjecte(id))
+            throw new InstanciaNoExisteix("Actualitzar Jugador: La instancia amb identificador (" + id + ") no és a l'arxiu.");
+        
+        actualitzarObjecte(id, j);
+    }
+
+    /**
+     * Obté una intància de jugador
+     * amb l'identificador donat.
+     * 
+     * @param id                        Identificador de la instància a guardar.
+     * @param j                        Instància a guardar.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     * @throws InstanciaNoExisteix      Llença una excepció si la instància no existeix.
+     * @throws ClassNotFoundException   Llença una excepció si la classe de la instància
+     *                                  no s'ha localitzat.
+     */
+    public DAOJugador obtenirJugador(String id) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        if (!existeixObjecte(id))
+            throw new InstanciaNoExisteix("Obtenir Jugador: La instancia amb identificador (" + id + ") no és a l'arxiu.");
+        
+        return obtenirObjecte(id);
+    }
+
+    /**
+     * Esborra una intància de jugador
+     * amb l'identificador donat.
+     * 
+     * @param id                        Identificador de la instància a guardar.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     * @throws InstanciaNoExisteix      Llença una excepció si la instància no existeix.
+     */
+    public void eliminarJugador(String id) throws IOException, InstanciaNoExisteix {        
+        if (!existeixObjecte(id))
+            throw new InstanciaNoExisteix("Eliminar Jugador: La instancia amb identificador (" + id + ") no és a l'arxiu.");
+
+        eliminarObjecte(id);
+    }
+
+    /**
+     * Indica si una intància de jugador existeix
+     * amb l'identificador donat.
+     * 
+     * @param id                        Identificador de la instància a guardar.
+     * @return                          Cert si la instància està guardada i
+     *                                  fals en cas contrari.
+     * @throws IOException              Llença una excepció si hi ha hagut algún
+     *                                  problema amb l'entrada o sortida de dades.
+     */
+    public boolean existeixJugador(String id) throws IOException {
+        return existeixObjecte(id);
+    }
+
+    public int totalJugadors() throws IOException {
+        return nombreObjectes();
     }
 
     public String obtenirPassword(String id) throws IOException, InstanciaNoExisteix, ClassNotFoundException {

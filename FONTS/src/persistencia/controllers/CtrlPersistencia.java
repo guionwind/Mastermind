@@ -57,7 +57,7 @@ public class CtrlPersistencia {
         return gestorJugador.existeixJugador(username);
     }
 
-    public int totalJugadors() {
+    public int totalJugadors() throws IOException {
         return gestorJugador.totalJugadors();
     }
 
@@ -108,7 +108,7 @@ public class CtrlPersistencia {
         return gestorPartida.existeixPartida(idPartida);
     }
     
-    public int totalPartides() {
+    public int totalPartides() throws IOException {
         return gestorPartida.totalPartides();
     }
 
@@ -186,16 +186,16 @@ public class CtrlPersistencia {
 
     public void afegirEstadistiquesPartida(String idJugador, String idPartida, Integer puntuacio, boolean guanyada) throws IOException, InstanciaJaExisteix {
         DAOEstadistiquesPartida daoEP = new DAOEstadistiquesPartida(puntuacio, guanyada);
-        gestorEstadistiquesPartida.afegirEstadistiquesPartida(idJugador, idPartida, daoEP);
+        gestorEstadistiquesPartida.afegirEstadistiquesPartida(idJugador+" "+idPartida, daoEP);
     }
 
     public void actualitzarEstadistiquesPartida(String idJugador, String idPartida, Integer puntuacio, boolean guanyada) throws IOException, InstanciaNoExisteix  {
         DAOEstadistiquesPartida daoEP = new DAOEstadistiquesPartida(puntuacio, guanyada);
-        gestorEstadistiquesPartida.actualitzarEstadistiquesPartida(idJugador, idPartida, daoEP);
+        gestorEstadistiquesPartida.actualitzarEstadistiquesPartida(idJugador+" "+idPartida, daoEP);
     }
 
     public EstadistiquesPartida obtenirEstadistiquesPartida(String idJugador, String idPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
-        DAOEstadistiquesPartida daoEP = gestorEstadistiquesPartida.obtenirEstadistiquesPartida(idJugador, idPartida);
+        DAOEstadistiquesPartida daoEP = gestorEstadistiquesPartida.obtenirEstadistiquesPartida(idJugador+" "+idPartida);
         EstadistiquesPartida eP = null;
         try {
             eP = new EstadistiquesPartida(
@@ -212,10 +212,10 @@ public class CtrlPersistencia {
     }
 
     public void eliminarEstadistiquesPartida(String idJugador, String idPartida) throws IOException, InstanciaNoExisteix {        
-        gestorEstadistiquesPartida.eliminarEstadistiquesPartida(idJugador, idPartida);
+        gestorEstadistiquesPartida.eliminarEstadistiquesPartida(idJugador+" "+idPartida);
     }
 
     public boolean existeixEstadistiquesPartida(String idJugador, String idPartida) throws IOException {
-        return gestorEstadistiquesPartida.existeixEstadistiquesPartida(idJugador, idPartida);
+        return gestorEstadistiquesPartida.existeixEstadistiquesPartida(idJugador+" "+idPartida);
     }
 }

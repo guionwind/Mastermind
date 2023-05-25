@@ -4,8 +4,6 @@ import domini.classes.exceptions.LongitudCombinacioIncorrecte;
 import domini.classes.exceptions.LongitudRespostaIncorrecte;
 import domini.classes.exceptions.NumeroColorsIncorrecte;
 import domini.classes.exceptions.ValorsRespostaIncorrectes;
-import domini.controllers.CtrlAlgorisme;
-import domini.controllers.CtrlPartida;
 
 import java.util.HashMap;
 

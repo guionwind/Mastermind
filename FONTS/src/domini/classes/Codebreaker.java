@@ -1,7 +1,5 @@
 package domini.classes;
 
-import domini.controllers.CtrlPartida;
-
 import java.util.HashMap;
 
 public class Codebreaker extends Partida {
