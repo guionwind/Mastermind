@@ -5,7 +5,8 @@ package domini.classes;
 
 public class EstadistiquesPartida {
     /**
-     * Identificador del jugador. Part de la clau primària amb idPartida
+     * Identificador del jugador. Part de la clau primària amb idPartida.
+     * Una partida només la pot haver jugat un únic jugador.
      */
     private Integer idJugador;
     /**
