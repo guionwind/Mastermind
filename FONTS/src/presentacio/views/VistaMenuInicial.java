@@ -79,11 +79,13 @@ public class VistaMenuInicial extends JDialog {
     }
 
     private void onCarregarPartida() {
-
+        CtrlPresentacio.vistaCarregarPartida(getLocation());
+        dispose();
     }
 
     private void onRanquing() {
-
+        CtrlPresentacio.vistaRanquing(getLocation());
+        dispose();
     }
 
     {

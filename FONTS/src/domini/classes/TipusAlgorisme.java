@@ -3,7 +3,9 @@
  */
 
 package domini.classes;
-
+/**
+ * Enumeration TipusAlgorisme, es composa de FIVEGUESS i GENETIC.
+ */
 public enum TipusAlgorisme {
     FIVEGUESS,
     GENETIC

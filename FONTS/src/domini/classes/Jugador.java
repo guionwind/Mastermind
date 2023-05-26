@@ -2,7 +2,9 @@ package domini.classes;
 
 import java.util.ArrayList;
 
-
+/**
+ * Classe Jugador que gestiona les funcionalitats pertinents d'un jugador.
+ */
 public class Jugador {
     /**
      * Identificador del jugador.

@@ -1,12 +1,12 @@
 package presentacio.controllers;
 
-import domini.classes.TipusAlgorisme;
 import domini.classes.exceptions.*;
 import domini.controllers.CtrlDomini;
 import presentacio.views.*;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CtrlPresentacio {
     private static final CtrlDomini ctrlDomini;
@@ -55,8 +55,16 @@ public class CtrlPresentacio {
         VistaEstadistiquesPartida vE = new VistaEstadistiquesPartida(location);
     }
 
-    public static void vistaPartida() {
-        VistaPartida vE = new VistaPartida();
+    public static void vistaPartida(Point location) {
+        VistaPartida vE = new VistaPartida(location);
+    }
+
+    public static void vistaCarregarPartida(Point location) {
+        VistaPartidesGuardades vP = new VistaPartidesGuardades(location);
+    }
+
+    public static void vistaRanquing(Point location) {
+        VistaRanquing vR = new VistaRanquing(location);
     }
 
     public static void main (String [] args)  {
@@ -91,12 +99,32 @@ public class CtrlPresentacio {
         ctrlDomini.jugarRondaCodeMaker();
     }
 
-    public static void xd(){
-        ctrlDomini.
+    public static int partidaAcabada(Boolean guanyada){
+        return ctrlDomini.partidaAcabada(guanyada);
+    }
+
+    public static int partidaAcabadaCodemaker(){
+        return ctrlDomini.partidaAcabadaCodemaker();
+    }
+
+    public static void setCorreccioRonda(String combinacio){
+        ctrlDomini.setCorreccioRonda(combinacio);
+    }
+
+    public static ArrayList<Integer[]> getTop10(){
+        return ctrlDomini.getTop10();
     }
     
     public static String demanarPista(){
         return ctrlDomini.demanarPista();
+    }
+
+    public static void guardarPartida() throws IOException, InstanciaNoExisteix {
+        ctrlDomini.guardarPartidaActual();
+    }
+
+    public static void getEstadistiquesPartida() {
+        ctrlDomini.getEstadistiques();
     }
 
     public static void tancarSessio() {

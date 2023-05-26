@@ -32,9 +32,11 @@ public class VistaPartida extends JDialog {
     private ArrayList<JPanel> panelListCorreccio = new ArrayList<>();
 
 
-    public VistaPartida() {
+    public VistaPartida(Point location) {
+        setLocation(location);
         setContentPane(contentPane);
-        setModal(true);
+        this.pack();
+        setVisible(true);
         getRootPane().setDefaultButton(bSortir);
 
         combinacio.add(0); //FIXME TREURE UN COP IMPLEMENTAT AMB DOMINI
@@ -68,22 +70,7 @@ public class VistaPartida extends JDialog {
         bCorretgir.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                System.out.print("RONDA " + current_round + ": ");
-                for (int i = 0; i < buttonMatrix.get(intents - current_round - 1).size(); i++) {
-                    RoundButton button = buttonMatrix.get(intents - (current_round) - 1).get(i);
-                    System.out.print(button.getCurrentColor() + " ");
-                    button.setEnabled(false);
-                    buttonMatrix.get(intents - (current_round + 1) - 1).get(i).setEnabled(true);
-
-                    //TODO DOMINI
-                    Color color = button.getCurrentColor() == combinacio.get(i) ? Color.WHITE : Color.BLACK;
-                    int colorNum = button.getCurrentColor() == combinacio.get(i) ? colors + 1 : colors + 2;
-                    buttonMatrixCorreccio.get(intents - current_round - 1).get(i).setCurrentColor(color, colorNum);
-                    buttonMatrixCorreccio.get(intents - current_round - 1).get(i).revalidate();
-                    buttonMatrixCorreccio.get(intents - current_round - 1).get(i).repaint();
-                }
-                System.out.println();
-                current_round += 1;
+                onCorretgir();
                 super.mousePressed(e);
             }
         });
@@ -196,17 +183,29 @@ public class VistaPartida extends JDialog {
         }
     }
 
+    private void onCorretgir() {
+        System.out.print("RONDA " + current_round + ": ");
+        for (int i = 0; i < buttonMatrix.get(intents - current_round - 1).size(); i++) {
+            RoundButton button = buttonMatrix.get(intents - (current_round) - 1).get(i);
+            System.out.print(button.getCurrentColor() + " ");
+            button.setEnabled(false);
+            buttonMatrix.get(intents - (current_round + 1) - 1).get(i).setEnabled(true);
+
+            //TODO DOMINI
+            Color color = button.getCurrentColor() == combinacio.get(i) ? Color.WHITE : Color.BLACK;
+            int colorNum = button.getCurrentColor() == combinacio.get(i) ? colors + 1 : colors + 2;
+            buttonMatrixCorreccio.get(intents - current_round - 1).get(i).setCurrentColor(color, colorNum);
+            buttonMatrixCorreccio.get(intents - current_round - 1).get(i).revalidate();
+            buttonMatrixCorreccio.get(intents - current_round - 1).get(i).repaint();
+        }
+        System.out.println();
+        current_round += 1;
+    }
+
 
     private void onSortir() {
         // add your code here if necessary
         dispose();
-    }
-
-    public static void main(String[] args) {
-        VistaPartida dialog = new VistaPartida();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 
     {
@@ -226,6 +225,7 @@ public class VistaPartida extends JDialog {
     private void $$$setupUI$$$() {
         contentPane = new JPanel();
         contentPane.setLayout(new GridLayoutManager(3, 3, new Insets(10, 10, 10, 10), -1, -1));
+        contentPane.setPreferredSize(new Dimension(1080, 720));
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel1, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, 1, null, null, null, 0, false));

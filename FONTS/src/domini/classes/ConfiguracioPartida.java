@@ -4,7 +4,9 @@ import domini.classes.exceptions.NumeroIntentsIncorrecte;
 import domini.classes.exceptions.NumeroColorsIncorrecte;
 import domini.classes.exceptions.LongitudCombinacioIncorrecte;
 import domini.classes.exceptions.TipusPartidaInvalid;
-
+/**
+ * Classe ConfiguracioPartida que gestiona les funcionalitats pertinents a les configuracions de les partides.
+ */
 public class ConfiguracioPartida {
     /**
      * Tipus de partida.

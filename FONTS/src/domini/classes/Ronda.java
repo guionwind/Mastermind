@@ -3,7 +3,9 @@
  * Cada ronda té un identificador únic i una combinació intentada.
  */
 package domini.classes;
-
+/**
+ * Classe Ronda que gestiona les funcions pertinents a les rondes d'una partida.
+ */
 public class Ronda {
     // Atributs 
     /**
