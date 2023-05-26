@@ -85,13 +85,11 @@ public class VistaRegister extends JDialog {
                 CtrlPresentacio.vistaMenuInicial(getLocation());
                 dispose();
 
-            } catch (InstanciaJaExisteix ex) {
+            } catch (InstanciaJaExisteix | IOException ex) {
                 throw new RuntimeException(ex);
             } catch (JugadorJaExisteix ex) {
                 lUserExists.setText("L'usuari " + tFNomUsuari.getText() + " ja existeix al sistema");
                 lUserExists.setVisible(true);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
             } catch (ContrasenyaNoCoincideix ex) {
                 lPwdNoCoincideix.setText("Les contrasenyes no coincideixen");
                 lPwdNoCoincideix.setVisible(true);

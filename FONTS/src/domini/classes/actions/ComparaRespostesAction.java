@@ -31,7 +31,6 @@ public class ComparaRespostesAction {
         }
 
 
-        if (negres == 0 && blanques == 0 && buides == 0) return true;
-        return false;
+        return negres == 0 && blanques == 0 && buides == 0;
     }
 }

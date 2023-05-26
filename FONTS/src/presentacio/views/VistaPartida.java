@@ -24,7 +24,7 @@ public class VistaPartida extends JDialog {
     private int current_color = 8;
     private String tipus_partida = "Codebreaker";
     private int current_round = 0;
-    private ArrayList<Integer> combinacio = new ArrayList<Integer>();
+    private ArrayList<Integer> combinacio = new ArrayList<>();
     private ArrayList<Color> colorList = new ArrayList<>();
     private ArrayList<ArrayList<RoundButton>> buttonMatrix = new ArrayList<>();
     private ArrayList<ArrayList<RoundButton>> buttonMatrixCorreccio = new ArrayList<>();

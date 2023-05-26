@@ -16,7 +16,7 @@ public class VistaRanquing extends JDialog {
     private JButton bAcceptar;
     private JPanel pRanquing;
     private JLabel lRanquing;
-    private ArrayList<Pair> estadistiques = new ArrayList<Pair>();
+    private ArrayList<Pair> estadistiques = new ArrayList<>();
 
     public VistaRanquing() { //TODO que es passi per parametre el tipus de ranquing (RANQUING GLOBAL, RANQUING PERSONAL)
         setContentPane(contentPane);
@@ -37,12 +37,12 @@ public class VistaRanquing extends JDialog {
     private void iniRanquing() {
         pRanquing.setLayout(new BoxLayout(pRanquing, BoxLayout.Y_AXIS));
 
-        for (int i = 0; i < estadistiques.size(); i++) {
+        for (Pair estadistique : estadistiques) {
             JPanel ranquing_row = new JPanel();
             ranquing_row.setLayout(new FlowLayout());
 
-            ranquing_row.add(new JLabel(estadistiques.get(i).getFirst().toString()));
-            ranquing_row.add(new JLabel(estadistiques.get(i).getSecond().toString()));
+            ranquing_row.add(new JLabel(estadistique.getFirst().toString()));
+            ranquing_row.add(new JLabel(estadistique.getSecond().toString()));
 
             pRanquing.add(ranquing_row);
         }

@@ -76,13 +76,11 @@ public class VistaLogin extends JDialog {
                 CtrlPresentacio.login(tFNomUsuari.getText(), String.valueOf(pFContrasenya.getPassword()));
                 CtrlPresentacio.vistaMenuInicial(getLocation());
                 dispose();
-            } catch (IOException ex) {
+            } catch (IOException | ClassNotFoundException ex) {
                 throw new RuntimeException(ex);
             } catch (InstanciaNoExisteix ex) {
                 lUserNotExists.setText("L'usuari no existeix, registra't siusplau");
                 lUserNotExists.setVisible(true);
-            } catch (ClassNotFoundException ex) {
-                throw new RuntimeException(ex);
             } catch (ContrasenyaIncorrecte ex) {
                 lContrasenyaIncorrecte.setText("La contrasenya és incorrecte");
                 lContrasenyaIncorrecte.setVisible(true);

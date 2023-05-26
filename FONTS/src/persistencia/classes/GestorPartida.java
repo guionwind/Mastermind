@@ -1,7 +1,6 @@
 package persistencia.classes;
 
 import java.io.IOException;
-import java.io.Serializable;
 
 import domini.classes.exceptions.InstanciaJaExisteix;
 import domini.classes.exceptions.InstanciaNoExisteix;

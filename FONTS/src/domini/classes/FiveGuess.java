@@ -67,8 +67,8 @@ public class FiveGuess implements Maquina {
      * Utilitzada per a la creacio d'un algorisme nou.
      */
     public FiveGuess() {
-        codisDisponibles = new ArrayList<Integer[]>(NUM_CODIS);
-        codisPossibles = new ArrayList<Integer[]>(NUM_CODIS);
+        codisDisponibles = new ArrayList<>(NUM_CODIS);
+        codisPossibles = new ArrayList<>(NUM_CODIS);
 
         for (char i=1; i<=NUM_COL; ++i) {
             for (int j=1; j<=NUM_COL; ++j) {
@@ -149,9 +149,8 @@ public class FiveGuess implements Maquina {
         Integer[] codiEsbrinar = new Integer[NUM_PEG];
         int minmax = 1300;
 
-        Iterator<Integer[]> it = codisDisponibles.iterator();
-        while(it.hasNext()) {
-            Integer[] codiDisponible = it.next().clone();
+        for (Integer[] codisDisponible : codisDisponibles) {
+            Integer[] codiDisponible = codisDisponible.clone();
             int max = 0;
             for (String resposta : RESPOSTES) {
                 int numeroCodisPossibles = reduirPossibilitatsSimulacio(codiDisponible, resposta);
@@ -162,8 +161,7 @@ public class FiveGuess implements Maquina {
             if (max != 0 && max < minmax) {
                 minmax = max;
                 codiEsbrinar = codiDisponible.clone();
-            }
-            else if (max == minmax) { // Agafem amb preferencia un codi dels possibles.
+            } else if (max == minmax) { // Agafem amb preferencia un codi dels possibles.
                 if (!estaCodisPossibles(codiEsbrinar) && estaCodisPossibles(codiDisponible))
                     codiEsbrinar = codiDisponible.clone();
             }
@@ -208,9 +206,8 @@ public class FiveGuess implements Maquina {
         Integer[] codiDisponible = codiDisponibleAux.clone();
         Integer numeroCodisPossibles = 0;
 
-        Iterator<Integer[]> it = codisPossibles.iterator();
-        while (it.hasNext()) {
-            String respostaSimulada = CorregeixAction.corregeix(codiDisponible, it.next().clone());
+        for (Integer[] codisPossible : codisPossibles) {
+            String respostaSimulada = CorregeixAction.corregeix(codiDisponible, codisPossible.clone());
             if (ComparaRespostesAction.comparaRespostes(resposta, respostaSimulada))
                 ++numeroCodisPossibles;
         }
@@ -225,9 +222,7 @@ public class FiveGuess implements Maquina {
      * @param   codi            Codi a esborrar.
      */
     private void borrarCodisDisponibles(Integer[] codi) {
-        Iterator<Integer[]> it = codisDisponibles.iterator();
-        while (it.hasNext()) {
-            Integer[] codiDisponible = it.next();
+        for (Integer[] codiDisponible : codisDisponibles) {
             if (codi[0] == codiDisponible[0] && codi[1] == codiDisponible[1] && codi[2] == codiDisponible[2] && codi[3] == codiDisponible[3]) {
                 codisDisponibles.remove(codiDisponible);
                 return;
@@ -243,9 +238,7 @@ public class FiveGuess implements Maquina {
      *                          i fals en cas contrari.
      */
     private boolean estaCodisPossibles(Integer[] codi) {
-        Iterator<Integer[]> it = codisPossibles.iterator();
-        while (it.hasNext()) {
-            Integer[] codiPossible = it.next();
+        for (Integer[] codiPossible : codisPossibles) {
             if (codi[0] == codiPossible[0] && codi[1] == codiPossible[1] && codi[2] == codiPossible[2] && codi[3] == codiPossible[3]) {
                 return true;
             }
@@ -270,16 +263,16 @@ public class FiveGuess implements Maquina {
      */
     public List<List<Integer>> solve (List<Integer> solution) throws Exception {
         if (solution.size() != NUM_PEG) throw new LongitudCombinacioIncorrecte("Mida incorrecte. FiveGuess necessita mida 4");
-        for (int i=0; i<solution.size(); ++i) {
-            Integer fitxa = solution.get(i);
-            if (fitxa < 1 || fitxa > 6) throw new NumeroColorsIncorrecte("Colors incorrectes. FiveGuess necessita colors en rang [1,6]");
+        for (Integer fitxa : solution) {
+            if (fitxa < 1 || fitxa > 6)
+                throw new NumeroColorsIncorrecte("Colors incorrectes. FiveGuess necessita colors en rang [1,6]");
         }
 
         Integer[] solutionArray = new Integer[NUM_PEG];
         solution.toArray(solutionArray);
 
-        ArrayList<List<Integer>> codis = new ArrayList<List<Integer>>();
-        ArrayList<String> respostes = new ArrayList<String>();
+        ArrayList<List<Integer>> codis = new ArrayList<>();
+        ArrayList<String> respostes = new ArrayList<>();
         int ronda = 0;
         boolean trobat = false;
         while (ronda < MAX_STEPS && !trobat) {
@@ -304,27 +297,4 @@ public class FiveGuess implements Maquina {
         return codis;
     }
 
-    /*
-    public static void main(String[] args) throws Exception {
-        int p = 4;
-        int c = 6;
-        System.out.println("NumPeg: " + p + "   NumCol: " + c);
-        
-        Genetic g = new Genetic(p, c);
-
-        List<Integer> codiSolucio = new ArrayList<>(p);
-        for (int i=0; i<p; ++i) codiSolucio.add(ThreadLocalRandom.current().nextInt(1, c+1));
-        System.out.println("Codi solucio: " + codiSolucio);
-
-        long temps_ini = System.nanoTime();
-        List<List<Integer>> solucions = g.solve(codiSolucio);
-        long temps_fin = System.nanoTime();
-
-        for (int i=0; i<solucions.size(); ++i) {
-            System.out.println("Solucio " + (i+1) + ":    " + solucions.get(i));
-        }
-
-        System.out.println((temps_fin - temps_ini) / 1000000000);
-    }
-    */
 }

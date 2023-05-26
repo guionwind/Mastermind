@@ -115,13 +115,12 @@ public class CtrlDomini {
      * Es juga una ronda com a Codemaker. Es demana la combinacioIntentada per l'algorisme que s'utilitzi i despres es corregeix la combinacio.
      *
      * @return Retorna la resposta de la correcio de la ronda.
-     * @throws PartidaInvalida Llença l'excepcio en cas que el tipus de partida no sigui Codemaker.
      * @throws LongitudCombinacioIncorrecte La longitud de la combinacio no coincideix amb la indicada per l'usuari
      * @throws NumeroColorsIncorrecte El numero de colors no coincideix amb l'indicada per l'usuari
      * @throws LongitudRespostaIncorrecte La longitud de la resposta no coincideix amb la indicada per l'usuari
      * @throws ValorsRespostaIncorrectes Els valors indicats a la resposta no son correctes
      */
-    public String[] jugarRondaCodeMaker() throws PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
+    public String[] jugarRondaCodeMaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina().clone();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
         String respostaCombinacio = CorregeixAction.corregeix(combinacioIntentada, ctrlPartida.getSolutionCode());
@@ -130,8 +129,7 @@ public class CtrlDomini {
         for (int i = 0; i < respostaCombinacio.length(); i++){
             combinacioIntentadaString += combinacioIntentada[i].toString();
         }
-        String[] resposta = new String[]{combinacioIntentadaString, respostaCombinacio};
-        return resposta;
+        return new String[]{combinacioIntentadaString, respostaCombinacio};
     }
 
     //! del CtrlJugador
@@ -272,9 +270,7 @@ public class CtrlDomini {
     public Integer partidaAcabadaCodemaker() {
         Integer numRondes = ctrlPartida.getNumeroRondes();
 
-        Integer puntuacio = 100 - numRondes;
-
-        return puntuacio;
+        return 100 - numRondes;
     }
 
     /**

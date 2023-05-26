@@ -24,11 +24,11 @@ public class CorregeixAction {
         }
 
         // White
-        for (int i=0; i<combinacioIntentada.length; ++i) {
-            if (combinacioIntentada[i] != -1) { // Encara no l'hem processat
+        for (Integer integer : combinacioIntentada) {
+            if (integer != -1) { // Encara no l'hem processat
                 boolean trobat = false;
-                for (int j=0; j<combinacioIntentada.length && !trobat; ++j) {
-                    if (combinacioIntentada[i] == solutionCode[j]) {
+                for (int j = 0; j < combinacioIntentada.length && !trobat; ++j) {
+                    if (integer == solutionCode[j]) {
                         trobat = true;
                         resposta.append("W");
                         solutionCode[j] = -1;
