@@ -74,7 +74,8 @@ public class VistaMenuInicial extends JDialog {
     }
 
     private void onNovaPartida() {
-
+        CtrlPresentacio.vistaConfiguracioPartida(getLocation());
+        dispose();
     }
 
     private void onCarregarPartida() {
