@@ -18,7 +18,7 @@ public class DAOEstadistiquesPartida implements Serializable {
      * Constructora buida.
      * Utilitzada per la deserialització de l'objecte.
      */
-    public DAOEstadistiquesPartida() {};
+    public DAOEstadistiquesPartida() {}
 
     /**
      * Constructora amb paràmetres.

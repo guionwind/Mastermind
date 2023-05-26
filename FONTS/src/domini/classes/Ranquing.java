@@ -45,23 +45,11 @@ public class Ranquing {
      */
     public Ranquing() {
         //this.id = nombreRanquings;
-        estadistiques = new ArrayList<Integer[]>();
+        estadistiques = new ArrayList<>();
         //++nombreRanquings;
     }
 
     // Mètodes
-
-    /**
-     * Retorna l'ID del ranquing.
-     *
-     * @return ID del ranquing.
-     */
-    //! NO ES FA SERVIR
-    /*
-    public int getId() {
-        return this.id;
-    }
-    */
 
     /**
      * Afegeix una estadística al ranquing i l'ordena segons la puntuació.
@@ -71,7 +59,7 @@ public class Ranquing {
     public void addEstadistica(Integer[] estadistica) {
         estadistiques.add(estadistica);
         estadisticasComparator estatComparator = new estadisticasComparator();
-        Collections.sort(estadistiques, estatComparator);
+        estadistiques.sort(estatComparator);
     }
 
     /**
@@ -81,7 +69,7 @@ public class Ranquing {
      * @return Llista d'estadístiques de partides amb les puntuacions més altes.
      */
     public ArrayList<Integer[]> getTopN(int n) {
-        ArrayList<Integer[]> tempEstadistiques = new ArrayList<Integer[]>();
+        ArrayList<Integer[]> tempEstadistiques = new ArrayList<>();
         if (estadistiques.size() < n) n = estadistiques.size();
         for (int i = 0; i < n; i++) {
             tempEstadistiques.add(estadistiques.get(i));

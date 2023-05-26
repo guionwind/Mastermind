@@ -10,7 +10,7 @@ public class CtrlEstadistiquesPartida {
 
 
     public CtrlEstadistiquesPartida() {
-        estadistiquesPartida = new HashMap<Integer[], EstadistiquesPartida>();
+        estadistiquesPartida = new HashMap<>();
     }
 
     /**

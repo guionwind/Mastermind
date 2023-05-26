@@ -3,10 +3,6 @@ package domini.controllers;
 import java.util.*;
 import domini.classes.FiveGuess;
 import domini.classes.Genetic;
-import domini.classes.exceptions.LongitudCombinacioIncorrecte;
-import domini.classes.exceptions.LongitudRespostaIncorrecte;
-import domini.classes.exceptions.NumeroColorsIncorrecte;
-import domini.classes.exceptions.ValorsRespostaIncorrectes;
 
 public class CtrlAlgorisme {
 

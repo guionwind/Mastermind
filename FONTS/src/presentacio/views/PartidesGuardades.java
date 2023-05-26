@@ -19,8 +19,8 @@ public class PartidesGuardades extends JDialog {
     private JButton bEnrere;
     private JList lPartides;
     private int partida = -1;
-    private ArrayList<String> partides = new ArrayList<String>();
-    private DefaultListModel<String> listModel = new DefaultListModel<String>();
+    private ArrayList<String> partides = new ArrayList<>();
+    private DefaultListModel<String> listModel = new DefaultListModel<>();
 
     public PartidesGuardades() {
         setContentPane(contentPane);
@@ -46,8 +46,8 @@ public class PartidesGuardades extends JDialog {
     }
 
     private void llistarPartides() {
-        for (int i = 0; i < partides.size(); i++) {
-            listModel.addElement(partides.get(i));
+        for (String partide : partides) {
+            listModel.addElement(partide);
         }
     }
 

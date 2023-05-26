@@ -56,8 +56,8 @@ public class Genetic implements Maquina {
         this.numCol = numCol;
         this.maxMida = (numPeg+2)*10;
         this.maxGen = 25*numPeg;
-        this.codisIntentats = new ArrayList<Integer[]>();
-        this.respostesCodisIntentats = new ArrayList<String>();
+        this.codisIntentats = new ArrayList<>();
+        this.respostesCodisIntentats = new ArrayList<>();
     }
 
     /**
@@ -122,18 +122,18 @@ public class Genetic implements Maquina {
      * @return              Un codi com a possible solucio.
      */
     private Integer[] esbrinaCodi() {
-        ArrayList<Integer[]> codisEscollibles = new ArrayList<Integer[]>(maxMida);
+        ArrayList<Integer[]> codisEscollibles = new ArrayList<>(maxMida);
         int h = 1;
 
-        ArrayList<Integer[]> poblacio = new ArrayList<Integer[]>(POPULATION_CAPACITY);
+        ArrayList<Integer[]> poblacio = new ArrayList<>(POPULATION_CAPACITY);
         inicialitzaPoblacio(poblacio);
         
-        ArrayList<Integer> fitnessPoblacio = new ArrayList<Integer>(POPULATION_CAPACITY);
+        ArrayList<Integer> fitnessPoblacio = new ArrayList<>(POPULATION_CAPACITY);
         for (int i=0; i<POPULATION_CAPACITY; ++i) fitnessPoblacio.add(0);
         calcularFitness(fitnessPoblacio, poblacio, codisEscollibles);
 
         while (h < maxGen && codisEscollibles.size() < maxMida) {
-            ArrayList<Integer[]> generacio = new ArrayList<Integer[]>(POPULATION_CAPACITY);
+            ArrayList<Integer[]> generacio = new ArrayList<>(POPULATION_CAPACITY);
             novaGeneracio(poblacio, fitnessPoblacio, generacio);
             poblacio = generacio;
             
@@ -182,10 +182,9 @@ public class Genetic implements Maquina {
      *                      fals en cas contrari.
      */
     private boolean estaPoblacio(ArrayList<Integer[]> poblacio, Integer[] codi) {
-        for (int i=0; i<poblacio.size(); ++i) {
-            Integer[] aux = poblacio.get(i);
+        for (Integer[] aux : poblacio) {
             boolean trobat = true;
-            for (int j=0; j<codi.length && trobat; ++j) {
+            for (int j = 0; j < codi.length && trobat; ++j) {
                 if (aux[j] != codi[j]) trobat = false;
             }
             if (trobat) return true;
@@ -357,7 +356,7 @@ public class Genetic implements Maquina {
             return pointCrossover(parents, inici, numPeg);
         }
         else {
-            Integer inici = ThreadLocalRandom.current().nextInt(0, numPeg);
+            int inici = ThreadLocalRandom.current().nextInt(0, numPeg);
             Integer fi = ThreadLocalRandom.current().nextInt(inici, numPeg);
             return pointCrossover(parents, inici, fi);
         }
@@ -400,7 +399,7 @@ public class Genetic implements Maquina {
      * @param cromosoma         Codi on es realitza el canvi.
      */
     private void mutation(Integer[] cromosoma) {
-        Integer randomPosicio = ThreadLocalRandom.current().nextInt(0, numPeg);
+        int randomPosicio = ThreadLocalRandom.current().nextInt(0, numPeg);
         Integer randomColor = cromosoma[randomPosicio];
         while (cromosoma[randomPosicio] == randomColor)
             randomColor = ThreadLocalRandom.current().nextInt(1, numCol + 1);
@@ -414,8 +413,8 @@ public class Genetic implements Maquina {
      * @param cromosoma         Codi on es realitza el canvi.
      */
     private void permutation(Integer[] cromosoma) {
-        Integer randomPosicio1 = ThreadLocalRandom.current().nextInt(0, numPeg);
-        Integer randomPosicio2 = ThreadLocalRandom.current().nextInt(0, numPeg);
+        int randomPosicio1 = ThreadLocalRandom.current().nextInt(0, numPeg);
+        int randomPosicio2 = ThreadLocalRandom.current().nextInt(0, numPeg);
         Integer aux = cromosoma[randomPosicio1];
         cromosoma[randomPosicio1] = cromosoma[randomPosicio2];
         cromosoma[randomPosicio2] = aux;
@@ -428,7 +427,7 @@ public class Genetic implements Maquina {
      * @param cromosoma         Codi on es realitza el canvi.
      */
     private void inversion(Integer[] cromosoma) {
-        Integer randomPosicio1 = ThreadLocalRandom.current().nextInt(0, numPeg);
+        int randomPosicio1 = ThreadLocalRandom.current().nextInt(0, numPeg);
         Integer randomPosicio2 = ThreadLocalRandom.current().nextInt(0, numPeg);
         if (randomPosicio1 > randomPosicio2) {
             Integer aux = randomPosicio1;
@@ -502,16 +501,16 @@ public class Genetic implements Maquina {
      */
     public List<List<Integer>> solve(List<Integer> solution) throws Exception {
         if (solution.size() != numPeg) throw new LongitudCombinacioIncorrecte("Mida incorrecte. FiveGuess necessita mida 4");
-        for (int i=0; i<solution.size(); ++i) {
-            Integer fitxa = solution.get(i);
-            if (fitxa < 1 || fitxa > numCol) throw new NumeroColorsIncorrecte("Colors incorrectes. FiveGuess necessita colors en rang [1,6]");
+        for (Integer fitxa : solution) {
+            if (fitxa < 1 || fitxa > numCol)
+                throw new NumeroColorsIncorrecte("Colors incorrectes. FiveGuess necessita colors en rang [1,6]");
         }
 
         Integer[] solutionArray = new Integer[numPeg];
         solution.toArray(solutionArray);
 
-        ArrayList<List<Integer>> codis = new ArrayList<List<Integer>>();
-        ArrayList<String> respostes = new ArrayList<String>();
+        ArrayList<List<Integer>> codis = new ArrayList<>();
+        ArrayList<String> respostes = new ArrayList<>();
         int ronda = 0;
         boolean trobat = false;
         while (ronda < MAX_STEPS && !trobat) {
@@ -540,27 +539,4 @@ public class Genetic implements Maquina {
         return codis;
     }
 
-    /*
-    public static void main(String[] args) throws Exception {
-        int p = ThreadLocalRandom.current().nextInt(4,8);
-        int c = ThreadLocalRandom.current().nextInt(4,8);
-        System.out.println("NumPeg: " + p + "   NumCol: " + c);
-        
-        Genetic g = new Genetic(p, c);
-
-        List<Integer> codiSolucio = new ArrayList<>(p);
-        for (int i=0; i<p; ++i) codiSolucio.add(ThreadLocalRandom.current().nextInt(1, c+1));
-        System.out.println("Codi solucio: " + codiSolucio);
-
-        long temps_ini = System.nanoTime();
-        List<List<Integer>> solucions = g.solve(codiSolucio);
-        long temps_fin = System.nanoTime();
-
-        for (int i=0; i<solucions.size(); ++i) {
-            System.out.println("Solucio " + (i+1) + ":    " + solucions.get(i));
-        }
-
-        System.out.println((temps_fin - temps_ini) / 1000000000);
-    }
-    */
 }

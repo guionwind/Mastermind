@@ -4,6 +4,7 @@ import domini.classes.exceptions.InstanciaJaExisteix;
 import domini.classes.exceptions.InstanciaNoExisteix;
 
 import java.io.IOException;
+
 public class GestorJugador extends Gestor<DAOJugador> {
 
     /**

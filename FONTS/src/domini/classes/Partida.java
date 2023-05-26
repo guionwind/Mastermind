@@ -40,7 +40,7 @@ public abstract class Partida {
         this.id = idPartida;
         this.configuracioPartida = configuracioPartida;
         this.solutionCode = solutionCode;
-        rondes = new HashMap<Integer, Ronda>();
+        rondes = new HashMap<>();
     }
 
     /**
@@ -173,7 +173,7 @@ public abstract class Partida {
      * @return Els codisIntentats a totes les rondes jugades en la partida
      */
     public ArrayList<Integer[]> getCodisIntentats() {
-        ArrayList<Integer[]> codisIntentats = new ArrayList<Integer[]>(rondes.size());
+        ArrayList<Integer[]> codisIntentats = new ArrayList<>(rondes.size());
 
         for (Ronda ronda : rondes.values()) {
             codisIntentats.add(ronda.getCombinacioIntentada());
@@ -187,7 +187,7 @@ public abstract class Partida {
      * @return Les correccions de totes les rondes jugades en la partida
      */
     public ArrayList<String> getRespostes() {
-        ArrayList<String> respostes = new ArrayList<String>(rondes.size());
+        ArrayList<String> respostes = new ArrayList<>(rondes.size());
 
         for (Ronda ronda : rondes.values()) {
             respostes.add(ronda.getCorreccio());

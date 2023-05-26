@@ -1,7 +1,6 @@
 package domini.controllers;
 
 import domini.classes.*;
-import domini.classes.TipusPartida;
 import domini.classes.exceptions.*;
 
 import java.util.Random;
@@ -34,16 +33,15 @@ public class CtrlPartida {
      * Es crea la configuració de la partida
      * Es genera el codi solucio de la partida
      *
-     * @param idPartida Id de la partida a crear
-     * @param numeroIntents Numero d'intents permesos de la partida
-     * @param numeroColors Numero de colors permesos de la partida
+     * @param idPartida          Id de la partida a crear
+     * @param numeroIntents      Numero d'intents permesos de la partida
+     * @param numeroColors       Numero de colors permesos de la partida
      * @param longitudCombinacio Longitud combinacio de la partida
      * @throws LongitudCombinacioIncorrecte Salta l'excepcio en cas que la longitud sigui massa gran o massa petita
-     * @throws NumeroColorsIncorrecte Salta l'excepcio en cas que el numero de colors sigui incorrecte
-     * @throws NumeroIntentsIncorrecte Salta l'excepcio en cas que el numero d'intents sigui incorrecte
-     * @return Retorna la instancia de la partida tipus Codebreaker creada
+     * @throws NumeroColorsIncorrecte       Salta l'excepcio en cas que el numero de colors sigui incorrecte
+     * @throws NumeroIntentsIncorrecte      Salta l'excepcio en cas que el numero d'intents sigui incorrecte
      */
-    public Codebreaker crearPartidaCodebreaker(int idPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
+    public void crearPartidaCodebreaker(int idPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
         TipusPartida t = TipusPartida.CODEBREAKER;
         ConfiguracioPartida configPartida = creaConfiguracioPartida(t ,numeroIntents, numeroColors, longitudCombinacio);
 
@@ -51,7 +49,6 @@ public class CtrlPartida {
 
         partidaActual = new Codebreaker(idPartida, configPartida, solutionCode);
 
-        return (Codebreaker) partidaActual;
     }
 
     /**
@@ -60,19 +57,18 @@ public class CtrlPartida {
      * Es crea la configuració de la partida
      * Es genera el codi solucio de la partida
      *
-     * @param idPartida Id de la partida a crear
-     * @param numeroIntents Numero d'intents permesos de la partida
-     * @param numeroColors Numero de colors permesos de la partida
+     * @param idPartida          Id de la partida a crear
+     * @param numeroIntents      Numero d'intents permesos de la partida
+     * @param numeroColors       Numero de colors permesos de la partida
      * @param longitudCombinacio Longitud combinacio de la partida
-     * @param solutionCode Solucio de la partida
-     * @param tipusAlgorisme Tipus del algorisme triat
-     * @throws NumeroIntentsIncorrecte Salta l'excepcio en cas que el numero d'intents sigui incorrecte
-     * @throws NumeroColorsIncorrecte Salta l'excepcio en cas que el numero de colors sigui incorrecte
+     * @param solutionCode       Solucio de la partida
+     * @param tipusAlgorisme     Tipus del algorisme triat
+     * @throws NumeroIntentsIncorrecte      Salta l'excepcio en cas que el numero d'intents sigui incorrecte
+     * @throws NumeroColorsIncorrecte       Salta l'excepcio en cas que el numero de colors sigui incorrecte
      * @throws LongitudCombinacioIncorrecte Salta l'excepcio en cas que la longitud sigui massa gran o massa petita
-     * @return Retorna la instancia de la partida tipus Codemaker creada
      */
 
-    public Codemaker crearPartidaCodemaker(int idPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, TipusAlgorisme tipusAlgorisme) throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
+    public void crearPartidaCodemaker(int idPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, TipusAlgorisme tipusAlgorisme) throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
         TipusPartida t = TipusPartida.CODEMAKER;
         ConfiguracioPartida configPartida = creaConfiguracioPartida(t, numeroIntents, numeroColors, longitudCombinacio);
 
@@ -84,7 +80,6 @@ public class CtrlPartida {
             partidaActual = new Codemaker(idPartida, configPartida, solutionCode, genetic);
         }
 
-        return (Codemaker) partidaActual;
     }
 
     /**
