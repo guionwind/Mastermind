@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.lang.String;
 import java.io.*;
 
+/**
+ * Controlador principal de la capa de domini, dedicat a la comunicació amb les capes de presentació i persistència
+ */
 public class CtrlDomini {
 
     // Altres controladors de domini

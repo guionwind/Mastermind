@@ -4,6 +4,9 @@ import domini.classes.EstadistiquesPartida;
 
 import java.util.HashMap;
 
+/**
+ * Controlador que gestiona les estadistiques de les partides jugades
+ */
 public class CtrlEstadistiquesPartida {
 
     private HashMap<Integer[], EstadistiquesPartida> estadistiquesPartida;

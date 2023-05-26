@@ -4,6 +4,9 @@ import java.util.*;
 import domini.classes.FiveGuess;
 import domini.classes.Genetic;
 
+/**
+ * Crea les instancies de les classes FiveGuess i Genetic, que implementen els algorismes.
+ */
 public class CtrlAlgorisme {
 
     /**

@@ -6,6 +6,9 @@ import domini.classes.exceptions.*;
 import java.util.Random;
 
 
+/**
+ * Controlador que implementa totes les funcionalitats de jugabilitat de partides i gestiona les rondes
+ */
 public class CtrlPartida {
 
     /**

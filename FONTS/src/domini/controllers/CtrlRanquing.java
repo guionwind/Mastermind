@@ -6,6 +6,9 @@ import domini.classes.Ranquing;
 //import java.util.ArrayList;
 
 
+/**
+ * Controlador que implementa la obtencio de ranquings
+ */
 public class CtrlRanquing {
 
     /**

@@ -7,7 +7,9 @@ import domini.classes.Jugador;
 
 import java.lang.String;
 
-
+/**
+ * Controlador que gestiona totes les operacions sobre Jugadors
+ */
 public class CtrlJugador {
 
     /**
