@@ -7,6 +7,7 @@ import presentacio.views.*;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CtrlPresentacio {
     private static final CtrlDomini ctrlDomini;
@@ -91,8 +92,20 @@ public class CtrlPresentacio {
         ctrlDomini.jugarRondaCodeMaker();
     }
 
-    public static void xd(){
-        ctrlDomini.
+    public static int partidaAcabada(Boolean guanyada){
+        return ctrlDomini.partidaAcabada(guanyada);
+    }
+
+    public static int partidaAcabadaCodemaker(){
+        return ctrlDomini.partidaAcabadaCodemaker();
+    }
+
+    public static void setCorreccioRonda(String combinacio){
+        ctrlDomini.setCorreccioRonda(combinacio);
+    }
+
+    public static ArrayList<Integer[]> getTop10(){
+        return ctrlDomini.getTop10();
     }
     
     public static String demanarPista(){

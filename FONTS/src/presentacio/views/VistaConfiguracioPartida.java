@@ -21,6 +21,7 @@ public class VistaConfiguracioPartida extends JDialog {
     private JSlider sColors;
     private JSlider sLongitud;
     private JPanel pCombinacio;
+    private JComboBox cbAlgorisme;
     private int longitud = 4;
     private int colors = 6;
     private int intents = 5;
@@ -85,6 +86,19 @@ public class VistaConfiguracioPartida extends JDialog {
             }
         }));
 
+        cbAlgorisme.addActionListener((new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (cbAlgorisme.getSelectedItem().toString().equals("Genetic")) {
+                    sColors.setMaximum(7);
+                    sLongitud.setMaximum(7);
+                } else {
+                    sColors.setMaximum(8);
+                    sLongitud.setMaximum(8);
+                }
+            }
+        }));
+
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -128,6 +142,7 @@ public class VistaConfiguracioPartida extends JDialog {
 
     private void handleFields() {
         if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker")) {
+            cbAlgorisme.setVisible(true);
             sColors.setMaximum(8);
             sLongitud.setMaximum(8);
 
@@ -144,13 +159,8 @@ public class VistaConfiguracioPartida extends JDialog {
             sLongitud.setValue(4);
 
         } else {
-            if (cbTipusPartida.getSelectedItem().toString().equals("Genetic")) {
-                sColors.setMaximum(7);
-                sLongitud.setMaximum(7);
-            } else {
-                sColors.setMaximum(8);
-                sLongitud.setMaximum(8);
-            }
+            cbAlgorisme.setVisible(false);
+
             sIntents.setValue(intents);
             sColors.setValue(colors);
             sLongitud.setValue(longitud);
