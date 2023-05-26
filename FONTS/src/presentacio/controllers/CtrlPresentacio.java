@@ -1,6 +1,5 @@
 package presentacio.controllers;
 
-import domini.classes.TipusAlgorisme;
 import domini.classes.exceptions.*;
 import domini.controllers.CtrlDomini;
 import presentacio.views.*;
@@ -56,8 +55,16 @@ public class CtrlPresentacio {
         VistaEstadistiquesPartida vE = new VistaEstadistiquesPartida(location);
     }
 
-    public static void vistaPartida() {
-        VistaPartida vE = new VistaPartida();
+    public static void vistaPartida(Point location) {
+        VistaPartida vE = new VistaPartida(location);
+    }
+
+    public static void vistaCarregarPartida(Point location) {
+        VistaPartidesGuardades vP = new VistaPartidesGuardades(location);
+    }
+
+    public static void vistaRanquing(Point location) {
+        VistaRanquing vR = new VistaRanquing(location);
     }
 
     public static void main (String [] args)  {
