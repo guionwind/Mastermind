@@ -1,7 +1,7 @@
 package persistencia.classes;
 
 import java.io.IOException;
-import java.io.Serializable;
+import java.util.*;
 
 import domini.classes.exceptions.InstanciaJaExisteix;
 import domini.classes.exceptions.InstanciaNoExisteix;
@@ -104,5 +104,18 @@ public class GestorEstadistiquesPartida extends Gestor<DAOEstadistiquesPartida> 
      */
     public boolean existeixEstadistiquesPartida(String id) throws IOException {
         return existeixObjecte(id);
+    }
+
+    public ArrayList<String> obtenirIdJugadors() throws IOException {
+        ArrayList<String> identificadors = obtenirIdentificadors();
+        for (int i=0; i<identificadors.size(); ++i) {
+            String idJugador = identificadors.get(i).split(" ")[0];
+            identificadors.set(i, idJugador);
+        }
+        return identificadors;
+    }
+
+    public ArrayList<DAOEstadistiquesPartida> obtenirEstadistiquesPartidesJugador(String username) throws ClassNotFoundException, IOException {
+        return obtenirObjectes(username);
     }
 }

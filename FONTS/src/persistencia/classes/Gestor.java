@@ -1,6 +1,8 @@
 package persistencia.classes;
 
+import java.beans.PersistenceDelegate;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Base64;
 
 public class Gestor<PersistenceObject> {
@@ -196,6 +198,45 @@ public class Gestor<PersistenceObject> {
 
         br.close();
         return nombreObjectes;
+    }
+
+    protected ArrayList<String> obtenirIdentificadors() throws IOException {
+        FileInputStream fis = new FileInputStream(dirPath + fileName);
+        BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+
+        ArrayList<String> identificadors = new ArrayList<String>();
+        String line = null;
+        while ((line = br.readLine()) != null) {
+            identificadors.add(line);
+            br.readLine(); // Saltem una línia perquè és la linia del objecte serialitzat
+        }
+
+        br.close();
+        return identificadors;
+    }
+    
+    protected ArrayList<PersistenceObject> obtenirObjectes(String id) throws IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream(dirPath + fileName);
+        BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+
+        ArrayList<PersistenceObject> objectes = new ArrayList<PersistenceObject>();
+        String line = null;
+        while ((line = br.readLine()) != null) {
+            String[] identificadors = line.split(" ");
+            boolean trobat = false;
+            for (int i=0; i<identificadors.length && !trobat; ++i) {
+                if (identificadors[i].equals(id)) {
+                    trobat = true;
+                    String objSer = br.readLine();
+                    objectes.add(deserialitzarObjecte(objSer));
+                }
+            }
+            if (!trobat)
+                br.readLine(); // Saltem una línia perquè és la linia del objecte serialitzat
+        }
+
+        br.close();
+        return objectes;
     }
 
     /**

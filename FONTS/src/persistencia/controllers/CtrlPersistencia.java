@@ -218,4 +218,20 @@ public class CtrlPersistencia {
     public boolean existeixEstadistiquesPartida(String idJugador, String idPartida) throws IOException {
         return gestorEstadistiquesPartida.existeixEstadistiquesPartida(idJugador+" "+idPartida);
     }
+
+    public ArrayList<String> obtenirIdJugadorsEstadistiquesPartida() throws IOException {
+        return gestorEstadistiquesPartida.obtenirIdJugadors();
+    }
+
+    public ArrayList<String[]> obtenirEstadistiquesPartidesJugador(String username) throws ClassNotFoundException, IOException {
+        ArrayList<DAOEstadistiquesPartida> estadistiquesPartidasDAO = gestorEstadistiquesPartida.obtenirEstadistiquesPartidesJugador(username);
+        ArrayList<String[]> estadistiquesPartides = new ArrayList<>(estadistiquesPartidasDAO.size());
+
+        for (int i=0; i<estadistiquesPartidasDAO.size(); ++i) {
+            DAOEstadistiquesPartida daoEP = estadistiquesPartidasDAO.get(i);
+            estadistiquesPartides.add(new String[] {String.valueOf(daoEP.getPuntuacio()), String.valueOf(daoEP.getGuanyada())});
+        }
+
+        return estadistiquesPartides;
+    }
 }
