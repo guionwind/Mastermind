@@ -84,6 +84,14 @@ public class CtrlDomini {
     }
 
     /**
+    * Estableix la correccio corresponent a aquesta ronda (la resposta a la combinacio intentada)
+    * @param respostaCombinacio correccio a assignar
+    */
+    public void setCorreccioRonda(String respostaCombinacio) {
+        ctrlPartida.setCorreccioRonda(respostaCombinacio);
+    }
+
+    /**
      * Crea una ronda
      */
     public void crearRonda() {
