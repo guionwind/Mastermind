@@ -68,22 +68,7 @@ public class VistaPartida extends JDialog {
         bCorretgir.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                System.out.print("RONDA " + current_round + ": ");
-                for (int i = 0; i < buttonMatrix.get(intents - current_round - 1).size(); i++) {
-                    RoundButton button = buttonMatrix.get(intents - (current_round) - 1).get(i);
-                    System.out.print(button.getCurrentColor() + " ");
-                    button.setEnabled(false);
-                    buttonMatrix.get(intents - (current_round + 1) - 1).get(i).setEnabled(true);
-
-                    //TODO DOMINI
-                    Color color = button.getCurrentColor() == combinacio.get(i) ? Color.WHITE : Color.BLACK;
-                    int colorNum = button.getCurrentColor() == combinacio.get(i) ? colors + 1 : colors + 2;
-                    buttonMatrixCorreccio.get(intents - current_round - 1).get(i).setCurrentColor(color, colorNum);
-                    buttonMatrixCorreccio.get(intents - current_round - 1).get(i).revalidate();
-                    buttonMatrixCorreccio.get(intents - current_round - 1).get(i).repaint();
-                }
-                System.out.println();
-                current_round += 1;
+                onCorretgir();
                 super.mousePressed(e);
             }
         });
@@ -194,6 +179,25 @@ public class VistaPartida extends JDialog {
             });
             pColors.add(button);
         }
+    }
+
+    private void onCorretgir(){
+        System.out.print("RONDA " + current_round + ": ");
+        for (int i = 0; i < buttonMatrix.get(intents - current_round - 1).size(); i++) {
+            RoundButton button = buttonMatrix.get(intents - (current_round) - 1).get(i);
+            System.out.print(button.getCurrentColor() + " ");
+            button.setEnabled(false);
+            buttonMatrix.get(intents - (current_round + 1) - 1).get(i).setEnabled(true);
+
+            //TODO DOMINI
+            Color color = button.getCurrentColor() == combinacio.get(i) ? Color.WHITE : Color.BLACK;
+            int colorNum = button.getCurrentColor() == combinacio.get(i) ? colors + 1 : colors + 2;
+            buttonMatrixCorreccio.get(intents - current_round - 1).get(i).setCurrentColor(color, colorNum);
+            buttonMatrixCorreccio.get(intents - current_round - 1).get(i).revalidate();
+            buttonMatrixCorreccio.get(intents - current_round - 1).get(i).repaint();
+        }
+        System.out.println();
+        current_round += 1;
     }
 
 
