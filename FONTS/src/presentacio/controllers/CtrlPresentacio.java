@@ -20,7 +20,6 @@ public class CtrlPresentacio {
 
     public CtrlPresentacio() {
         iniPresentacio();
-
     }
 
     public static void iniPresentacio() {
@@ -55,8 +54,8 @@ public class CtrlPresentacio {
         VistaEstadistiquesPartida vE = new VistaEstadistiquesPartida(location);
     }
 
-    public static void vistaPartida(Point location) {
-
+    public static void vistaPartida() {
+        VistaPartida vE = new VistaPartida();
     }
 
     public static void main (String [] args)  {
