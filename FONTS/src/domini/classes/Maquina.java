@@ -13,6 +13,8 @@ public interface Maquina {
          * @param   solution        Solution code of the game to break.
          * @return                  List of the tried codes to break the solution code,
          *                          whether it's achieved or not.
-        */
+         * @throws Exception        Gives exception if the solution code is not in the
+         *                          correct format.
+         */
     public List<List<Integer>>  solve (List<Integer> solution) throws Exception;
 }

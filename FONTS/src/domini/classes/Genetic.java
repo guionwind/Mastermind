@@ -10,11 +10,11 @@ import domini.classes.exceptions.NumeroColorsIncorrecte;
 public class Genetic implements Maquina {
 
     /**
-     * Número màxim d'intents permessos.
+     * Número maxim d'intents permessos.
      */
     private static final int MAX_STEPS = 20;
     /**
-     * Número de codis de la població
+     * Número de codis de la poblacio
      */
     private static final int POPULATION_CAPACITY = 150;
 
@@ -28,25 +28,25 @@ public class Genetic implements Maquina {
      */
     private final int numCol;
     /**
-     * Mida màxima del conjunt de codis marcats com a possible solució.
+     * Mida maxima del conjunt de codis marcats com a possible solucio.
      */
     private final int maxMida;
     /**
-     * Número màxim de generacions.
+     * Número maxim de generacions.
      */
     private final int maxGen;
     /**
-     * Històric de codis intentats
+     * Historic de codis intentats
      */
     private ArrayList<Integer[]> codisIntentats;
     /**
-     * Històric de respostes per als codis intentats.
+     * Historic de respostes per als codis intentats.
      */
     private ArrayList<String> respostesCodisIntentats;
 
     /**
-     * Constructora amb 2 paràmetres.
-     * Utilitzada per a la creació d'un algorisme nou.
+     * Constructora amb 2 parametres.
+     * Utilitzada per a la creacio d'un algorisme nou.
      * 
      * @param numPeg        Número de fitxes del codi.
      * @param numCol        Número de colors possibles.
@@ -61,13 +61,13 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Constructora amb 4 paràmetres.
+     * Constructora amb 4 parametres.
      * Utilitzada per carregar algorismes.
      * 
-     * @param numPeg
-     * @param numCol
-     * @param codisIntentats
-     * @param respostesCodisIntentats
+     * @param numPeg                        Número de fitxes del codi
+     * @param numCol                        Número de colors possibles.
+     * @param codisIntentats                Conjunt de condis fets als torns anteriors.
+     * @param respostesCodisIntentats       Conjunt de respostes rebudes per cada codi intentat.
      */
     public Genetic(int numPeg, int numCol, ArrayList<Integer[]> codisIntentats, ArrayList<String> respostesCodisIntentats) {
         if (codisIntentats == null)  throw new IllegalArgumentException("El conjunt d'intents no pot ser nul.");
@@ -82,10 +82,10 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Retorna un codi com a possible solució.
+     * Retorna un codi com a possible solucio.
      * 
      * @param resposta      La resposta rebuda de l'útlim codi intentat.
-     * @return              Un altre codi com a possible solució.
+     * @return              Un altre codi com a possible solucio.
      */
     public Integer[] esbrina(String resposta) {
         if (codisIntentats.size() > 0 && resposta == null) throw new IllegalArgumentException("La resposta no pot ser un valor nul per a rondes posteriors a la primera.");
@@ -117,9 +117,9 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Retorna un codi com a solució probable.
+     * Retorna un codi com a solucio probable.
      *
-     * @return              Un codi com a possible solució.
+     * @return              Un codi com a possible solucio.
      */
     private Integer[] esbrinaCodi() {
         ArrayList<Integer[]> codisEscollibles = new ArrayList<Integer[]>(maxMida);
@@ -160,7 +160,7 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Retorna un codi generat de manera aleatòria.
+     * Retorna un codi generat de manera aleatoria.
      * 
      * @return              Un codi aleatori.
      */
@@ -174,7 +174,7 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Indica si un codi hi és al conjunt especificat.
+     * Indica si un codi hi es al conjunt especificat.
      * 
      * @param poblacio      Conjunt de codis.
      * @param codi          Codi a buscar.
@@ -194,14 +194,14 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Calcula el valor fitness de cadascún dels codis de la població.
-     * Si els codis no generen cap diferència amb els codis intentats
-     * anteriorment, s'afegeix al conjunt de codis com a possible solució.
+     * Calcula el valor fitness de cadascún dels codis de la poblacio.
+     * Si els codis no generen cap diferencia amb els codis intentats
+     * anteriorment, s'afegeix al conjunt de codis com a possible solucio.
      * 
      * @param fitnessPoblacio       Conjunt a on es guarden els valors
      *                              de fitness de cada codi.
      * @param poblacio              Conjunt de codis dels que es calcula el fitness.
-     * @param codisEscollibles      Conjunt de codis comm a possible solució.
+     * @param codisEscollibles      Conjunt de codis comm a possible solucio.
      */
     private void calcularFitness(ArrayList<Integer> fitnessPoblacio, ArrayList<Integer[]> poblacio, ArrayList<Integer[]> codisEscollibles) {
         int i = codisIntentats.size() + 1;
@@ -224,7 +224,7 @@ public class Genetic implements Maquina {
      * i el codi donat.
      * 
      * @param cromosoma         Codi a commparar.
-     * @return                  Diferències de número de fitxes negres i blanques.
+     * @return                  Diferencies de número de fitxes negres i blanques.
      */
     private Integer[] fitness(Integer[] cromosoma) {
         int puntuacioNegres = 0;
@@ -247,7 +247,7 @@ public class Genetic implements Maquina {
 
     /**
      * Calcula el número de fitxes negres i fitxes blanques
-     * que conté la resposta donada.
+     * que conte la resposta donada.
      * Les fitxes negres es guarden al primer element de l'array
      * i les fitxen blanques al segon element.
      * 
@@ -267,13 +267,13 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Genera una nova població a partir de una població donada i
-     * del fitness de cada codi de la població.
-     * La nova població generada es guarda en un altre conjunt.
+     * Genera una nova poblacio a partir de una poblacio donada i
+     * del fitness de cada codi de la poblacio.
+     * La nova poblacio generada es guarda en un altre conjunt.
      * 
-     * @param poblacio              Conjunt de la població.
-     * @param fitnessPoblacio       Fitness de la població donada.
-     * @param generacio             Conjunt de la nova població.
+     * @param poblacio              Conjunt de la poblacio.
+     * @param fitnessPoblacio       Fitness de la poblacio donada.
+     * @param generacio             Conjunt de la nova poblacio.
      */
     private void novaGeneracio(ArrayList<Integer[]> poblacio, ArrayList<Integer> fitnessPoblacio, ArrayList<Integer[]> generacio) {
         while (generacio.size() < POPULATION_CAPACITY) {
@@ -307,11 +307,11 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Selecciona dos codis de manera aleatòria del conjunt donat.
+     * Selecciona dos codis de manera aleatoria del conjunt donat.
      * 
-     * @param poblacio              Conjuntde de la població.
-     * @param fitnessPoblacio       Fitness de la població donada.
-     * @return                      Dos codis escollits aleatòriament.
+     * @param poblacio              Conjuntde de la poblacio.
+     * @param fitnessPoblacio       Fitness de la poblacio donada.
+     * @return                      Dos codis escollits aleatoriament.
      */
     private Integer[][] randomParents(ArrayList<Integer[]> poblacio, ArrayList<Integer> fitnessPoblacio) {
         Integer[][] parents = new Integer[2][];
@@ -343,9 +343,9 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Genera dos nous codis a partir de la combinació
+     * Genera dos nous codis a partir de la combinacio
      * dels dos codis donats, utilitzant 1-point crossover
-     * o 2-point crossover de manera aleatòria.
+     * o 2-point crossover de manera aleatoria.
      * 
      * @param parents           Dos codis dels que es generaran els altres.
      * @return                  Dos codis nous.
@@ -395,7 +395,7 @@ public class Genetic implements Maquina {
 
     /**
      * Realitza un canvi de valor aleatori a una
-     * posició aleatòria sobre el codi donat.
+     * posicio aleatoria sobre el codi donat.
      * 
      * @param cromosoma         Codi on es realitza el canvi.
      */
@@ -408,8 +408,8 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Intercanvia de posició dos valors a partir
-     * de posicions aleatòries.
+     * Intercanvia de posicio dos valors a partir
+     * de posicions aleatories.
      * 
      * @param cromosoma         Codi on es realitza el canvi.
      */
@@ -423,7 +423,7 @@ public class Genetic implements Maquina {
 
     /**
      * Inverteix una part del codi donat entre
-     * dues posicions aleatòries.
+     * dues posicions aleatories.
      * 
      * @param cromosoma         Codi on es realitza el canvi.
      */
@@ -445,11 +445,11 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Es retorna el codi més adecuat com a possible
-     * solució, d'entre els codis possibles.
+     * Es retorna el codi mes adecuat com a possible
+     * solucio, d'entre els codis possibles.
      * 
-     * @param codisEscollibles          Codis que poden ser solució.
-     * @return                          Codi com a possible solució.
+     * @param codisEscollibles          Codis que poden ser solucio.
+     * @return                          Codi com a possible solucio.
      */
     private Integer[] escollirIntent(ArrayList<Integer[]> codisEscollibles) {
         Integer[] mitjanaRomanen = new Integer[codisEscollibles.size()];
