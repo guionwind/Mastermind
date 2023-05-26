@@ -195,4 +195,8 @@ public abstract class Partida {
 
         return respostes;
     }
+
+    public TipusAlgorisme getTipusAlgorisme() {
+        return null;
+    }
 }

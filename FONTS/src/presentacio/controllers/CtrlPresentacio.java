@@ -119,6 +119,14 @@ public class CtrlPresentacio {
         return ctrlDomini.demanarPista();
     }
 
+    public static void guardarPartida() throws IOException, InstanciaNoExisteix {
+        ctrlDomini.guardarPartidaActual();
+    }
+
+    public static void getEstadistiquesPartida() {
+        ctrlDomini.getEstadistiques();
+    }
+
     public static void tancarSessio() {
         ctrlDomini.logoff();
     }
