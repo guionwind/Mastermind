@@ -21,8 +21,7 @@ public class CtrlPartida {
 
     /**
      * Constructora de la classe CtrlPartida
-     * Inicialitza idPartidaActual a -1 per que no s'inicialtzi automaticament a 0
-     * Inicialitza el HashMap
+     * @param ctrlAlgorisme Controlador que crearà i retornarà instàncies de l'algorisme corresponent
      */
 
     public CtrlPartida(CtrlAlgorisme ctrlAlgorisme) {
@@ -82,6 +81,10 @@ public class CtrlPartida {
         return (Codemaker) partidaActual;
     }
 
+    /**
+     * Assigna la partida actual.
+     * @param partidaActual Partida a assignar
+     */
     public void setPartidaActual(Partida partidaActual) {
         this.partidaActual = partidaActual;
     }
@@ -102,13 +105,17 @@ public class CtrlPartida {
         partidaActual.creaRonda();
     }
 
+    /**
+     * Assigna la correcció corresponent a la ronda actual de la partida actual.
+     * @param correcio
+     */
     public void setCorreccioRonda(String correcio) {
         partidaActual.setCorrecioRonda(correcio);
     }
 
     /**
-     * Metode per aconseguir la combinacio intentada de la maquina
-     * @return retorna un integer[] amb la combinacio intentada per la maquina
+     * Metode per aconseguir la combinacio intentada de la maquina amb FiveGuess
+     * @return retorna un integer[] amb la combinacio intentada per la maquina amb FiveGuess
      */
     public Integer[] getCodiMaquina() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Codemaker codemaker = (Codemaker) partidaActual;
@@ -191,7 +198,11 @@ public class CtrlPartida {
 
         return code;
     }
-
+    
+    /**
+     * Retorna el codi solucio de la partida actual
+     * @return codi solucio de la partida actual
+     */
     public Integer[] getSolutionCode() {
         return partidaActual.getSolutionCode();
     }

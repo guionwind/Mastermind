@@ -29,10 +29,14 @@ public class CtrlDomini {
      */
     private final CtrlEstadistiquesPartida ctrlEstadistiquesPartida;
 
-
-    // Controlador de persistencia
+    /**
+     * Controlador de persistencia
+     */
     private final CtrlPersistencia ctrlPersistencia;
 
+    /**
+     * Controlador dels algorismes que fa servir la màquina
+     */
     private final CtrlAlgorisme ctrlAlgorisme;
 
 
@@ -87,9 +91,8 @@ public class CtrlDomini {
     //Funcions Codebreaker
 
     /**
-     * Es juga una ronda com a Codebreaker. Primer, es guarda la combinacio intentada a
-     * la ronda actual de la partida, despres es corregeix la combinacio
-     * i es retorna la resposta.
+     * Es juga una ronda com a Codebreaker.
+     * Primer, es guarda la combinacio intentada a la ronda actual de la partida, despres es corregeix la combinacio i es retorna la resposta.
      *
      * @param combinacioIntentada Combinacio entrada per el Usuari.
      * @return Retorna la resposta de la correcio de la ronda.
@@ -107,8 +110,7 @@ public class CtrlDomini {
     //Funcions Codemaker
 
     /**
-     * Es juga una ronda com a Codemaker. Es demana la combinacioIntentada per
-     * l'algorisme que s'utilitzi i despres es corregeix la combinacio.
+     * Es juga una ronda com a Codemaker. Es demana la combinacioIntentada per l'algorisme que s'utilitzi i despres es corregeix la combinacio.
      *
      * @return Retorna la resposta de la correcio de la ronda.
      * @throws PartidaInvalida Llença l'excepcio en cas que el
@@ -128,12 +130,24 @@ public class CtrlDomini {
     }
 
     //! del CtrlJugador
-    public void registrarJugador(String username, String password, String confirmPassowrd) throws JugadorJaExisteix, IOException, InstanciaJaExisteix, ContrasenyaNoCoincideix {
+    /**
+     * Enregistra un jugador nou al sistema i el desa al disc.
+     * Com a mesura d'usabilitat, l'usuari introdueix dos cops la seva contrasenya i només es fa el registre en cas que coincideixin ambdues.
+     * 
+     * @param username  Nom del jugador a enregistrar-se
+     * @param password  Contrasenya que usara el jugador en loguejar-se
+     * @param confirmPassword   Confirmacio de la contrasenya del jugador
+     * @throws JugadorJaExisteix    El nom pertany a un jugador existent
+     * @throws IOException          Error d'entrada i sortida
+     * @throws InstanciaJaExisteix  Ja s'ha creat aquest jugador
+     * @throws ContrasenyaNoCoincideix  password i confirmPassword no coincideixen
+     */
+    public void registrarJugador(String username, String password, String confirmPassword) throws JugadorJaExisteix, IOException, InstanciaJaExisteix, ContrasenyaNoCoincideix {
         int newId = ctrlPersistencia.totalJugadors();
 
         if (ctrlPersistencia.existeixJugador(username)) {
             throw new JugadorJaExisteix("Ja hi ha un jugador amb aquest nom");
-        } else if (!password.equals(confirmPassowrd)) {
+        } else if (!password.equals(confirmPassword)) {
             throw new ContrasenyaNoCoincideix("Les contrasenyes no coincideixen");
         }
         Jugador j = ctrlJugador.crearJugador(newId, username, password);
@@ -154,17 +168,19 @@ public class CtrlDomini {
         return ctrlPersistencia.obtenirPasswordJugador(username);
     }
 
-    //sistema de login: comprova que coincideixin usuari i contrasenya
-    //si coincideixen, retorna true
+    //
 
-    //? diria que es pot fer mes eficient si:
-    /*  1. setJugadorActual(String username)
-        2. li demanem contrasenya (sense atributs)
-        3. la comprovem
-        4. si es incorrecta, logout()
-        ens estalviem un recorregut sobre el map
-    */
-
+    /**
+     * Comprova que coincideixin usuari i contrasenya.
+     * Si coincideixen, retorna true. Si no, false.
+     * 
+     * @param username  Nom d'usuari introduit
+     * @param password  Contrasenya introduida
+     * @throws IOException              Error d'entrada i sortida
+     * @throws InstanciaNoExisteix      El nom d'usuari es incorrecte
+     * @throws ClassNotFoundException   No s'ha trobat el Jugador amb el nom
+     * @throws ContrasenyaIncorrecte    La contrasenya es incorrecta
+     */
     public void loginAuthentication (String username, String password) throws IOException, InstanciaNoExisteix, ClassNotFoundException, ContrasenyaIncorrecte {
         String passwd = ctrlPersistencia.obtenirPasswordJugador(username);
 
@@ -176,22 +192,32 @@ public class CtrlDomini {
     }
 
     /**
-     * Logoff: posa el JugadorActual del ctrlJugador a -1
+     * Logoff: posa el JugadorActual del ctrlJugador a null
      */
     public void logoff() {
         ctrlJugador.logoff();
     }
 
     //! del CtrlRanquing
-
+    /**
+     * Obte les dades del ranquing actual.
+     * @return
+     */
     public Ranquing getRanquing() {
         return ctrlRanquing.getRanquing();
     }
 
+    /**
+     * Crea una instància de ranquing dins el controlador del ranquing
+     */
     public void crearRanquing() {
         ctrlRanquing.crearRanquing();
     }
 
+    /**
+     * Retorna les 10 puntuacions mes altes
+     * @return Les 10 millors puntuacions amb el jugador corresponent, en el format {idJugador, puntuacio}
+     */
     public ArrayList<Integer[]> getTop10(){
         return ctrlRanquing.getTop10();
     }
@@ -199,10 +225,14 @@ public class CtrlDomini {
     //CtrlEstadistiquesPartida
 
     /**
-     * La partida ha acabat, per tant es crea la seva estadistica pertinent. Despres afegim una nova
-     * entrada al ranquing
-     *
+     * La partida actual de tipus Codebreaker s'ha acabat.
+     * 
+     * Es crea la seva estadisticaPartida pertinent.
+     * La puntuacio es calcula com a (100 - intents), on intents es correspon al nombre de rondes jugades.
+     * Despres afegim una nova entrada al ranquing, en cas que haguem guanyat la partida. 
+     * 
      * @param guanyada Guanyada indica true si la partida s'ha guanyat.
+     * @return puntuacio final de la partida
      */
     public Integer partidaAcabada(Boolean guanyada) {
         Integer idPartida = ctrlPartida.getIdPartidaActual();
@@ -222,6 +252,12 @@ public class CtrlDomini {
         return puntuacio;
     }
 
+    /**
+     * La partida actual de tipus Codemaker s'ha acabat.
+     * Es retorna la puntuacio final.
+     * La puntuacio es calcula com a (100 - intents), on intents es correspon al nombre de rondes jugades.
+     * @return puntuacio final de la partida
+     */
     public Integer partidaAcabadaCodemaker() {
         Integer numRondes = ctrlPartida.getNumeroRondes();
 
@@ -231,7 +267,8 @@ public class CtrlDomini {
     }
 
     /**
-     * Agafem les estadistiques que volem. Actualment nomes s'agafa la puntuacio de la partida
+     * Agafem les estadistiques que volem.
+     * Nomes ens interessa la puntuacio, però es deixa obert a la extensió.
      *  
      * @param idJugador Identificador del jugador
      * @param idPartida Identificador de la partida
@@ -241,6 +278,14 @@ public class CtrlDomini {
         return ctrlEstadistiquesPartida.getPuntuacio(idJugador, idPartida);
     }
 
+    /**
+     * Carrega una partida des del disc.
+     * 
+     * @param idPartida Identificador de la partida
+     * @throws IOException  Error d'entrada i sortida
+     * @throws InstanciaNoExisteix  No existeix la partida indicada
+     * @throws ClassNotFoundException   No s'ha aconseguit obtenir la instancia a partir de la id
+     */
     public void carregarPartida(int idPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         String strIdpartida = String.valueOf(idPartida);
 

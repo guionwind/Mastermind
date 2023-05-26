@@ -4,7 +4,7 @@ import domini.classes.EstadistiquesPartida;
 import domini.classes.Jugador;
 
 import domini.classes.exceptions.*;
-import jdk.dynalink.linker.support.CompositeTypeBasedGuardingDynamicLinker;
+//import jdk.dynalink.linker.support.CompositeTypeBasedGuardingDynamicLinker;
 
 import java.lang.String;
 
@@ -26,10 +26,11 @@ public class CtrlJugador {
 
     /**
      * Retorna la id del jugador actual loggejat
-     * @return la id del jugadro acutal loggejat o -1 si no hi ha cap jugador loggejat
+     * @return la id del jugador acutal loggejat o -1 si no hi ha cap jugador loggejat
      */
     public int getIdJugador() {
-        return jugadorActual.getID();
+        if (jugadorActual != null) return jugadorActual.getID();
+        else return -1;
     }
 
     /**
@@ -53,15 +54,15 @@ public class CtrlJugador {
     }
 
     /**
-     * Actualitza la variable jugadorActual
-     * @param username username del jugador actual
+     * Assigna el jugadorActual
+     * @param jugadorActual instància a assignar
      */
     public void setJugadorActual(Jugador jugadorActual) {
         this.jugadorActual = jugadorActual;
     }
 
     /**
-     * Desloggeja al jugador actual, basicament posant -1 a la variable que identifica el jugador actual
+     * Desloggeja al jugador actual, establint el jugadorActual a null.
      */
     public void logoff() {
         jugadorActual = null;
