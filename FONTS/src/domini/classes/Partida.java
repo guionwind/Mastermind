@@ -32,10 +32,9 @@ public abstract class Partida {
 
     /**
      * Constructora de la classe partida
-     * La id es extreta apartir d'incrementar l'atribut nombre partides
+     * @param idPartida Id de la partida
      * @param configuracioPartida Configuracio de la partida en questio
      * @param solutionCode Codi solucio de la partida
-     * @param ctrlPartida Controlador de la partida
      */
     public Partida(int idPartida, ConfiguracioPartida configuracioPartida, Integer[] solutionCode) {
         this.id = idPartida;
@@ -162,7 +161,7 @@ public abstract class Partida {
 
     /**
      * Retorna la configuracio de la partida
-     * @param configuracioPartida Configuracio a establir a la partida
+     * @return Retorna una instancia de configuracio partida de la partida
      */
     public ConfiguracioPartida getConfiguracioPartida() {
         return configuracioPartida;

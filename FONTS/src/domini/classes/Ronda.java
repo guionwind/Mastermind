@@ -48,7 +48,7 @@ public class Ronda {
 
     /**
      * Estableix la combinacio intentada en aquesta ronda.
-     * @param combinacioIntentada
+     * @param combinacioIntentada Combinacio intentada per el Codebreaker en aquesta ronda
      */
     public void setCombinacioIntentada(Integer[] combinacioIntentada) {
         this.combinacioIntentada = combinacioIntentada.clone();
@@ -64,7 +64,7 @@ public class Ronda {
 
     /**
      * Estableix la correccio corresponent a l'intent
-     * @param correccio
+     * @param correccio Correccio donada per el Codemaker en aquesta ronda
      */
     public void setCorreccio(String correccio) {
         this.correccio = correccio;

@@ -31,8 +31,8 @@ public class CtrlEstadistiquesPartida {
     //? potser les dues funcions d'aqui a sota s'haurien de fer a CtrlDomini
     /**
      * Retorna la puntuacio obtinguda en una partida donada
-     * @param idJugador
-     * @param idPartida
+     * @param idJugador Id del Jugador de la partida
+     * @param idPartida Id de la partida jugada
      * @return Puntuacio obtinguda
      */
     public Integer getPuntuacio(Integer idJugador, Integer idPartida) {
@@ -44,8 +44,8 @@ public class CtrlEstadistiquesPartida {
 
     /**
      * Obte una instancia d'estadistiquesPartida
-     * @param idJugador
-     * @param idPartida
+     * @param idJugador Id del Jugador de la partida
+     * @param idPartida Id de la partida jugada
      * @return La instancia corresponent
      */
     public EstadistiquesPartida getEstadistiquesPartida(Integer idJugador, Integer idPartida) {

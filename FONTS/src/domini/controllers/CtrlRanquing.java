@@ -29,7 +29,7 @@ public class CtrlRanquing {
 
     /**
      * Retorna el ranquing actual. Pot ser null si no n'hi ha cap assignat.
-     * @return
+     * @return Retorna la instancia de ranquing
      */
     public Ranquing getRanquing() {
         return ranquing;

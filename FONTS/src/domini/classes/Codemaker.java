@@ -85,14 +85,10 @@ public class Codemaker extends Partida {
     /**
      * Genera el següent intent a fer en l'algorisme Genetic
      * 
-     * @param resposta 
-     * @return
-     * @throws LongitudCombinacioIncorrecte
-     * @throws NumeroColorsIncorrecte
-     * @throws LongitudRespostaIncorrecte
-     * @throws ValorsRespostaIncorrectes
+     * @param resposta La correcio donada per l'usuari segons la ultima combinacio donada per la maquina
+     * @return El seguent codi que la maquina jugara
      */
-    public Integer[] getCodiMaquinaGenetic(String resposta) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+    public Integer[] getCodiMaquinaGenetic(String resposta)  {
         return genetic.esbrina(resposta);
     }
 

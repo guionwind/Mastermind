@@ -110,7 +110,7 @@ public class FiveGuess implements Maquina {
      * Si es el primer intent, per tant no s'ha intentat cap codi anteriorment, als
      * parametres ultimCodi i respoastaCodi s'han de passar una referencia null.
      *
-     * @param   ultimultimCodiAuxCodi               Últim codi intentat, null si encara no s'ha intentat cap codi,
+     * @param   ultimCodiAux               Últim codi intentat, null si encara no s'ha intentat cap codi,
      *                                              es a dir, es la primera ronda).
      * @param   respostaCodi                        Respoasta obtinguda a l'haver intentat el codi ultimCodi.
      * @return                                      Un altre codi com a possible solucio.

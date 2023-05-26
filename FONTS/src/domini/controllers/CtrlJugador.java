@@ -43,9 +43,10 @@ public class CtrlJugador {
 
     /**
      * Crea un jugador amb els seus parametres corresponents
+     * @param newId La id del nou jugador
      * @param username username del usuari
      * @param password contrasenya del usuari
-     * @throws JugadorInvalid En cas de que el nom d'usuari no sigui correcte
+     * @return Retorna la instancia del jugador creat
      */
     public Jugador crearJugador(int newId, String username, String password) {
         jugadorActual = new Jugador(newId, username, password);

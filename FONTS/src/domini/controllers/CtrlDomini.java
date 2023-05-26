@@ -44,6 +44,7 @@ public class CtrlDomini {
 
     /**
      * Constructora del controlador domini
+     * @throws IOException Es llança la excepcio en cas que persistencia no hagi pogut obrir, escriure, llegir o crear un arxiu.
      */
     public CtrlDomini() throws IOException {
         this.ctrlJugador = new CtrlJugador();
@@ -75,6 +76,7 @@ public class CtrlDomini {
      * @param numeroColors Numero de colors de la partida
      * @param longitudCombinacio Longitud maxima de la combinacio de colors
      * @param solutionCode Solucio de la partida indicada per l'usuari
+     * @param tipusAlgorisme Tipus del algorisme utilitzat
      * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
      */
     public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, TipusAlgorisme tipusAlgorisme) throws Exception {
@@ -113,8 +115,11 @@ public class CtrlDomini {
      * Es juga una ronda com a Codemaker. Es demana la combinacioIntentada per l'algorisme que s'utilitzi i despres es corregeix la combinacio.
      *
      * @return Retorna la resposta de la correcio de la ronda.
-     * @throws PartidaInvalida Llença l'excepcio en cas que el
-     * tipus de partida no sigui Codemaker.
+     * @throws PartidaInvalida Llença l'excepcio en cas que el tipus de partida no sigui Codemaker.
+     * @throws LongitudCombinacioIncorrecte La longitud de la combinacio no coincideix amb la indicada per l'usuari
+     * @throws NumeroColorsIncorrecte El numero de colors no coincideix amb l'indicada per l'usuari
+     * @throws LongitudRespostaIncorrecte La longitud de la resposta no coincideix amb la indicada per l'usuari
+     * @throws ValorsRespostaIncorrectes Els valors indicats a la resposta no son correctes
      */
     public String[] jugarRondaCodeMaker() throws PartidaInvalida, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina().clone();
@@ -154,6 +159,10 @@ public class CtrlDomini {
         ctrlPersistencia.afegirJugador(newId, username, password);
     }
 
+    /**
+     * Retorna el username del usuari loggejat actualment
+     * @return Retorna el username del usuari loggejat actualment
+     */
     public String getUsername() {
         return ctrlJugador.getLoggedPlayerUsername();
     }
@@ -162,7 +171,9 @@ public class CtrlDomini {
      * Retorna la contrasenya del usuari indicat per el parametre username
      * @param username username del usuari
      * @return retorna la contrasenya del usuari indicat per el username
-     * @throws JugadorNoExisteix en cas que el jugador no existeixi es llança la excepcio
+     * @throws IOException Throws IOException en cas que no es pugui accedir al fitxer on es troba la contrasenya
+     * @throws InstanciaNoExisteix Throws IOException en cas que no existeixi la contrasenya
+     * @throws ClassNotFoundException Throws en cas que no es trobes la classe
      */
     public String getPassword(String username) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         return ctrlPersistencia.obtenirPasswordJugador(username);
@@ -201,7 +212,7 @@ public class CtrlDomini {
     //! del CtrlRanquing
     /**
      * Obte les dades del ranquing actual.
-     * @return
+     * @return Retorna el ranquing actual
      */
     public Ranquing getRanquing() {
         return ctrlRanquing.getRanquing();

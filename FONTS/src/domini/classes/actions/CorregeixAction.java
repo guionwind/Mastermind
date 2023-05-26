@@ -5,6 +5,7 @@ public class CorregeixAction {
     /**
      * Donada una combinacio intentada, retorna la correccio d'aquesta
      * @param combinacioIntentada Combinacio intentada
+     * @param solutionCode Codi Solucio
      * @return retorna un string amb la correcio
      */
     public static String corregeix(Integer[] combinacioIntentada, Integer[] solutionCode) {

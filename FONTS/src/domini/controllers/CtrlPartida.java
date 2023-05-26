@@ -34,12 +34,14 @@ public class CtrlPartida {
      * Es crea la configuració de la partida
      * Es genera el codi solucio de la partida
      *
+     * @param idPartida Id de la partida a crear
      * @param numeroIntents Numero d'intents permesos de la partida
      * @param numeroColors Numero de colors permesos de la partida
      * @param longitudCombinacio Longitud combinacio de la partida
      * @throws LongitudCombinacioIncorrecte Salta l'excepcio en cas que la longitud sigui massa gran o massa petita
      * @throws NumeroColorsIncorrecte Salta l'excepcio en cas que el numero de colors sigui incorrecte
      * @throws NumeroIntentsIncorrecte Salta l'excepcio en cas que el numero d'intents sigui incorrecte
+     * @return Retorna la instancia de la partida tipus Codebreaker creada
      */
     public Codebreaker crearPartidaCodebreaker(int idPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
         TipusPartida t = TipusPartida.CODEBREAKER;
@@ -57,13 +59,17 @@ public class CtrlPartida {
      * S'especifica el tipus de la partida
      * Es crea la configuració de la partida
      * Es genera el codi solucio de la partida
+     *
+     * @param idPartida Id de la partida a crear
      * @param numeroIntents Numero d'intents permesos de la partida
      * @param numeroColors Numero de colors permesos de la partida
      * @param longitudCombinacio Longitud combinacio de la partida
      * @param solutionCode Solucio de la partida
+     * @param tipusAlgorisme Tipus del algorisme triat
      * @throws NumeroIntentsIncorrecte Salta l'excepcio en cas que el numero d'intents sigui incorrecte
      * @throws NumeroColorsIncorrecte Salta l'excepcio en cas que el numero de colors sigui incorrecte
      * @throws LongitudCombinacioIncorrecte Salta l'excepcio en cas que la longitud sigui massa gran o massa petita
+     * @return Retorna la instancia de la partida tipus Codemaker creada
      */
 
     public Codemaker crearPartidaCodemaker(int idPartida, int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, TipusAlgorisme tipusAlgorisme) throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte, LongitudCombinacioIncorrecte {
@@ -107,7 +113,7 @@ public class CtrlPartida {
 
     /**
      * Assigna la correcció corresponent a la ronda actual de la partida actual.
-     * @param correcio
+     * @param correcio Correccio de la ronda, de la combinacio intentada per la maquina
      */
     public void setCorreccioRonda(String correcio) {
         partidaActual.setCorrecioRonda(correcio);
@@ -116,6 +122,10 @@ public class CtrlPartida {
     /**
      * Metode per aconseguir la combinacio intentada de la maquina amb FiveGuess
      * @return retorna un integer[] amb la combinacio intentada per la maquina amb FiveGuess
+     * @throws LongitudRespostaIncorrecte La longitud de la resposta no coincideix amb la indicada per l'usuari
+     * @throws NumeroColorsIncorrecte El numero de colors no coincideix amb la indicada per l'usuari
+     * @throws LongitudCombinacioIncorrecte La longitud de la combinacio no coincideix amb la indicada per l'usuari
+     * @throws ValorsRespostaIncorrectes Els valors de la resposta no son correctes
      */
     public Integer[] getCodiMaquina() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Codemaker codemaker = (Codemaker) partidaActual;

@@ -32,9 +32,9 @@ public class Jugador {
     /**
      * Constructora de Jugador.
      *
-     * @param id
-     * @param username
-     * @param pwd
+     * @param id Id del jugador
+     * @param username Username del jugador
+     * @param pwd Contrasenya del jugador
      */
     public Jugador(int id, String username, String pwd)  {
         this.id = id;
