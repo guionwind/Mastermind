@@ -4,6 +4,7 @@ import domini.classes.actions.CorregeixAction;
 import domini.classes.*;
 import domini.classes.exceptions.*;
 import persistencia.controllers.CtrlPersistencia;
+import presentacio.custom.Pair;
 
 import java.util.ArrayList;
 import java.lang.String;
@@ -282,15 +283,13 @@ public class CtrlDomini {
     }
 
     /**
-     * Agafem les estadistiques que volem.
-     * Nomes ens interessa la puntuacio, però es deixa obert a la extensió.
-     *  
-     * @param idJugador Identificador del jugador
-     * @param idPartida Identificador de la partida
-     * @return retorna les estadistiques de la partida (actualment nomes la puntuacio)
+     * Retorna un pair de puntuacio de la partida i el numero d'intents
+     *
+     * @return retorna les estadistiques de la partida (actualment nomes la puntuacio i numero d'intents)
      */
-    public int getEstadistiques(Integer idJugador, Integer idPartida) {
-        return ctrlEstadistiquesPartida.getPuntuacio(idJugador, idPartida);
+    public Pair getEstadistiques() {
+
+        return new Pair(ctrlEstadistiquesPartida.getPuntuacio(ctrlJugador.getIdJugador(), ctrlPartida.getIdPartidaActual()), ctrlPartida.getNumeroRondes());
     }
 
     /**
@@ -314,7 +313,7 @@ public class CtrlDomini {
         p.setEstadisticaPartida(estadistiquesPartida);
 
         if (tipusPartida == TipusPartida.CODEMAKER) {
-            TipusAlgorisme tipusAlgorisme = ((Codemaker) p).getTipusAlgorisme();
+            TipusAlgorisme tipusAlgorisme = p.getTipusAlgorisme();
 
             if (tipusAlgorisme == TipusAlgorisme.FIVEGUESS) {
                 FiveGuess fiveGuess = ctrlPersistencia.obtenirFiveGuess(strIdpartida);
@@ -326,9 +325,21 @@ public class CtrlDomini {
                         p.getCodisIntentats(),
                         p.getRespostes()
                 );
+                ((Codemaker) p).setGenetic(genetic);
             }
         }
         ctrlPartida.setPartidaActual(p);
+    }
+
+    /**
+     * Passa la informacio necessaria a CtrlPersistencia per guardar la partida actual
+     * @throws InstanciaNoExisteix Es llança quan la partida que es vol guardar no existeix al sistema
+     * @throws IOException Es llança quan persistencia no pot guardar l'arxiu
+     */
+    public void guardarPartidaActual() throws IOException, InstanciaNoExisteix {
+        Partida p = ctrlPartida.getPartidaActual();
+
+        ctrlPersistencia.actualitzarPartida(String.valueOf(p.getId()), p.getSolutionCode(), p.getRondes(), p.getTipusAlgorisme());
     }
 
 

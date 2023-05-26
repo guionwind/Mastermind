@@ -211,4 +211,8 @@ public class CtrlPartida {
     public Integer[] getSolutionCode() {
         return partidaActual.getSolutionCode();
     }
+
+    public Partida getPartidaActual() {
+        return partidaActual;
+    }
 }
