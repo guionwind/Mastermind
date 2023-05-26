@@ -6,7 +6,9 @@ import domini.classes.exceptions.NumeroColorsIncorrecte;
 import domini.classes.exceptions.ValorsRespostaIncorrectes;
 
 import java.util.HashMap;
-
+/**
+ * Classe codemaker que gestiona les partides tipus Codebreaker.
+ */
 public class Codemaker extends Partida {
     /**
      * Instància de FiveGuess associada, que implementa l'algorisme FiveGuess

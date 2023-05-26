@@ -1,7 +1,9 @@
 package domini.classes;
 
 import java.util.HashMap;
-
+/**
+ * Classe codebreaker que gestiona les partides tipus Codebreaker.
+ */
 public class Codebreaker extends Partida {
 
     /**

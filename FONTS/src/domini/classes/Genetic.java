@@ -6,7 +6,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import domini.classes.actions.*;
 import domini.classes.exceptions.LongitudCombinacioIncorrecte;
 import domini.classes.exceptions.NumeroColorsIncorrecte;
-
+/**
+ * Classe Genetic que gestiona les funcions pertinents a l'algorisme Genetic.
+ */
 public class Genetic implements Maquina {
 
     /**

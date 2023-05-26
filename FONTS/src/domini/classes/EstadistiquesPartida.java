@@ -2,7 +2,9 @@
  * Classe EstadistiquesPartida que conté les estadístiques d'una partida.
  */
 package domini.classes;
-
+/**
+ * Classe EstadistiquesPartida que gestiona les funcionalitats pertinents a les estadistiques de les partides.
+ */
 public class EstadistiquesPartida {
     /**
      * Identificador del jugador. Part de la clau primària amb idPartida.

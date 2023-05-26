@@ -7,7 +7,9 @@ import domini.classes.exceptions.NumeroColorsIncorrecte;
 import domini.classes.exceptions.LongitudRespostaIncorrecte;
 import domini.classes.exceptions.ValorsRespostaIncorrectes;
 import domini.classes.actions.*;
-
+/**
+ * Classe FiveGuess que gestiona les funcions pertinents a l'algorisme FiveGuess.
+ */
 public class FiveGuess implements Maquina {
     /**
      * Número de fitxes per al funcionament de l'algorisme FiveGuess.
