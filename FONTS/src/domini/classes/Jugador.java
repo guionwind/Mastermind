@@ -20,13 +20,18 @@ public class Jugador {
     private String password;
 
     /**
+     * ArrayList de les ids de les partides del jugador
+     */
+    private ArrayList<Integer> idPartides;
+
+    /**
      * Conjunt de les estadístiques de les partides que ha jugat el jugador.
      */
     private ArrayList<EstadistiquesPartida> estadistiquesPartides;
     
     /**
      * Constructora de Jugador.
-     * 
+     *
      * @param id
      * @param username
      * @param pwd
@@ -35,36 +40,7 @@ public class Jugador {
         this.id = id;
         this.username = username;
         this.password = pwd;
-
-        estadistiquesPartides = new ArrayList<EstadistiquesPartida>();
     }
-    
-    //! AQUEST METODE NO ES FA SERVIR
-    /** 
-     * Consultora de partides guanyades
-     * @return int nombre de partides guanyades
-     */
-    /*
-    public int PartidesGuanyades() {
-        int guanyades = 0;
-        for (EstadistiquesPartida p : estadistiquesPartides) {
-            if (p.getGuanyada()) ++guanyades;
-        }
-        return guanyades;
-    }
-    */
-
-    //! AQUEST METODE NO ES FA SERVIR
-    /**
-     * Consultora del total de partides jugades.
-     * 
-     * @return Nombre de partides jugades pel Jugador.
-     */
-    /*
-    public int PartidesJugades() {
-        return estadistiquesPartides.size();
-    }
-    */
 
     /**
      * Consultora que retorna la ID del jugador.
