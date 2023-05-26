@@ -1,5 +1,6 @@
 package presentacio.controllers;
 
+import domini.classes.TipusAlgorisme;
 import domini.classes.exceptions.*;
 import domini.controllers.CtrlDomini;
 import presentacio.views.*;
@@ -68,6 +69,34 @@ public class CtrlPresentacio {
 
     public static void register(String username, String password, String confirmPassword) throws InstanciaJaExisteix, JugadorJaExisteix, IOException, ContrasenyaNoCoincideix {
         ctrlDomini.registrarJugador(username, password, confirmPassword);
+    }
+
+    public static void carregarPartida(int id) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        ctrlDomini.carregarPartida(id);
+    }
+
+    public static void crearPartidaCodemaker(int intents, int colors, int longitud, Integer[] combinacio, String tipusAlgorisme) throws Exception {
+        ctrlDomini.crearPartidaCodemaker(intents, colors, longitud, combinacio, domini.classes.TipusAlgorisme.valueOf(tipusAlgorisme)); //FIXME COMPROVAR QUE FUNCIONE
+    }
+
+    public static void crearPartidaCodebreaker(int intents, int colors, int longitud, Integer[] combinacio, String tipusAlgorisme) throws Exception {
+        ctrlDomini.crearPartidaCodebreaker(intents, colors, longitud);
+    }
+
+    public static void jugarRondaCodebreaker(Integer[] combinacio) {
+        ctrlDomini.jugarRondaCodebreaker(combinacio);
+    }
+
+    public static void jugarRondaCodemaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+        ctrlDomini.jugarRondaCodeMaker();
+    }
+
+    public static void xd(){
+        ctrlDomini.
+    }
+    
+    public static String demanarPista(){
+        return ctrlDomini.demanarPista();
     }
 
     public static void tancarSessio() {
