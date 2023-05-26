@@ -24,9 +24,8 @@ public class VistaConfiguracioPartida extends JDialog {
     private int longitud = 4;
     private int colors = 6;
     private int intents = 5;
-
-    ArrayList<Color> colorList = new ArrayList<>();
-    ArrayList<RoundButton> buttonList = new ArrayList<>();
+    private ArrayList<Color> colorList = new ArrayList<>();
+    private ArrayList<RoundButton> buttonList = new ArrayList<>();
 
     public VistaConfiguracioPartida() {
         setContentPane(contentPane);
