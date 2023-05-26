@@ -3,6 +3,9 @@ package domini.classes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Classe que representa una partida i conté les seves rondes.
+ */
 public abstract class Partida {
     /**
      * Identificador de la partida

@@ -1,5 +1,8 @@
 package domini.classes.actions;
 
+/**
+ * Compara si dues respostes son equivalents
+ */
 public class ComparaRespostesAction {
 
     /**

@@ -1,5 +1,8 @@
 package domini.classes.actions;
 
+/**
+ * Action encarregat de donar una correccio donat una combinacioIntentada i el solutionCode
+ */
 public class CorregeixAction {
 
     /**
