@@ -487,7 +487,8 @@ public class Genetic implements Maquina {
     }
 
     /**
-     * Given the solution code, the solve operation uses the genetic algorithm to create the list of codes that will lead
+     * Given the solution code, the solve operation uses one of the proposed algorithm
+     * (either five guess or the genetic one) to create the list of codes that will lead
      * to the solution. If the algorithm is unable to find the solution in less than
      * maxSteps steps, the returned list will contain a list composed of maxSteps codes.
      * The operation will throw an exception in case the secret code solution is not
@@ -496,6 +497,8 @@ public class Genetic implements Maquina {
      * @param   solution        Solution code of the game to break.
      * @return                  List of the tried codes to break the solution code,
      *                          whether it's achieved or not.
+     * @throws Exception        Gives exception if the solution code is not in the
+     *                          correct format.
      */
     public List<List<Integer>> solve(List<Integer> solution) throws Exception {
         if (solution.size() != numPeg) throw new LongitudCombinacioIncorrecte("Mida incorrecte. FiveGuess necessita mida 4");
