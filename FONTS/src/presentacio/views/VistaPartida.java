@@ -1,9 +1,12 @@
 package presentacio.views;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
@@ -167,7 +170,8 @@ public class VistaPartida extends JDialog {
         pCorreccio.revalidate();
         pCorreccio.repaint();
 
-        pColors.setLayout(new BoxLayout(pColors, BoxLayout.Y_AXIS));
+        //pColors.setLayout(new BoxLayout(pColors, BoxLayout.Y_AXIS));
+        pColors.setLayout(new FlowLayout());
         for (int i = 0; i < colors; i++) {
             RoundButton button = new RoundButton("");
             button.setCurrentColor(colorList.get(i), i);
@@ -247,14 +251,40 @@ public class VistaPartida extends JDialog {
         pColors.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(pColors, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bPista = new JButton();
+        bPista.setBackground(new Color(-16777216));
         bPista.setBorderPainted(true);
         bPista.setContentAreaFilled(true);
-        bPista.setIcon(new ImageIcon(getClass().getResource("/presentacio/custom/icons/lightbulb.png")));
-        bPista.setText("");
+        bPista.setFocusable(false);
+        Font bPistaFont = this.$$$getFont$$$(null, -1, 28, bPista.getFont());
+        if (bPistaFont != null) bPista.setFont(bPistaFont);
+        bPista.setForeground(new Color(-1));
+        bPista.setText("Pista");
         contentPane.add(bPista, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         pCorreccio = new JPanel();
         pCorreccio.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(pCorreccio, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {
+        if (currentFont == null) return null;
+        String resultName;
+        if (fontName == null) {
+            resultName = currentFont.getName();
+        } else {
+            Font testFont = new Font(fontName, Font.PLAIN, 10);
+            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {
+                resultName = fontName;
+            } else {
+                resultName = currentFont.getName();
+            }
+        }
+        Font font = new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
+        boolean isMac = System.getProperty("os.name", "").toLowerCase(Locale.ENGLISH).startsWith("mac");
+        Font fontWithFallback = isMac ? new Font(font.getFamily(), font.getStyle(), font.getSize()) : new StyleContext().getFont(font.getFamily(), font.getStyle(), font.getSize());
+        return fontWithFallback instanceof FontUIResource ? fontWithFallback : new FontUIResource(fontWithFallback);
     }
 
     /**

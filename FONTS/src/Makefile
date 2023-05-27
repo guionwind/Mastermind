@@ -14,6 +14,12 @@ class:
 	javac -d bin -encoding UTF-8 -cp $(CLPTH) -sourcepath . presentacio/controllers/CtrlPresentacio.java $(CLASSES)/*.java $(CONTROLADORES)/*.java $(VISTA)/*.java
 
 run:
+ifeq ($(OS), Windows_NT)
+	rmdir /s /q bin
+else
+	rm -rf bin
+endif
+	javac -d bin -encoding UTF-8 -cp $(CLPTH) -sourcepath . presentacio/controllers/CtrlPresentacio.java $(CLASSES)/*.java $(CONTROLADORES)/*.java $(VISTA)/*.java
 	java -cp $(CLPTH) presentacio.controllers.CtrlPresentacio
 
 clean:

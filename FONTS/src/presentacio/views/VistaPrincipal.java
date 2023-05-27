@@ -32,32 +32,32 @@ public class VistaPrincipal extends JDialog {
 
         bTutorial.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
 
                 onTutorial();
             }
         });
         bSortir.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
 
                 System.exit(0);
             }
         });
         bLogin.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
 
                 onLogin();
             }
         });
         bRegister.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
 
                 onRegister();
             }

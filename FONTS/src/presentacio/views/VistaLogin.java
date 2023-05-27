@@ -14,6 +14,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Objects;
 
 public class VistaLogin extends JDialog {
     private JPanel contentPane;
