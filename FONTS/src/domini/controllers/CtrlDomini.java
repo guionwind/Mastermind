@@ -83,8 +83,9 @@ public class CtrlDomini {
      * @param tipusAlgorisme Tipus del algorisme utilitzat
      * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
      */
-    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, TipusAlgorisme tipusAlgorisme) throws Exception {
-        ctrlPartida.crearPartidaCodemaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio, solutionCode, tipusAlgorisme);
+    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, String tipusAlgorisme) throws Exception {
+        TipusAlgorisme tipusAlgorisme1 = TipusAlgorisme.valueOf(tipusAlgorisme);
+        ctrlPartida.crearPartidaCodemaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio, solutionCode, tipusAlgorisme1);
     }
 
     /**
@@ -306,7 +307,7 @@ public class CtrlDomini {
     public void carregarPartida(int idPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         String strIdpartida = String.valueOf(idPartida);
 
-        TipusPartida tipusPartida = ctrlPersistencia.obtenirTipusPartida(strIdpartida);
+        String tipusPartida = ctrlPersistencia.obtenirTipusPartida(strIdpartida);
         Partida p = ctrlPersistencia.obtenirPartida(strIdpartida, tipusPartida);
 
         ConfiguracioPartida configuracioPartida = ctrlPersistencia.obtenirConfiguracioPartida(strIdpartida);
@@ -315,7 +316,7 @@ public class CtrlDomini {
         EstadistiquesPartida estadistiquesPartida = ctrlPersistencia.obtenirEstadistiquesPartida(ctrlJugador.getLoggedPlayerUsername(), strIdpartida);
         p.setEstadisticaPartida(estadistiquesPartida);
 
-        if (tipusPartida == TipusPartida.CODEMAKER) {
+        if (tipusPartida.equals("CODEMAKER")) {
             TipusAlgorisme tipusAlgorisme = p.getTipusAlgorisme();
 
             if (tipusAlgorisme == TipusAlgorisme.FIVEGUESS) {
@@ -342,7 +343,7 @@ public class CtrlDomini {
     public void guardarPartidaActual() throws IOException, InstanciaNoExisteix {
         Partida p = ctrlPartida.getPartidaActual();
 
-        ctrlPersistencia.actualitzarPartida(String.valueOf(p.getId()), p.getSolutionCode(), p.getRondes(), p.getTipusAlgorisme());
+        ctrlPersistencia.actualitzarPartida(String.valueOf(p.getId()), p.getSolutionCode(), p.getRondes(), p.getTipusAlgorisme().toString());
     }
 
 

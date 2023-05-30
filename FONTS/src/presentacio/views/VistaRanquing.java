@@ -6,10 +6,13 @@ import com.intellij.uiDesigner.core.Spacer;
 import presentacio.custom.Pair;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class VistaRanquing extends JDialog {
     private JPanel contentPane;
@@ -26,6 +29,16 @@ public class VistaRanquing extends JDialog {
         getRootPane().setDefaultButton(bAcceptar);
 
         estadistiques.add(new Pair("Marc", 5)); //FIXME TREURE UN COP IMPLEMENTAT AMB DOMINI
+        estadistiques.add(new Pair("Sergio", 3));
+        estadistiques.add(new Pair("Pau", 10));
+        estadistiques.add(new Pair("Julia", 1));
+        estadistiques.add(new Pair("Jacob", 1));
+        estadistiques.add(new Pair("Marc", 5));
+        estadistiques.add(new Pair("Sergio", 3));
+        estadistiques.add(new Pair("Pau", 10));
+        estadistiques.add(new Pair("Julia", 1));
+        estadistiques.add(new Pair("Jacob", 1));
+
 
         bAcceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -44,6 +57,7 @@ public class VistaRanquing extends JDialog {
             ranquing_row.setLayout(new FlowLayout());
 
             ranquing_row.add(new JLabel(estadistique.getFirst().toString()));
+            ranquing_row.add(new JLabel());
             ranquing_row.add(new JLabel(estadistique.getSecond().toString()));
 
             pRanquing.add(ranquing_row);
@@ -89,8 +103,32 @@ public class VistaRanquing extends JDialog {
         pRanquing.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(pRanquing, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         lRanquing = new JLabel();
+        Font lRanquingFont = this.$$$getFont$$$(null, -1, 36, lRanquing.getFont());
+        if (lRanquingFont != null) lRanquing.setFont(lRanquingFont);
         lRanquing.setText("RANQUING");
         contentPane.add(lRanquing, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {
+        if (currentFont == null) return null;
+        String resultName;
+        if (fontName == null) {
+            resultName = currentFont.getName();
+        } else {
+            Font testFont = new Font(fontName, Font.PLAIN, 10);
+            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {
+                resultName = fontName;
+            } else {
+                resultName = currentFont.getName();
+            }
+        }
+        Font font = new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
+        boolean isMac = System.getProperty("os.name", "").toLowerCase(Locale.ENGLISH).startsWith("mac");
+        Font fontWithFallback = isMac ? new Font(font.getFamily(), font.getStyle(), font.getSize()) : new StyleContext().getFont(font.getFamily(), font.getStyle(), font.getSize());
+        return fontWithFallback instanceof FontUIResource ? fontWithFallback : new FontUIResource(fontWithFallback);
     }
 
     /**

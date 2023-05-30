@@ -68,6 +68,20 @@ public class Codemaker extends Partida {
     }
 
     /**
+     * Constructura de la classe Codemaker per a reconstruir-la des del disc.
+     *
+     * @param idPartida Identificador de la partida
+     * @param solutionCode Codi solució de la partida
+     * @param rondes Conjunt de rondes que s'han jugat fins al moment
+     * @param tipusAlgorisme Algorisme utilitzat en la partida (FiveGuess o Genetic)
+     */
+    public Codemaker(int idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) {
+        super(idPartida, solutionCode, rondes);
+
+        this.tipusAlgorisme = TipusAlgorisme.valueOf(tipusAlgorisme);
+    }
+
+    /**
      * Genera el següent intent a fer en l'algorisme FiveGuess
      * 
      * @param ultimIntent Intent anterior de l'algorisme. Si ha de fer el primer intent, aquest paràmetre és null.

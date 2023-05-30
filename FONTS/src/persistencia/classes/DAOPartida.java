@@ -1,6 +1,5 @@
 package persistencia.classes;
 
-import domini.classes.TipusAlgorisme;
 import domini.classes.Ronda;
 
 import java.io.Serializable;
@@ -18,7 +17,7 @@ public class DAOPartida implements Serializable {
      * És null si la partida és de tipus Codebreaker.
      * Ha de ser un dels tipus admesos per l'Enumeration TipusAlgorisme (FIVEGUESS o GENETIC) si la partida és de tipus Codemaker.
      */
-    private TipusAlgorisme tipusAlgorisme;
+    private String tipusAlgorisme;
 
     /**
      * Rondes de la partida.
@@ -45,7 +44,7 @@ public class DAOPartida implements Serializable {
      * @param rondes                Conjunt de les rondes jugades
      */
 
-    public DAOPartida(Integer[] solutionCode, HashMap<Integer, Ronda> rondes, TipusAlgorisme tipusAlgorisme) {
+    public DAOPartida(Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) {
         this.solutionCode = solutionCode;
         this.tipusAlgorisme = tipusAlgorisme;
         this.rondes = rondes;
@@ -64,7 +63,7 @@ public class DAOPartida implements Serializable {
      * 
      * @return El tipus d'algorisme utilitzat (FiveGuess)
      */
-    public TipusAlgorisme getTipusAlgorisme() {
+    public String getTipusAlgorisme() {
         return tipusAlgorisme;
     }
 

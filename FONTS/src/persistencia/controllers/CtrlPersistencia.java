@@ -65,21 +65,21 @@ public class CtrlPersistencia {
         return gestorJugador.obtenirPassword(username);
     }
 
-    public void afegirPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, TipusAlgorisme tipusAlgorisme) throws IOException, InstanciaJaExisteix {
+    public void afegirPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) throws IOException, InstanciaJaExisteix {
         DAOPartida daoP = new DAOPartida(solutionCode, rondes, tipusAlgorisme);
         gestorPartida.afegirPartida(idPartida, daoP);
     }
 
-    public void actualitzarPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, TipusAlgorisme tipusAlgorisme) throws IOException, InstanciaNoExisteix  {
+    public void actualitzarPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) throws IOException, InstanciaNoExisteix  {
         DAOPartida daoP = new DAOPartida(solutionCode, rondes, tipusAlgorisme);
         gestorPartida.actualitzarPartida(idPartida, daoP);
     }
 
-    public Partida obtenirPartida(String idPartida, TipusPartida tipusPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+    public Partida obtenirPartida(String idPartida, String tipusPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         DAOPartida daoP = gestorPartida.obtenirPartida(idPartida);
         Partida p = null;
         try {
-            if (tipusPartida == TipusPartida.CODEBREAKER) {
+            if (tipusPartida.equals( "CODEBREAKER")) {
                 p = new Codebreaker(Integer.valueOf(idPartida),
                         daoP.getSolutionCode(),
                         daoP.getRondes()
@@ -112,12 +112,12 @@ public class CtrlPersistencia {
         return gestorPartida.totalPartides();
     }
 
-    public void afegirConfiguracioPartida(String idPartida, TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException, InstanciaJaExisteix {
+    public void afegirConfiguracioPartida(String idPartida, String tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException, InstanciaJaExisteix {
         DAOConfiguracioPartida daoCP = new DAOConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
         gestorConfiguracioPartida.afegirConfiguracioPartida(idPartida, daoCP);
     }
 
-    public void actualitzarConfiguracioPartida(String idPartida, TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException, InstanciaNoExisteix {
+    public void actualitzarConfiguracioPartida(String idPartida, String tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) throws IOException, InstanciaNoExisteix {
         DAOConfiguracioPartida daoCP = new DAOConfiguracioPartida(tipusPartida, numeroIntents, numeroColors, longitudCombinacio);
         gestorConfiguracioPartida.actualitzarConfiguracioPartida(idPartida, daoCP);
     }
@@ -147,7 +147,7 @@ public class CtrlPersistencia {
         return gestorConfiguracioPartida.existeixConfiguracioPartida(idPartida);
     }
 
-    public TipusPartida obtenirTipusPartida(String strIdpartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+    public String obtenirTipusPartida(String strIdpartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         return gestorConfiguracioPartida.obtenirTipusPartida(strIdpartida);
     }
 

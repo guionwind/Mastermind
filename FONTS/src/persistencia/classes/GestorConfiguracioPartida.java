@@ -2,7 +2,6 @@ package persistencia.classes;
 
 import java.io.*;
 
-import domini.classes.TipusPartida;
 import domini.classes.exceptions.InstanciaJaExisteix;
 import domini.classes.exceptions.InstanciaNoExisteix;
 
@@ -105,7 +104,7 @@ public class GestorConfiguracioPartida extends Gestor<DAOConfiguracioPartida> {
         return existeixObjecte(id);
     }
 
-    public TipusPartida obtenirTipusPartida(String id) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+    public String obtenirTipusPartida(String id) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         if (!existeixObjecte(id))
             throw new InstanciaNoExisteix("Obtenir Tipus Partida: La instancia amb identificador (" + id + ") no és a l'arxiu.");
 

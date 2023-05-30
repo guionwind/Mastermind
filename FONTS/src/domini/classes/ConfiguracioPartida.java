@@ -69,6 +69,35 @@ public class ConfiguracioPartida {
     }
 
     /**
+     * Constructora 3
+     * Crea una nova instància de la classe amb tots els atributs definits.s
+     *
+     * @param   tipusPartida                        Tipus de partida.
+     * @param   numeroIntents                       Número màxim d'intents permessos.
+     * @param   numeroColors                        Número de colors diferents possibles per crear el codi.
+     * @param   longitudCombinacio                  Llargada del codi a crear.
+     *
+     * @throws NumeroIntentsIncorrecte              Llença una excepció si el número d'intents no
+     *                                              està dins del rang.
+     * @throws NumeroColorsIncorrecte               Llença una excepció si el número de colors no
+     *                                              està dins del rang.
+     * @throws LongitudCombinacioIncorrecte         Llença una excepció si el la longitud de la
+     *                                              combinacio no està dins del rang.
+     */
+    public ConfiguracioPartida(String tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio)  throws NumeroIntentsIncorrecte, NumeroColorsIncorrecte,LongitudCombinacioIncorrecte {
+        this.tipusPartida = TipusPartida.valueOf(tipusPartida);
+
+        if (numeroIntents < 1 || numeroIntents > 20) throw new NumeroIntentsIncorrecte("Número d'intents està fora del rang permàs [1,20]");
+        this.numeroIntents = numeroIntents;
+
+        if (numeroColors < 4 || numeroColors > 10) throw new NumeroColorsIncorrecte("Numero de colors està fora del rang permàs [4,10]");
+        this.numeroColors = numeroColors;
+
+        if (longitudCombinacio < 4 || longitudCombinacio > 10) throw new LongitudCombinacioIncorrecte("Longitud de la combinació està fora del rang permàs [4,10]");
+        this.longitudCombinacio = longitudCombinacio;
+    }
+
+    /**
      * Retorna el tipus de partida
      *
      * @return                      Tipus de partida.

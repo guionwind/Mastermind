@@ -1,7 +1,5 @@
 package persistencia.classes;
 
-import domini.classes.TipusPartida;
-
 import java.io.Serializable;
 
 public class DAOConfiguracioPartida implements Serializable {
@@ -9,7 +7,7 @@ public class DAOConfiguracioPartida implements Serializable {
      * Tipus de partida.
      * Ha de ser un dels tipus admesos per l'Enumeration TipusPartida.
      */
-    private TipusPartida tipusPartida;
+    private String tipusPartida;
     /**
      * Número d'intents permesos per intentar trencar el cotipusPartidadi.
      * Equivalent al número de rondes màxim.
@@ -39,7 +37,7 @@ public class DAOConfiguracioPartida implements Serializable {
      * @param numeroColors          Cuantitat de colors diferents.
      * @param longitudCombinacio    Longitud del codi.
      */
-    public DAOConfiguracioPartida(TipusPartida tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
+    public DAOConfiguracioPartida(String tipusPartida, int numeroIntents, int numeroColors, int longitudCombinacio) {
         this.tipusPartida = tipusPartida;
         this.numeroIntents = numeroIntents;
         this.numeroColors = numeroColors;
@@ -51,7 +49,7 @@ public class DAOConfiguracioPartida implements Serializable {
      * 
      * @return      Tipus de partida.
      */
-    public TipusPartida getTipusPartida() {
+    public String getTipusPartida() {
         return tipusPartida;
     }
 

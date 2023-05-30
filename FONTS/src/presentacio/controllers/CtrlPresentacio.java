@@ -84,7 +84,7 @@ public class CtrlPresentacio {
     }
 
     public static void crearPartidaCodemaker(int intents, int colors, int longitud, Integer[] combinacio, String tipusAlgorisme) throws Exception {
-        ctrlDomini.crearPartidaCodemaker(intents, colors, longitud, combinacio, domini.classes.TipusAlgorisme.valueOf(tipusAlgorisme)); //FIXME COMPROVAR QUE FUNCIONE
+        ctrlDomini.crearPartidaCodemaker(intents, colors, longitud, combinacio, tipusAlgorisme); //FIXME COMPROVAR QUE FUNCIONE
     }
 
     public static void crearPartidaCodebreaker(int intents, int colors, int longitud, Integer[] combinacio, String tipusAlgorisme) throws Exception {
