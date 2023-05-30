@@ -26,6 +26,7 @@ public class VistaRanquing extends JDialog {
         setContentPane(contentPane);
         this.pack();
         setVisible(true);
+        setResizable(true);
         getRootPane().setDefaultButton(bAcceptar);
 
         estadistiques.add(new Pair("Marc", 5)); //FIXME TREURE UN COP IMPLEMENTAT AMB DOMINI
