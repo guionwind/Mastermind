@@ -37,6 +37,7 @@ public class VistaPartida extends JDialog {
 
     public VistaPartida(Point location) {
         setLocation(location);
+        setUndecorated(false);
         setContentPane(contentPane);
         this.pack();
         setVisible(true);
