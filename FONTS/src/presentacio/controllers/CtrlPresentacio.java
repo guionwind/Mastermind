@@ -113,7 +113,7 @@ public class CtrlPresentacio {
         return ctrlDomini.setCorreccioRonda(combinacio);
     }
 
-    public static ArrayList<Integer[]> getTop10(){
+    public static ArrayList<Integer[]> getTop10() throws IOException, ClassNotFoundException {
         return ctrlDomini.getTop10();
     }
     

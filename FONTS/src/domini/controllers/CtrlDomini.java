@@ -290,11 +290,18 @@ public class CtrlDomini {
         Integer idPartida = ctrlPartida.getIdPartidaActual();
         Integer idJugador = ctrlJugador.getIdJugador();
         Integer numRondes = ctrlPartida.getNumeroRondes();
+        System.out.println("idPartida "+String.valueOf(idPartida));
+        System.out.println("idJugador "+String.valueOf(idJugador));
+        System.out.println("numRondes "+String.valueOf(numRondes));
 
         Integer puntuacio = 100 - numRondes;
 
         ctrlEstadistiquesPartida.creaEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
         EstadistiquesPartida e = ctrlEstadistiquesPartida.getEstadistiquesPartida(idJugador, idPartida);
+        System.out.println(String.valueOf(e.getPuntuacio()));
+        System.out.println(String.valueOf(e.getIdPartida()));
+        System.out.println(String.valueOf(e.getGuanyada()));
+        System.out.println(String.valueOf(e.getIdJugador()));
 
         //Afegim la estadistica creada a Jugador i a Partida
         ctrlPartida.addEstadistiquesPartida(e);

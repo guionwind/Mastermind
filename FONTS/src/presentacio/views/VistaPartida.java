@@ -242,17 +242,18 @@ public class VistaPartida extends JDialog {
         System.out.println("RONDA " + current_round + ": ");
         Boolean guanyat = false;
         if (tipus_partida == "Codebreaker") {
-            Integer[] combi = new Integer[buttonMatrix.size()];
-            for (int i = 0; i < buttonMatrix.get(intents - current_round - 1).size(); i++) {
+            int longi = buttonMatrix.get(intents - current_round - 1).size();
+            Integer[] combi = new Integer[longi];
+            for (int i = 0; i < longi; i++) {
                 RoundButton button = buttonMatrix.get(intents - current_round - 1).get(i);
                 combi[i] = button.getCurrentColor() + 1;
                 System.out.println(combi[i]);
             }
             String solucio = CtrlPresentacio.jugarRondaCodebreaker(combi);
-            for (int i = 0; i < buttonMatrix.get(intents - current_round - 1).size(); i++) {
+            for (int i = 0; i < longi; i++) {
                 RoundButton button = buttonMatrix.get(intents - current_round - 1).get(i);
                 button.setEnabled(false);
-                buttonMatrix.get(intents - (current_round + 1) - 1).get(i).setEnabled(true);
+                if (current_round < intents - 1) buttonMatrix.get(intents - (current_round + 1) - 1).get(i).setEnabled(true);
 
                 int color = 0;
                 if (solucio.charAt(i) == 'B') {
@@ -291,32 +292,36 @@ public class VistaPartida extends JDialog {
                     RoundButton button_correccio = buttonMatrixCorreccio.get(intents - current_round - 1).get(i);
                     button_correccio.setEnabled(false);
                     buttonMatrix.get(intents - current_round - 1).get(i).setCurrentColor(colorList.get(Integer.valueOf(combinacio_intentada.charAt(i)) - 1), Integer.valueOf(combinacio_intentada.charAt(i)) - 1);
-                    buttonMatrixCorreccio.get(intents - current_round + 1 - 1).get(i).setEnabled(true);
+                    if (current_round < intents - 1) buttonMatrixCorreccio.get(intents - current_round + 1 - 1).get(i).setEnabled(true);
                 }
             } else if (!is_well_corrected) {
                 JOptionPane.showMessageDialog(pCombinacions, "La correccio introduida no es correcte! Torna a provar", "Correccio Incorrecte", JOptionPane.INFORMATION_MESSAGE);
             }
         }
-        current_round += 1;
         if (guanyat) {
             if (tipus_partida == "Codebreaker") {
+                CtrlPresentacio.partidaAcabada(true);
                 CtrlPresentacio.vistaEstadistiquesPartida(getLocation(), "Has Guanyat!");
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(pCombinacions, "La maquina ha guanyat!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+                CtrlPresentacio.partidaAcabadaCodemaker();
                 dispose();
             }
         }
-        if (current_round >= intents) {
+        if (current_round >= intents-1) {
             if (tipus_partida == "Codebreaker") {
                 JOptionPane.showMessageDialog(pCombinacions, "T'has quedat sense intents!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+                CtrlPresentacio.partidaAcabada(false);
                 CtrlPresentacio.vistaEstadistiquesPartida(getLocation(), "Has Perdut!");
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(pCombinacions, "La maquina s'ha quedat sense intents!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+                CtrlPresentacio.partidaAcabadaCodemaker();
                 dispose();
             }
         }
+        current_round += 1;
     }
 
 
