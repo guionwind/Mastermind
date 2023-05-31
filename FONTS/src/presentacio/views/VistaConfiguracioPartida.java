@@ -31,6 +31,7 @@ public class VistaConfiguracioPartida extends JDialog {
     private JLabel lCombinacio;
     private JLabel lIntents;
     private JLabel lColors;
+    private JLabel lLongitud;
     private int longitud = 4;
     private int colors = 6;
     private int intents = 5;
@@ -39,6 +40,7 @@ public class VistaConfiguracioPartida extends JDialog {
 
     public VistaConfiguracioPartida(Point location) {
         setLocation(location);
+        setUndecorated(false);
         setContentPane(contentPane);
         this.pack();
         setVisible(true);
@@ -72,6 +74,8 @@ public class VistaConfiguracioPartida extends JDialog {
 
         sLongitud.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
+                lLongitud.setText(String.valueOf(sLongitud.getValue()));
+
                 int numButtons = sLongitud.getValue();
                 System.out.println(numButtons);
 
@@ -99,13 +103,7 @@ public class VistaConfiguracioPartida extends JDialog {
         cbAlgorisme.addActionListener((new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (cbAlgorisme.getSelectedItem().toString().equals("Genetic")) {
-                    sColors.setMaximum(7);
-                    sLongitud.setMaximum(7);
-                } else {
-                    sColors.setMaximum(8);
-                    sLongitud.setMaximum(8);
-                }
+                handleFields();
             }
         }));
 
@@ -148,11 +146,16 @@ public class VistaConfiguracioPartida extends JDialog {
     }
 
     private void handleFields() {
-        if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker")) {
-            lTipusAlgorisme.setVisible(true);
-            cbAlgorisme.setVisible(true);
+        if (cbAlgorisme.getSelectedItem().toString().equals("Genetic")) {
+            sColors.setMaximum(7);
+            sLongitud.setMaximum(7);
+        } else {
             sColors.setMaximum(8);
             sLongitud.setMaximum(8);
+        }
+        if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker") && cbAlgorisme.getSelectedItem().toString().equals("FiveGuess")) {
+            lTipusAlgorisme.setVisible(true);
+            cbAlgorisme.setVisible(true);
 
             sIntents.setEnabled(false);
             sColors.setEnabled(false);
@@ -165,11 +168,14 @@ public class VistaConfiguracioPartida extends JDialog {
             sIntents.setValue(5);
             sColors.setValue(6);
             sLongitud.setValue(4);
-
         } else {
-            lTipusAlgorisme.setVisible(false);
-            cbAlgorisme.setVisible(false);
-
+            if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker") && cbAlgorisme.getSelectedItem().toString().equals("Genetic")) {
+                lTipusAlgorisme.setVisible(true);
+                cbAlgorisme.setVisible(true);
+            } else {
+                lTipusAlgorisme.setVisible(false);
+                cbAlgorisme.setVisible(false);
+            }
             sIntents.setValue(intents);
             sColors.setValue(colors);
             sLongitud.setValue(longitud);
@@ -278,6 +284,9 @@ public class VistaConfiguracioPartida extends JDialog {
         lColors = new JLabel();
         lColors.setText("6");
         panel2.add(lColors, new GridConstraints(6, 7, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        lLongitud = new JLabel();
+        lLongitud.setText("4");
+        panel2.add(lLongitud, new GridConstraints(8, 7, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         contentPane.add(spacer1, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
