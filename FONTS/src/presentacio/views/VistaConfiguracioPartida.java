@@ -16,6 +16,7 @@ import java.awt.event.*;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Random;
 
 public class VistaConfiguracioPartida extends JDialog {
     private JPanel contentPane;
@@ -62,7 +63,11 @@ public class VistaConfiguracioPartida extends JDialog {
 
         bJugar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onJugar();
+                try {
+                    onJugar();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -156,6 +161,8 @@ public class VistaConfiguracioPartida extends JDialog {
         if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker") && cbAlgorisme.getSelectedItem().toString().equals("FiveGuess")) {
             lTipusAlgorisme.setVisible(true);
             cbAlgorisme.setVisible(true);
+            pCombinacio.setVisible(true);
+            lCombinacio.setVisible(true);
 
             sIntents.setEnabled(false);
             sColors.setEnabled(false);
@@ -172,9 +179,13 @@ public class VistaConfiguracioPartida extends JDialog {
             if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker") && cbAlgorisme.getSelectedItem().toString().equals("Genetic")) {
                 lTipusAlgorisme.setVisible(true);
                 cbAlgorisme.setVisible(true);
+                pCombinacio.setVisible(true);
+                lCombinacio.setVisible(true);
             } else {
                 lTipusAlgorisme.setVisible(false);
                 cbAlgorisme.setVisible(false);
+                pCombinacio.setVisible(false);
+                lCombinacio.setVisible(false);
             }
             sIntents.setValue(intents);
             sColors.setValue(colors);
@@ -186,9 +197,17 @@ public class VistaConfiguracioPartida extends JDialog {
         }
     }
 
-    private void onJugar() {
-        // add your code here
-        CtrlPresentacio.vistaPartida(getLocation());
+    private void onJugar() throws Exception {
+        Integer[] combinacio = new Integer[longitud];
+        if (cbTipusPartida.getSelectedItem().toString() == "Codebreaker") {
+            CtrlPresentacio.crearPartidaCodebreaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue());
+        } else {
+            for (int i = 0; i < longitud; i++) {
+                combinacio[i] = buttonList.get(i).getCurrentColor()+1;
+            }
+            CtrlPresentacio.crearPartidaCodemaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbAlgorisme.getSelectedItem().toString().toUpperCase());
+        }
+        CtrlPresentacio.vistaPartida(getLocation(), sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbTipusPartida.getSelectedItem().toString());
         dispose();
     }
 
@@ -261,11 +280,11 @@ public class VistaConfiguracioPartida extends JDialog {
         panel2.add(sLongitud, new GridConstraints(8, 0, 1, 7, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         lCombinacio = new JLabel();
         lCombinacio.setText("Combinacio:");
-        lCombinacio.setVisible(true);
+        lCombinacio.setVisible(false);
         panel2.add(lCombinacio, new GridConstraints(9, 0, 1, 7, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         pCombinacio = new JPanel();
         pCombinacio.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        pCombinacio.setVisible(true);
+        pCombinacio.setVisible(false);
         panel2.add(pCombinacio, new GridConstraints(10, 0, 1, 7, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         cbAlgorisme = new JComboBox();
         final DefaultComboBoxModel defaultComboBoxModel2 = new DefaultComboBoxModel();

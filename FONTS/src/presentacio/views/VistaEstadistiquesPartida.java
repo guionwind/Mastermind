@@ -16,11 +16,15 @@ public class VistaEstadistiquesPartida extends JDialog {
     private JLabel lIntents;
     private JLabel lPuntuacio;
 
-    public VistaEstadistiquesPartida(Point location) {
+    public VistaEstadistiquesPartida(Point location, int puntuacio, int rondes, String status) {
         setLocation(location);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(bAcceptar);
+
+        lStatus.setText(status);
+        lIntents.setText(String.valueOf(rondes));
+        lPuntuacio.setText(String.valueOf(puntuacio));
 
         bAcceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

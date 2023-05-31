@@ -141,6 +141,14 @@ public class CtrlPartida {
     }
 
     /**
+     * Metode per aconseguir la ultima combinacio intentada de la partida actual
+     * @return retorna la ultima combinacio de la partida actual
+     */
+    public Integer[] getUltimaCombinacio() {
+        return partidaActual.getUltimaCombIntentada();
+    }
+
+    /**
      * Metode per aconseguir el numero de rondes de la partida actual
      * @return retorna el numero de rondes
      */

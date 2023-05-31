@@ -84,7 +84,9 @@ public class CtrlDomini {
      * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
      */
     public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, String tipusAlgorisme) throws Exception {
+        System.out.println("tipusString: "+tipusAlgorisme);
         TipusAlgorisme tipusAlgorisme1 = TipusAlgorisme.valueOf(tipusAlgorisme);
+        System.out.println(tipusAlgorisme1.toString());
         ctrlPartida.crearPartidaCodemaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio, solutionCode, tipusAlgorisme1);
     }
 
@@ -92,8 +94,13 @@ public class CtrlDomini {
     * Estableix la correccio corresponent a aquesta ronda (la resposta a la combinacio intentada)
     * @param respostaCombinacio correccio a assignar
     */
-    public void setCorreccioRonda(String respostaCombinacio) {
-        ctrlPartida.setCorreccioRonda(respostaCombinacio);
+    public Boolean setCorreccioRonda(String respostaCombinacioUsuari) {
+        String respostaCombinacio = CorregeixAction.corregeix(ctrlPartida.getUltimaCombinacio(), ctrlPartida.getSolutionCode());
+        if (respostaCombinacio == respostaCombinacioUsuari){
+            ctrlPartida.setCorreccioRonda(respostaCombinacio);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -113,6 +120,7 @@ public class CtrlDomini {
      * @return Retorna la resposta de la correcio de la ronda.
      */
     public String jugarRondaCodebreaker(Integer[] combinacioIntentada) {
+        crearRonda();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
         return CorregeixAction.corregeix(combinacioIntentada, ctrlPartida.getSolutionCode());
     }
@@ -133,16 +141,14 @@ public class CtrlDomini {
      * @throws LongitudRespostaIncorrecte La longitud de la resposta no coincideix amb la indicada per l'usuari
      * @throws ValorsRespostaIncorrectes Els valors indicats a la resposta no son correctes
      */
-    public String[] jugarRondaCodeMaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
+    public String jugarRondaCodeMaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina().clone();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
-        String respostaCombinacio = CorregeixAction.corregeix(combinacioIntentada, ctrlPartida.getSolutionCode());
-        ctrlPartida.setCorreccioRonda(respostaCombinacio);
         String combinacioIntentadaString = "";
-        for (int i = 0; i < respostaCombinacio.length(); i++){
+        for (int i = 0; i < combinacioIntentadaString.length(); i++){
             combinacioIntentadaString += combinacioIntentada[i].toString();
         }
-        return new String[]{combinacioIntentadaString, respostaCombinacio};
+        return combinacioIntentadaString;
     }
 
     //! del CtrlJugador

@@ -2,6 +2,7 @@ package presentacio.controllers;
 
 import domini.classes.exceptions.*;
 import domini.controllers.CtrlDomini;
+import presentacio.custom.Pair;
 import presentacio.views.*;
 
 import java.awt.*;
@@ -51,12 +52,13 @@ public class CtrlPresentacio {
         VistaConfiguracioPartida vC = new VistaConfiguracioPartida(location);
     }
 
-    public static void vistaEstadistiquesPartida(Point location) {
-        VistaEstadistiquesPartida vE = new VistaEstadistiquesPartida(location);
+    public static void vistaEstadistiquesPartida(Point location, String status) {
+        Pair statics = getEstadistiquesPartida();
+        VistaEstadistiquesPartida vE = new VistaEstadistiquesPartida(location, (Integer) statics.getFirst(), (Integer) statics.getSecond(), status);
     }
 
-    public static void vistaPartida(Point location) {
-        VistaPartida vE = new VistaPartida(location);
+    public static void vistaPartida(Point location, int intents, int colors, int longitud, Integer[] combinacio, String tipusPartida) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+        VistaPartida vE = new VistaPartida(location, intents, colors, longitud, combinacio, tipusPartida);
     }
 
     public static void vistaCarregarPartida(Point location) {
@@ -87,16 +89,16 @@ public class CtrlPresentacio {
         ctrlDomini.crearPartidaCodemaker(intents, colors, longitud, combinacio, tipusAlgorisme); //FIXME COMPROVAR QUE FUNCIONE
     }
 
-    public static void crearPartidaCodebreaker(int intents, int colors, int longitud, Integer[] combinacio, String tipusAlgorisme) throws Exception {
+    public static void crearPartidaCodebreaker(int intents, int colors, int longitud) throws Exception {
         ctrlDomini.crearPartidaCodebreaker(intents, colors, longitud);
     }
 
-    public static void jugarRondaCodebreaker(Integer[] combinacio) {
-        ctrlDomini.jugarRondaCodebreaker(combinacio);
+    public static String jugarRondaCodebreaker(Integer[] combinacio) {
+        return ctrlDomini.jugarRondaCodebreaker(combinacio);
     }
 
-    public static void jugarRondaCodemaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
-        ctrlDomini.jugarRondaCodeMaker();
+    public static String jugarRondaCodemaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+        return ctrlDomini.jugarRondaCodeMaker();
     }
 
     public static int partidaAcabada(Boolean guanyada){
@@ -107,8 +109,8 @@ public class CtrlPresentacio {
         return ctrlDomini.partidaAcabadaCodemaker();
     }
 
-    public static void setCorreccioRonda(String combinacio){
-        ctrlDomini.setCorreccioRonda(combinacio);
+    public static Boolean setCorreccioRonda(String combinacio){
+        return ctrlDomini.setCorreccioRonda(combinacio);
     }
 
     public static ArrayList<Integer[]> getTop10(){
@@ -123,8 +125,8 @@ public class CtrlPresentacio {
         ctrlDomini.guardarPartidaActual();
     }
 
-    public static void getEstadistiquesPartida() {
-        ctrlDomini.getEstadistiques();
+    public static Pair getEstadistiquesPartida() {
+        return ctrlDomini.getEstadistiques();
     }
 
     public static void tancarSessio() {

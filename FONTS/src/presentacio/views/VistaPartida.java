@@ -6,11 +6,17 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import domini.classes.exceptions.LongitudCombinacioIncorrecte;
+import domini.classes.exceptions.LongitudRespostaIncorrecte;
+import domini.classes.exceptions.NumeroColorsIncorrecte;
+import domini.classes.exceptions.ValorsRespostaIncorrectes;
+import presentacio.controllers.CtrlPresentacio;
 import presentacio.custom.RoundButton;
 
 public class VistaPartida extends JDialog {
@@ -27,6 +33,7 @@ public class VistaPartida extends JDialog {
     private int current_color = 8;
     private String tipus_partida = "Codebreaker";
     private int current_round = 0;
+    private String combinacio_intentada = "";
     private ArrayList<Integer> combinacio = new ArrayList<>();
     private ArrayList<Color> colorList = new ArrayList<>();
     private ArrayList<ArrayList<RoundButton>> buttonMatrix = new ArrayList<>();
@@ -35,7 +42,7 @@ public class VistaPartida extends JDialog {
     private ArrayList<JPanel> panelListCorreccio = new ArrayList<>();
 
 
-    public VistaPartida(Point location) {
+    public VistaPartida(Point location, int init_intents, int init_colors, int init_longitud, Integer[] init_combinacio, String init_tipusPartida) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         setLocation(location);
         setUndecorated(false);
         setContentPane(contentPane);
@@ -43,10 +50,25 @@ public class VistaPartida extends JDialog {
         setVisible(true);
         getRootPane().setDefaultButton(bSortir);
 
-        combinacio.add(0); //FIXME TREURE UN COP IMPLEMENTAT AMB DOMINI
-        combinacio.add(1);
-        combinacio.add(2);
-        combinacio.add(3);
+        intents = init_intents;
+        colors = init_colors;
+        longitud = init_longitud;
+        tipus_partida = init_tipusPartida;
+        combinacio.addAll(Arrays.asList(init_combinacio));
+
+        System.out.println("Starting game with:");
+        System.out.println(intents + " intents");
+        System.out.println(colors + " colors");
+        System.out.println(longitud + " longitud");
+        System.out.println(tipus_partida + " tipus partida");
+        if (tipus_partida == "Codemaker") {
+            System.out.println("Solution code: ");
+
+            for (int i = 0; i < combinacio.size(); i++) {
+                System.out.print(init_combinacio[i]);
+            }
+            System.out.println();
+        }
 
         colorList.add(Color.RED);
         colorList.add(Color.GREEN);
@@ -57,6 +79,12 @@ public class VistaPartida extends JDialog {
         colorList.add(Color.MAGENTA);
         colorList.add(Color.PINK);
         colorList.add(Color.GRAY);
+        colorList.add(Color.BLACK);
+        colorList.add(Color.WHITE);
+
+        if (tipus_partida == "Codemaker") {
+            combinacio_intentada = CtrlPresentacio.jugarRondaCodemaker();
+        }
 
         initButtonsPanel();
 
@@ -74,7 +102,17 @@ public class VistaPartida extends JDialog {
         bCorretgir.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                onCorretgir();
+                try {
+                    onCorretgir();
+                } catch (LongitudCombinacioIncorrecte ex) {
+                    throw new RuntimeException(ex);
+                } catch (NumeroColorsIncorrecte ex) {
+                    throw new RuntimeException(ex);
+                } catch (LongitudRespostaIncorrecte ex) {
+                    throw new RuntimeException(ex);
+                } catch (ValorsRespostaIncorrectes ex) {
+                    throw new RuntimeException(ex);
+                }
                 super.mousePressed(e);
             }
         });
@@ -133,8 +171,6 @@ public class VistaPartida extends JDialog {
                     public void mousePressed(MouseEvent e) {
                         if (button.isEnabled()) {
                             button.setCurrentColor(colorList.get(current_color), current_color);
-                        } else {
-                            button.setCurrentColor(colorList.get(8), 8);
                         }
                         super.mousePressed(e);
                     }
@@ -143,11 +179,16 @@ public class VistaPartida extends JDialog {
                     buttonCorreccio.setEnabled(false);
                     if (i != intents - 1) {
                         button.setEnabled(false);
+                    } else {
+                        button.setEnabled(true);
                     }
                 } else {
                     button.setEnabled(false);
                     if (i != intents - 1) {
                         buttonCorreccio.setEnabled(false);
+                    } else {
+                        button.setCurrentColor(colorList.get(Integer.valueOf(combinacio_intentada.charAt(j)) - 1), Integer.valueOf(combinacio_intentada.charAt(j)) - 1);
+                        buttonCorreccio.setEnabled(true);
                     }
                 }
 
@@ -173,7 +214,16 @@ public class VistaPartida extends JDialog {
 
         //pColors.setLayout(new BoxLayout(pColors, BoxLayout.Y_AXIS));
         pColors.setLayout(new FlowLayout());
-        for (int i = 0; i < colors; i++) {
+
+        int color_start = 0;
+        int color_end = colors;
+        //Codigo para mostrar la paleta de colores
+        if (tipus_partida == "Codemaker") {
+            color_start = 8;
+            color_end = 11;
+        }
+
+        for (int i = color_start; i < color_end; i++) {
             RoundButton button = new RoundButton("");
             button.setCurrentColor(colorList.get(i), i);
             button.addMouseListener(new MouseAdapter() {
@@ -188,23 +238,85 @@ public class VistaPartida extends JDialog {
         }
     }
 
-    private void onCorretgir() {
-        System.out.print("RONDA " + current_round + ": ");
-        for (int i = 0; i < buttonMatrix.get(intents - current_round - 1).size(); i++) {
-            RoundButton button = buttonMatrix.get(intents - (current_round) - 1).get(i);
-            System.out.print(button.getCurrentColor() + " ");
-            button.setEnabled(false);
-            buttonMatrix.get(intents - (current_round + 1) - 1).get(i).setEnabled(true);
+    private void onCorretgir() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+        System.out.println("RONDA " + current_round + ": ");
+        Boolean guanyat = false;
+        if (tipus_partida == "Codebreaker") {
+            Integer[] combi = new Integer[buttonMatrix.size()];
+            for (int i = 0; i < buttonMatrix.get(intents - current_round - 1).size(); i++) {
+                RoundButton button = buttonMatrix.get(intents - current_round - 1).get(i);
+                combi[i] = button.getCurrentColor() + 1;
+                System.out.println(combi[i]);
+            }
+            String solucio = CtrlPresentacio.jugarRondaCodebreaker(combi);
+            for (int i = 0; i < buttonMatrix.get(intents - current_round - 1).size(); i++) {
+                RoundButton button = buttonMatrix.get(intents - current_round - 1).get(i);
+                button.setEnabled(false);
+                buttonMatrix.get(intents - (current_round + 1) - 1).get(i).setEnabled(true);
 
-            //TODO DOMINI
-            Color color = button.getCurrentColor() == combinacio.get(i) ? Color.WHITE : Color.BLACK;
-            int colorNum = button.getCurrentColor() == combinacio.get(i) ? colors + 1 : colors + 2;
-            buttonMatrixCorreccio.get(intents - current_round - 1).get(i).setCurrentColor(color, colorNum);
-            buttonMatrixCorreccio.get(intents - current_round - 1).get(i).revalidate();
-            buttonMatrixCorreccio.get(intents - current_round - 1).get(i).repaint();
+                int color = 0;
+                if (solucio.charAt(i) == 'B') {
+                    guanyat = true;
+                    color = 9;
+                } else if (solucio.charAt(i) == 'W') {
+                    guanyat = false;
+                    color = 10;
+                } else {
+                    guanyat = false;
+                    color = 8;
+                }
+                buttonMatrixCorreccio.get(intents - current_round - 1).get(i).setCurrentColor(colorList.get(color), color);
+                buttonMatrixCorreccio.get(intents - current_round - 1).get(i).revalidate();
+                buttonMatrixCorreccio.get(intents - current_round - 1).get(i).repaint();
+            }
+        } else {
+            String correccio = "";
+            for (int i = 0; i < buttonMatrixCorreccio.get(intents - current_round - 1).size(); i++) {
+                int button_color = buttonMatrixCorreccio.get(intents - current_round - 1).get(i).getCurrentColor();
+                if (button_color == 9) {
+                    guanyat = true;
+                    correccio += "B";
+                } else if (button_color == 10) {
+                    guanyat = false;
+                    correccio += "W";
+                } else {
+                    guanyat = false;
+                    correccio += "-";
+                }
+            }
+            Boolean is_well_corrected = CtrlPresentacio.setCorreccioRonda(correccio);
+            if (is_well_corrected && !guanyat) {
+                combinacio_intentada = CtrlPresentacio.jugarRondaCodemaker();
+                for (int i = 0; i < buttonMatrixCorreccio.get(intents - current_round - 1).size(); i++) {
+                    RoundButton button_correccio = buttonMatrixCorreccio.get(intents - current_round - 1).get(i);
+                    button_correccio.setEnabled(false);
+                    buttonMatrix.get(intents - current_round - 1).get(i).setCurrentColor(colorList.get(Integer.valueOf(combinacio_intentada.charAt(i)) - 1), Integer.valueOf(combinacio_intentada.charAt(i)) - 1);
+                    buttonMatrixCorreccio.get(intents - current_round + 1 - 1).get(i).setEnabled(true);
+                }
+            } else if (!is_well_corrected) {
+                JOptionPane.showMessageDialog(pCombinacions, "La correccio introduida no es correcte! Torna a provar", "Correccio Incorrecte", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
-        System.out.println();
         current_round += 1;
+        if (guanyat) {
+            if (tipus_partida == "Codebreaker") {
+                CtrlPresentacio.vistaEstadistiquesPartida(getLocation(), "Has Guanyat!");
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(pCombinacions, "La maquina ha guanyat!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+            }
+        }
+        if (current_round >= intents) {
+            if (tipus_partida == "Codebreaker") {
+                JOptionPane.showMessageDialog(pCombinacions, "T'has quedat sense intents!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+                CtrlPresentacio.vistaEstadistiquesPartida(getLocation(), "Has Perdut!");
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(pCombinacions, "La maquina s'ha quedat sense intents!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+            }
+        }
     }
 
 
