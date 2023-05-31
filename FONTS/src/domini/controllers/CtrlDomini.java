@@ -7,6 +7,7 @@ import persistencia.controllers.CtrlPersistencia;
 import presentacio.custom.Pair;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.lang.String;
 import java.io.*;
 
@@ -227,6 +228,7 @@ public class CtrlDomini {
     }
 
     //! del CtrlRanquing
+
     /**
      * Obte les dades del ranquing actual.
      * @return Retorna el ranquing actual
@@ -234,6 +236,7 @@ public class CtrlDomini {
     public Ranquing getRanquing() {
         return ctrlRanquing.getRanquing();
     }
+
 
     /**
      * Crea una instància de ranquing dins el controlador del ranquing
@@ -245,8 +248,29 @@ public class CtrlDomini {
     /**
      * Retorna les 10 puntuacions mes altes
      * @return Les 10 millors puntuacions amb el jugador corresponent, en el format {idJugador, puntuacio}
+     * @throws IOException
+     * @throws ClassNotFoundException
      */
-    public ArrayList<Integer[]> getTop10(){
+    public ArrayList<Integer[]> getTop10() throws IOException, ClassNotFoundException {
+        //obtenir totes les estadistiquespartides existents del disc i actualitzar ranquing
+        ArrayList<String> ids = ctrlPersistencia.obtenirIdJugadorsEstadistiquesPartida();
+
+        Iterator it = ids.iterator();
+        
+        while(it.hasNext()) {
+            String idJugador = (String) it.next();
+            ArrayList<String[]> statsJugador = ctrlPersistencia.obtenirEstadistiquesPartidesJugador(idJugador);
+
+            Iterator it2 = statsJugador.iterator();
+            while(it2.hasNext()) {
+                String[] infoPartida = (String[]) it2.next();
+                if (infoPartida[1] == "true") {
+                    ctrlRanquing.setNewRecord(Integer.parseInt(idJugador), Integer.parseInt(infoPartida[0]));
+                }
+            }
+        }
+
+        //retornar el top10
         return ctrlRanquing.getTop10();
     }
 
