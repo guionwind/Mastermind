@@ -143,10 +143,11 @@ public class CtrlDomini {
      * @throws ValorsRespostaIncorrectes Els valors indicats a la resposta no son correctes
      */
     public String jugarRondaCodeMaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
+        crearRonda();
         Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina().clone();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
         String combinacioIntentadaString = "";
-        for (int i = 0; i < combinacioIntentadaString.length(); i++){
+        for (int i = 0; i < combinacioIntentada.length; i++){
             combinacioIntentadaString += combinacioIntentada[i].toString();
         }
         return combinacioIntentadaString;
@@ -298,7 +299,7 @@ public class CtrlDomini {
 
         ctrlEstadistiquesPartida.creaEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
         EstadistiquesPartida e = ctrlEstadistiquesPartida.getEstadistiquesPartida(idJugador, idPartida);
-        System.out.println(String.valueOf(e.getPuntuacio()));
+        System.out.println(e.getPuntuacio());
         System.out.println(String.valueOf(e.getIdPartida()));
         System.out.println(String.valueOf(e.getGuanyada()));
         System.out.println(String.valueOf(e.getIdJugador()));
@@ -329,7 +330,10 @@ public class CtrlDomini {
      * @return retorna les estadistiques de la partida (actualment nomes la puntuacio i numero d'intents)
      */
     public Pair getEstadistiques() {
-
+        System.out.println("Id jugador: "+ctrlJugador.getIdJugador());
+        System.out.println("Id partida actual: "+ctrlPartida.getIdPartidaActual());
+        System.out.println("nRondes: "+ctrlPartida.getNumeroRondes());
+        System.out.println("Puntuacio: "+ctrlEstadistiquesPartida.getPuntuacio(ctrlJugador.getIdJugador(), ctrlPartida.getIdPartidaActual()));
         return new Pair(ctrlEstadistiquesPartida.getPuntuacio(ctrlJugador.getIdJugador(), ctrlPartida.getIdPartidaActual()), ctrlPartida.getNumeroRondes());
     }
 

@@ -39,9 +39,16 @@ public class CtrlEstadistiquesPartida {
      * @return Puntuacio obtinguda
      */
     public Integer getPuntuacio(Integer idJugador, Integer idPartida) {
-        EstadistiquesPartida e = estadistiquesPartida.get(new Integer[]{idJugador, idPartida});
-
-        return e.getPuntuacio();
+        for (HashMap.Entry<Integer[], EstadistiquesPartida> entry : estadistiquesPartida.entrySet()) {
+            Integer[] key = entry.getKey();
+            EstadistiquesPartida ed = entry.getValue();
+            System.out.println("ANALITZANT partida : "+key[1]+" jugador: "+key[0]);
+            if (key[1] == idPartida && key[0] == idJugador){
+                System.out.println("ESTIC A CTRLESTATICS: "+ed.getPuntuacio());
+                return ed.getPuntuacio();
+            }
+        }
+        return null;
     }
 
 
@@ -52,7 +59,13 @@ public class CtrlEstadistiquesPartida {
      * @return La instancia corresponent
      */
     public EstadistiquesPartida getEstadistiquesPartida(Integer idJugador, Integer idPartida) {
-        return estadistiquesPartida.get(new Integer[]{idJugador, idPartida});
+        for (HashMap.Entry<Integer[], EstadistiquesPartida> entry : estadistiquesPartida.entrySet()) {
+            Integer[] key = entry.getKey();
+            EstadistiquesPartida ed = entry.getValue();
+            if (key[1] == idPartida && key[0] == idJugador){
+                return ed;
+            }
+        }
+        return null;
     }
-
 }

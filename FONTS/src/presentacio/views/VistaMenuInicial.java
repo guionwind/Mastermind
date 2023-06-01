@@ -11,9 +11,10 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.Locale;
 
-public class VistaMenuInicial extends JDialog {
+public class VistaMenuInicial extends JFrame {
     private JPanel contentPane;
     private JButton bSortir;
     private JButton bRanquing;
@@ -62,7 +63,13 @@ public class VistaMenuInicial extends JDialog {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                onRanquing();
+                try {
+                    onRanquing();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
@@ -83,7 +90,7 @@ public class VistaMenuInicial extends JDialog {
         dispose();
     }
 
-    private void onRanquing() {
+    private void onRanquing() throws IOException, ClassNotFoundException {
         CtrlPresentacio.vistaRanquing(getLocation());
         dispose();
     }

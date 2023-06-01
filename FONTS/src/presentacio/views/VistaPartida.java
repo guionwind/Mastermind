@@ -19,7 +19,7 @@ import domini.classes.exceptions.ValorsRespostaIncorrectes;
 import presentacio.controllers.CtrlPresentacio;
 import presentacio.custom.RoundButton;
 
-public class VistaPartida extends JDialog {
+public class VistaPartida extends JFrame {
     private JPanel contentPane;
     private JButton bSortir;
     private JPanel pCombinacions;
@@ -84,6 +84,7 @@ public class VistaPartida extends JDialog {
 
         if (tipus_partida == "Codemaker") {
             combinacio_intentada = CtrlPresentacio.jugarRondaCodemaker();
+            System.out.println("Primera comb: "+combinacio_intentada);
         }
 
         initButtonsPanel();
@@ -187,7 +188,7 @@ public class VistaPartida extends JDialog {
                     if (i != intents - 1) {
                         buttonCorreccio.setEnabled(false);
                     } else {
-                        button.setCurrentColor(colorList.get(Integer.valueOf(combinacio_intentada.charAt(j)) - 1), Integer.valueOf(combinacio_intentada.charAt(j)) - 1);
+                        button.setCurrentColor(colorList.get(Integer.valueOf(combinacio_intentada.charAt(j)-48) - 1), Integer.valueOf(combinacio_intentada.charAt(j)-48) - 1);
                         buttonCorreccio.setEnabled(true);
                     }
                 }
@@ -309,7 +310,7 @@ public class VistaPartida extends JDialog {
                 dispose();
             }
         }
-        if (current_round >= intents-1) {
+        if (current_round >= intents-1 && !guanyat) {
             if (tipus_partida == "Codebreaker") {
                 JOptionPane.showMessageDialog(pCombinacions, "T'has quedat sense intents!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
                 CtrlPresentacio.partidaAcabada(false);

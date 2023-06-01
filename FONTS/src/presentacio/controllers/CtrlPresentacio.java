@@ -26,8 +26,9 @@ public class CtrlPresentacio {
 
     public static void iniPresentacio() {
         VistaPrincipal vP = new VistaPrincipal(null);
-    }
+        ctrlDomini.crearRanquing();
 
+    }
     public static void vistaPrincipal(Point location) {
         VistaPrincipal vP = new VistaPrincipal(location);
     }
@@ -54,7 +55,11 @@ public class CtrlPresentacio {
 
     public static void vistaEstadistiquesPartida(Point location, String status) {
         Pair statics = getEstadistiquesPartida();
-        VistaEstadistiquesPartida vE = new VistaEstadistiquesPartida(location, (Integer) statics.getFirst(), (Integer) statics.getSecond(), status);
+        int puntuacio = (Integer) statics.getFirst();
+        int rondes = (Integer) statics.getSecond();
+        System.out.println("puntuacio: "+puntuacio);
+        System.out.println("rondes: "+rondes);
+        VistaEstadistiquesPartida vE = new VistaEstadistiquesPartida(location, puntuacio, rondes, status);
     }
 
     public static void vistaPartida(Point location, int intents, int colors, int longitud, Integer[] combinacio, String tipusPartida) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
@@ -65,7 +70,7 @@ public class CtrlPresentacio {
         VistaPartidesGuardades vP = new VistaPartidesGuardades(location);
     }
 
-    public static void vistaRanquing(Point location) {
+    public static void vistaRanquing(Point location) throws IOException, ClassNotFoundException {
         VistaRanquing vR = new VistaRanquing(location);
     }
 

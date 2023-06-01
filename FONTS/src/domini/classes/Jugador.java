@@ -42,6 +42,7 @@ public class Jugador {
         this.id = id;
         this.username = username;
         this.password = pwd;
+        estadistiquesPartides = new ArrayList<EstadistiquesPartida>();
     }
 
     /**

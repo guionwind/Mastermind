@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
-public class VistaConfiguracioPartida extends JDialog {
+public class VistaConfiguracioPartida extends JFrame {
     private JPanel contentPane;
     private JButton bJugar;
     private JButton bEnrere;

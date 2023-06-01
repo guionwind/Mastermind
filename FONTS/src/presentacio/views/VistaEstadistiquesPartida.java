@@ -3,13 +3,15 @@ package presentacio.views;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import presentacio.controllers.CtrlPresentacio;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
-public class VistaEstadistiquesPartida extends JDialog {
+public class VistaEstadistiquesPartida extends JFrame {
     private JPanel contentPane;
     private JButton bAcceptar;
     private JLabel lStatus;
@@ -19,7 +21,8 @@ public class VistaEstadistiquesPartida extends JDialog {
     public VistaEstadistiquesPartida(Point location, int puntuacio, int rondes, String status) {
         setLocation(location);
         setContentPane(contentPane);
-        setModal(true);
+        this.pack();
+        setVisible(true);
         getRootPane().setDefaultButton(bAcceptar);
 
         lStatus.setText(status);
@@ -28,7 +31,13 @@ public class VistaEstadistiquesPartida extends JDialog {
 
         bAcceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onAcceptar();
+                try {
+                    onAcceptar();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -36,18 +45,18 @@ public class VistaEstadistiquesPartida extends JDialog {
     }
 
     private void initialize_parameters() {
-//TODO    if (persistencia.status_partida == perduda){
-//            lStatus.setText("Has perdut!");
-//            lStatus.setForeground(Color.RED);
-//        } else{
-//            lStatus.setText("Has guanyat!");
-//            lStatus.setForeground(Color.GREEN);
-//        }
-        //TODO asignar puntuacio i intents
+        lIntents.revalidate();
+        lIntents.repaint();
+
+        lStatus.revalidate();
+        lStatus.repaint();
+
+        lPuntuacio.revalidate();
+        lPuntuacio.repaint();
     }
 
-    private void onAcceptar() {
-        // TODO passem a la seguent vista (ranquing)
+    private void onAcceptar() throws IOException, ClassNotFoundException {
+        CtrlPresentacio.vistaRanquing(getLocation());
         dispose();
     }
 

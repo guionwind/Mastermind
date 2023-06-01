@@ -3,6 +3,7 @@ package presentacio.views;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import presentacio.controllers.CtrlPresentacio;
 import presentacio.custom.Pair;
 
 import javax.swing.*;
@@ -11,17 +12,18 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class VistaRanquing extends JDialog {
+public class VistaRanquing extends JFrame {
     private JPanel contentPane;
     private JButton bAcceptar;
     private JPanel pRanquing;
     private JLabel lRanquing;
     private ArrayList<Pair> estadistiques = new ArrayList<>();
 
-    public VistaRanquing(Point location) { //TODO que es passi per parametre el tipus de ranquing (RANQUING GLOBAL, RANQUING PERSONAL)
+    public VistaRanquing(Point location) throws IOException, ClassNotFoundException { //TODO que es passi per parametre el tipus de ranquing (RANQUING GLOBAL, RANQUING PERSONAL)
         setLocation(location);
         setContentPane(contentPane);
         this.pack();
@@ -29,18 +31,12 @@ public class VistaRanquing extends JDialog {
         setResizable(true);
         getRootPane().setDefaultButton(bAcceptar);
 
-        estadistiques.add(new Pair("Marc", 5)); //FIXME TREURE UN COP IMPLEMENTAT AMB DOMINI
-        estadistiques.add(new Pair("Sergio", 3));
-        estadistiques.add(new Pair("Pau", 10));
-        estadistiques.add(new Pair("Julia", 1));
-        estadistiques.add(new Pair("Jacob", 1));
-        estadistiques.add(new Pair("Marc", 5));
-        estadistiques.add(new Pair("Sergio", 3));
-        estadistiques.add(new Pair("Pau", 10));
-        estadistiques.add(new Pair("Julia", 1));
-        estadistiques.add(new Pair("Jacob", 1));
-
-
+        ArrayList<Integer[]> temp_statics = CtrlPresentacio.getTop10();
+        System.out.println("temp_statics.size = "+temp_statics.size());
+        for (int i = 0; i < temp_statics.size(); i++){
+            System.out.println("Jugador: "+temp_statics.get(i)[0]+" punt: "+temp_statics.get(i)[1]);
+            estadistiques.add(new Pair(temp_statics.get(i)[0], temp_statics.get(i)[1]));
+        }
         bAcceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
@@ -66,7 +62,7 @@ public class VistaRanquing extends JDialog {
     }
 
     private void onOK() {
-        // add your code here
+        CtrlPresentacio.vistaMenuInicial(getLocation());
         dispose();
     }
 
