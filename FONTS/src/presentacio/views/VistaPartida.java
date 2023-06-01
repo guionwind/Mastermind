@@ -62,6 +62,7 @@ public class VistaPartida extends JFrame {
         System.out.println(longitud + " longitud");
         System.out.println(tipus_partida + " tipus partida");
         if (tipus_partida == "Codemaker") {
+            bPista.setVisible(false);
             System.out.println("Solution code: ");
 
             for (int i = 0; i < combinacio.size(); i++) {
@@ -92,9 +93,7 @@ public class VistaPartida extends JFrame {
         bPista.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                //TODO DOMINI getPista
-                String pista = "La pista xd";
-                JOptionPane.showMessageDialog(pCombinacions, pista, "Pista", JOptionPane.INFORMATION_MESSAGE);
+                mostrarPista();
 
                 super.mousePressed(e);
             }
@@ -140,6 +139,50 @@ public class VistaPartida extends JFrame {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
+    private void mostrarPista(){
+        String pista = CtrlPresentacio.demanarPista();
+        String final_pista = "";
+        for(int i = 0; i < pista.length(); i++){
+            if(pista.charAt(i) != '?'){
+                String temp_color;
+                switch (i) {
+                    case 0:
+                        temp_color = "VERMELL";
+                        break;
+                    case 1:
+                        temp_color = "VERD";
+                        break;
+                    case 2:
+                        temp_color = "BLAU";
+                        break;
+                    case 3:
+                        temp_color = "GROC";
+                        break;
+                    case 4:
+                        temp_color = "TARONJA";
+                        break;
+                    case 5:
+                        temp_color = "CYAN";
+                        break;
+                    case 6:
+                        temp_color = "MAGENTA";
+                        break;
+                    case 7:
+                        temp_color = "ROSA";
+                        break;
+                    default:
+                        temp_color = "INVALID";
+                        break;
+                }
+
+                final_pista += " "+temp_color;
+            }else{
+                final_pista += " ?";
+            }
+        }
+        JOptionPane.showMessageDialog(pCombinacions, "La teva pista es: "+final_pista, "Pista", JOptionPane.PLAIN_MESSAGE);
+
+    }
     private void initButtonsPanel() {
         pCombinacions.setLayout(new BoxLayout(pCombinacions, BoxLayout.Y_AXIS));
         pCorreccio.setLayout(new BoxLayout(pCorreccio, BoxLayout.Y_AXIS));
