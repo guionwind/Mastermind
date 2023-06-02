@@ -40,10 +40,12 @@ public class VistaPartidesGuardades extends JFrame {
         setVisible(true);
         setExtendedState(state);
         getRootPane().setDefaultButton(bAcceptar);
-        
+
+        listModel = new DefaultListModel<>();
         lPartides.setModel(listModel);
 
         ArrayList<String[]> infoPartides = CtrlPresentacio.getInfoPartidesGuardades();
+        System.out.println(infoPartides.size() + "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
 
         for (int i = 0; i < infoPartides.size(); ++i) {
             String[] infoPartida = infoPartides.get(i);

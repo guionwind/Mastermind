@@ -136,7 +136,6 @@ public class FiveGuess implements Maquina {
                 System.out.println(ultimCodiAux[i]);
             }
         }
-        System.out.println("Fiveguess resposta codi ");
         System.out.println("Fiveguess resposta codi " + respostaCodi);
         
         if (ultimCodiAux == null) {

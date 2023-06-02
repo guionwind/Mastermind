@@ -109,4 +109,12 @@ public class Jugador {
         System.out.println(idPartides.remove(idPartida));
         System.out.print("bbbbbbbbbbbbbbbbbbbbbbbdddddddddddddddddddddddd");
     }
+
+    public boolean existeixPartida(int idPartida) {
+        for (Integer idPartide : idPartides) {
+            if (idPartida == idPartide)
+                return true;
+        }
+        return false;
+    }
 }

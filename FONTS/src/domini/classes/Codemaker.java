@@ -80,6 +80,7 @@ public class Codemaker extends Partida {
     public Codemaker(int idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) {
         super(idPartida, solutionCode, rondes);
 
+        System.out.println("COdemaker construcctora " + tipusAlgorisme);
         this.tipusAlgorisme = TipusAlgorisme.valueOf(tipusAlgorisme);
     }
 

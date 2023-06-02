@@ -42,7 +42,7 @@ public class VistaPartida extends JFrame {
     private ArrayList<JPanel> panelListCorreccio = new ArrayList<>();
 
 
-    public VistaPartida(Point location, int state, int init_intents, int init_colors, int init_longitud, Integer[] init_combinacio, String init_tipusPartida, Integer[][] combinacionsIntentades, String[] correccions) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+    public VistaPartida(Point location, int state, int init_intents, int init_colors, int init_longitud, Integer[] solution_code, String init_tipusPartida, Integer[][] combinacionsIntentades, String[] correccions) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         setLocation(location);
 
         setUndecorated(false);
@@ -61,7 +61,7 @@ public class VistaPartida extends JFrame {
             combinacio_intentada = combinacionsIntentades[combinacionsIntentades.length-1];
         }
         tipus_partida = init_tipusPartida;
-        combinacio.addAll(Arrays.asList(init_combinacio));
+        combinacio.addAll(Arrays.asList(solution_code));
 
         System.out.println("Starting game with:");
         System.out.println(intents + " intents");
@@ -73,7 +73,7 @@ public class VistaPartida extends JFrame {
             System.out.println("Solution code: ");
 
             for (int i = 0; i < combinacio.size(); i++) {
-                System.out.print(init_combinacio[i]);
+                System.out.print(solution_code[i]);
             }
             System.out.println();
         }
@@ -90,7 +90,7 @@ public class VistaPartida extends JFrame {
         colorList.add(Color.BLACK);
         colorList.add(Color.WHITE);
         
-        if (!(combinacionsIntentades != null && correccions != null)) { // Creen nova partida codebreaker i codemaker
+        if (combinacionsIntentades == null && correccions == null) { // Creen nova partida codebreaker i codemaker
             if (tipus_partida.equals("CODEMAKER")) {
                 combinacio_intentada = CtrlPresentacio.jugarRondaCodemaker();
                 System.out.println("Primera comb: " + combinacio_intentada);
@@ -136,32 +136,6 @@ public class VistaPartida extends JFrame {
 
                 for (int j = 0; j < combinacioIntentada.length; ++j) {
                     if (tipus_partida.equals("CODEMAKER")) {
-                        if (i == combinacionsIntentades.length - 1) {
-                            buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setEnabled(true);
-                        }
-                        else {
-                            //Deshabilitem els botons de correccio ja pintats per l'usuari
-                            RoundButton buttonCorreccio = buttonMatrixCorreccio.get(intents - current_round - 1).get(j);
-                            buttonCorreccio.setEnabled(false);
-    
-                            //Pintem la correccio
-                            int color;
-                            System.out.println(correccio);
-                            System.out.println(correccions + "correccions");
-                            if (correccio.charAt(j) == 'B') {
-                                color = 9;
-                            } else if (correccio.charAt(j) == 'W') {
-                                color = 10;
-                            } else {
-                                color = 0;
-                            }
-                            buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setCurrentColor(colorList.get(color), color);
-                            buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setEnabled(false);
-                            buttonMatrixCorreccio.get(intents - current_round - 1).get(j).revalidate();
-                            buttonMatrixCorreccio.get(intents - current_round - 1).get(j).repaint();
-                        }
-                    }
-                    else {
                         //Deshabilitem els botons de correccio ja pintats per l'usuari
                         RoundButton buttonCorreccio = buttonMatrixCorreccio.get(intents - current_round - 1).get(j);
                         buttonCorreccio.setEnabled(false);
@@ -182,27 +156,55 @@ public class VistaPartida extends JFrame {
                         buttonMatrixCorreccio.get(intents - current_round - 1).get(j).revalidate();
                         buttonMatrixCorreccio.get(intents - current_round - 1).get(j).repaint();
                     }
+                    else {
+                        // //Deshabilitem els botons de correccio ja pintats per l'usuari
+                        // RoundButton buttonCorreccio = buttonMatrixCorreccio.get(intents - current_round - 1).get(j);
+                        // buttonCorreccio.setEnabled(false);
 
-                    //Deshabilitem els botons de correccio ja pintats per l'usuari
-                    RoundButton buttonIntentat = buttonMatrixIntentat.get(intents - current_round - 1).get(j);
-                    buttonIntentat.setEnabled(false);
+                        //Pintem la correccio
+                        int color;
+                        System.out.println(correccio);
+                        System.out.println(correccions + "correccions");
+                        if (correccio.charAt(j) == 'B') {
+                            color = 9;
+                        } else if (correccio.charAt(j) == 'W') {
+                            color = 10;
+                        } else {
+                            color = 0;
+                        }
+                        buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setCurrentColor(colorList.get(color), color);
+                        buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setEnabled(false);
+                        buttonMatrixCorreccio.get(intents - current_round - 1).get(j).revalidate();
+                        buttonMatrixCorreccio.get(intents - current_round - 1).get(j).repaint();
+                    }
 
-                    //Pinta la combinacio triada per la maquina
+                    // //Deshabilitem els botons de correccio ja pintats per l'usuari
+                    // RoundButton buttonIntentat = buttonMatrixIntentat.get(intents - current_round - 1).get(j);
+                    // buttonIntentat.setEnabled(false);
+
+                    //Pinta la combinacio triada per l'usuari
                     buttonMatrixIntentat.get(intents - current_round - 1).get(j).setCurrentColor(colorList.get(combinacioIntentada[j]), combinacioIntentada[j]);
                     buttonMatrixIntentat.get(intents - current_round - 1).get(j).setEnabled(false);
                     buttonMatrixIntentat.get(intents - current_round - 1).get(j).revalidate();
                     buttonMatrixIntentat.get(intents - current_round - 1).get(j).repaint();
                 }
-                if (tipus_partida.equals("CODEBREAKER") || !(i == combinacionsIntentades.length - 1))
+                if (tipus_partida.equals("CODEBREAKER"))
                     current_round++;
+                else if (i < combinacionsIntentades.length - 1)
+                    current_round++;
+                
             }
 
-            //Habilita els seguents botons de correccio
+            //Habilita els seguents botons de intent
             if (tipus_partida.equals("CODEBREAKER")) {
                 for (int j = 0; j < combinacionsIntentades[0].length; ++j) {
                     buttonMatrixIntentat.get(intents - current_round - 1).get(j).setEnabled(true);
                 }
-
+            }
+            else {
+                for (int j = 0; j < combinacionsIntentades[0].length; ++j) {
+                    buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setEnabled(true);
+                }
             }
         }
 
@@ -434,14 +436,15 @@ public class VistaPartida extends JFrame {
                 lInvalidCombinacio.setVisible(true);
             } else { //Si la combinacio es valida
                 String correccioColors = CtrlPresentacio.jugarRondaCodebreaker(combinacioUsuari);
-
                 Integer[] correccioNumeros = traduirCorrecioANumero(correccioColors);
+
+                System.out.println(correccioColors);
 
                 //Deshabilitem els botons ja pintats per l'ususari (prk no els pugui tornar a pintar) i habilitem els seguents.
                 for (int i = 0; i < longitudCombinacioIntentat; ++i) {
                     RoundButton button = buttonMatrixIntentat.get(intents - current_round - 1).get(i);
                     button.setEnabled(false);
-                    if (current_round < intents - 1)
+                    if (current_round < intents - 1) 
                         buttonMatrixIntentat.get(intents - (current_round + 1) - 1).get(i).setEnabled(true);
 
                     buttonMatrixCorreccio.get(intents - current_round - 1).get(i).setCurrentColor(colorList.get(correccioNumeros[i]), correccioNumeros[i]);
@@ -488,7 +491,6 @@ public class VistaPartida extends JFrame {
                 for (int i = 0; i < longitudCombinacioIntentat && guanyat; ++i) {
                     if (correccioUsuariString.charAt(i) != 'B') guanyat = false;
                 }
-                current_round += 1;
 
                 if (!guanyat && current_round < intents) { //Esta ben corregit i no ha guanyat i te intents
                     combinacio_intentada = CtrlPresentacio.jugarRondaCodemaker();
@@ -513,6 +515,7 @@ public class VistaPartida extends JFrame {
                             buttonMatrixCorreccio.get(intents - current_round - 1).get(i).setEnabled(true);
                     }
 
+                    current_round += 1;
                 } else if (!guanyat) {
                     JOptionPane.showMessageDialog(pCombinacions, "La maquina s'ha quedat sense intents, has guanyat!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
                     CtrlPresentacio.partidaAcabadaCodemaker();
@@ -572,7 +575,6 @@ public class VistaPartida extends JFrame {
     private Integer[] getCombinacioIntentada() {
         int longitudCombinacioIntentat = buttonMatrixIntentat.get(intents - current_round - 1).size();
         Integer[] combinacioUsuari = new Integer[longitudCombinacioIntentat];
-
 
         for (int i = 0; i < longitudCombinacioIntentat; i++) {
             RoundButton button = buttonMatrixIntentat.get(intents - current_round - 1).get(i);

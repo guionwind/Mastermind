@@ -94,7 +94,7 @@ public class CtrlPersistencia {
                 System.out.println(i + "la i");
                 rondes.put(idRondes[i], ronda);
             }
-
+            
             if (tipusPartida.equals("CODEBREAKER")) {
                 p = new Codebreaker(Integer.valueOf(idPartida),
                         daoP.getSolutionCode(),
@@ -112,6 +112,7 @@ public class CtrlPersistencia {
         }
         catch (Exception e) {
             System.out.println("Aquest error no hauria de passar.");
+            System.out.println(e.toString());
         }
         return p;
     }

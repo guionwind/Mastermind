@@ -74,7 +74,6 @@ public class CtrlDomini {
      */
     public void crearPartidaCodebreaker(int numeroIntents, int numeroColors, int longitudCombinacio) throws Exception {
         ctrlPartida.crearPartidaCodebreaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio);
-        ctrlPersistencia.afegirConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEBREAKER), numeroIntents, numeroColors, longitudCombinacio);
     }
 
     /**
@@ -94,7 +93,6 @@ public class CtrlDomini {
         ctrlPartida.crearPartidaCodemaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio, solutionCode, tipusAlgorisme1);
         System.out.println("crear partida codemaker " +String.valueOf(TipusPartida.CODEMAKER));
         System.out.println("crear partida codemaker " +TipusPartida.CODEMAKER.toString());
-        ctrlPersistencia.afegirConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEMAKER), numeroIntents, numeroColors, longitudCombinacio);
     }
 
     /**
@@ -147,6 +145,13 @@ public class CtrlDomini {
         crearRonda();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
         System.out.println(ctrlPartida.getUltimaCombinacio());
+        System.out.println(" hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh ");
+        for (Integer fitxa : ctrlPartida.getSolutionCode())
+            System.out.print(fitxa);
+        System.out.println(" iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii ");
+            for (Integer fitxa : combinacioIntentada)
+                System.out.print(fitxa);
+        System.out.println();
         String correccio = CorregeixAction.corregeix(combinacioIntentada, ctrlPartida.getSolutionCode());
         ctrlPartida.setCorreccioRonda(correccio);
         return correccio;
@@ -334,6 +339,7 @@ public class CtrlDomini {
 
         ctrlEstadistiquesPartida.creaEstadistiquesPartida(username, idPartida, puntuacio, guanyada);
         EstadistiquesPartida e = ctrlEstadistiquesPartida.getEstadistiquesPartida(username, idPartida);
+
         System.out.println(e.getPuntuacio());
         System.out.println(String.valueOf(e.getIdPartida()));
         System.out.println(String.valueOf(e.getGuanyada()));
@@ -342,6 +348,8 @@ public class CtrlDomini {
         //Afegim la estadistica creada a Jugador i a Partida
         ctrlPartida.addEstadistiquesPartida(e);
         ctrlJugador.addEstadistica(e);
+        
+        ctrlJugador.getJugadorActual().eliminarPartida(ctrlPartida.getIdPartidaActual());
 
         if (guanyada) ctrlRanquing.setNewRecord(username, puntuacio);
         return puntuacio;
@@ -397,8 +405,30 @@ public class CtrlDomini {
             TipusAlgorisme tipusAlgorisme = p.getTipusAlgorisme();
 
             if (tipusAlgorisme == TipusAlgorisme.FIVEGUESS) {
+                System.out.println("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
                 FiveGuess fiveGuess = ctrlPersistencia.obtenirFiveGuess(strIdpartida);
                 ((Codemaker) p).setFiveGuess(fiveGuess);
+                System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy " + fiveGuess);
+
+                ArrayList<Integer[]> codisDisponibles = fiveGuess.getCodisDisponibles();
+                ArrayList<Integer[]> codisPossibles = fiveGuess.getCodisPossibles();
+                System.out.println("codis disponibles ");
+                for (int i=0; i<codisDisponibles.size(); ++i) {
+                    Integer[] codi = codisDisponibles.get(i);
+                    for (int j=0; j<codi.length; ++j) {
+                        System.out.print(codi[j]);
+                    }
+                    System.out.println();
+                }
+                System.out.println("codis possibles ");
+                for (int i=0; i<codisPossibles.size(); ++i) {
+                    Integer[] codi = codisDisponibles.get(i);
+                    for (int j=0; j<codi.length; ++j) {
+                        System.out.print(codi[j]);
+                    }
+                    System.out.println();
+                }
+
             } else {
                 Genetic genetic = ctrlAlgorisme.crearGenetic(
                         configuracioPartida.getLongitudCombinacio(),
@@ -421,8 +451,9 @@ public class CtrlDomini {
         Partida p = ctrlPartida.getPartidaActual();
         HashMap<Integer, Ronda> rondes = p.getRondes();
         int midaRondes = rondes.size();
-
-        ctrlJugador.getJugadorActual().afegirIdPartida(p.getId());
+        
+        if (!ctrlJugador.getJugadorActual().existeixPartida(p.getId()))
+            ctrlJugador.getJugadorActual().afegirIdPartida(p.getId());
         Jugador j = ctrlJugador.getJugadorActual();
         ctrlPersistencia.actualitzarJugador(j.getID(), j.getUsername(), j.getPassword(), j.getIdPartides());
         System.out.println(j.getIdPartides().size());
@@ -430,6 +461,11 @@ public class CtrlDomini {
         Integer[] idRondes = new Integer[midaRondes];
         Integer[][] combinacionsIntentades = new Integer[midaRondes][];
         String[] correccions = new String[midaRondes];
+
+        System.out.println(" mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+        System.out.println(p.getConfiguracioPartida().getTipusPartida());
+        System.out.println(TipusPartida.CODEBREAKER);
+        System.out.println(p.getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEBREAKER);
 
         if (p.getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEBREAKER) {
             for (int i = 0; i < rondes.size(); ++i) {
@@ -449,31 +485,35 @@ public class CtrlDomini {
             }
         }
         
-
         try {
-            if (p.getTipusAlgorisme() == null) {
+            System.out.println(p.getId());
+            if (p.getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEBREAKER) {
                 ctrlPersistencia.actualitzarPartida(String.valueOf(p.getId()), p.getSolutionCode(), idRondes, combinacionsIntentades, correccions, "");
+                ctrlPersistencia.actualitzarConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEBREAKER), p.getConfiguracioPartida().getNumeroIntents(), p.getConfiguracioPartida().getNumeroColors(), p.getConfiguracioPartida().getLongitudCombinacio());
             }
             else {
                 ctrlPersistencia.actualitzarPartida(String.valueOf(p.getId()), p.getSolutionCode(), idRondes, combinacionsIntentades, correccions, p.getTipusAlgorisme().toString());
                 if (p.getTipusAlgorisme() == TipusAlgorisme.FIVEGUESS) {
                     ctrlPersistencia.actualitzarFiveGuess(String.valueOf(p.getId()), p.getFiveGuess().getCodisDisponibles(), p.getFiveGuess().getCodisPossibles());
                 }
+                ctrlPersistencia.actualitzarConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEMAKER), p.getConfiguracioPartida().getNumeroIntents(), p.getConfiguracioPartida().getNumeroColors(), p.getConfiguracioPartida().getLongitudCombinacio());
             }
-
-        } catch (InstanciaNoExisteix e) {
-            if (p.getTipusAlgorisme() == null) {
+        }
+        catch (InstanciaNoExisteix e) {
+            System.out.println("guardar partida actual " + e.toString());
+            if (p.getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEBREAKER) {
                 ctrlPersistencia.afegirPartida(String.valueOf(p.getId()), p.getSolutionCode(), idRondes, combinacionsIntentades, correccions, "");
+                ctrlPersistencia.afegirConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEBREAKER), p.getConfiguracioPartida().getNumeroIntents(), p.getConfiguracioPartida().getNumeroColors(), p.getConfiguracioPartida().getLongitudCombinacio());
             }
             else {
                 ctrlPersistencia.afegirPartida(String.valueOf(p.getId()), p.getSolutionCode(), idRondes, combinacionsIntentades, correccions, p.getTipusAlgorisme().toString());
                 if (p.getTipusAlgorisme() == TipusAlgorisme.FIVEGUESS) {
                     ctrlPersistencia.afegirFiveGuess(String.valueOf(p.getId()), p.getFiveGuess().getCodisDisponibles(), p.getFiveGuess().getCodisPossibles());
                 }
+                ctrlPersistencia.afegirConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEMAKER), p.getConfiguracioPartida().getNumeroIntents(), p.getConfiguracioPartida().getNumeroColors(), p.getConfiguracioPartida().getLongitudCombinacio());
             }
-        }
+        }        
     }
-
 
     public ArrayList<String[]> getInfoPartidesGuardades() throws IOException, ClassNotFoundException, InstanciaNoExisteix {
         ArrayList<Integer> idPartides = ctrlJugador.getJugadorActual().getIdPartides();
@@ -501,18 +541,22 @@ public class CtrlDomini {
 
     public void elimiarPartidaActual() throws IOException, InstanciaNoExisteix {
         String idPartida = String.valueOf(ctrlPartida.getIdPartidaActual());
-        ctrlJugador.getJugadorActual().eliminarPartida(Integer.valueOf(idPartida));
         if (ctrlPersistencia.existeixPartida(idPartida)) {
+            ctrlJugador.getJugadorActual().eliminarPartida(Integer.valueOf(idPartida));
             ctrlPersistencia.eliminarPartida(idPartida);
             if (ctrlPartida.getPartidaActual().getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEMAKER && ctrlPartida.getPartidaActual().getTipusAlgorisme() == TipusAlgorisme.FIVEGUESS) 
                 ctrlPersistencia.eliminarFiveGuess(idPartida);
+            System.out.println("eliminar partida actual exxiteix configuracio partida" + ctrlPersistencia.existeixConfiguracioPartida(idPartida));
             ctrlPersistencia.eliminarConfiguracioPartida(idPartida);
+            System.out.println("eliminar partida actual exxiteix configuracio partida" + ctrlPersistencia.existeixConfiguracioPartida(idPartida));
         }
     }
 
     public Integer[] getSolutionCodePartidaGuardada(String idPartida, String tipusPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         Partida p = ctrlPersistencia.obtenirPartida(idPartida, tipusPartida);
         System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaa");
+        System.out.println(idPartida);
+        System.out.println(tipusPartida);
         System.out.println(p);
         System.out.println(p.getId());
 
