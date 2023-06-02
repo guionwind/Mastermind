@@ -121,8 +121,11 @@ public abstract class Partida {
      * @return Retorna l'ultima combinacio intentada
      */
     public Integer[] getUltimaCombIntentada() {
-        Ronda r = rondes.get(rondes.size() - 1);
-        return r.getCombinacioIntentada();
+        if (rondes.size() > 0) {
+            Ronda r = rondes.get(rondes.size() - 1);
+            return r.getCombinacioIntentada();
+        }
+        return null;
     }
 
 
@@ -131,8 +134,11 @@ public abstract class Partida {
      * @return retorna la ultima correccio
      */
     public String getUltimaCorreccio() {
-        Ronda r = rondes.get(rondes.size() - 1);
-        return r.getCorreccio();
+        if (rondes.size() > 0) {
+            Ronda r = rondes.get(rondes.size() - 1);
+            return r.getCorreccio();
+        }
+        return null;
     }
 
     /**

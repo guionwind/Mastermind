@@ -11,7 +11,6 @@ public class CtrlEstadistiquesPartida {
 
     private HashMap<Pair<String, Integer>, EstadistiquesPartida> estadistiquesPartida;
 
-
     public CtrlEstadistiquesPartida() {
         estadistiquesPartida = new HashMap<>();
     }

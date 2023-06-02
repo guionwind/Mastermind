@@ -326,8 +326,10 @@ public class CtrlDomini {
      * 
      * @param guanyada Guanyada indica true si la partida s'ha guanyat.
      * @return puntuacio final de la partida
+     * @throws InstanciaJaExisteix
+     * @throws IOException
      */
-    public Integer partidaAcabada(Boolean guanyada) {
+    public Integer partidaAcabada(Boolean guanyada) throws IOException, InstanciaJaExisteix {
         Integer idPartida = ctrlPartida.getIdPartidaActual();
         String username = ctrlJugador.getLoggedPlayerUsername();
         Integer numRondes = ctrlPartida.getNumeroRondes();
@@ -339,6 +341,7 @@ public class CtrlDomini {
 
         ctrlEstadistiquesPartida.creaEstadistiquesPartida(username, idPartida, puntuacio, guanyada);
         EstadistiquesPartida e = ctrlEstadistiquesPartida.getEstadistiquesPartida(username, idPartida);
+        ctrlPersistencia.afegirEstadistiquesPartida(username, String.valueOf(idPartida), puntuacio, guanyada);
 
         System.out.println(e.getPuntuacio());
         System.out.println(String.valueOf(e.getIdPartida()));
@@ -348,8 +351,6 @@ public class CtrlDomini {
         //Afegim la estadistica creada a Jugador i a Partida
         ctrlPartida.addEstadistiquesPartida(e);
         ctrlJugador.addEstadistica(e);
-        
-        ctrlJugador.getJugadorActual().eliminarPartida(ctrlPartida.getIdPartidaActual());
 
         if (guanyada) ctrlRanquing.setNewRecord(username, puntuacio);
         return puntuacio;
@@ -523,9 +524,9 @@ public class CtrlDomini {
         }
 
         ArrayList<String[]> infoPartidesNoAcabades = new ArrayList<>();
-
+        String idJugador = ctrlJugador.getLoggedPlayerUsername();
         for (Integer idPartida : idPartides) {
-            if (! ctrlPersistencia.existeixEstadistiquesPartida(ctrlJugador.getLoggedPlayerUsername(), String.valueOf(idPartida))) {
+            if (! ctrlPersistencia.existeixEstadistiquesPartida(idJugador, String.valueOf(idPartida))) {
                 ConfiguracioPartida configuracioPartida = ctrlPersistencia.obtenirConfiguracioPartida(String.valueOf(idPartida));
                 infoPartidesNoAcabades.add(new String[]{
                         String.valueOf(idPartida),
@@ -561,9 +562,11 @@ public class CtrlDomini {
         System.out.println(p.getId());
 
         Integer [] combinacioIntentada = p.getUltimaCombIntentada();
-        for (int i = 0; i < combinacioIntentada.length; ++i)
-            System.out.print(combinacioIntentada[i]);
-        System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+        if (combinacioIntentada != null) {
+            for (int i = 0; i < combinacioIntentada.length; ++i)
+                System.out.print(combinacioIntentada[i]);
+            System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+        }
 
         String correcio = p.getUltimaCorreccio();
         if (correcio != null) {

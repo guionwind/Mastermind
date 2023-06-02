@@ -57,7 +57,7 @@ public class VistaPartida extends JFrame {
         intents = init_intents;
         colors = init_colors;
         longitud = init_longitud;
-        if (combinacionsIntentades != null) {
+        if (combinacionsIntentades != null && combinacionsIntentades.length > 0) {
             combinacio_intentada = combinacionsIntentades[combinacionsIntentades.length-1];
         }
         tipus_partida = init_tipusPartida;
@@ -197,12 +197,12 @@ public class VistaPartida extends JFrame {
 
             //Habilita els seguents botons de intent
             if (tipus_partida.equals("CODEBREAKER")) {
-                for (int j = 0; j < combinacionsIntentades[0].length; ++j) {
+                for (int j = 0; j < init_longitud; ++j) {
                     buttonMatrixIntentat.get(intents - current_round - 1).get(j).setEnabled(true);
                 }
             }
             else {
-                for (int j = 0; j < combinacionsIntentades[0].length; ++j) {
+                for (int j = 0; j < init_longitud; ++j) {
                     buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setEnabled(true);
                 }
             }
@@ -223,7 +223,7 @@ public class VistaPartida extends JFrame {
                 try {
                     onCorregir();
                 } catch (LongitudCombinacioIncorrecte | ValorsRespostaIncorrectes | IOException |
-                         LongitudRespostaIncorrecte | NumeroColorsIncorrecte ex) {
+                         LongitudRespostaIncorrecte | NumeroColorsIncorrecte | InstanciaJaExisteix ex) {
                     throw new RuntimeException(ex);
                 }
                 super.mousePressed(e);
@@ -422,7 +422,7 @@ public class VistaPartida extends JFrame {
         }
     }
 
-    private void onCorregir() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes, IOException {
+    private void onCorregir() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes, IOException, InstanciaJaExisteix {
         Boolean guanyat = true;
         lInvalidCombinacio.setVisible(false);
         int longitudCombinacioIntentat = buttonMatrixIntentat.get(intents - current_round - 1).size();

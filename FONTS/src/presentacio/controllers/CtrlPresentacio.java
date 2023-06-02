@@ -106,7 +106,7 @@ public class CtrlPresentacio {
         return ctrlDomini.jugarRondaCodeMaker();
     }
 
-    public static int partidaAcabada(Boolean guanyada){
+    public static int partidaAcabada(Boolean guanyada) throws IOException, InstanciaJaExisteix{
         return ctrlDomini.partidaAcabada(guanyada);
     }
 
