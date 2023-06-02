@@ -219,12 +219,12 @@ public class VistaConfiguracioPartida extends JFrame {
     }
 
     private void onJugar() throws Exception {
-        Integer[] combinacio = new Integer[longitud];
+        Integer[] combinacio = new Integer[sLongitud.getValue()];
         Boolean valid = true;
         if (cbTipusPartida.getSelectedItem().toString().equals("Codebreaker")) {
             CtrlPresentacio.crearPartidaCodebreaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue());
         } else {
-            for (int i = 0; i < longitud; i++) {
+            for (int i = 0; i < sLongitud.getValue(); i++) {
                 combinacio[i] = buttonList.get(i).getCurrentColor();
                 if (combinacio[i].equals(0)) {
                     JOptionPane.showMessageDialog(sIntents, "Has d'assignar tots els colors!", "Error creant Partida", JOptionPane.WARNING_MESSAGE);
