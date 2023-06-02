@@ -12,6 +12,7 @@ import java.lang.String;
  */
 public class CtrlJugador {
 
+
     /**
      * Jugador loggejat actualment
      */
@@ -76,5 +77,9 @@ public class CtrlJugador {
      */
     public void addEstadistica(EstadistiquesPartida estadistiquesPartida) {
         jugadorActual.setEstadistica(estadistiquesPartida);
+    }
+
+    public Jugador getJugadorActual() {
+        return jugadorActual;
     }
 }

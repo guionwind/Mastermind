@@ -7,16 +7,18 @@ import domini.classes.exceptions.ContrasenyaIncorrecte;
 import domini.classes.exceptions.InstanciaNoExisteix;
 import presentacio.controllers.CtrlPresentacio;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Objects;
 
-public class VistaLogin extends JDialog {
+public class VistaLogin extends JFrame {
     private JPanel contentPane;
     private JTextField tFNomUsuari;
     private JButton bLogin;
@@ -27,18 +29,30 @@ public class VistaLogin extends JDialog {
     private JLabel lUserNotExists;
     private JLabel lContrasenyaIncorrecte;
 
-    public VistaLogin(Point point) {
+    public VistaLogin(Point point, int state) throws IOException {
         setLocation(point);
+
         setContentPane(contentPane);
+
         this.pack();
+        //setLocationRelativeTo(null);
+        setResizable(true);
+
+        setTitle("MASTERMIND");
+        this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
         setVisible(true);
+        setExtendedState(state);
 
         bCancel.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                onCancel();
+                try {
+                    onCancel();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         bLogin.addMouseListener(new MouseAdapter() {
@@ -51,8 +65,8 @@ public class VistaLogin extends JDialog {
         });
     }
 
-    private void onCancel() {
-        CtrlPresentacio.vistaPrincipal(getLocation());
+    private void onCancel() throws IOException {
+        CtrlPresentacio.vistaPrincipal(getLocation(), getExtendedState());
         dispose();
     }
 
@@ -75,7 +89,7 @@ public class VistaLogin extends JDialog {
         } else {
             try {
                 CtrlPresentacio.login(tFNomUsuari.getText(), String.valueOf(pFContrasenya.getPassword()));
-                CtrlPresentacio.vistaMenuInicial(getLocation());
+                CtrlPresentacio.vistaMenuInicial(getLocation(), getExtendedState());
                 dispose();
             } catch (IOException | ClassNotFoundException ex) {
                 throw new RuntimeException(ex);

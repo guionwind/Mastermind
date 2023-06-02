@@ -30,6 +30,12 @@ public class Ronda {
         this.id = id;
     }
 
+    public Ronda(Integer idRonda, Integer[] combinacioIntentada, String correccio) {
+        id = idRonda;
+        this.combinacioIntentada = combinacioIntentada;
+        this.correccio = correccio;
+    }
+
     // Mètodes
     /**
      * Retorna el identificador únic de la ronda.

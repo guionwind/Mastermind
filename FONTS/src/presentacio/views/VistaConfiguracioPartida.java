@@ -6,6 +6,7 @@ import com.intellij.uiDesigner.core.Spacer;
 import presentacio.controllers.CtrlPresentacio;
 import presentacio.custom.RoundButton;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -14,6 +15,8 @@ import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.*;
 import java.beans.PropertyChangeListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
@@ -39,18 +42,23 @@ public class VistaConfiguracioPartida extends JFrame {
     private ArrayList<Color> colorList = new ArrayList<>();
     private ArrayList<RoundButton> buttonList = new ArrayList<>();
 
-    public VistaConfiguracioPartida(Point location) {
+    public VistaConfiguracioPartida(Point location, int state) throws IOException {
         setLocation(location);
-        setUndecorated(false);
+
+
         setContentPane(contentPane);
         this.pack();
-        setVisible(true);
+        setLocationRelativeTo(null);
+        setTitle("MASTERMIND");
+        this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
+
+        setExtendedState(state);
+
         getRootPane().setDefaultButton(bJugar);
         initButtonsPanel();
-        sLongitud.setPaintLabels(true);
-        sLongitud.setPaintTicks(true);
+        setVisible(true);
 
-
+        colorList.add(Color.GRAY);
         colorList.add(Color.RED);
         colorList.add(Color.GREEN);
         colorList.add(Color.BLUE);
@@ -73,7 +81,11 @@ public class VistaConfiguracioPartida extends JFrame {
 
         bEnrere.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onEnrere();
+                try {
+                    onEnrere();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -82,7 +94,6 @@ public class VistaConfiguracioPartida extends JFrame {
                 lLongitud.setText(String.valueOf(sLongitud.getValue()));
 
                 int numButtons = sLongitud.getValue();
-                System.out.println(numButtons);
 
                 pCombinacio.removeAll();
                 pCombinacio.setLayout(new FlowLayout());
@@ -95,6 +106,7 @@ public class VistaConfiguracioPartida extends JFrame {
 
                 pCombinacio.revalidate();
                 pCombinacio.repaint();
+
             }
         });
 
@@ -136,7 +148,8 @@ public class VistaConfiguracioPartida extends JFrame {
                 public void mouseClicked(MouseEvent e) {
                     if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker")) {
                         int current = button.getCurrentColor();
-                        current = (current == sColors.getValue()) ? 0 : (current + 1);
+                        current = (current == sColors.getValue()) ? 1 : (current + 1);
+                        System.out.println(current + " color del boto");
                         button.setCurrentColor(colorList.get(current), current);
                         super.mouseClicked(e);
                     }
@@ -146,55 +159,60 @@ public class VistaConfiguracioPartida extends JFrame {
             if (i < 4) pCombinacio.add(button);
         }
 
-        pCombinacio.revalidate();
-        pCombinacio.repaint();
+        //pCombinacio.revalidate();
+        //pCombinacio.repaint();
+        pCombinacio.setVisible(true);
     }
 
     private void handleFields() {
-        if (cbAlgorisme.getSelectedItem().toString().equals("Genetic")) {
-            sColors.setMaximum(7);
-            sLongitud.setMaximum(7);
-        } else {
-            sColors.setMaximum(8);
-            sLongitud.setMaximum(8);
-        }
-        if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker") && cbAlgorisme.getSelectedItem().toString().equals("FiveGuess")) {
+
+        if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker")) {
             lTipusAlgorisme.setVisible(true);
             cbAlgorisme.setVisible(true);
-            pCombinacio.setVisible(true);
-            lCombinacio.setVisible(true);
 
-            sIntents.setEnabled(false);
-            sColors.setEnabled(false);
-            sLongitud.setEnabled(false);
+            if (cbAlgorisme.getSelectedItem().toString().equals("FiveGuess")) {
+                //En FiveGuess l'usuari pot triar que la maquina intenti endivinar la combinacio amb 2,3,4 i 5 intents
+                sIntents.setMinimum(2);
+                sIntents.setMaximum(5);
 
-            intents = sIntents.getValue();
-            colors = sColors.getValue();
-            longitud = sLongitud.getValue();
+                intents = sIntents.getValue();
+                colors = 6;
+                longitud = 4;
 
-            sIntents.setValue(5);
-            sColors.setValue(6);
-            sLongitud.setValue(4);
-        } else {
-            if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker") && cbAlgorisme.getSelectedItem().toString().equals("Genetic")) {
+                sIntents.setEnabled(true);
+                sColors.setEnabled(false);
+                sLongitud.setEnabled(false);
+            } else { //GENETIC
+                sColors.setMaximum(7);
+                sIntents.setMaximum(10);
+                sLongitud.setMaximum(7);
+
                 lTipusAlgorisme.setVisible(true);
                 cbAlgorisme.setVisible(true);
                 pCombinacio.setVisible(true);
                 lCombinacio.setVisible(true);
-            } else {
-                lTipusAlgorisme.setVisible(false);
-                cbAlgorisme.setVisible(false);
-                pCombinacio.setVisible(false);
-                lCombinacio.setVisible(false);
+
+                sIntents.setEnabled(true);
+                sColors.setEnabled(true);
+                sLongitud.setEnabled(true);
             }
-            sIntents.setValue(intents);
-            sColors.setValue(colors);
-            sLongitud.setValue(longitud);
+        } else { //CodeBreaker
+            sColors.setMaximum(8);
+            sLongitud.setMaximum(8);
+
+            lTipusAlgorisme.setVisible(false);
+            cbAlgorisme.setVisible(false);
 
             sIntents.setEnabled(true);
             sColors.setEnabled(true);
             sLongitud.setEnabled(true);
         }
+
+        sIntents.setValue(intents);
+        sColors.setValue(colors);
+        sLongitud.setValue(longitud);
+
+
     }
 
     private void onJugar() throws Exception {
@@ -203,17 +221,17 @@ public class VistaConfiguracioPartida extends JFrame {
             CtrlPresentacio.crearPartidaCodebreaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue());
         } else {
             for (int i = 0; i < longitud; i++) {
-                combinacio[i] = buttonList.get(i).getCurrentColor()+1;
+                combinacio[i] = buttonList.get(i).getCurrentColor();
             }
             CtrlPresentacio.crearPartidaCodemaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbAlgorisme.getSelectedItem().toString().toUpperCase());
         }
-        CtrlPresentacio.vistaPartida(getLocation(), sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbTipusPartida.getSelectedItem().toString());
+        CtrlPresentacio.vistaPartida(getLocation(), getExtendedState(), sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbTipusPartida.getSelectedItem().toString().toUpperCase(), null, null);
         dispose();
     }
 
-    private void onEnrere() {
+    private void onEnrere() throws IOException {
         // add your code here if necessary
-        CtrlPresentacio.vistaMenuInicial(getLocation());
+        CtrlPresentacio.vistaMenuInicial(getLocation(), getExtendedState());
         dispose();
     }
 
@@ -252,10 +270,12 @@ public class VistaConfiguracioPartida extends JFrame {
         label1.setText("Numero Intents:");
         panel2.add(label1, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         sIntents = new JSlider();
+        sIntents.setFocusable(true);
         sIntents.setMaximum(20);
         sIntents.setMinimum(1);
         sIntents.setPaintLabels(true);
-        sIntents.setPaintTicks(true);
+        sIntents.setPaintTicks(false);
+        sIntents.setPaintTrack(true);
         sIntents.setValue(5);
         panel2.add(sIntents, new GridConstraints(4, 0, 1, 7, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label2 = new JLabel();
@@ -265,7 +285,7 @@ public class VistaConfiguracioPartida extends JFrame {
         sColors.setMaximum(8);
         sColors.setMinimum(1);
         sColors.setPaintLabels(true);
-        sColors.setPaintTicks(true);
+        sColors.setPaintTicks(false);
         sColors.setValue(6);
         panel2.add(sColors, new GridConstraints(6, 0, 1, 7, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label3 = new JLabel();
@@ -275,16 +295,16 @@ public class VistaConfiguracioPartida extends JFrame {
         sLongitud.setMaximum(8);
         sLongitud.setMinimum(1);
         sLongitud.setPaintLabels(true);
-        sLongitud.setPaintTicks(true);
+        sLongitud.setPaintTicks(false);
         sLongitud.setValue(4);
         panel2.add(sLongitud, new GridConstraints(8, 0, 1, 7, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         lCombinacio = new JLabel();
         lCombinacio.setText("Combinacio:");
-        lCombinacio.setVisible(false);
+        lCombinacio.setVisible(true);
         panel2.add(lCombinacio, new GridConstraints(9, 0, 1, 7, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         pCombinacio = new JPanel();
         pCombinacio.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        pCombinacio.setVisible(false);
+        pCombinacio.setVisible(true);
         panel2.add(pCombinacio, new GridConstraints(10, 0, 1, 7, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         cbAlgorisme = new JComboBox();
         final DefaultComboBoxModel defaultComboBoxModel2 = new DefaultComboBoxModel();

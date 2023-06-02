@@ -3,6 +3,7 @@ package domini.controllers;
 import java.util.ArrayList;
 
 import domini.classes.Ranquing;
+import presentacio.custom.Pair;
 //import java.util.ArrayList;
 
 
@@ -42,7 +43,7 @@ public class CtrlRanquing {
      * Retorna les 10 puntuacions mes altes
      * @return Les 10 millors puntuacions amb el jugador corresponent, en el format {idJugador, puntuacio}
      */
-    public ArrayList<Integer[]> getTop10(){
+    public ArrayList<Pair<String, Integer>> getTop10(){
         return ranquing.getTopN(10);
     }
 
@@ -51,7 +52,7 @@ public class CtrlRanquing {
      * @param idJugador id del jugador que ha jugat la partida
      * @param puntacio Puntuacio obtinguda a la partida
      */
-    public void setNewRecord(Integer idJugador, Integer puntacio) {
-        ranquing.addEstadistica(new Integer[] {idJugador, puntacio});
+    public void setNewRecord(String username, Integer puntacio) {
+        ranquing.addEstadistica(new Pair<String, Integer>(username, puntacio));
     }
 }

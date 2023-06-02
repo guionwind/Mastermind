@@ -1,6 +1,7 @@
 package persistencia.controllers;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
 
 import domini.classes.*;
@@ -23,24 +24,26 @@ public class CtrlPersistencia {
         gestorEstadistiquesPartida = new GestorEstadistiquesPartida();
     }
     
-    public void afegirJugador(int idJugador, String username, String password) throws IOException, InstanciaJaExisteix {
-        DAOJugador daoJ = new DAOJugador(idJugador, password);
+    public void afegirJugador(int idJugador, String username, String password, ArrayList<Integer> idPartides) throws IOException, InstanciaJaExisteix {
+        DAOJugador daoJ = new DAOJugador(idJugador, password, idPartides);
         gestorJugador.afegirJugador(username, daoJ);
     }
 
-    public void actualitzarJugador(int idJugador, String username, String password) throws IOException, InstanciaNoExisteix  {
-        DAOJugador daoJ = new DAOJugador(idJugador, password);
+    public void actualitzarJugador(int idJugador, String username, String password, ArrayList<Integer> idPartides) throws IOException, InstanciaNoExisteix  {
+        DAOJugador daoJ = new DAOJugador(idJugador, password, idPartides);
         gestorJugador.actualitzarJugador(username, daoJ);
     }
 
     public Jugador obtenirJugador(String username) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         DAOJugador daoJ = gestorJugador.obtenirJugador(username);
         Jugador j = null;
+        System.out.println(daoJ.getIdPartides());
         try {
             j = new Jugador(
                 daoJ.getId(),
                 username,
-                daoJ.getPassword()
+                daoJ.getPassword(),
+                daoJ.getIdPartides()
             );
         }
         catch (Exception e) {
@@ -65,13 +68,13 @@ public class CtrlPersistencia {
         return gestorJugador.obtenirPassword(username);
     }
 
-    public void afegirPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) throws IOException, InstanciaJaExisteix {
-        DAOPartida daoP = new DAOPartida(solutionCode, rondes, tipusAlgorisme);
+    public void afegirPartida(String idPartida, Integer[] solutionCode, Integer[] idRondes, Integer[][] combinacionsIntentades, String[] correccions, String tipusAlgorisme) throws IOException, InstanciaJaExisteix {
+        DAOPartida daoP = new DAOPartida(solutionCode, idRondes, combinacionsIntentades, correccions, tipusAlgorisme);
         gestorPartida.afegirPartida(idPartida, daoP);
     }
 
-    public void actualitzarPartida(String idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) throws IOException, InstanciaNoExisteix  {
-        DAOPartida daoP = new DAOPartida(solutionCode, rondes, tipusAlgorisme);
+    public void actualitzarPartida(String idPartida, Integer[] solutionCode, Integer[] idRondes, Integer[][] combinacionsIntentades, String[] correccions, String tipusAlgorisme) throws IOException, InstanciaNoExisteix  {
+        DAOPartida daoP = new DAOPartida(solutionCode, idRondes, combinacionsIntentades, correccions, tipusAlgorisme);
         gestorPartida.actualitzarPartida(idPartida, daoP);
     }
 
@@ -79,16 +82,29 @@ public class CtrlPersistencia {
         DAOPartida daoP = gestorPartida.obtenirPartida(idPartida);
         Partida p = null;
         try {
-            if (tipusPartida.equals( "CODEBREAKER")) {
+            HashMap<Integer, Ronda> rondes = new HashMap<>();
+            int midaRondes = daoP.getIdRondes().length;
+
+            Integer[] idRondes = daoP.getIdRondes();
+            Integer[][] combinacionsIntentades = daoP.getCombinacionsIntentades();
+            String[] correccions = daoP.getCorreccions();
+            System.out.println(midaRondes + "midarondes");
+            for (int i = 0; i < midaRondes; i++) {
+                Ronda ronda = new Ronda(idRondes[i], combinacionsIntentades[i], correccions[i]);
+                System.out.println(i + "la i");
+                rondes.put(idRondes[i], ronda);
+            }
+
+            if (tipusPartida.equals("CODEBREAKER")) {
                 p = new Codebreaker(Integer.valueOf(idPartida),
                         daoP.getSolutionCode(),
-                        daoP.getRondes()
+                        rondes
                 );
             } else {
                 p = new Codemaker(
                         Integer.valueOf(idPartida),
                         daoP.getSolutionCode(),
-                        daoP.getRondes(),
+                        rondes,
                         daoP.getTipusAlgorisme()
                 );
             }
@@ -184,22 +200,22 @@ public class CtrlPersistencia {
         return gestorFiveGuess.existeixFiveGuess(idPartida);
     }
 
-    public void afegirEstadistiquesPartida(String idJugador, String idPartida, Integer puntuacio, boolean guanyada) throws IOException, InstanciaJaExisteix {
+    public void afegirEstadistiquesPartida(String username, String idPartida, Integer puntuacio, boolean guanyada) throws IOException, InstanciaJaExisteix {
         DAOEstadistiquesPartida daoEP = new DAOEstadistiquesPartida(puntuacio, guanyada);
-        gestorEstadistiquesPartida.afegirEstadistiquesPartida(idJugador+" "+idPartida, daoEP);
+        gestorEstadistiquesPartida.afegirEstadistiquesPartida(username+" "+idPartida, daoEP);
     }
 
-    public void actualitzarEstadistiquesPartida(String idJugador, String idPartida, Integer puntuacio, boolean guanyada) throws IOException, InstanciaNoExisteix  {
+    public void actualitzarEstadistiquesPartida(String username, String idPartida, Integer puntuacio, boolean guanyada) throws IOException, InstanciaNoExisteix  {
         DAOEstadistiquesPartida daoEP = new DAOEstadistiquesPartida(puntuacio, guanyada);
-        gestorEstadistiquesPartida.actualitzarEstadistiquesPartida(idJugador+" "+idPartida, daoEP);
+        gestorEstadistiquesPartida.actualitzarEstadistiquesPartida(username+" "+idPartida, daoEP);
     }
 
-    public EstadistiquesPartida obtenirEstadistiquesPartida(String idJugador, String idPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
-        DAOEstadistiquesPartida daoEP = gestorEstadistiquesPartida.obtenirEstadistiquesPartida(idJugador+" "+idPartida);
+    public EstadistiquesPartida obtenirEstadistiquesPartida(String username, String idPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        DAOEstadistiquesPartida daoEP = gestorEstadistiquesPartida.obtenirEstadistiquesPartida(username+" "+idPartida);
         EstadistiquesPartida eP = null;
         try {
             eP = new EstadistiquesPartida(
-                Integer.valueOf(idJugador),
+                username,
                 Integer.valueOf(idPartida),
                 daoEP.getPuntuacio(),
                 daoEP.getGuanyada()
@@ -211,12 +227,12 @@ public class CtrlPersistencia {
         return eP;
     }
 
-    public void eliminarEstadistiquesPartida(String idJugador, String idPartida) throws IOException, InstanciaNoExisteix {        
-        gestorEstadistiquesPartida.eliminarEstadistiquesPartida(idJugador+" "+idPartida);
+    public void eliminarEstadistiquesPartida(String username, String idPartida) throws IOException, InstanciaNoExisteix {
+        gestorEstadistiquesPartida.eliminarEstadistiquesPartida(username+" "+idPartida);
     }
 
-    public boolean existeixEstadistiquesPartida(String idJugador, String idPartida) throws IOException {
-        return gestorEstadistiquesPartida.existeixEstadistiquesPartida(idJugador+" "+idPartida);
+    public boolean existeixEstadistiquesPartida(String username, String idPartida) throws IOException {
+        return gestorEstadistiquesPartida.existeixEstadistiquesPartida(username+" "+idPartida);
     }
 
     public ArrayList<String> obtenirIdJugadorsEstadistiquesPartida() throws IOException {

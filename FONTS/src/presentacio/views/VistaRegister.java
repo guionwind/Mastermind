@@ -6,16 +6,18 @@ import com.intellij.uiDesigner.core.Spacer;
 import domini.classes.exceptions.*;
 import presentacio.controllers.CtrlPresentacio;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 
-public class VistaRegister extends JDialog {
+public class VistaRegister extends JFrame {
     private JPanel contentPane;
     private JTextField tFNomUsuari;
     private JPasswordField pFContrasenya;
@@ -28,18 +30,27 @@ public class VistaRegister extends JDialog {
     private JLabel lConfirmaPwdError;
     private JLabel lPwdNoCoincideix;
 
-    public VistaRegister(Point location) {
+    public VistaRegister(Point location, int state) throws IOException {
         setLocation(location);
         setContentPane(contentPane);
         this.pack();
+        setLocationRelativeTo(null);
+        setResizable(true);
+        setTitle("MASTERMIND");
+        this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
         setVisible(true);
+        setExtendedState(state);
 
         bCancel.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                onCancel();
+                try {
+                    onCancel();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         bRegister.addMouseListener(new MouseAdapter() {
@@ -52,8 +63,8 @@ public class VistaRegister extends JDialog {
         });
     }
 
-    private void onCancel() {
-        CtrlPresentacio.vistaPrincipal(getLocation());
+    private void onCancel() throws IOException {
+        CtrlPresentacio.vistaPrincipal(getLocation(), getExtendedState());
         dispose();
     }
 
@@ -82,7 +93,7 @@ public class VistaRegister extends JDialog {
         } else {
             try {
                 CtrlPresentacio.register(tFNomUsuari.getText(), String.valueOf(pFContrasenya.getPassword()), String.valueOf(pfConfirmaContrasenya.getPassword()));
-                CtrlPresentacio.vistaMenuInicial(getLocation());
+                CtrlPresentacio.vistaMenuInicial(getLocation(), getExtendedState());
                 dispose();
 
             } catch (InstanciaJaExisteix | IOException ex) {

@@ -113,7 +113,7 @@ public abstract class Partida {
      * @param combinacioIntentada Combinacio intentada per l'ususari
      */
     public void guardarCombinacio(Integer[] combinacioIntentada) {
-        rondes.get(rondes.size()-1).setCombinacioIntentada(combinacioIntentada.clone());
+        rondes.get(rondes.size()-1).setCombinacioIntentada(combinacioIntentada);
     }
 
     /**
@@ -121,8 +121,7 @@ public abstract class Partida {
      * @return Retorna l'ultima combinacio intentada
      */
     public Integer[] getUltimaCombIntentada() {
-        Ronda r = rondes.get(rondes.size() - 2);
-    
+        Ronda r = rondes.get(rondes.size() - 1);
         return r.getCombinacioIntentada();
     }
 
@@ -132,7 +131,7 @@ public abstract class Partida {
      * @return retorna la ultima correccio
      */
     public String getUltimaCorreccio() {
-        Ronda r = rondes.get(rondes.size() - 2);
+        Ronda r = rondes.get(rondes.size() - 1);
         return r.getCorreccio();
     }
 
@@ -200,6 +199,10 @@ public abstract class Partida {
     }
 
     public TipusAlgorisme getTipusAlgorisme() {
+        return null;
+    }
+
+    public FiveGuess getFiveGuess() {
         return null;
     }
 }

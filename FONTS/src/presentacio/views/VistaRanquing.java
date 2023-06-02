@@ -6,40 +6,52 @@ import com.intellij.uiDesigner.core.Spacer;
 import presentacio.controllers.CtrlPresentacio;
 import presentacio.custom.Pair;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class VistaRanquing extends JFrame {
     private JPanel contentPane;
-    private JButton bAcceptar;
+    private JButton bEnrere;
     private JPanel pRanquing;
     private JLabel lRanquing;
     private ArrayList<Pair> estadistiques = new ArrayList<>();
 
-    public VistaRanquing(Point location) throws IOException, ClassNotFoundException { //TODO que es passi per parametre el tipus de ranquing (RANQUING GLOBAL, RANQUING PERSONAL)
+    public VistaRanquing(Point location, int state) throws IOException, ClassNotFoundException { //TODO que es passi per parametre el tipus de ranquing (RANQUING GLOBAL, RANQUING PERSONAL)
         setLocation(location);
         setContentPane(contentPane);
         this.pack();
-        setVisible(true);
+        setLocationRelativeTo(null);
         setResizable(true);
-        getRootPane().setDefaultButton(bAcceptar);
 
-        ArrayList<Integer[]> temp_statics = CtrlPresentacio.getTop10();
-        System.out.println("temp_statics.size = "+temp_statics.size());
-        for (int i = 0; i < temp_statics.size(); i++){
-            System.out.println("Jugador: "+temp_statics.get(i)[0]+" punt: "+temp_statics.get(i)[1]);
-            estadistiques.add(new Pair(temp_statics.get(i)[0], temp_statics.get(i)[1]));
+        setTitle("MASTERMIND");
+        this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
+        setVisible(true);
+        setExtendedState(state);
+
+        getRootPane().setDefaultButton(bEnrere);
+
+        ArrayList<Pair<String, Integer>> temp_statics = CtrlPresentacio.getTop10();
+        System.out.println("temp_statics.size = " + temp_statics.size());
+        for (int i = 0; i < temp_statics.size(); i++) {
+            System.out.println("Jugador: " + temp_statics.get(i).getFirst() + " punt: " + temp_statics.get(i).getSecond());
+            estadistiques.add(new Pair(temp_statics.get(i).getFirst(), temp_statics.get(i).getSecond()));
         }
-        bAcceptar.addActionListener(new ActionListener() {
+        bEnrere.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                try {
+                    onEnrere();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -61,8 +73,9 @@ public class VistaRanquing extends JFrame {
         }
     }
 
-    private void onOK() {
-        CtrlPresentacio.vistaMenuInicial(getLocation());
+    private void onEnrere() throws IOException {
+        // add your code here
+        CtrlPresentacio.vistaMenuInicial(getLocation(), getExtendedState());
         dispose();
     }
 
@@ -93,16 +106,17 @@ public class VistaRanquing extends JFrame {
         final JPanel panel2 = new JPanel();
         panel2.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(panel2, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        bAcceptar = new JButton();
-        bAcceptar.setText("Acceptar");
-        panel2.add(bAcceptar, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bEnrere = new JButton();
+        bEnrere.setFocusable(false);
+        bEnrere.setText("Enrere");
+        panel2.add(bEnrere, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         pRanquing = new JPanel();
         pRanquing.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(pRanquing, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         lRanquing = new JLabel();
         Font lRanquingFont = this.$$$getFont$$$(null, -1, 36, lRanquing.getFont());
         if (lRanquingFont != null) lRanquing.setFont(lRanquingFont);
-        lRanquing.setText("RANQUING");
+        lRanquing.setText("RÀNQUING");
         contentPane.add(lRanquing, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 

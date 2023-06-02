@@ -10,9 +10,9 @@ public class EstadistiquesPartida {
      * Identificador del jugador. Part de la clau primària amb idPartida.
      * Una partida només la pot haver jugat un únic jugador.
      */
-    private Integer idJugador;
+    private String username;
     /**
-     * Identificador de la partida. Part de la clau primària amb idJugador
+     * Identificador de la partida. Part de la clau primària amb username
      */
     private Integer idPartida;
     /**
@@ -27,14 +27,14 @@ public class EstadistiquesPartida {
     /**
      * Constructor de la classe EstadistiquesPartida.
      *
-     * @param idJugador Jugador de la partida
+     * @param username Jugador de la partida
      * @param idPartida Partida que ha jugat el jugador i de la qual es faran les estadístiques
      * @param puntuacio Puntuacio aconseguida pel jugador a la partida
      * @param guanyada Determina si la partida ha estat guanyada o no
      */
 
-    public EstadistiquesPartida(Integer idJugador, Integer idPartida, int puntuacio, Boolean guanyada) {
-        this.idJugador = idJugador;
+    public EstadistiquesPartida(String username, Integer idPartida, int puntuacio, Boolean guanyada) {
+        this.username = username;
         this.idPartida = idPartida;
         this.puntuacio = puntuacio;
         this.guanyada = guanyada;
@@ -46,8 +46,8 @@ public class EstadistiquesPartida {
      * Mètode per obtenir el jugador de les estadístiques.
      * @return Retorna el jugador de les estadístiques.
      */
-    public Integer getIdJugador(){
-        return this.idJugador;
+    public String getUsername(){
+        return this.username;
     }
 
     /**

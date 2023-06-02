@@ -3,7 +3,10 @@ package presentacio.views;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import domini.classes.exceptions.*;
+import presentacio.controllers.CtrlPresentacio;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ListSelectionEvent;
@@ -11,9 +14,13 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class VistaPartidesGuardades extends JDialog {
+public class VistaPartidesGuardades extends JFrame {
     private JPanel contentPane;
     private JButton bAcceptar;
     private JButton bEnrere;
@@ -22,18 +29,36 @@ public class VistaPartidesGuardades extends JDialog {
     private ArrayList<String> partides = new ArrayList<>();
     private DefaultListModel<String> listModel = new DefaultListModel<>();
 
-    public VistaPartidesGuardades(Point location) {
+    public VistaPartidesGuardades(Point location, int state) throws IOException, ClassNotFoundException, InstanciaNoExisteix {
         setLocation(location);
         setContentPane(contentPane);
         this.pack();
+        setLocationRelativeTo(null);
+        setResizable(true);
+        setTitle("MASTERMIND");
+        this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
         setVisible(true);
+        setExtendedState(state);
         getRootPane().setDefaultButton(bAcceptar);
 
         lPartides.setModel(listModel);
 
+        ArrayList<String[]> infoPartides = CtrlPresentacio.getInfoPartidesGuardades();
+
+        for (int i = 0; i < infoPartides.size(); ++i) {
+            String[] infoPartida = infoPartides.get(i);
+            listModel.add(i, "Numero d'Intents: " + infoPartida[1] + "   Numero de colors: " + infoPartida[2] + "   Longitud de la combinacio: " + infoPartida[3] + "   Tipus de la partida: " + infoPartida[4]);
+        }
+        lPartides.setVisible(true);
+
         bAcceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                try {
+                    onAcceptar(infoPartides);
+                } catch (IOException | ClassNotFoundException | LongitudCombinacioIncorrecte | NumeroColorsIncorrecte |
+                         LongitudRespostaIncorrecte | ValorsRespostaIncorrectes | InstanciaNoExisteix ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -45,6 +70,17 @@ public class VistaPartidesGuardades extends JDialog {
         });
 
         llistarPartides();
+        bEnrere.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+                try {
+                    onEnrere();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
 
     private void llistarPartides() {
@@ -53,8 +89,30 @@ public class VistaPartidesGuardades extends JDialog {
         }
     }
 
-    private void onOK() {
-        // TODO aqui devolveremos partida
+    private void onAcceptar(ArrayList<String[]> infoPartides) throws IOException, InstanciaNoExisteix, ClassNotFoundException, LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+        String idPartida = infoPartides.get(lPartides.getSelectedIndex())[0];
+        Integer numeroIntents = Integer.valueOf(infoPartides.get(lPartides.getSelectedIndex())[1]);
+        Integer numeroColors = Integer.valueOf(infoPartides.get(lPartides.getSelectedIndex())[2]);
+        Integer longitudCombinacio = Integer.valueOf(infoPartides.get(lPartides.getSelectedIndex())[3]);
+        String tipusPartida = infoPartides.get(lPartides.getSelectedIndex())[4];
+
+        Integer[] solutionCode = CtrlPresentacio.getSolutionCode(idPartida, tipusPartida);
+        Integer[][] combinacionsIntentades = CtrlPresentacio.getCombinacionsIntentades(idPartida, tipusPartida);
+        String[] correccions = CtrlPresentacio.getCorrecions(idPartida, tipusPartida);
+
+        for (int i = 0; i < solutionCode.length; ++i) {
+            System.out.println(solutionCode[i]);
+        }
+
+
+        CtrlPresentacio.carregarPartida(Integer.valueOf(idPartida));
+        CtrlPresentacio.vistaPartida(getLocation(), getExtendedState(), numeroIntents, numeroColors, longitudCombinacio, solutionCode, tipusPartida, combinacionsIntentades, correccions);
+
+        dispose();
+    }
+
+    private void onEnrere() throws IOException {
+        CtrlPresentacio.vistaMenuInicial(getLocation(), getExtendedState());
         dispose();
     }
 
@@ -86,6 +144,7 @@ public class VistaPartidesGuardades extends JDialog {
         panel2.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(panel2, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bAcceptar = new JButton();
+        bAcceptar.setFocusable(false);
         bAcceptar.setText("Acceptar");
         panel2.add(bAcceptar, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         bEnrere = new JButton();

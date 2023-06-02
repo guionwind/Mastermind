@@ -5,14 +5,17 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 import presentacio.controllers.CtrlPresentacio;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Locale;
 
-public class VistaTutorial extends JDialog {
+public class VistaTutorial extends JFrame {
     private JPanel contentPane;
     private JButton bEnrere;
     private JLabel lDefinicio3;
@@ -25,18 +28,28 @@ public class VistaTutorial extends JDialog {
     private JPanel pCardTutorial;
     private int pgActual = 0;
 
-    public VistaTutorial(Point location) {
+    public VistaTutorial(Point location, int state) throws IOException {
         setLocation(location);
+
         setContentPane(contentPane);
         this.pack();
+        setLocationRelativeTo(null);
+        setResizable(true);
+        setTitle("MASTERMIND");
+        this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
         setVisible(true);
+        setExtendedState(state);
 
         bEnrere.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                onEnrere();
+                try {
+                    onEnrere();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         bSeguent.addMouseListener(new MouseAdapter() {
@@ -49,10 +62,10 @@ public class VistaTutorial extends JDialog {
         });
     }
 
-    private void onEnrere() {
+    private void onEnrere() throws IOException {
         CardLayout cl = (CardLayout) pCardTutorial.getLayout();
         if (pCardTutorial.getComponent(pgActual) == pPg1) {
-            CtrlPresentacio.vistaPrincipal(getLocation());
+            CtrlPresentacio.vistaPrincipal(getLocation(), getExtendedState());
             dispose();
         } else {
             cl.previous(pCardTutorial);

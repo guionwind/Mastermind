@@ -30,18 +30,36 @@ public class Jugador {
      * Conjunt de les estadístiques de les partides que ha jugat el jugador.
      */
     private ArrayList<EstadistiquesPartida> estadistiquesPartides;
-    
+
     /**
      * Constructora de Jugador.
      *
-     * @param id Id del jugador
-     * @param username Username del jugador
-     * @param pwd Contrasenya del jugador
+     * @param id         Id del jugador
+     * @param username   Username del jugador
+     * @param pwd        Contrasenya del jugador
+     * @param idPartides
      */
     public Jugador(int id, String username, String pwd)  {
         this.id = id;
         this.username = username;
         this.password = pwd;
+        this.idPartides = new ArrayList<>();
+        estadistiquesPartides = new ArrayList<EstadistiquesPartida>();
+    }
+
+    /**
+     * Constructora de Jugador.
+     *
+     * @param id         Id del jugador
+     * @param username   Username del jugador
+     * @param pwd        Contrasenya del jugador
+     * @param idPartides
+     */
+    public Jugador(int id, String username, String pwd, ArrayList<Integer> idPartides)  {
+        this.id = id;
+        this.username = username;
+        this.password = pwd;
+        this.idPartides = idPartides;
         estadistiquesPartides = new ArrayList<EstadistiquesPartida>();
     }
 
@@ -69,6 +87,10 @@ public class Jugador {
         return password;
     }
 
+    public ArrayList<Integer> getIdPartides() {
+        return idPartides;
+    }
+
     /**
      * Afegeix una instància de estadistiquesPartida al conjunt d'estadistiques partida
      * @param estadistiquesPartida Estadistiques de la partida a afegir
@@ -77,4 +99,7 @@ public class Jugador {
         estadistiquesPartides.add(estadistiquesPartida);
     }
 
+    public void afegirIdPartida(int id) {
+        idPartides.add(id);
+    }
 }

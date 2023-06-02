@@ -105,6 +105,14 @@ public class FiveGuess implements Maquina {
         this.codisPossibles = codisPossibles;
     }
 
+    public ArrayList<Integer[]> getCodisDisponibles() {
+        return codisDisponibles;
+    }
+
+    public ArrayList<Integer[]> getCodisPossibles() {
+        return codisPossibles;
+    }
+
 
     /**
      * Retorna un codi com a solucio probable donats el codi fet a l'intent anterior i
@@ -298,5 +306,4 @@ public class FiveGuess implements Maquina {
 
         return codis;
     }
-
 }

@@ -5,79 +5,122 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 import presentacio.controllers.CtrlPresentacio;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Locale;
 
-public class VistaPrincipal extends JDialog {
+public class VistaPrincipal extends JFrame {
     private JPanel contentPane;
     private JButton bSortir;
     private JButton bLogin;
     private JButton bTutorial;
     private JButton bRegister;
+    private JLabel lTitle;
 
-    public VistaPrincipal(Point location) {
+    public VistaPrincipal(Point location, int state) throws IOException {
         if (location != null) {
             setLocation(location);
         }
+
+        setUndecorated(false);
         setContentPane(contentPane);
-        //setModal(true);
         this.pack();
+        if (state != -1) {
+            setExtendedState(state);
+        }
+
+        setTitle("MASTERMIND");
+        this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
+
+
+        ImageIcon imageIconTutorial = new ImageIcon("./resources/bTutorial.png");
+        bTutorial.setIcon(imageIconTutorial);
+        ImageIcon imageIconTutorialPressed = new ImageIcon("./resources/bTutorialPremut.png");
+        bTutorial.setPressedIcon(imageIconTutorialPressed);
+
+        ImageIcon imageIconLogin = new ImageIcon("./resources/bLogin.png");
+        bLogin.setIcon(imageIconLogin);
+        ImageIcon imageIconLoginPressed = new ImageIcon("./resources/bLoginPressed.png");
+        bLogin.setPressedIcon(imageIconLoginPressed);
+
+        ImageIcon imageIconRegister = new ImageIcon("./resources/bRegister.png");
+        bRegister.setIcon(imageIconRegister);
+        ImageIcon imageIconRegisterPressed = new ImageIcon("./resources/bRegisterPressed.png");
+        bRegister.setPressedIcon(imageIconRegisterPressed);
+
+        ImageIcon imageIconSortir = new ImageIcon("./resources/bSortir.png");
+        bSortir.setIcon(imageIconSortir);
+        ImageIcon imageIconSortirPressed = new ImageIcon("./resources/bSortirPressed.png");
+        bSortir.setPressedIcon(imageIconSortirPressed);
+
+        ImageIcon imageIconTitle = new ImageIcon("./resources/LTitle.png");
+        lTitle.setIcon(imageIconTitle);
+        setLocationRelativeTo(null); //Centra la finestra al centre del pantalla
+        setResizable(true);
+
         setVisible(true);
-        //setResizable(false); Serveix per fer que la finestra no pugui ser resizable.
 
-
-        bTutorial.addMouseListener(new MouseAdapter() {
+        bTutorial.addActionListener(new ActionListener() {
             @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-
-                onTutorial();
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    onTutorial();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
-        bSortir.addMouseListener(new MouseAdapter() {
+        bSortir.addActionListener(new ActionListener() {
             @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-
+            public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
-        bLogin.addMouseListener(new MouseAdapter() {
+        bLogin.addActionListener(new ActionListener() {
             @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-
-                onLogin();
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    onLogin();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
-        bRegister.addMouseListener(new MouseAdapter() {
+        bRegister.addActionListener(new ActionListener() {
             @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-
-                onRegister();
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    onRegister();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
 
-    private void onTutorial() {
-        CtrlPresentacio.vistaTutorial(getLocation());
+    private void onTutorial() throws IOException {
+        CtrlPresentacio.vistaTutorial(getLocation(), getExtendedState());
         dispose();
     }
 
-    private void onLogin() {
-        CtrlPresentacio.vistaLogin(getLocation());
+    private void onLogin() throws IOException {
+
+        CtrlPresentacio.vistaLogin(getLocation(), getExtendedState());
         dispose();
     }
 
-    private void onRegister() {
-        CtrlPresentacio.vistaRegistre(getLocation());
+    private void onRegister() throws IOException {
+        CtrlPresentacio.vistaRegistre(getLocation(), getExtendedState());
         dispose();
     }
+
 
     {
 // GUI initializer generated by IntelliJ IDEA GUI Designer
@@ -107,46 +150,60 @@ public class VistaPrincipal extends JDialog {
         panel1.add(panel2, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bSortir = new JButton();
         bSortir.setBackground(new Color(-6075570));
+        bSortir.setBorderPainted(false);
+        bSortir.setContentAreaFilled(false);
         bSortir.setFocusPainted(false);
-        bSortir.setText("Sortir");
+        bSortir.setFocusable(false);
+        bSortir.setText("");
         panel2.add(bSortir, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel3, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        final JLabel label1 = new JLabel();
-        Font label1Font = this.$$$getFont$$$(null, -1, 72, label1.getFont());
-        if (label1Font != null) label1.setFont(label1Font);
-        label1.setText("M A S T E R M I N D");
-        panel3.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        lTitle = new JLabel();
+        Font lTitleFont = this.$$$getFont$$$(null, -1, 72, lTitle.getFont());
+        if (lTitleFont != null) lTitle.setFont(lTitleFont);
+        lTitle.setText("");
+        panel3.add(lTitle, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel4 = new JPanel();
         panel4.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel4, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bLogin = new JButton();
         bLogin.setBackground(new Color(-18308));
+        bLogin.setBorderPainted(false);
+        bLogin.setContentAreaFilled(false);
         bLogin.setFocusPainted(false);
+        bLogin.setFocusable(false);
         Font bLoginFont = this.$$$getFont$$$(null, -1, 36, bLogin.getFont());
         if (bLoginFont != null) bLogin.setFont(bLoginFont);
-        bLogin.setText("Login");
+        bLogin.setText("");
         panel4.add(bLogin, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel5 = new JPanel();
         panel5.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel5, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bTutorial = new JButton();
         bTutorial.setBackground(new Color(-8415661));
-        bTutorial.setFocusPainted(false);
+        bTutorial.setBorderPainted(false);
+        bTutorial.setContentAreaFilled(false);
+        bTutorial.setFocusPainted(true);
+        bTutorial.setFocusable(false);
         Font bTutorialFont = this.$$$getFont$$$(null, -1, 36, bTutorial.getFont());
         if (bTutorialFont != null) bTutorial.setFont(bTutorialFont);
-        bTutorial.setText("Tutorial");
+        bTutorial.setIconTextGap(0);
+        bTutorial.setOpaque(false);
+        bTutorial.setText("");
+        bTutorial.setVisible(true);
         panel5.add(bTutorial, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel6 = new JPanel();
         panel6.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel6, new GridConstraints(7, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bRegister = new JButton();
         bRegister.setBackground(new Color(-10189664));
+        bRegister.setBorderPainted(false);
+        bRegister.setContentAreaFilled(false);
         bRegister.setFocusPainted(false);
         Font bRegisterFont = this.$$$getFont$$$(null, -1, 36, bRegister.getFont());
         if (bRegisterFont != null) bRegister.setFont(bRegisterFont);
-        bRegister.setText("Register");
+        bRegister.setText("");
         panel6.add(bRegister, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
         contentPane.add(spacer2, new GridConstraints(8, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));

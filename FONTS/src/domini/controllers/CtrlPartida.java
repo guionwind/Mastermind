@@ -49,7 +49,10 @@ public class CtrlPartida {
         ConfiguracioPartida configPartida = creaConfiguracioPartida(t ,numeroIntents, numeroColors, longitudCombinacio);
 
         Integer[] solutionCode = generateSolutionCode(numeroColors, longitudCombinacio);
-
+        for (Integer integer : solutionCode) {
+            System.out.print(integer);
+        }
+        System.out.println();
         partidaActual = new Codebreaker(idPartida, configPartida, solutionCode);
 
     }
@@ -99,7 +102,7 @@ public class CtrlPartida {
      */
 
     public void intentarCombinacio(Integer[] combinacioIntentada) {
-        partidaActual.guardarCombinacio(combinacioIntentada.clone());
+        partidaActual.guardarCombinacio(combinacioIntentada);
     }
 
     /**
@@ -127,9 +130,14 @@ public class CtrlPartida {
      */
     public Integer[] getCodiMaquina() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Codemaker codemaker = (Codemaker) partidaActual;
-        if(partidaActual.rondesJugades() == 1) return codemaker.getCodiMaquinaFiveGuess(null, null);
-
-        return codemaker.getCodiMaquinaFiveGuess(codemaker.getUltimaCombIntentada(), codemaker.getUltimaCorreccio());
+        System.out.println(codemaker.getTipusAlgorisme());
+        if (codemaker.getTipusAlgorisme() == TipusAlgorisme.FIVEGUESS) {
+            if (partidaActual.rondesJugades() == 0) return codemaker.getCodiMaquinaFiveGuess(null, null);
+            return codemaker.getCodiMaquinaFiveGuess(codemaker.getUltimaCombIntentada(), codemaker.getUltimaCorreccio());
+        } else {
+            if (partidaActual.rondesJugades() == 0) return codemaker.getCodiMaquinaGenetic(null);
+            return codemaker.getCodiMaquinaGenetic(codemaker.getUltimaCorreccio());
+        }
     }
 
     /**

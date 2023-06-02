@@ -27,7 +27,9 @@ public class DAOPartida implements Serializable {
      *  - Integer[] combinacioIntentada en la ronda donada
      *  - String correcció de l'intent fet
      */
-    private HashMap<Integer, Ronda> rondes;
+    private Integer[] idRondes;
+    private Integer[][] combinacionsIntentades;
+    private String[] correccions;
 
 
     /**
@@ -44,10 +46,12 @@ public class DAOPartida implements Serializable {
      * @param rondes                Conjunt de les rondes jugades
      */
 
-    public DAOPartida(Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) {
+    public DAOPartida(Integer[] solutionCode, Integer[] idRondes, Integer[][] combinacionsIntentades, String[] correccions, String tipusAlgorisme) {
         this.solutionCode = solutionCode;
         this.tipusAlgorisme = tipusAlgorisme;
-        this.rondes = rondes;
+        this.idRondes = idRondes;
+        this.combinacionsIntentades = combinacionsIntentades;
+        this.correccions = correccions;
     }
     /**
      * Retorna el codi solució de la partida.
@@ -67,13 +71,16 @@ public class DAOPartida implements Serializable {
         return tipusAlgorisme;
     }
 
-    /**
-     * Retorna el conjunt de rondes jugades en la partida en un HashMap indexat per la idRonda.
-     * 
-     * @return HashMap<Integer, Ronda> Conjunt de rondes jugades
-     */
-    public HashMap<Integer, Ronda> getRondes() {
-        return rondes;
+    public Integer[] getIdRondes() {
+        return idRondes;
+    }
+
+    public Integer[][] getCombinacionsIntentades() {
+        return combinacionsIntentades;
+    }
+
+    public String[] getCorreccions() {
+        return correccions;
     }
 
 }

@@ -1,6 +1,7 @@
 package persistencia.classes;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class DAOJugador implements Serializable {
 
@@ -14,6 +15,8 @@ public class DAOJugador implements Serializable {
      */
     private String password;
 
+    private ArrayList<Integer> idPartides;
+
     /**
      * Constructora buida.
      * Utilitzada per la deserialització de l'objecte.
@@ -25,9 +28,10 @@ public class DAOJugador implements Serializable {
      * 
      *
      */
-    public DAOJugador(int idJugador, String password) {
+    public DAOJugador(int idJugador, String password, ArrayList<Integer> idPartides) {
         this.idJugador = idJugador;
         this.password = password;
+        this.idPartides = idPartides;
     }
 
     /**
@@ -47,5 +51,8 @@ public class DAOJugador implements Serializable {
     public String getPassword() {
         return password;
     }
-    
+
+    public ArrayList<Integer> getIdPartides() {
+        return idPartides;
+    }
 }

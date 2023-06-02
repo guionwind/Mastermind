@@ -37,6 +37,7 @@ public class Codemaker extends Partida {
         super(idPartida, configuracioPartida, solutionCode);
 
         this.fiveGuess = fiveGuess;
+        this.tipusAlgorisme = TipusAlgorisme.FIVEGUESS;
     }
 
     /**
@@ -51,6 +52,7 @@ public class Codemaker extends Partida {
         super(idPartida, configuracioPartida, solutionCode);
 
         this.genetic = genetic;
+        this.tipusAlgorisme = TipusAlgorisme.GENETIC;
     }
 
     /**
@@ -133,6 +135,10 @@ public class Codemaker extends Partida {
      */
     public TipusAlgorisme getTipusAlgorisme() {
         return tipusAlgorisme;
+    }
+
+    public FiveGuess getFiveGuess() {
+        return fiveGuess;
     }
 
 }

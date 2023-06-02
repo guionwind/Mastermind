@@ -84,10 +84,11 @@ public class Gestor<PersistenceObject> {
 
             bw.newLine();
         }
-        
+
         br.close();
         bw.close();
 
+        oldFile.delete();
         newFile.renameTo(oldFile);
     }
 
@@ -145,10 +146,10 @@ public class Gestor<PersistenceObject> {
                 bw.newLine();
             }
         }
-        
         br.close();
         bw.close();
 
+        oldFile.delete();
         newFile.renameTo(oldFile);
     }
 

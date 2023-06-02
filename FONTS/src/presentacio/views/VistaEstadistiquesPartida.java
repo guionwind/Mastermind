@@ -18,12 +18,17 @@ public class VistaEstadistiquesPartida extends JFrame {
     private JLabel lIntents;
     private JLabel lPuntuacio;
 
-    public VistaEstadistiquesPartida(Point location, int puntuacio, int rondes, String status) {
+    public VistaEstadistiquesPartida(Point location, int state, int puntuacio, int rondes, String status) {
+        setUndecorated(false);
         setLocation(location);
         setContentPane(contentPane);
         this.pack();
-        setVisible(true);
+        setLocationRelativeTo(null);
+        setResizable(true);
         getRootPane().setDefaultButton(bAcceptar);
+        setVisible(true);
+        setExtendedState(state);
+
 
         lStatus.setText(status);
         lIntents.setText(String.valueOf(rondes));
@@ -56,7 +61,7 @@ public class VistaEstadistiquesPartida extends JFrame {
     }
 
     private void onAcceptar() throws IOException, ClassNotFoundException {
-        CtrlPresentacio.vistaRanquing(getLocation());
+        CtrlPresentacio.vistaRanquing(getLocation(), getExtendedState());
         dispose();
     }
 
@@ -77,6 +82,7 @@ public class VistaEstadistiquesPartida extends JFrame {
     private void $$$setupUI$$$() {
         contentPane = new JPanel();
         contentPane.setLayout(new GridLayoutManager(2, 1, new Insets(10, 10, 10, 10), -1, -1));
+        contentPane.setPreferredSize(new Dimension(1080, 720));
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(panel1, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, 1, null, null, null, 0, false));

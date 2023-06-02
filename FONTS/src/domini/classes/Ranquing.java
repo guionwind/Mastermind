@@ -4,6 +4,8 @@
  */
 package domini.classes;
 
+import presentacio.custom.Pair;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,10 +13,18 @@ import java.util.Comparator;
 /**
  * Classe que implementa un comparador d'estadístiques de partides per ordenar-les segons la puntuació.
  */
-class estadisticasComparator implements Comparator<Integer[]> {
+class estadisticasComparator implements Comparator<Pair<String, Integer>> {
     @Override
-    public int compare(Integer[] first, Integer[] second) {
-        return Integer.compare(second[1], first[1]); 
+    public int compare(Pair<String, Integer> o1, Pair<String, Integer> o2) {
+        if (o2.getSecond() > o1.getSecond()) {
+            return 0;
+        } else if (o2.getSecond() == o1.getSecond()) {
+            if (o1.getFirst().compareTo(o2.getFirst()) <= 0) {
+                return 1;
+            } else return 0;
+        } else {
+            return 1;
+        }
     }
 }
 
@@ -33,7 +43,7 @@ public class Ranquing {
      * Conjunt d'estadistiques que conte el ranquing
      * Cada Integer[] conté {idJugador, puntuacio}
      */
-    private ArrayList<Integer[]> estadistiques;
+    private ArrayList<Pair<String, Integer>> estadistiques;
 
     //! NO ES FA SERVIR
     //private static int nombreRanquings = 0;
@@ -56,7 +66,7 @@ public class Ranquing {
      *
      * @param estadistica Estadística de partida a afegir al ranquing.
      */
-    public void addEstadistica(Integer[] estadistica) {
+    public void addEstadistica(Pair<String, Integer> estadistica) {
         estadistiques.add(estadistica);
         estadisticasComparator estatComparator = new estadisticasComparator();
         estadistiques.sort(estatComparator);
@@ -68,8 +78,8 @@ public class Ranquing {
      * @param n Nombre d'estadístiques a retornar.
      * @return Llista d'estadístiques de partides amb les puntuacions més altes.
      */
-    public ArrayList<Integer[]> getTopN(int n) {
-        ArrayList<Integer[]> tempEstadistiques = new ArrayList<>();
+    public ArrayList<Pair<String, Integer>> getTopN(int n) {
+        ArrayList<Pair<String, Integer>> tempEstadistiques = new ArrayList<>();
         if (estadistiques.size() < n) n = estadistiques.size();
         for (int i = 0; i < n; i++) {
             tempEstadistiques.add(estadistiques.get(i));

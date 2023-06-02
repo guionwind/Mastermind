@@ -1,5 +1,6 @@
 package domini.controllers;
 
+import domini.classes.actions.ComparaRespostesAction;
 import domini.classes.actions.CorregeixAction;
 import domini.classes.*;
 import domini.classes.exceptions.*;
@@ -7,6 +8,7 @@ import persistencia.controllers.CtrlPersistencia;
 import presentacio.custom.Pair;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.lang.String;
 import java.io.*;
@@ -71,33 +73,46 @@ public class CtrlDomini {
      * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
      */
     public void crearPartidaCodebreaker(int numeroIntents, int numeroColors, int longitudCombinacio) throws Exception {
-        ctrlPartida.crearPartidaCodebreaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio);
-    }
+            ctrlPartida.crearPartidaCodebreaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio);
+            ctrlPersistencia.afegirConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEBREAKER), numeroIntents, numeroColors, longitudCombinacio);
+        }
 
-    /**
-     * Crea una partida Codemaker i una instancia de ctrlAlgorisme.
-     *
-     * @param numeroIntents Numero d'Intents permesos a la partida
-     * @param numeroColors Numero de colors de la partida
-     * @param longitudCombinacio Longitud maxima de la combinacio de colors
-     * @param solutionCode Solucio de la partida indicada per l'usuari
-     * @param tipusAlgorisme Tipus del algorisme utilitzat
-     * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
-     */
-    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, String tipusAlgorisme) throws Exception {
-        System.out.println("tipusString: "+tipusAlgorisme);
-        TipusAlgorisme tipusAlgorisme1 = TipusAlgorisme.valueOf(tipusAlgorisme);
-        System.out.println(tipusAlgorisme1.toString());
-        ctrlPartida.crearPartidaCodemaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio, solutionCode, tipusAlgorisme1);
+        /**
+         * Crea una partida Codemaker i una instancia de ctrlAlgorisme.
+         *
+         * @param numeroIntents Numero d'Intents permesos a la partida
+         * @param numeroColors Numero de colors de la partida
+         * @param longitudCombinacio Longitud maxima de la combinacio de colors
+         * @param solutionCode Solucio de la partida indicada per l'usuari
+         * @param tipusAlgorisme Tipus del algorisme utilitzat
+         * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
+         */
+        public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, String tipusAlgorisme) throws Exception {
+            System.out.println("tipusString: "+tipusAlgorisme);
+            TipusAlgorisme tipusAlgorisme1 = TipusAlgorisme.valueOf(tipusAlgorisme);
+            System.out.println(tipusAlgorisme1.toString());
+            ctrlPartida.crearPartidaCodemaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio, solutionCode, tipusAlgorisme1);
+            ctrlPersistencia.afegirConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEMAKER), numeroIntents, numeroColors, longitudCombinacio);
     }
 
     /**
     * Estableix la correccio corresponent a aquesta ronda (la resposta a la combinacio intentada)
-    * @param respostaCombinacio correccio a assignar
+    * @param
     */
     public Boolean setCorreccioRonda(String respostaCombinacioUsuari) {
+        Integer[] ultimaCombinacio = ctrlPartida.getUltimaCombinacio();
+        for (Integer integer : ultimaCombinacio) {
+            System.out.print(integer);
+        }
+        System.out.println();
+        Integer[] codiSolution = ctrlPartida.getSolutionCode();
+        for (Integer integer : codiSolution) {
+            System.out.print(integer);
+        }
+        System.out.println();
         String respostaCombinacio = CorregeixAction.corregeix(ctrlPartida.getUltimaCombinacio(), ctrlPartida.getSolutionCode());
-        if (respostaCombinacio == respostaCombinacioUsuari){
+        System.out.println(respostaCombinacio);
+        if (ComparaRespostesAction.comparaRespostes(respostaCombinacio, respostaCombinacioUsuari)){
             ctrlPartida.setCorreccioRonda(respostaCombinacio);
             return true;
         }
@@ -123,6 +138,7 @@ public class CtrlDomini {
     public String jugarRondaCodebreaker(Integer[] combinacioIntentada) {
         crearRonda();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
+        System.out.println(ctrlPartida.getUltimaCombinacio());
         return CorregeixAction.corregeix(combinacioIntentada, ctrlPartida.getSolutionCode());
     }
 
@@ -143,8 +159,8 @@ public class CtrlDomini {
      * @throws ValorsRespostaIncorrectes Els valors indicats a la resposta no son correctes
      */
     public String jugarRondaCodeMaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
+        Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina();
         crearRonda();
-        Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina().clone();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
         String combinacioIntentadaString = "";
         for (int i = 0; i < combinacioIntentada.length; i++){
@@ -175,7 +191,8 @@ public class CtrlDomini {
             throw new ContrasenyaNoCoincideix("Les contrasenyes no coincideixen");
         }
         Jugador j = ctrlJugador.crearJugador(newId, username, password);
-        ctrlPersistencia.afegirJugador(newId, username, password);
+
+        ctrlPersistencia.afegirJugador(newId, username, password, j.getIdPartides());
     }
 
     /**
@@ -252,21 +269,21 @@ public class CtrlDomini {
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    public ArrayList<Integer[]> getTop10() throws IOException, ClassNotFoundException {
+    public ArrayList<Pair<String, Integer>> getTop10() throws IOException, ClassNotFoundException {
         //obtenir totes les estadistiquespartides existents del disc i actualitzar ranquing
         ArrayList<String> ids = ctrlPersistencia.obtenirIdJugadorsEstadistiquesPartida();
 
         Iterator it = ids.iterator();
         
         while(it.hasNext()) {
-            String idJugador = (String) it.next();
-            ArrayList<String[]> statsJugador = ctrlPersistencia.obtenirEstadistiquesPartidesJugador(idJugador);
+            String username = (String) it.next();
+            ArrayList<String[]> statsJugador = ctrlPersistencia.obtenirEstadistiquesPartidesJugador(username);
 
             Iterator it2 = statsJugador.iterator();
             while(it2.hasNext()) {
                 String[] infoPartida = (String[]) it2.next();
                 if (infoPartida[1] == "true") {
-                    ctrlRanquing.setNewRecord(Integer.parseInt(idJugador), Integer.parseInt(infoPartida[0]));
+                    ctrlRanquing.setNewRecord(username, Integer.parseInt(infoPartida[0]));
                 }
             }
         }
@@ -289,26 +306,26 @@ public class CtrlDomini {
      */
     public Integer partidaAcabada(Boolean guanyada) {
         Integer idPartida = ctrlPartida.getIdPartidaActual();
-        Integer idJugador = ctrlJugador.getIdJugador();
+        String username = ctrlJugador.getLoggedPlayerUsername();
         Integer numRondes = ctrlPartida.getNumeroRondes();
         System.out.println("idPartida "+String.valueOf(idPartida));
-        System.out.println("idJugador "+String.valueOf(idJugador));
+        System.out.println("idJugador "+String.valueOf(username));
         System.out.println("numRondes "+String.valueOf(numRondes));
 
         Integer puntuacio = 100 - numRondes;
 
-        ctrlEstadistiquesPartida.creaEstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
-        EstadistiquesPartida e = ctrlEstadistiquesPartida.getEstadistiquesPartida(idJugador, idPartida);
+        ctrlEstadistiquesPartida.creaEstadistiquesPartida(username, idPartida, puntuacio, guanyada);
+        EstadistiquesPartida e = ctrlEstadistiquesPartida.getEstadistiquesPartida(username, idPartida);
         System.out.println(e.getPuntuacio());
         System.out.println(String.valueOf(e.getIdPartida()));
         System.out.println(String.valueOf(e.getGuanyada()));
-        System.out.println(String.valueOf(e.getIdJugador()));
+        System.out.println(String.valueOf(e.getUsername()));
 
         //Afegim la estadistica creada a Jugador i a Partida
         ctrlPartida.addEstadistiquesPartida(e);
         ctrlJugador.addEstadistica(e);
 
-        if (guanyada) ctrlRanquing.setNewRecord(idJugador, puntuacio);
+        if (guanyada) ctrlRanquing.setNewRecord(username, puntuacio);
         return puntuacio;
     }
 
@@ -333,8 +350,8 @@ public class CtrlDomini {
         System.out.println("Id jugador: "+ctrlJugador.getIdJugador());
         System.out.println("Id partida actual: "+ctrlPartida.getIdPartidaActual());
         System.out.println("nRondes: "+ctrlPartida.getNumeroRondes());
-        System.out.println("Puntuacio: "+ctrlEstadistiquesPartida.getPuntuacio(ctrlJugador.getIdJugador(), ctrlPartida.getIdPartidaActual()));
-        return new Pair(ctrlEstadistiquesPartida.getPuntuacio(ctrlJugador.getIdJugador(), ctrlPartida.getIdPartidaActual()), ctrlPartida.getNumeroRondes());
+        System.out.println("Puntuacio: "+ctrlEstadistiquesPartida.getPuntuacio(ctrlJugador.getLoggedPlayerUsername(), ctrlPartida.getIdPartidaActual()));
+        return new Pair(ctrlEstadistiquesPartida.getPuntuacio(ctrlJugador.getLoggedPlayerUsername(), ctrlPartida.getIdPartidaActual()), ctrlPartida.getNumeroRondes());
     }
 
     /**
@@ -352,10 +369,11 @@ public class CtrlDomini {
         Partida p = ctrlPersistencia.obtenirPartida(strIdpartida, tipusPartida);
 
         ConfiguracioPartida configuracioPartida = ctrlPersistencia.obtenirConfiguracioPartida(strIdpartida);
+        System.out.println(configuracioPartida);
         p.setConfiguracioPartida(configuracioPartida);
 
-        EstadistiquesPartida estadistiquesPartida = ctrlPersistencia.obtenirEstadistiquesPartida(ctrlJugador.getLoggedPlayerUsername(), strIdpartida);
-        p.setEstadisticaPartida(estadistiquesPartida);
+//        EstadistiquesPartida estadistiquesPartida = ctrlPersistencia.obtenirEstadistiquesPartida(ctrlJugador.getLoggedPlayerUsername(), strIdpartida);
+//        p.setEstadisticaPartida(estadistiquesPartida);
 
         if (tipusPartida.equals("CODEMAKER")) {
             TipusAlgorisme tipusAlgorisme = p.getTipusAlgorisme();
@@ -381,11 +399,112 @@ public class CtrlDomini {
      * @throws InstanciaNoExisteix Es llança quan la partida que es vol guardar no existeix al sistema
      * @throws IOException Es llança quan persistencia no pot guardar l'arxiu
      */
-    public void guardarPartidaActual() throws IOException, InstanciaNoExisteix {
+    public void guardarPartidaActual() throws IOException, InstanciaJaExisteix, InstanciaNoExisteix {
         Partida p = ctrlPartida.getPartidaActual();
+        HashMap<Integer, Ronda> rondes = p.getRondes();
+        int midaRondes = rondes.size();
 
-        ctrlPersistencia.actualitzarPartida(String.valueOf(p.getId()), p.getSolutionCode(), p.getRondes(), p.getTipusAlgorisme().toString());
+        ctrlJugador.getJugadorActual().afegirIdPartida(p.getId());
+        Jugador j = ctrlJugador.getJugadorActual();
+        ctrlPersistencia.actualitzarJugador(j.getID(), j.getUsername(), j.getPassword(), j.getIdPartides());
+        System.out.println(j.getIdPartides().size());
+
+        Integer[] idRondes = new Integer[midaRondes];
+        Integer[][] combinacionsIntentades = new Integer[midaRondes][];
+        String[] correccions = new String[midaRondes];
+
+        for (int i = 0; i < rondes.size(); ++i) {
+            Ronda ronda = rondes.get(i);
+            idRondes[i] = ronda.getId();
+            combinacionsIntentades[i] = ronda.getCombinacioIntentada();
+            correccions[i] = ronda.getCorreccio();
+        }
+
+        try {
+            if (p.getTipusAlgorisme() == null) {
+                ctrlPersistencia.actualitzarPartida(String.valueOf(p.getId()), p.getSolutionCode(), idRondes, combinacionsIntentades, correccions, "");
+            }
+            else {
+                ctrlPersistencia.actualitzarPartida(String.valueOf(p.getId()), p.getSolutionCode(), idRondes, combinacionsIntentades, correccions, p.getTipusAlgorisme().toString());
+                if (p.getTipusAlgorisme() == TipusAlgorisme.FIVEGUESS) {
+                    ctrlPersistencia.actualitzarFiveGuess(String.valueOf(p.getId()), p.getFiveGuess().getCodisDisponibles(), p.getFiveGuess().getCodisPossibles());
+                }
+            }
+
+        } catch (InstanciaNoExisteix e) {
+            if (p.getTipusAlgorisme() == null) {
+                ctrlPersistencia.afegirPartida(String.valueOf(p.getId()), p.getSolutionCode(), idRondes, combinacionsIntentades, correccions, "");
+            }
+            else {
+                ctrlPersistencia.afegirPartida(String.valueOf(p.getId()), p.getSolutionCode(), idRondes, combinacionsIntentades, correccions, p.getTipusAlgorisme().toString());
+                if (p.getTipusAlgorisme() == TipusAlgorisme.FIVEGUESS) {
+                    ctrlPersistencia.afegirFiveGuess(String.valueOf(p.getId()), p.getFiveGuess().getCodisDisponibles(), p.getFiveGuess().getCodisPossibles());
+                }
+            }
+        }
     }
 
 
+    public ArrayList<String[]> getInfoPartidesGuardades() throws IOException, ClassNotFoundException, InstanciaNoExisteix {
+        ArrayList<Integer> idPartides = ctrlJugador.getJugadorActual().getIdPartides();
+        System.out.println(idPartides.size());
+        for (int i = 0; i < idPartides.size(); ++i) {
+            System.out.println(idPartides.get(i) + "David Barranquero");
+        }
+
+        ArrayList<String[]> infoPartidesNoAcabades = new ArrayList<>();
+
+        for (Integer idPartida : idPartides) {
+            if (! ctrlPersistencia.existeixEstadistiquesPartida(ctrlJugador.getLoggedPlayerUsername(), String.valueOf(idPartida))) {
+                ConfiguracioPartida configuracioPartida = ctrlPersistencia.obtenirConfiguracioPartida(String.valueOf(idPartida));
+                infoPartidesNoAcabades.add(new String[]{
+                        String.valueOf(idPartida),
+                        String.valueOf(configuracioPartida.getNumeroIntents()),
+                        String.valueOf(configuracioPartida.getNumeroColors()),
+                        String.valueOf(configuracioPartida.getLongitudCombinacio()),
+                        String.valueOf(configuracioPartida.getTipusPartida())
+                });
+            }
+        }
+        return infoPartidesNoAcabades;
+    }
+
+    public void elimiarPartidaActual() throws IOException, InstanciaNoExisteix {
+        String idPartida = String.valueOf(ctrlPartida.getIdPartidaActual());
+        if (ctrlPersistencia.existeixPartida(idPartida)) {
+            ctrlPersistencia.eliminarPartida(idPartida);
+            if (ctrlPartida.getPartidaActual().getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEMAKER && ctrlPartida.getPartidaActual().getTipusAlgorisme() == TipusAlgorisme.FIVEGUESS) ctrlPersistencia.eliminarFiveGuess(idPartida);
+        }
+        ctrlPersistencia.eliminarConfiguracioPartida(idPartida);
+    }
+
+    public Integer[] getSolutionCodePartidaGuardada(String idPartida, String tipusPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        return ctrlPersistencia.obtenirPartida(idPartida, tipusPartida).getSolutionCode();
+    }
+
+    public Integer[][] getCombinacionsIntentades(String idPartida, String tipusPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        Partida p = ctrlPersistencia.obtenirPartida(idPartida, tipusPartida);
+
+        Integer[][] combinacionsIntentades= new Integer[p.rondesJugades()][];
+        HashMap<Integer, Ronda> rondes = p.getRondes();
+        for (int i = 0; i < p.rondesJugades(); ++i) {
+            combinacionsIntentades[i] = rondes.get(i).getCombinacioIntentada();
+        }
+        return combinacionsIntentades;
+    }
+
+    public String[] getCorreccions(String idPartida, String tipusPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
+        Partida p = ctrlPersistencia.obtenirPartida(idPartida, tipusPartida);
+
+        String[] correccions = new String[p.rondesJugades()];
+        HashMap<Integer, Ronda> rondes = p.getRondes();
+        System.out.println(p.rondesJugades());
+
+        for (int i = 0; i < p.rondesJugades(); ++i) {
+            correccions[i] = rondes.get(i).getCorreccio();
+            System.out.println(correccions[i] + " ctrldomini");
+        }
+
+        return correccions;
+    }
 }

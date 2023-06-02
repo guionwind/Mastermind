@@ -3,8 +3,10 @@ package presentacio.views;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import domini.classes.exceptions.InstanciaNoExisteix;
 import presentacio.controllers.CtrlPresentacio;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javax.swing.text.StyleContext;
@@ -12,6 +14,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.io.File;
 import java.util.Locale;
 
 public class VistaMenuInicial extends JFrame {
@@ -22,12 +25,17 @@ public class VistaMenuInicial extends JFrame {
     private JButton bNovaPartida;
     private JButton bCarregarPartida;
 
-    public VistaMenuInicial(Point location) {
+    public VistaMenuInicial(Point location, int state) throws IOException {
         setLocation(location);
         setContentPane(contentPane);
         this.pack();
-        setVisible(true);
+        setLocationRelativeTo(null);
 
+        setResizable(true);
+        setTitle("MASTERMIND");
+        this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
+        setVisible(true);
+        setExtendedState(state);
 
         bSortir.addMouseListener(new MouseAdapter() {
             @Override
@@ -42,21 +50,33 @@ public class VistaMenuInicial extends JFrame {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                onTancarSessio();
+                try {
+                    onTancarSessio();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         bNovaPartida.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                onNovaPartida();
+                try {
+                    onNovaPartida();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         bCarregarPartida.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                onCarregarPartida();
+                try {
+                    onCarregarPartida();
+                } catch (IOException | ClassNotFoundException | InstanciaNoExisteix ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         bRanquing.addMouseListener(new MouseAdapter() {
@@ -74,24 +94,24 @@ public class VistaMenuInicial extends JFrame {
         });
     }
 
-    private void onTancarSessio() {
+    private void onTancarSessio() throws IOException {
         CtrlPresentacio.tancarSessio();
-        CtrlPresentacio.vistaPrincipal(getLocation());
+        CtrlPresentacio.vistaPrincipal(getLocation(), getExtendedState());
         dispose();
     }
 
-    private void onNovaPartida() {
-        CtrlPresentacio.vistaConfiguracioPartida(getLocation());
+    private void onNovaPartida() throws IOException {
+        CtrlPresentacio.vistaConfiguracioPartida(getLocation(), getExtendedState());
         dispose();
     }
 
-    private void onCarregarPartida() {
-        CtrlPresentacio.vistaCarregarPartida(getLocation());
+    private void onCarregarPartida() throws IOException, ClassNotFoundException, InstanciaNoExisteix {
+        CtrlPresentacio.vistaCarregarPartida(getLocation(), getExtendedState());
         dispose();
     }
 
     private void onRanquing() throws IOException, ClassNotFoundException {
-        CtrlPresentacio.vistaRanquing(getLocation());
+        CtrlPresentacio.vistaRanquing(getLocation(), getExtendedState());
         dispose();
     }
 

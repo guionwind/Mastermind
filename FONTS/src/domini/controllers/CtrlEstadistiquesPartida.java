@@ -1,7 +1,9 @@
 package domini.controllers;
 
 import domini.classes.EstadistiquesPartida;
+import presentacio.custom.Pair;
 
+import java.awt.font.ImageGraphicAttribute;
 import java.util.HashMap;
 
 /**
@@ -9,7 +11,7 @@ import java.util.HashMap;
  */
 public class CtrlEstadistiquesPartida {
 
-    private HashMap<Integer[], EstadistiquesPartida> estadistiquesPartida;
+    private HashMap<Pair<String, Integer>, EstadistiquesPartida> estadistiquesPartida;
 
 
     public CtrlEstadistiquesPartida() {
@@ -24,11 +26,11 @@ public class CtrlEstadistiquesPartida {
      * @param puntuacio puntuacio obtinguda en la partida
      * @param guanyada true si el jugador ha guanyat la partida, false si no
      */
-    public void creaEstadistiquesPartida(Integer idJugador, Integer idPartida, Integer puntuacio, Boolean guanyada) {
-        EstadistiquesPartida eP = new EstadistiquesPartida(idJugador, idPartida, puntuacio, guanyada);
+    public void creaEstadistiquesPartida(String username, Integer idPartida, Integer puntuacio, Boolean guanyada) {
+        EstadistiquesPartida eP = new EstadistiquesPartida(username, idPartida, puntuacio, guanyada);
 
-        Integer[] pair = new Integer[]{idJugador, idPartida};
-        estadistiquesPartida.put(pair ,eP);
+        Pair<String, Integer> identificadors = new Pair<String, Integer>(username, idPartida);
+        estadistiquesPartida.put(identificadors ,eP);
     }
 
     //? potser les dues funcions d'aqui a sota s'haurien de fer a CtrlDomini
@@ -38,12 +40,13 @@ public class CtrlEstadistiquesPartida {
      * @param idPartida Id de la partida jugada
      * @return Puntuacio obtinguda
      */
-    public Integer getPuntuacio(Integer idJugador, Integer idPartida) {
-        for (HashMap.Entry<Integer[], EstadistiquesPartida> entry : estadistiquesPartida.entrySet()) {
-            Integer[] key = entry.getKey();
-            EstadistiquesPartida ed = entry.getValue();
-            System.out.println("ANALITZANT partida : "+key[1]+" jugador: "+key[0]);
-            if (key[1] == idPartida && key[0] == idJugador){
+    public Integer getPuntuacio(String username, Integer idPartida) {
+        for (HashMap.Entry<Pair<String, Integer>, EstadistiquesPartida> estadisticaPartida : estadistiquesPartida.entrySet()) {
+            Pair<String, Integer> key = estadisticaPartida.getKey(); //Key = {idJugador, idPartida}
+
+            System.out.println("ANALITZANT partida : "+key.getSecond()+" jugador: "+key.getFirst());
+            if (key.getFirst() == username && key.getSecond() == idPartida){
+                EstadistiquesPartida ed = estadisticaPartida.getValue();
                 System.out.println("ESTIC A CTRLESTATICS: "+ed.getPuntuacio());
                 return ed.getPuntuacio();
             }
@@ -58,11 +61,11 @@ public class CtrlEstadistiquesPartida {
      * @param idPartida Id de la partida jugada
      * @return La instancia corresponent
      */
-    public EstadistiquesPartida getEstadistiquesPartida(Integer idJugador, Integer idPartida) {
-        for (HashMap.Entry<Integer[], EstadistiquesPartida> entry : estadistiquesPartida.entrySet()) {
-            Integer[] key = entry.getKey();
+    public EstadistiquesPartida getEstadistiquesPartida(String username, Integer idPartida) {
+        for (HashMap.Entry<Pair<String, Integer>, EstadistiquesPartida> entry : estadistiquesPartida.entrySet()) {
+            Pair<String, Integer> key = entry.getKey();
             EstadistiquesPartida ed = entry.getValue();
-            if (key[1] == idPartida && key[0] == idJugador){
+            if (key.getSecond() == idPartida && key.getFirst() == username){
                 return ed;
             }
         }

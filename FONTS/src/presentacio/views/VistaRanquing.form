@@ -32,12 +32,13 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="e7465" class="javax.swing.JButton" binding="bAcceptar">
+              <component id="e7465" class="javax.swing.JButton" binding="bEnrere">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Acceptar"/>
+                  <focusable value="false"/>
+                  <text value="Enrere"/>
                 </properties>
               </component>
             </children>
@@ -59,7 +60,7 @@
         </constraints>
         <properties>
           <font size="36"/>
-          <text value="RANQUING"/>
+          <text value="RÀNQUING"/>
         </properties>
       </component>
     </children>
