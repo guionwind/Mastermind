@@ -693,7 +693,7 @@ public class VistaPartida extends JFrame {
         pColors.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel3.add(pColors, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         lCombinacioCorrecte = new JLabel();
-        lCombinacioCorrecte.setText("Combinacio Correcte");
+        lCombinacioCorrecte.setText("Combinacio Escollida");
         lCombinacioCorrecte.setVisible(false);
         panel3.add(lCombinacioCorrecte, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
