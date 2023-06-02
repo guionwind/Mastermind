@@ -33,7 +33,7 @@ public class VistaPartida extends JFrame {
     private int current_color = 8;
     private String tipus_partida = "CODEBREAKER";
     private int current_round = 0;
-    private String combinacio_intentada = "";
+    private Integer[] combinacio_intentada = new Integer[]{};
     private ArrayList<Integer> combinacio = new ArrayList<>();
     private ArrayList<Color> colorList = new ArrayList<>();
     private ArrayList<ArrayList<RoundButton>> buttonMatrixIntentat = new ArrayList<>();
@@ -90,54 +90,64 @@ public class VistaPartida extends JFrame {
         if (tipus_partida.equals("CODEMAKER")) {
             combinacio_intentada = CtrlPresentacio.jugarRondaCodemaker();
             System.out.println("Primera comb: " + combinacio_intentada);
+            for (int i=0; i<combinacio_intentada.length; ++i) {
+                System.out.print(combinacio_intentada[i]);
+            }
+            System.out.println();
         }
 
         initButtonsPanel();
         //Si carreguem la partida
-        if (combinacionsIntentades != null && correccions != null) {
-            for (int i = 0; i < combinacionsIntentades.length; ++i) {
+        if (combinacionsIntentades != null && correccions != null) { // Carreguem partida codebreaker i codemaker
+            for (int i = 0; i == combinacionsIntentades.length; ++i) {
                 Integer[] combinacioIntentada = combinacionsIntentades[i];
                 String correccio = correccions[i];
 
                 for (int j = 0; j < combinacioIntentada.length; ++j) {
+                    if (tipus_partida.equals("CODEMAKER") && i == combinacioIntentada.length - 1) {
+                        buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setEnabled(true);
+                    }
+                    else {
+                        //Deshabilitem els botons de correccio ja pintats per l'usuari
+                        RoundButton buttonCorreccio = buttonMatrixCorreccio.get(intents - current_round - 1).get(j);
+                        buttonCorreccio.setEnabled(false);
+
+                        //Pintem la correccio
+                        int color;
+                        System.out.println(correccio);
+                        System.out.println(correccions + "correccions");
+                        if (correccio.charAt(j) == 'B') {
+                            color = 9;
+                        } else if (correccio.charAt(j) == 'W') {
+                            color = 10;
+                        } else {
+                            color = 0;
+                        }
+                        buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setCurrentColor(colorList.get(color), color);
+                        buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setEnabled(false);
+                        buttonMatrixCorreccio.get(intents - current_round - 1).get(j).revalidate();
+                        buttonMatrixCorreccio.get(intents - current_round - 1).get(j).repaint();
+                    }
+
                     //Deshabilitem els botons de correccio ja pintats per l'usuari
-                    RoundButton buttonCorreccio = buttonMatrixCorreccio.get(intents - current_round - 1).get(i);
-                    buttonCorreccio.setEnabled(false);
+                    RoundButton buttonIntentat = buttonMatrixIntentat.get(intents - current_round - 1).get(j);
+                    buttonIntentat.setEnabled(false);
 
                     //Pinta la combinacio triada per la maquina
-                    buttonMatrixIntentat.get(intents - current_round - 1).get(i).setCurrentColor(colorList.get(combinacioIntentada[j]), combinacioIntentada[j]);
-                    buttonMatrixIntentat.get(intents - current_round - 1).get(i).setEnabled(false);
-                    buttonMatrixIntentat.get(intents - current_round - 1).get(i).revalidate();
-                    buttonMatrixIntentat.get(intents - current_round - 1).get(i).repaint();
+                    buttonMatrixIntentat.get(intents - current_round - 1).get(j).setCurrentColor(colorList.get(combinacioIntentada[j]), combinacioIntentada[j]);
+                    buttonMatrixIntentat.get(intents - current_round - 1).get(j).setEnabled(false);
+                    buttonMatrixIntentat.get(intents - current_round - 1).get(j).revalidate();
+                    buttonMatrixIntentat.get(intents - current_round - 1).get(j).repaint();
 
-                    //Pintem la correccio
-                    int color;
-                    System.out.println(correccio);
-                    System.out.println(correccions + "correccions");
-                    if (correccio.charAt(j) == 'B') {
-                        color = 9;
-                    } else if (correccio.charAt(j) == 'W') {
-                        color = 10;
-                    } else {
-                        color = 0;
-                    }
-                    buttonMatrixCorreccio.get(intents - current_round - 1).get(i).setCurrentColor(colorList.get(color), color);
-                    buttonMatrixCorreccio.get(intents - current_round - 1).get(i).setEnabled(false);
-                    buttonMatrixCorreccio.get(intents - current_round - 1).get(i).revalidate();
-                    buttonMatrixCorreccio.get(intents - current_round - 1).get(i).repaint();
                 }
-                current_round++;
+                if (!(tipus_partida.equals("CODEMAKER") && i == combinacioIntentada.length - 1))
+                    current_round++;
             }
 
             //Habilita els seguents botons de correccio
             if (tipus_partida.equals("CODEBREAKER")) {
-                for (int i = 0; i < combinacionsIntentades[0].length; ++i) {
-                    buttonMatrixIntentat.get(intents - current_round - 1).get(i).setEnabled(true);
-                }
-
-            } else {
-                for (int i = 0; i < combinacionsIntentades[0].length; ++i) {
-                    buttonMatrixCorreccio.get(intents - current_round - 1).get(i).setEnabled(true);
+                for (int j = 0; j < combinacionsIntentades[0].length; ++j) {
+                    buttonMatrixIntentat.get(intents - current_round - 1).get(j).setEnabled(true);
                 }
 
             }
@@ -295,7 +305,7 @@ public class VistaPartida extends JFrame {
                     if (i != intents - 1) {
                         buttonCorreccio.setEnabled(false);
                     } else {
-                        button.setCurrentColor(colorList.get(Integer.valueOf(combinacio_intentada.charAt(j) - 48)), Integer.valueOf(combinacio_intentada.charAt(j) - 48));
+                        button.setCurrentColor(colorList.get(combinacio_intentada[i]), combinacio_intentada[i]);
                         buttonCorreccio.setEnabled(true);
                     }
                 }
@@ -436,10 +446,10 @@ public class VistaPartida extends JFrame {
                         buttonCorreccio.setEnabled(false);
 
                         //Pinta la combinacio triada per la maquina
-                        buttonMatrixIntentat.get(intents - current_round - 1).get(i).setCurrentColor(colorList.get(Integer.valueOf(combinacio_intentada.charAt(i) - 48)), Integer.valueOf(combinacio_intentada.charAt(i) - 48));
+                        buttonMatrixIntentat.get(intents - current_round - 1).get(i).setCurrentColor(colorList.get(combinacio_intentada[i]), combinacio_intentada[i]);
                         buttonMatrixIntentat.get(intents - current_round - 1).get(i).revalidate();
                         buttonMatrixIntentat.get(intents - current_round - 1).get(i).repaint();
-                        System.out.println(Integer.valueOf(combinacio_intentada.charAt(i) - 48));
+                        System.out.println(combinacio_intentada[i]);
 
                         //Habilita els seguents botons de correccio
                         if (current_round < intents)

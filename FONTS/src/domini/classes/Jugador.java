@@ -99,7 +99,14 @@ public class Jugador {
         estadistiquesPartides.add(estadistiquesPartida);
     }
 
-    public void afegirIdPartida(int id) {
-        idPartides.add(id);
+    public void afegirIdPartida(int idPartida) {
+        idPartides.add(idPartida);
+    }
+
+    public void eliminarPartida(int idPartida) {
+        System.out.print("aaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbb");
+        System.out.println(idPartida);
+        System.out.println(idPartides.remove(idPartida));
+        System.out.print("bbbbbbbbbbbbbbbbbbbbbbbdddddddddddddddddddddddd");
     }
 }

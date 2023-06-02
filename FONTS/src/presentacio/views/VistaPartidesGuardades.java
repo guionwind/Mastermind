@@ -40,7 +40,7 @@ public class VistaPartidesGuardades extends JFrame {
         setVisible(true);
         setExtendedState(state);
         getRootPane().setDefaultButton(bAcceptar);
-
+        
         lPartides.setModel(listModel);
 
         ArrayList<String[]> infoPartides = CtrlPresentacio.getInfoPartidesGuardades();

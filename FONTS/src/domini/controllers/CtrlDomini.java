@@ -100,18 +100,22 @@ public class CtrlDomini {
     * @param
     */
     public Boolean setCorreccioRonda(String respostaCombinacioUsuari) {
+        System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
         Integer[] ultimaCombinacio = ctrlPartida.getUltimaCombinacio();
         for (Integer integer : ultimaCombinacio) {
             System.out.print(integer);
         }
+        System.out.println("ffffffffffffffffffffffffffffffff");
         System.out.println();
         Integer[] codiSolution = ctrlPartida.getSolutionCode();
         for (Integer integer : codiSolution) {
             System.out.print(integer);
         }
+        System.out.println("ggggggggggggggggggggggggggggggggggg");
         System.out.println();
         String respostaCombinacio = CorregeixAction.corregeix(ctrlPartida.getUltimaCombinacio(), ctrlPartida.getSolutionCode());
         System.out.println(respostaCombinacio);
+        System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
         if (ComparaRespostesAction.comparaRespostes(respostaCombinacio, respostaCombinacioUsuari)){
             ctrlPartida.setCorreccioRonda(respostaCombinacio);
             return true;
@@ -139,7 +143,9 @@ public class CtrlDomini {
         crearRonda();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
         System.out.println(ctrlPartida.getUltimaCombinacio());
-        return CorregeixAction.corregeix(combinacioIntentada, ctrlPartida.getSolutionCode());
+        String correccio = CorregeixAction.corregeix(combinacioIntentada, ctrlPartida.getSolutionCode());
+        ctrlPartida.setCorreccioRonda(correccio);
+        return correccio;
     }
 
     public String demanarPista() {
@@ -158,15 +164,16 @@ public class CtrlDomini {
      * @throws LongitudRespostaIncorrecte La longitud de la resposta no coincideix amb la indicada per l'usuari
      * @throws ValorsRespostaIncorrectes Els valors indicats a la resposta no son correctes
      */
-    public String jugarRondaCodeMaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
+    public Integer[] jugarRondaCodeMaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina();
         crearRonda();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
-        String combinacioIntentadaString = "";
-        for (int i = 0; i < combinacioIntentada.length; i++){
-            combinacioIntentadaString += combinacioIntentada[i].toString();
-        }
-        return combinacioIntentadaString;
+        // String combinacioIntentadaString = "";
+        // for (int i = 0; i < combinacioIntentada.length; i++){
+        //     combinacioIntentadaString += combinacioIntentada[i].toString();
+        // }
+        // return combinacioIntentadaString;
+        return combinacioIntentada;
     }
 
     //! del CtrlJugador
@@ -413,12 +420,24 @@ public class CtrlDomini {
         Integer[][] combinacionsIntentades = new Integer[midaRondes][];
         String[] correccions = new String[midaRondes];
 
-        for (int i = 0; i < rondes.size(); ++i) {
-            Ronda ronda = rondes.get(i);
-            idRondes[i] = ronda.getId();
-            combinacionsIntentades[i] = ronda.getCombinacioIntentada();
-            correccions[i] = ronda.getCorreccio();
+        if (p.getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEBREAKER) {
+            for (int i = 0; i < rondes.size(); ++i) {
+                Ronda ronda = rondes.get(i);
+                idRondes[i] = ronda.getId();
+                combinacionsIntentades[i] = ronda.getCombinacioIntentada();
+                correccions[i] = ronda.getCorreccio();
+            }
         }
+        else { // CODEMAKAER
+            for (int i = 0; i < rondes.size(); ++i) {
+                Ronda ronda = rondes.get(i);
+                idRondes[i] = ronda.getId();
+                combinacionsIntentades[i] = ronda.getCombinacioIntentada();
+                if (i < rondes.size() - 1)
+                    correccions[i] = ronda.getCorreccio();
+            }
+        }
+        
 
         try {
             if (p.getTipusAlgorisme() == null) {
@@ -471,6 +490,7 @@ public class CtrlDomini {
 
     public void elimiarPartidaActual() throws IOException, InstanciaNoExisteix {
         String idPartida = String.valueOf(ctrlPartida.getIdPartidaActual());
+        ctrlJugador.getJugadorActual().eliminarPartida(Integer.valueOf(idPartida));
         if (ctrlPersistencia.existeixPartida(idPartida)) {
             ctrlPersistencia.eliminarPartida(idPartida);
             if (ctrlPartida.getPartidaActual().getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEMAKER && ctrlPartida.getPartidaActual().getTipusAlgorisme() == TipusAlgorisme.FIVEGUESS) ctrlPersistencia.eliminarFiveGuess(idPartida);
@@ -479,7 +499,27 @@ public class CtrlDomini {
     }
 
     public Integer[] getSolutionCodePartidaGuardada(String idPartida, String tipusPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
-        return ctrlPersistencia.obtenirPartida(idPartida, tipusPartida).getSolutionCode();
+        Partida p = ctrlPersistencia.obtenirPartida(idPartida, tipusPartida);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaa");
+        System.out.println(p);
+        System.out.println(p.getId());
+
+        Integer [] combinacioIntentada = p.getUltimaCombIntentada();
+        for (int i = 0; i < combinacioIntentada.length; ++i)
+            System.out.print(combinacioIntentada[i]);
+        System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+
+        String correcio = p.getUltimaCorreccio();
+        for (int i = 0; i < correcio.length(); ++i)
+            System.out.print(correcio.charAt(i));
+        System.out.println("cccccccccccccccccccccccccccccc");
+
+        Integer [] combinacioSolucio = p.getSolutionCode();
+        for (int i = 0; i < combinacioSolucio.length; ++i)
+            System.out.print(combinacioSolucio[i]);
+        System.out.println("dddddddddddddddddddddddddddd");
+
+        return p.getSolutionCode();
     }
 
     public Integer[][] getCombinacionsIntentades(String idPartida, String tipusPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
@@ -500,11 +540,18 @@ public class CtrlDomini {
         HashMap<Integer, Ronda> rondes = p.getRondes();
         System.out.println(p.rondesJugades());
 
-        for (int i = 0; i < p.rondesJugades(); ++i) {
-            correccions[i] = rondes.get(i).getCorreccio();
-            System.out.println(correccions[i] + " ctrldomini");
+        if (p.getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEBREAKER) {
+            for (int i = 0; i < p.rondesJugades(); ++i) {
+                correccions[i] = rondes.get(i).getCorreccio();
+                System.out.println(correccions[i] + " ctrldomini");
+            }
         }
-
+        else { // CODEMAKAER
+            for (int i = 0; i < p.rondesJugades()-1; ++i) {
+                correccions[i] = rondes.get(i).getCorreccio();
+                System.out.println(correccions[i] + " ctrldomini");
+            }
+        }
         return correccions;
     }
 }

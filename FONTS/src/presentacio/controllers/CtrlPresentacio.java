@@ -102,7 +102,7 @@ public class CtrlPresentacio {
         return ctrlDomini.jugarRondaCodebreaker(combinacio);
     }
 
-    public static String jugarRondaCodemaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+    public static Integer[] jugarRondaCodemaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         return ctrlDomini.jugarRondaCodeMaker();
     }
 
