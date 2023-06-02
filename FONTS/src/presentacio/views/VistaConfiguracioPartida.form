@@ -75,7 +75,7 @@
             </constraints>
             <properties>
               <maximum value="8"/>
-              <minimum value="1"/>
+              <minimum value="4"/>
               <paintLabels value="true"/>
               <paintTicks value="false"/>
               <value value="6"/>
@@ -95,7 +95,7 @@
             </constraints>
             <properties>
               <maximum value="8"/>
-              <minimum value="1"/>
+              <minimum value="4"/>
               <paintLabels value="true"/>
               <paintTicks value="false"/>
               <value value="4"/>
