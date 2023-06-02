@@ -54,7 +54,8 @@ public class VistaPartidesGuardades extends JFrame {
         bAcceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    onAcceptar(infoPartides);
+                    if (infoPartides.size() > 0)
+                        onAcceptar(infoPartides);
                 } catch (IOException | ClassNotFoundException | LongitudCombinacioIncorrecte | NumeroColorsIncorrecte |
                          LongitudRespostaIncorrecte | ValorsRespostaIncorrectes | InstanciaNoExisteix ex) {
                     throw new RuntimeException(ex);
@@ -100,8 +101,21 @@ public class VistaPartidesGuardades extends JFrame {
         Integer[][] combinacionsIntentades = CtrlPresentacio.getCombinacionsIntentades(idPartida, tipusPartida);
         String[] correccions = CtrlPresentacio.getCorrecions(idPartida, tipusPartida);
 
+        System.out.print("Vista partides guardades on guardar ");
         for (int i = 0; i < solutionCode.length; ++i) {
-            System.out.println(solutionCode[i]);
+            System.out.print(solutionCode[i]);
+        }
+        System.out.println();
+        System.out.println("Vista partides guardades on guardar ");
+        for (int i = 0; i < combinacionsIntentades.length; ++i) {
+            for (int j = 0; j < combinacionsIntentades[i].length; ++j) {
+                System.out.print(combinacionsIntentades[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println("Vista partides guardades on guardar ");
+        for (int i = 0; i < correccions.length; ++i) {
+            System.out.println(correccions[i]);
         }
 
 

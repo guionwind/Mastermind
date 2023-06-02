@@ -97,7 +97,14 @@ public class Codemaker extends Partida {
      * @throws ValorsRespostaIncorrectes La correcció conté valors fora dels esperats
      */
     public Integer[] getCodiMaquinaFiveGuess(Integer[] ultimIntent, String resposta) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
-        return fiveGuess.esbrina(ultimIntent, resposta);
+        Integer[] codi = fiveGuess.esbrina(ultimIntent, resposta);
+        System.out.println("get codi maquina ");
+        for (int i=0; i<codi.length; ++i) {
+            System.out.print(codi[i]);
+
+        }
+        System.out.println();
+        return codi;
     }
 
     /**

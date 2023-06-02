@@ -73,26 +73,28 @@ public class CtrlDomini {
      * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
      */
     public void crearPartidaCodebreaker(int numeroIntents, int numeroColors, int longitudCombinacio) throws Exception {
-            ctrlPartida.crearPartidaCodebreaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio);
-            ctrlPersistencia.afegirConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEBREAKER), numeroIntents, numeroColors, longitudCombinacio);
-        }
+        ctrlPartida.crearPartidaCodebreaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio);
+        ctrlPersistencia.afegirConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEBREAKER), numeroIntents, numeroColors, longitudCombinacio);
+    }
 
-        /**
-         * Crea una partida Codemaker i una instancia de ctrlAlgorisme.
-         *
-         * @param numeroIntents Numero d'Intents permesos a la partida
-         * @param numeroColors Numero de colors de la partida
-         * @param longitudCombinacio Longitud maxima de la combinacio de colors
-         * @param solutionCode Solucio de la partida indicada per l'usuari
-         * @param tipusAlgorisme Tipus del algorisme utilitzat
-         * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
-         */
-        public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, String tipusAlgorisme) throws Exception {
-            System.out.println("tipusString: "+tipusAlgorisme);
-            TipusAlgorisme tipusAlgorisme1 = TipusAlgorisme.valueOf(tipusAlgorisme);
-            System.out.println(tipusAlgorisme1.toString());
-            ctrlPartida.crearPartidaCodemaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio, solutionCode, tipusAlgorisme1);
-            ctrlPersistencia.afegirConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEMAKER), numeroIntents, numeroColors, longitudCombinacio);
+    /**
+     * Crea una partida Codemaker i una instancia de ctrlAlgorisme.
+     *
+     * @param numeroIntents Numero d'Intents permesos a la partida
+     * @param numeroColors Numero de colors de la partida
+     * @param longitudCombinacio Longitud maxima de la combinacio de colors
+     * @param solutionCode Solucio de la partida indicada per l'usuari
+     * @param tipusAlgorisme Tipus del algorisme utilitzat
+     * @throws Exception Llença excepcio en cas que l'usuari indiqui algun valor out of range
+     */
+    public void crearPartidaCodemaker(int numeroIntents, int numeroColors, int longitudCombinacio, Integer[] solutionCode, String tipusAlgorisme) throws Exception {
+        System.out.println("tipusString: "+tipusAlgorisme);
+        TipusAlgorisme tipusAlgorisme1 = TipusAlgorisme.valueOf(tipusAlgorisme);
+        System.out.println(tipusAlgorisme1.toString());
+        ctrlPartida.crearPartidaCodemaker(ctrlPersistencia.totalPartides(), numeroIntents, numeroColors, longitudCombinacio, solutionCode, tipusAlgorisme1);
+        System.out.println("crear partida codemaker " +String.valueOf(TipusPartida.CODEMAKER));
+        System.out.println("crear partida codemaker " +TipusPartida.CODEMAKER.toString());
+        ctrlPersistencia.afegirConfiguracioPartida(String.valueOf(ctrlPartida.getPartidaActual().getId()), String.valueOf(TipusPartida.CODEMAKER), numeroIntents, numeroColors, longitudCombinacio);
     }
 
     /**
@@ -113,6 +115,8 @@ public class CtrlDomini {
         }
         System.out.println("ggggggggggggggggggggggggggggggggggg");
         System.out.println();
+        System.out.println(ctrlPartida.getPartidaActual().getRondes().size());
+
         String respostaCombinacio = CorregeixAction.corregeix(ctrlPartida.getUltimaCombinacio(), ctrlPartida.getSolutionCode());
         System.out.println(respostaCombinacio);
         System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
@@ -166,6 +170,13 @@ public class CtrlDomini {
      */
     public Integer[] jugarRondaCodeMaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes{
         Integer[] combinacioIntentada = ctrlPartida.getCodiMaquina();
+
+        System.out.println("ctrlPartida.getCodiMaquina() " + combinacioIntentada);
+        for (int i=0; i<combinacioIntentada.length; ++i)            
+            System.out.print(" " + combinacioIntentada[i]);
+        System.out.print("ctrlPartida.getCodiMaquina() ");
+
+
         crearRonda();
         ctrlPartida.intentarCombinacio(combinacioIntentada);
         // String combinacioIntentadaString = "";
@@ -493,9 +504,10 @@ public class CtrlDomini {
         ctrlJugador.getJugadorActual().eliminarPartida(Integer.valueOf(idPartida));
         if (ctrlPersistencia.existeixPartida(idPartida)) {
             ctrlPersistencia.eliminarPartida(idPartida);
-            if (ctrlPartida.getPartidaActual().getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEMAKER && ctrlPartida.getPartidaActual().getTipusAlgorisme() == TipusAlgorisme.FIVEGUESS) ctrlPersistencia.eliminarFiveGuess(idPartida);
+            if (ctrlPartida.getPartidaActual().getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEMAKER && ctrlPartida.getPartidaActual().getTipusAlgorisme() == TipusAlgorisme.FIVEGUESS) 
+                ctrlPersistencia.eliminarFiveGuess(idPartida);
+            ctrlPersistencia.eliminarConfiguracioPartida(idPartida);
         }
-        ctrlPersistencia.eliminarConfiguracioPartida(idPartida);
     }
 
     public Integer[] getSolutionCodePartidaGuardada(String idPartida, String tipusPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
@@ -510,9 +522,11 @@ public class CtrlDomini {
         System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 
         String correcio = p.getUltimaCorreccio();
-        for (int i = 0; i < correcio.length(); ++i)
-            System.out.print(correcio.charAt(i));
-        System.out.println("cccccccccccccccccccccccccccccc");
+        if (correcio != null) {
+            for (int i = 0; i < correcio.length(); ++i)
+                System.out.print(correcio.charAt(i));
+            System.out.println("cccccccccccccccccccccccccccccc");
+        }
 
         Integer [] combinacioSolucio = p.getSolutionCode();
         for (int i = 0; i < combinacioSolucio.length; ++i)
@@ -535,12 +549,16 @@ public class CtrlDomini {
 
     public String[] getCorreccions(String idPartida, String tipusPartida) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         Partida p = ctrlPersistencia.obtenirPartida(idPartida, tipusPartida);
-
+        
+        System.out.println("Get correccions " + p);
         String[] correccions = new String[p.rondesJugades()];
         HashMap<Integer, Ronda> rondes = p.getRondes();
+        System.out.println("Get correccions " + rondes);
+        System.out.println("Get correccions " + rondes.size());
         System.out.println(p.rondesJugades());
 
-        if (p.getConfiguracioPartida().getTipusPartida() == TipusPartida.CODEBREAKER) {
+        if (tipusPartida.equals("CODEBREAKER")) {
+            System.out.println("Get correccions codebreaker");
             for (int i = 0; i < p.rondesJugades(); ++i) {
                 correccions[i] = rondes.get(i).getCorreccio();
                 System.out.println(correccions[i] + " ctrldomini");
@@ -548,6 +566,7 @@ public class CtrlDomini {
         }
         else { // CODEMAKAER
             for (int i = 0; i < p.rondesJugades()-1; ++i) {
+                System.out.println("Get correccions codemaker");
                 correccions[i] = rondes.get(i).getCorreccio();
                 System.out.println(correccions[i] + " ctrldomini");
             }

@@ -30,10 +30,10 @@ public class VistaPartida extends JFrame {
     private int longitud = 4;
     private int colors = 6;
     private int intents = 5;
-    private int current_color = 8;
+    private int current_color = 0;
     private String tipus_partida = "CODEBREAKER";
     private int current_round = 0;
-    private Integer[] combinacio_intentada = new Integer[]{};
+    private Integer[] combinacio_intentada = new Integer[] {};
     private ArrayList<Integer> combinacio = new ArrayList<>();
     private ArrayList<Color> colorList = new ArrayList<>();
     private ArrayList<ArrayList<RoundButton>> buttonMatrixIntentat = new ArrayList<>();
@@ -57,6 +57,9 @@ public class VistaPartida extends JFrame {
         intents = init_intents;
         colors = init_colors;
         longitud = init_longitud;
+        if (combinacionsIntentades != null) {
+            combinacio_intentada = combinacionsIntentades[combinacionsIntentades.length-1];
+        }
         tipus_partida = init_tipusPartida;
         combinacio.addAll(Arrays.asList(init_combinacio));
 
@@ -86,26 +89,77 @@ public class VistaPartida extends JFrame {
         colorList.add(Color.PINK);
         colorList.add(Color.BLACK);
         colorList.add(Color.WHITE);
-
-        if (tipus_partida.equals("CODEMAKER")) {
-            combinacio_intentada = CtrlPresentacio.jugarRondaCodemaker();
-            System.out.println("Primera comb: " + combinacio_intentada);
-            for (int i=0; i<combinacio_intentada.length; ++i) {
-                System.out.print(combinacio_intentada[i]);
+        
+        if (!(combinacionsIntentades != null && correccions != null)) { // Creen nova partida codebreaker i codemaker
+            if (tipus_partida.equals("CODEMAKER")) {
+                combinacio_intentada = CtrlPresentacio.jugarRondaCodemaker();
+                System.out.println("Primera comb: " + combinacio_intentada);
+                for (int i=0; i<combinacio_intentada.length; ++i) {
+                    System.out.print(combinacio_intentada[i]);
+                }
+                System.out.println();
             }
-            System.out.println();
         }
-
+        
         initButtonsPanel();
-        //Si carreguem la partida
+        
+        //Si carreguem la partida        
         if (combinacionsIntentades != null && correccions != null) { // Carreguem partida codebreaker i codemaker
-            for (int i = 0; i == combinacionsIntentades.length; ++i) {
+        
+            System.out.println();
+            System.out.println("Vista partida contructora ");
+            for (int i = 0; i < combinacionsIntentades.length; ++i) {
+                for (int j = 0; j < combinacionsIntentades[i].length; ++j) {
+                    System.out.print(combinacionsIntentades[i][j]);
+                }
+                System.out.println();
+            }
+            System.out.println("Vista partida contructora ");
+            for (int i = 0; i < correccions.length; ++i) {
+                System.out.println(correccions[i]);
+            }
+            System.out.println(combinacionsIntentades);
+            System.out.println(correccions);
+
+
+
+            System.out.println("Vista partida bucle inicial carregar");
+            for (int i = 0; i < combinacionsIntentades.length; ++i) {
                 Integer[] combinacioIntentada = combinacionsIntentades[i];
                 String correccio = correccions[i];
+                System.out.println("Vista partida bucle inicial carregar combinacioIntentada ");
+                for (int j = 0; j < combinacionsIntentades.length; ++j) {
+                    System.out.println(combinacionsIntentades[i]);
+                }
+                System.out.println("Vista partida bucle inicial carregar correcio ");
+                System.out.println(correccio);
 
                 for (int j = 0; j < combinacioIntentada.length; ++j) {
-                    if (tipus_partida.equals("CODEMAKER") && i == combinacioIntentada.length - 1) {
-                        buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setEnabled(true);
+                    if (tipus_partida.equals("CODEMAKER")) {
+                        if (i == combinacionsIntentades.length - 1) {
+                            buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setEnabled(true);
+                        }
+                        else {
+                            //Deshabilitem els botons de correccio ja pintats per l'usuari
+                            RoundButton buttonCorreccio = buttonMatrixCorreccio.get(intents - current_round - 1).get(j);
+                            buttonCorreccio.setEnabled(false);
+    
+                            //Pintem la correccio
+                            int color;
+                            System.out.println(correccio);
+                            System.out.println(correccions + "correccions");
+                            if (correccio.charAt(j) == 'B') {
+                                color = 9;
+                            } else if (correccio.charAt(j) == 'W') {
+                                color = 10;
+                            } else {
+                                color = 0;
+                            }
+                            buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setCurrentColor(colorList.get(color), color);
+                            buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setEnabled(false);
+                            buttonMatrixCorreccio.get(intents - current_round - 1).get(j).revalidate();
+                            buttonMatrixCorreccio.get(intents - current_round - 1).get(j).repaint();
+                        }
                     }
                     else {
                         //Deshabilitem els botons de correccio ja pintats per l'usuari
@@ -138,9 +192,8 @@ public class VistaPartida extends JFrame {
                     buttonMatrixIntentat.get(intents - current_round - 1).get(j).setEnabled(false);
                     buttonMatrixIntentat.get(intents - current_round - 1).get(j).revalidate();
                     buttonMatrixIntentat.get(intents - current_round - 1).get(j).repaint();
-
                 }
-                if (!(tipus_partida.equals("CODEMAKER") && i == combinacioIntentada.length - 1))
+                if (tipus_partida.equals("CODEBREAKER") || !(i == combinacionsIntentades.length - 1))
                     current_round++;
             }
 
@@ -305,7 +358,7 @@ public class VistaPartida extends JFrame {
                     if (i != intents - 1) {
                         buttonCorreccio.setEnabled(false);
                     } else {
-                        button.setCurrentColor(colorList.get(combinacio_intentada[i]), combinacio_intentada[i]);
+                        button.setCurrentColor(colorList.get(combinacio_intentada[j]), combinacio_intentada[j]);
                         buttonCorreccio.setEnabled(true);
                     }
                 }
@@ -420,6 +473,7 @@ public class VistaPartida extends JFrame {
 
         } else { // Codemaker
             Integer[] correccioUsuariNumeros = getCorreccioUsuari();
+            System.out.println("correccioUsuariNumeros" + correccioUsuariNumeros.toString());
             String correccioUsuariString = traduirCorrecioAString(correccioUsuariNumeros);
             int longitudCorreccio = buttonMatrixCorreccio.get(intents - current_round - 1).size();
             Boolean is_well_corrected = CtrlPresentacio.setCorreccioRonda(correccioUsuariString);
@@ -440,10 +494,13 @@ public class VistaPartida extends JFrame {
                     combinacio_intentada = CtrlPresentacio.jugarRondaCodemaker();
 
 
+                    System.out.println("on corregir codemaker bucle 502 combinacio_intentada " + combinacio_intentada);
                     for (int i = 0; i < longitudCorreccio; i++) {
                         //Deshabilitem els botons de correccio ja pintats per l'usuari
                         RoundButton buttonCorreccio = buttonMatrixCorreccio.get(intents - current_round).get(i);
                         buttonCorreccio.setEnabled(false);
+                        
+                        System.out.println("on corregir codemaker bucle 502 combinacio_intentada[i] " + combinacio_intentada[i]);
 
                         //Pinta la combinacio triada per la maquina
                         buttonMatrixIntentat.get(intents - current_round - 1).get(i).setCurrentColor(colorList.get(combinacio_intentada[i]), combinacio_intentada[i]);
@@ -501,9 +558,11 @@ public class VistaPartida extends JFrame {
 
         for (int i = 0; i < longitudCombinacioIntentat; i++) {
 
+            System.out.println("traduir correcio a string" + correccioColors[i]);
             if (correccioColors[i] == 9) correccioNumeros += "B";
             else if (correccioColors[i] == 10) correccioNumeros += "W";
             else correccioNumeros += "-";
+            
         }
 
         return correccioNumeros;

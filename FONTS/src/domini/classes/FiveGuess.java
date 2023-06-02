@@ -130,6 +130,15 @@ public class FiveGuess implements Maquina {
      * @throws ValorsRespostaIncorrectes            Retorna excepcio si algun dels valors de la resposta es incorrecta.
      */
     public Integer[] esbrina(Integer[] ultimCodiAux, String respostaCodi) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+        System.out.println("Fiveguess esbrina ultim codi ");
+        if (ultimCodiAux != null) {
+            for (int i=0; i<ultimCodiAux.length; ++i) {
+                System.out.println(ultimCodiAux[i]);
+            }
+        }
+        System.out.println("Fiveguess resposta codi ");
+        System.out.println("Fiveguess resposta codi " + respostaCodi);
+        
         if (ultimCodiAux == null) {
             return new Integer[] {1,1,2,2};
         }
@@ -141,11 +150,11 @@ public class FiveGuess implements Maquina {
             if (respostaCodi.length() != NUM_PEG) throw new LongitudRespostaIncorrecte("Mida incorrecte. La mida de la resposta a l'últim codi ha de ser 4");
             for (char c : respostaCodi.toCharArray())
                 if (c != 'B' && c != 'W' && c != '-') throw new ValorsRespostaIncorrectes("Resposta incorrecte. Els valors de la resposta a l'úlitm codi han de ser 'B', 'W', '-'");
-
+            
             Integer[] ultimCodi = ultimCodiAux.clone();
             borrarCodisDisponibles(ultimCodi);
             reduirPossibilitats(ultimCodi, respostaCodi);
-
+            
             return esbrinaCodi().clone();
         }
     }
