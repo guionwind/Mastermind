@@ -197,7 +197,7 @@ public class VistaConfiguracioPartida extends JFrame {
                 sLongitud.setEnabled(true);
             }
         } else { //CodeBreaker
-            for(RoundButton button : buttonList){
+            for (RoundButton button : buttonList) {
                 button.setCurrentColor(Color.GRAY, 0);
             }
             sColors.setMaximum(8);
@@ -226,15 +226,16 @@ public class VistaConfiguracioPartida extends JFrame {
         } else {
             for (int i = 0; i < longitud; i++) {
                 combinacio[i] = buttonList.get(i).getCurrentColor();
-                if (combinacio[i].equals(0)){
+                if (combinacio[i].equals(0)) {
                     JOptionPane.showMessageDialog(sIntents, "Has d'assignar tots els colors!", "Error creant Partida", JOptionPane.WARNING_MESSAGE);
                     valid = false;
                     break;
                 }
             }
-            if (valid) CtrlPresentacio.crearPartidaCodemaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbAlgorisme.getSelectedItem().toString().toUpperCase());
+            if (valid)
+                CtrlPresentacio.crearPartidaCodemaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbAlgorisme.getSelectedItem().toString().toUpperCase());
         }
-        if (valid){
+        if (valid) {
             CtrlPresentacio.vistaPartida(getLocation(), getExtendedState(), sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbTipusPartida.getSelectedItem().toString().toUpperCase(), null, null);
             dispose();
         }
@@ -294,7 +295,7 @@ public class VistaConfiguracioPartida extends JFrame {
         panel2.add(label2, new GridConstraints(5, 0, 1, 4, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         sColors = new JSlider();
         sColors.setMaximum(8);
-        sColors.setMinimum(1);
+        sColors.setMinimum(4);
         sColors.setPaintLabels(true);
         sColors.setPaintTicks(false);
         sColors.setValue(6);
@@ -304,7 +305,7 @@ public class VistaConfiguracioPartida extends JFrame {
         panel2.add(label3, new GridConstraints(7, 0, 1, 7, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         sLongitud = new JSlider();
         sLongitud.setMaximum(8);
-        sLongitud.setMinimum(1);
+        sLongitud.setMinimum(4);
         sLongitud.setPaintLabels(true);
         sLongitud.setPaintTicks(false);
         sLongitud.setValue(4);
