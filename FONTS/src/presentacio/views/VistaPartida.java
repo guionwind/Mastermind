@@ -549,7 +549,7 @@ public class VistaPartida extends JFrame {
                 } else if (!guanyat) {
                     JOptionPane.showMessageDialog(pCombinacions, "La maquina s'ha quedat sense intents, has guanyat!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
                     CtrlPresentacio.guardarPartida();
-                    CtrlPresentacio.partidaAcabadaCodemaker();
+                    CtrlPresentacio.partidaAcabadaCodemaker(true);
                     dispose();
                 } else { //Esta ben corregit i ha guanyat i te intents
                     JOptionPane jOptionPane = new JOptionPane();
@@ -564,7 +564,7 @@ public class VistaPartida extends JFrame {
 //                    });
 
                     CtrlPresentacio.guardarPartida();
-                    CtrlPresentacio.partidaAcabadaCodemaker();
+                    CtrlPresentacio.partidaAcabadaCodemaker(false);
                     CtrlPresentacio.vistaMenuInicial(getLocation(), getExtendedState());
                     dispose();
                 }

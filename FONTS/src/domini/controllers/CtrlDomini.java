@@ -361,11 +361,25 @@ public class CtrlDomini {
      * Es retorna la puntuacio final.
      * La puntuacio es calcula com a (100 - intents), on intents es correspon al nombre de rondes jugades.
      * @return puntuacio final de la partida
+     * @throws InstanciaJaExisteix
+     * @throws IOException
      */
-    public Integer partidaAcabadaCodemaker() {
+    public Integer partidaAcabadaCodemaker(Boolean guanyada) throws IOException, InstanciaJaExisteix {
+        Integer idPartida = ctrlPartida.getIdPartidaActual();
+        String username = ctrlJugador.getLoggedPlayerUsername();
         Integer numRondes = ctrlPartida.getNumeroRondes();
 
-        return 100 - numRondes;
+        Integer puntuacio = -1;
+
+        ctrlEstadistiquesPartida.creaEstadistiquesPartida(username, idPartida, puntuacio, guanyada);
+        EstadistiquesPartida e = ctrlEstadistiquesPartida.getEstadistiquesPartida(username, idPartida);
+        ctrlPersistencia.afegirEstadistiquesPartida(username, String.valueOf(idPartida), puntuacio, guanyada);
+
+        //Afegim la estadistica creada a Jugador i a Partida
+        ctrlPartida.addEstadistiquesPartida(e);
+        ctrlJugador.addEstadistica(e);
+        
+        return puntuacio;
     }
 
     /**
