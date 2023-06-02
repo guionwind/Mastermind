@@ -170,7 +170,7 @@ public class VistaPartida extends JFrame {
                             buttonMatrixCorreccio.get(intents - current_round - 1).get(j).revalidate();
                             buttonMatrixCorreccio.get(intents - current_round - 1).get(j).repaint();
                         }
-                        
+
                     } else {
                         // //Deshabilitem els botons de correccio ja pintats per l'usuari
                         // RoundButton buttonCorreccio = buttonMatrixCorreccio.get(intents - current_round - 1).get(j);
@@ -340,6 +340,7 @@ public class VistaPartida extends JFrame {
             for (int j = 0; j < longitud; j++) {
                 RoundButton button = new RoundButton("");
                 RoundButton buttonCorreccio = new RoundButton("");
+
                 button.addMouseListener(new MouseAdapter() {
 
                     @Override
@@ -415,6 +416,7 @@ public class VistaPartida extends JFrame {
                 RoundButton tempButton = new RoundButton("");
                 tempButton.setCurrentColor(colorList.get(colorComb), colorComb);
                 pCombinacioCorrecte.add(tempButton);
+                System.out.println("CARAMBANOS");
             }
             pCorreccio.revalidate();
             pCorreccio.repaint();
@@ -560,7 +562,7 @@ public class VistaPartida extends JFrame {
 //                            super.mousePressed(e);
 //                        }
 //                    });
-                    
+
                     CtrlPresentacio.guardarPartida();
                     CtrlPresentacio.partidaAcabadaCodemaker();
                     CtrlPresentacio.vistaMenuInicial(getLocation(), getExtendedState());
