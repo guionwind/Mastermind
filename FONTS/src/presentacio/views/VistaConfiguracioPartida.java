@@ -207,7 +207,7 @@ public class VistaConfiguracioPartida extends JFrame {
             }
             CtrlPresentacio.crearPartidaCodemaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbAlgorisme.getSelectedItem().toString().toUpperCase());
         }
-        CtrlPresentacio.vistaPartida(getLocation(), sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbTipusPartida.getSelectedItem().toString());
+        CtrlPresentacio.vistaPartida(getLocation(), sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbTipusPartida.getSelectedItem().toString().toUpperCase());
         dispose();
     }
 
