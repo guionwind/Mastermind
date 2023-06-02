@@ -27,6 +27,8 @@ public class VistaPartida extends JFrame {
     private JPanel pCorreccio;
     private JButton bCorretgir;
     private JLabel lInvalidCombinacio;
+    private JPanel pCombinacioCorrecte;
+    private JLabel lCombinacioCorrecte;
     private int longitud = 4;
     private int colors = 6;
     private int intents = 5;
@@ -58,7 +60,7 @@ public class VistaPartida extends JFrame {
         colors = init_colors;
         longitud = init_longitud;
         if (combinacionsIntentades != null && combinacionsIntentades.length > 0) {
-            combinacio_intentada = combinacionsIntentades[combinacionsIntentades.length-1];
+            combinacio_intentada = combinacionsIntentades[combinacionsIntentades.length - 1];
         }
         tipus_partida = init_tipusPartida;
         combinacio.addAll(Arrays.asList(solution_code));
@@ -70,6 +72,8 @@ public class VistaPartida extends JFrame {
         System.out.println(tipus_partida + " tipus partida");
         if (tipus_partida.equals("CODEMAKER")) {
             bPista.setVisible(false);
+            pCombinacioCorrecte.setVisible(true);
+            lCombinacioCorrecte.setVisible(true);
             System.out.println("Solution code: ");
 
             for (int i = 0; i < combinacio.size(); i++) {
@@ -198,8 +202,7 @@ public class VistaPartida extends JFrame {
                 for (int j = 0; j < init_longitud; ++j) {
                     buttonMatrixIntentat.get(intents - current_round - 1).get(j).setEnabled(true);
                 }
-            }
-            else {
+            } else {
                 for (int j = 0; j < combinacionsIntentades[0].length; ++j) {
                     buttonMatrixCorreccio.get(intents - current_round - 1).get(j).setEnabled(true);
                 }
@@ -389,10 +392,19 @@ public class VistaPartida extends JFrame {
 
         int color_start = 1;
         int color_end = colors + 1;
-        //Codigo para mostrar la paleta de colores
+        //Codigo para mostrar la paleta de colores i mostramos la combinacion establecida por el usuario
         if (tipus_partida.equals("CODEMAKER")) {
             color_start = 0;
             color_end = 3;
+            pCombinacioCorrecte.setLayout(new FlowLayout());
+
+            for (Integer colorComb : combinacio) {
+                RoundButton tempButton = new RoundButton("");
+                tempButton.setCurrentColor(colorList.get(colorComb), colorComb);
+                pCombinacioCorrecte.add(tempButton);
+            }
+            pCorreccio.revalidate();
+            pCorreccio.repaint();
         }
 
         for (int i = color_start; i < color_end; i++) {
@@ -653,9 +665,6 @@ public class VistaPartida extends JFrame {
         pCombinacions = new JPanel();
         pCombinacions.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         contentPane.add(pCombinacions, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        pColors = new JPanel();
-        pColors.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        contentPane.add(pColors, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bPista = new JButton();
         bPista.setBackground(new Color(-16777216));
         bPista.setBorderPainted(true);
@@ -673,6 +682,25 @@ public class VistaPartida extends JFrame {
         lInvalidCombinacio.setForeground(new Color(-4520936));
         lInvalidCombinacio.setText("");
         contentPane.add(lInvalidCombinacio, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JPanel panel3 = new JPanel();
+        panel3.setLayout(new GridLayoutManager(5, 1, new Insets(0, 0, 0, 0), -1, -1));
+        contentPane.add(panel3, new GridConstraints(1, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        pCombinacioCorrecte = new JPanel();
+        pCombinacioCorrecte.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        pCombinacioCorrecte.setVisible(false);
+        panel3.add(pCombinacioCorrecte, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        pColors = new JPanel();
+        pColors.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        panel3.add(pColors, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        lCombinacioCorrecte = new JLabel();
+        lCombinacioCorrecte.setText("Combinacio Correcte");
+        lCombinacioCorrecte.setVisible(false);
+        panel3.add(lCombinacioCorrecte, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label1 = new JLabel();
+        label1.setText("Paleta de Colors");
+        panel3.add(label1, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final Spacer spacer2 = new Spacer();
+        panel3.add(spacer2, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
     }
 
     /**
