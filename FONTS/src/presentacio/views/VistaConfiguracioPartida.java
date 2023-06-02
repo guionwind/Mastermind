@@ -197,6 +197,9 @@ public class VistaConfiguracioPartida extends JFrame {
                 sLongitud.setEnabled(true);
             }
         } else { //CodeBreaker
+            for(RoundButton button : buttonList){
+                button.setCurrentColor(Color.GRAY, 0);
+            }
             sColors.setMaximum(8);
             sLongitud.setMaximum(8);
 
@@ -217,16 +220,24 @@ public class VistaConfiguracioPartida extends JFrame {
 
     private void onJugar() throws Exception {
         Integer[] combinacio = new Integer[longitud];
-        if (cbTipusPartida.getSelectedItem().toString() == "Codebreaker") {
+        Boolean valid = true;
+        if (cbTipusPartida.getSelectedItem().toString().equals("Codebreaker")) {
             CtrlPresentacio.crearPartidaCodebreaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue());
         } else {
             for (int i = 0; i < longitud; i++) {
                 combinacio[i] = buttonList.get(i).getCurrentColor();
+                if (combinacio[i].equals(0)){
+                    JOptionPane.showMessageDialog(sIntents, "Has d'assignar tots els colors!", "Error creant Partida", JOptionPane.WARNING_MESSAGE);
+                    valid = false;
+                    break;
+                }
             }
-            CtrlPresentacio.crearPartidaCodemaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbAlgorisme.getSelectedItem().toString().toUpperCase());
+            if (valid) CtrlPresentacio.crearPartidaCodemaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbAlgorisme.getSelectedItem().toString().toUpperCase());
         }
-        CtrlPresentacio.vistaPartida(getLocation(), getExtendedState(), sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbTipusPartida.getSelectedItem().toString().toUpperCase(), null, null);
-        dispose();
+        if (valid){
+            CtrlPresentacio.vistaPartida(getLocation(), getExtendedState(), sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbTipusPartida.getSelectedItem().toString().toUpperCase(), null, null);
+            dispose();
+        }
     }
 
     private void onEnrere() throws IOException {
