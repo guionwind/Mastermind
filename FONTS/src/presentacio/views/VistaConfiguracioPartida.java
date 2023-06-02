@@ -200,6 +200,7 @@ public class VistaConfiguracioPartida extends JFrame {
             for (RoundButton button : buttonList) {
                 button.setCurrentColor(Color.GRAY, 0);
             }
+            sIntents.setMaximum(10);
             sColors.setMaximum(8);
             sLongitud.setMaximum(8);
 
@@ -214,8 +215,6 @@ public class VistaConfiguracioPartida extends JFrame {
         sIntents.setValue(intents);
         sColors.setValue(colors);
         sLongitud.setValue(longitud);
-
-
     }
 
     private void onJugar() throws Exception {
