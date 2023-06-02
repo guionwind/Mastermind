@@ -110,8 +110,8 @@ public class CtrlPresentacio {
         return ctrlDomini.partidaAcabada(guanyada);
     }
 
-    public static int partidaAcabadaCodemaker(){
-        return ctrlDomini.partidaAcabadaCodemaker();
+    public static int partidaAcabadaCodemaker(Boolean guanyada) throws IOException, InstanciaJaExisteix{
+        return ctrlDomini.partidaAcabadaCodemaker(guanyada);
     }
 
     public static Boolean setCorreccioRonda(String combinacio){
