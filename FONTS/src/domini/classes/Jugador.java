@@ -104,10 +104,7 @@ public class Jugador {
     }
 
     public void eliminarPartida(int idPartida) {
-        System.out.print("aaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbb");
-        System.out.println(idPartida);
-        System.out.println(idPartides.remove(idPartida));
-        System.out.print("bbbbbbbbbbbbbbbbbbbbbbbdddddddddddddddddddddddd");
+        idPartides.remove(idPartida);
     }
 
     public boolean existeixPartida(int idPartida) {
