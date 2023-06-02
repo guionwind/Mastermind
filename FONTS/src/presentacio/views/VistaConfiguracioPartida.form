@@ -178,13 +178,13 @@
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="afa05" class="javax.swing.JLabel">
+      <component id="afa05" class="javax.swing.JLabel" binding="lConfiguracioPartida">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font size="36"/>
-          <text value="Configuració de la partida"/>
+          <text value=""/>
         </properties>
       </component>
       <grid id="9538f" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="true" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -201,8 +201,10 @@
             </constraints>
             <properties>
               <background color="-6556135"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
               <font size="28"/>
-              <text value="Jugar"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="5723f" class="javax.swing.JButton" binding="bEnrere">
@@ -210,8 +212,11 @@
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <focusPainted value="false"/>
               <font size="28"/>
-              <text value="Enrere"/>
+              <text value=""/>
             </properties>
           </component>
         </children>

@@ -37,7 +37,7 @@ public class CtrlPresentacio {
         VistaTutorial vT = new VistaTutorial(location, state);
     }
 
-    public static void vistaLogin(Point location, int state) throws IOException {
+    public static void vistaLogin(Point location, int state) throws IOException, FontFormatException {
         VistaLogin vL = new VistaLogin(location, state);
     }
 

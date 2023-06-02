@@ -36,6 +36,7 @@ public class VistaConfiguracioPartida extends JFrame {
     private JLabel lIntents;
     private JLabel lColors;
     private JLabel lLongitud;
+    private JLabel lConfiguracioPartida;
     private int longitud = 4;
     private int colors = 6;
     private int intents = 5;
@@ -44,13 +45,23 @@ public class VistaConfiguracioPartida extends JFrame {
 
     public VistaConfiguracioPartida(Point location, int state) throws IOException {
         setLocation(location);
-
-
         setContentPane(contentPane);
         this.pack();
-        setLocationRelativeTo(null);
+        setResizable(true);
         setTitle("MASTERMIND");
         this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
+        ImageIcon imageIconRegister = new ImageIcon("./resources/lConfiguracioPartida.png");
+        lConfiguracioPartida.setIcon(imageIconRegister);
+
+        ImageIcon imageIconEnrere = new ImageIcon("./resources/bEnrere.png");
+        bEnrere.setIcon(imageIconEnrere);
+        ImageIcon imageIconEnrerePressed = new ImageIcon("./resources/bEnrerePressed.png");
+        bEnrere.setPressedIcon(imageIconEnrerePressed);
+
+        ImageIcon imageIconJugar = new ImageIcon("./resources/bJugar.png");
+        bJugar.setIcon(imageIconJugar);
+        ImageIcon imageIconJugarPressed = new ImageIcon("./resources/bJugarPressed.png");
+        bJugar.setPressedIcon(imageIconJugarPressed);
 
         setExtendedState(state);
 
@@ -341,24 +352,29 @@ public class VistaConfiguracioPartida extends JFrame {
         contentPane.add(spacer1, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
         contentPane.add(spacer2, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        final JLabel label4 = new JLabel();
-        Font label4Font = this.$$$getFont$$$(null, -1, 36, label4.getFont());
-        if (label4Font != null) label4.setFont(label4Font);
-        label4.setText("Configuració de la partida");
-        contentPane.add(label4, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        lConfiguracioPartida = new JLabel();
+        Font lConfiguracioPartidaFont = this.$$$getFont$$$(null, -1, 36, lConfiguracioPartida.getFont());
+        if (lConfiguracioPartidaFont != null) lConfiguracioPartida.setFont(lConfiguracioPartidaFont);
+        lConfiguracioPartida.setText("");
+        contentPane.add(lConfiguracioPartida, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1, true, false));
         contentPane.add(panel3, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bJugar = new JButton();
         bJugar.setBackground(new Color(-6556135));
+        bJugar.setBorderPainted(false);
+        bJugar.setContentAreaFilled(false);
         Font bJugarFont = this.$$$getFont$$$(null, -1, 28, bJugar.getFont());
         if (bJugarFont != null) bJugar.setFont(bJugarFont);
-        bJugar.setText("Jugar");
+        bJugar.setText("");
         panel3.add(bJugar, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         bEnrere = new JButton();
+        bEnrere.setBorderPainted(false);
+        bEnrere.setContentAreaFilled(false);
+        bEnrere.setFocusPainted(false);
         Font bEnrereFont = this.$$$getFont$$$(null, -1, 28, bEnrere.getFont());
         if (bEnrereFont != null) bEnrere.setFont(bEnrereFont);
-        bEnrere.setText("Enrere");
+        bEnrere.setText("");
         panel3.add(bEnrere, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer3 = new Spacer();
         contentPane.add(spacer3, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));

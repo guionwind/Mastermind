@@ -29,11 +29,19 @@ public class VistaRanquing extends JFrame {
         setLocation(location);
         setContentPane(contentPane);
         this.pack();
-        setLocationRelativeTo(null);
         setResizable(true);
 
         setTitle("MASTERMIND");
         this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
+
+        ImageIcon imageIconTitle = new ImageIcon("./resources/lRanquing.png");
+        lRanquing.setIcon(imageIconTitle);
+
+        ImageIcon imageIconEnrere = new ImageIcon("./resources/bEnrere.png");
+        bEnrere.setIcon(imageIconEnrere);
+        ImageIcon imageIconEnrerePressed = new ImageIcon("./resources/bEnrerePressed.png");
+        bEnrere.setPressedIcon(imageIconEnrerePressed);
+
         setVisible(true);
         setExtendedState(state);
 
@@ -106,8 +114,11 @@ public class VistaRanquing extends JFrame {
         panel2.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(panel2, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bEnrere = new JButton();
+        bEnrere.setBorderPainted(false);
+        bEnrere.setContentAreaFilled(false);
+        bEnrere.setFocusPainted(false);
         bEnrere.setFocusable(false);
-        bEnrere.setText("Enrere");
+        bEnrere.setText("");
         panel2.add(bEnrere, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         pRanquing = new JPanel();
         pRanquing.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
@@ -115,7 +126,7 @@ public class VistaRanquing extends JFrame {
         lRanquing = new JLabel();
         Font lRanquingFont = this.$$$getFont$$$(null, -1, 36, lRanquing.getFont());
         if (lRanquingFont != null) lRanquing.setFont(lRanquingFont);
-        lRanquing.setText("RÀNQUING");
+        lRanquing.setText("");
         contentPane.add(lRanquing, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 

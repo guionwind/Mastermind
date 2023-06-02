@@ -46,11 +46,9 @@ public class VistaPartida extends JFrame {
 
     public VistaPartida(Point location, int state, int init_intents, int init_colors, int init_longitud, Integer[] solution_code, String init_tipusPartida, Integer[][] combinacionsIntentades, String[] correccions) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         setLocation(location);
-
-        setUndecorated(false);
         setContentPane(contentPane);
         this.pack();
-        setLocationRelativeTo(null);
+        setResizable(true);
         setVisible(true);
         setExtendedState(state);
 
@@ -95,7 +93,7 @@ public class VistaPartida extends JFrame {
             for (int i = 0; i < combinacionsIntentades.length; ++i) {
                 Integer[] combinacioIntentada = combinacionsIntentades[i];
                 String correccio = correccions[i];
-                
+
                 for (int j = 0; j < combinacioIntentada.length; ++j) {
                     if (tipus_partida.equals("CODEMAKER")) {
                         //Deshabilitem els botons de correccio ja pintats per l'usuari
@@ -106,7 +104,7 @@ public class VistaPartida extends JFrame {
 
                         if (i < combinacionsIntentades.length - 1) {
                             int color;
-                            
+
                             if (correccio.charAt(j) == 'B') {
                                 color = 9;
                             } else if (correccio.charAt(j) == 'W') {
@@ -310,7 +308,7 @@ public class VistaPartida extends JFrame {
                         super.mousePressed(e);
                     }
                 });
-                
+
                 if (tipus_partida.equals("CODEBREAKER")) {
                     buttonCorreccio.setEnabled(false);
                     if (i != intents - 1) {
@@ -447,11 +445,11 @@ public class VistaPartida extends JFrame {
 
         } else { // Codemaker
             Integer[] correccioUsuariNumeros = getCorreccioUsuari();
-            
+
             String correccioUsuariString = traduirCorrecioAString(correccioUsuariNumeros);
             int longitudCorreccio = buttonMatrixCorreccio.get(intents - current_round - 1).size();
             Boolean is_well_corrected = CtrlPresentacio.setCorreccioRonda(correccioUsuariString);
-            
+
             if (!is_well_corrected)
                 JOptionPane.showMessageDialog(pCombinacions, "La correccio introduida no es correcte! Torna a provar", "Correccio Incorrecte", JOptionPane.INFORMATION_MESSAGE);
             else {

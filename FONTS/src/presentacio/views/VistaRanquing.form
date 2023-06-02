@@ -37,8 +37,11 @@
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <borderPainted value="false"/>
+                  <contentAreaFilled value="false"/>
+                  <focusPainted value="false"/>
                   <focusable value="false"/>
-                  <text value="Enrere"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>
@@ -60,7 +63,7 @@
         </constraints>
         <properties>
           <font size="36"/>
-          <text value="RÀNQUING"/>
+          <text value=""/>
         </properties>
       </component>
     </children>

@@ -26,25 +26,36 @@ public class VistaTutorial extends JFrame {
     private JPanel pPg2;
     private JPanel pPg3;
     private JPanel pCardTutorial;
+    private JLabel lTutorial;
     private int pgActual = 0;
 
     public VistaTutorial(Point location, int state) throws IOException {
         setLocation(location);
-
         setContentPane(contentPane);
         this.pack();
-        setLocationRelativeTo(null);
+
         setResizable(true);
         setTitle("MASTERMIND");
         this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
+
+        ImageIcon imageIconTutorial = new ImageIcon("./resources/lTutorial.png");
+        lTutorial.setIcon(imageIconTutorial);
+
+        ImageIcon imageIconSeguent = new ImageIcon("./resources/bSeguent.png");
+        bSeguent.setIcon(imageIconSeguent);
+        ImageIcon imageIconSeguentPressed = new ImageIcon("./resources/bSeguentPressed.png");
+        bSeguent.setPressedIcon(imageIconSeguentPressed);
+
+        ImageIcon imageIconEnrere = new ImageIcon("./resources/bEnrere.png");
+        bEnrere.setIcon(imageIconEnrere);
+        ImageIcon imageIconEnrerePressed = new ImageIcon("./resources/bEnrerePressed.png");
+        bEnrere.setPressedIcon(imageIconEnrerePressed);
+
         setVisible(true);
         setExtendedState(state);
-
-        bEnrere.addMouseListener(new MouseAdapter() {
+        bEnrere.addActionListener(new ActionListener() {
             @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-
+            public void actionPerformed(ActionEvent e) {
                 try {
                     onEnrere();
                 } catch (IOException ex) {
@@ -52,12 +63,18 @@ public class VistaTutorial extends JFrame {
                 }
             }
         });
-        bSeguent.addMouseListener(new MouseAdapter() {
+        bSeguent.addActionListener(new ActionListener() {
             @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-
+            public void actionPerformed(ActionEvent e) {
                 onSeguent();
+            }
+        });
+
+        // call onCancel() when cross is clicked
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
             }
         });
     }
@@ -107,7 +124,7 @@ public class VistaTutorial extends JFrame {
         contentPane.add(pCardTutorial, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         pPg1 = new JPanel();
         pPg1.setLayout(new GridBagLayout());
-        pPg1.setVisible(true);
+        pPg1.setVisible(false);
         pCardTutorial.add(pPg1, "Card1");
         lDefinicio = new JLabel();
         Font lDefinicioFont = this.$$$getFont$$$(null, -1, 20, lDefinicio.getFont());
@@ -223,12 +240,12 @@ public class VistaTutorial extends JFrame {
         gbc.fill = GridBagConstraints.VERTICAL;
         pPg1.add(spacer8, gbc);
         final JLabel label4 = new JLabel();
-        Font label4Font = this.$$$getFont$$$(null, -1, 16, label4.getFont());
+        Font label4Font = this.$$$getFont$$$("Arial Black", Font.BOLD, 16, label4.getFont());
         if (label4Font != null) label4.setFont(label4Font);
         label4.setText("Pàgina 1/3");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 15;
+        gbc.gridy = 17;
         gbc.anchor = GridBagConstraints.WEST;
         pPg1.add(label4, gbc);
         final JPanel spacer9 = new JPanel();
@@ -237,6 +254,20 @@ public class VistaTutorial extends JFrame {
         gbc.gridy = 14;
         gbc.fill = GridBagConstraints.VERTICAL;
         pPg1.add(spacer9, gbc);
+        final JPanel panel1 = new JPanel();
+        panel1.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 15;
+        gbc.fill = GridBagConstraints.BOTH;
+        pPg1.add(panel1, gbc);
+        final JPanel panel2 = new JPanel();
+        panel2.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 16;
+        gbc.fill = GridBagConstraints.BOTH;
+        pPg1.add(panel2, gbc);
         pPg2 = new JPanel();
         pPg2.setLayout(new GridLayoutManager(6, 3, new Insets(0, 0, 0, 0), -1, -1));
         pPg2.setAutoscrolls(true);
@@ -262,7 +293,7 @@ public class VistaTutorial extends JFrame {
         label8.setText("Pas 3: Basat en la correcció, torna a fer una proposta");
         pPg2.add(label8, new GridConstraints(3, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label9 = new JLabel();
-        Font label9Font = this.$$$getFont$$$(null, -1, 16, label9.getFont());
+        Font label9Font = this.$$$getFont$$$("Arial Black", Font.BOLD, 16, label9.getFont());
         if (label9Font != null) label9.setFont(label9Font);
         label9.setText("Pàgina 2/3");
         pPg2.add(label9, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -285,7 +316,7 @@ public class VistaTutorial extends JFrame {
         label12.setText("Jugant com a Codemaker:");
         pPg3.add(label12, new GridConstraints(0, 0, 1, 3, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label13 = new JLabel();
-        Font label13Font = this.$$$getFont$$$(null, -1, 16, label13.getFont());
+        Font label13Font = this.$$$getFont$$$("Arial Black", Font.BOLD, 16, label13.getFont());
         if (label13Font != null) label13.setFont(label13Font);
         label13.setText("Pàgina 3/3");
         pPg3.add(label13, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -294,34 +325,38 @@ public class VistaTutorial extends JFrame {
         if (label14Font != null) label14.setFont(label14Font);
         label14.setText("Pas 2: Un cop l'ordinador indiqui la combinació, fer la correcció");
         pPg3.add(label14, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JPanel panel1 = new JPanel();
-        panel1.setLayout(new GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
-        contentPane.add(panel1, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, 1, null, null, null, 0, false));
+        final JPanel panel3 = new JPanel();
+        panel3.setLayout(new GridLayoutManager(1, 4, new Insets(0, 0, 0, 0), -1, -1));
+        contentPane.add(panel3, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, 1, null, null, null, 0, false));
         final Spacer spacer10 = new Spacer();
-        panel1.add(spacer10, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
-        final JPanel panel2 = new JPanel();
-        panel2.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        panel1.add(panel2, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        panel3.add(spacer10, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        final JPanel panel4 = new JPanel();
+        panel4.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        panel3.add(panel4, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bEnrere = new JButton();
         bEnrere.setBackground(new Color(-5262409));
+        bEnrere.setBorderPainted(false);
+        bEnrere.setContentAreaFilled(false);
         bEnrere.setFocusPainted(false);
-        bEnrere.setText("Enrere");
-        panel2.add(bEnrere, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bEnrere.setText("");
+        panel4.add(bEnrere, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer11 = new Spacer();
-        panel1.add(spacer11, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        panel3.add(spacer11, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         bSeguent = new JButton();
         bSeguent.setBackground(new Color(-5262409));
+        bSeguent.setBorderPainted(false);
+        bSeguent.setContentAreaFilled(false);
         bSeguent.setFocusPainted(false);
-        bSeguent.setText("Següent");
-        panel1.add(bSeguent, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JPanel panel3 = new JPanel();
-        panel3.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        contentPane.add(panel3, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        final JLabel label15 = new JLabel();
-        Font label15Font = this.$$$getFont$$$(null, -1, 48, label15.getFont());
-        if (label15Font != null) label15.setFont(label15Font);
-        label15.setText("TUTORIAL");
-        panel3.add(label15, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        bSeguent.setText("");
+        panel3.add(bSeguent, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JPanel panel5 = new JPanel();
+        panel5.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        contentPane.add(panel5, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        lTutorial = new JLabel();
+        Font lTutorialFont = this.$$$getFont$$$(null, -1, 48, lTutorial.getFont());
+        if (lTutorialFont != null) lTutorial.setFont(lTutorialFont);
+        lTutorial.setText("");
+        panel5.add(lTutorial, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer12 = new Spacer();
         contentPane.add(spacer12, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final Spacer spacer13 = new Spacer();
@@ -358,4 +393,5 @@ public class VistaTutorial extends JFrame {
     public JComponent $$$getRootComponent$$$() {
         return contentPane;
     }
+
 }

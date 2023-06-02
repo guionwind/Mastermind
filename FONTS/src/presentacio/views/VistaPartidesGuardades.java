@@ -25,6 +25,7 @@ public class VistaPartidesGuardades extends JFrame {
     private JButton bAcceptar;
     private JButton bEnrere;
     private JList lPartides;
+    private JLabel lPartidesGuardades;
     private int partida = -1;
     private ArrayList<String> partides = new ArrayList<>();
     private DefaultListModel<String> listModel = new DefaultListModel<>();
@@ -33,11 +34,24 @@ public class VistaPartidesGuardades extends JFrame {
         setLocation(location);
         setContentPane(contentPane);
         this.pack();
-        setLocationRelativeTo(null);
         setResizable(true);
         setTitle("MASTERMIND");
         this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
         setVisible(true);
+
+        ImageIcon imageIconRegister = new ImageIcon("./resources/lPartidesGuardades.png");
+        lPartidesGuardades.setIcon(imageIconRegister);
+
+        ImageIcon imageIconEnrere = new ImageIcon("./resources/bEnrere.png");
+        bEnrere.setIcon(imageIconEnrere);
+        ImageIcon imageIconEnrerePressed = new ImageIcon("./resources/bEnrerePressed.png");
+        bEnrere.setPressedIcon(imageIconEnrerePressed);
+
+        ImageIcon imageIconAcceptar = new ImageIcon("./resources/bAcceptar.png");
+        bAcceptar.setIcon(imageIconAcceptar);
+        ImageIcon imageIconAcceptarPressed = new ImageIcon("./resources/bAcceptarPressed.png");
+        bAcceptar.setPressedIcon(imageIconAcceptarPressed);
+
         setExtendedState(state);
         getRootPane().setDefaultButton(bAcceptar);
 
@@ -72,10 +86,10 @@ public class VistaPartidesGuardades extends JFrame {
         });
 
         llistarPartides();
-        bEnrere.addMouseListener(new MouseAdapter() {
+
+        bEnrere.addActionListener(new ActionListener() {
             @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
+            public void actionPerformed(ActionEvent e) {
                 try {
                     onEnrere();
                 } catch (IOException ex) {
@@ -158,19 +172,25 @@ public class VistaPartidesGuardades extends JFrame {
         panel2.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(panel2, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bAcceptar = new JButton();
+        bAcceptar.setBorderPainted(false);
+        bAcceptar.setContentAreaFilled(false);
+        bAcceptar.setFocusPainted(false);
         bAcceptar.setFocusable(false);
-        bAcceptar.setText("Acceptar");
+        bAcceptar.setText("");
         panel2.add(bAcceptar, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         bEnrere = new JButton();
-        bEnrere.setText("Enrere");
+        bEnrere.setBorderPainted(false);
+        bEnrere.setContentAreaFilled(false);
+        bEnrere.setFocusPainted(false);
+        bEnrere.setText("");
         panel2.add(bEnrere, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JScrollPane scrollPane1 = new JScrollPane();
         contentPane.add(scrollPane1, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         lPartides = new JList();
         scrollPane1.setViewportView(lPartides);
-        final JLabel label1 = new JLabel();
-        label1.setText("PARTIDES GUARDADES");
-        contentPane.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        lPartidesGuardades = new JLabel();
+        lPartidesGuardades.setText("");
+        contentPane.add(lPartidesGuardades, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
