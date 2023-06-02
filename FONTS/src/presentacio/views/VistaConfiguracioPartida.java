@@ -149,7 +149,7 @@ public class VistaConfiguracioPartida extends JFrame {
                     if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker")) {
                         int current = button.getCurrentColor();
                         current = (current == sColors.getValue()) ? 1 : (current + 1);
-                        System.out.println(current + " color del boto");
+                        
                         button.setCurrentColor(colorList.get(current), current);
                         super.mouseClicked(e);
                     }

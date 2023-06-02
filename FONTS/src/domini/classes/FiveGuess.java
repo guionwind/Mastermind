@@ -130,14 +130,6 @@ public class FiveGuess implements Maquina {
      * @throws ValorsRespostaIncorrectes            Retorna excepcio si algun dels valors de la resposta es incorrecta.
      */
     public Integer[] esbrina(Integer[] ultimCodiAux, String respostaCodi) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
-        System.out.println("Fiveguess esbrina ultim codi ");
-        if (ultimCodiAux != null) {
-            for (int i=0; i<ultimCodiAux.length; ++i) {
-                System.out.println(ultimCodiAux[i]);
-            }
-        }
-        System.out.println("Fiveguess resposta codi " + respostaCodi);
-        
         if (ultimCodiAux == null) {
             return new Integer[] {1,1,2,2};
         }

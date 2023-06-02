@@ -40,11 +40,10 @@ public class VistaRanquing extends JFrame {
         getRootPane().setDefaultButton(bEnrere);
 
         ArrayList<Pair<String, Integer>> temp_statics = CtrlPresentacio.getTop10();
-        System.out.println("temp_statics.size = " + temp_statics.size());
-        for (int i = 0; i < temp_statics.size(); i++) {
-            System.out.println("Jugador: " + temp_statics.get(i).getFirst() + " punt: " + temp_statics.get(i).getSecond());
+        
+        for (int i = 0; i < temp_statics.size(); i++)
             estadistiques.add(new Pair(temp_statics.get(i).getFirst(), temp_statics.get(i).getSecond()));
-        }
+            
         bEnrere.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {

@@ -80,7 +80,6 @@ public class Codemaker extends Partida {
     public Codemaker(int idPartida, Integer[] solutionCode, HashMap<Integer, Ronda> rondes, String tipusAlgorisme) {
         super(idPartida, solutionCode, rondes);
 
-        System.out.println("COdemaker construcctora " + tipusAlgorisme);
         this.tipusAlgorisme = TipusAlgorisme.valueOf(tipusAlgorisme);
     }
 
@@ -99,12 +98,7 @@ public class Codemaker extends Partida {
      */
     public Integer[] getCodiMaquinaFiveGuess(Integer[] ultimIntent, String resposta) throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         Integer[] codi = fiveGuess.esbrina(ultimIntent, resposta);
-        System.out.println("get codi maquina ");
-        for (int i=0; i<codi.length; ++i) {
-            System.out.print(codi[i]);
-
-        }
-        System.out.println();
+        
         return codi;
     }
 

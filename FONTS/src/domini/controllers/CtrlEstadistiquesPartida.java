@@ -41,10 +41,8 @@ public class CtrlEstadistiquesPartida {
         for (HashMap.Entry<Pair<String, Integer>, EstadistiquesPartida> estadisticaPartida : estadistiquesPartida.entrySet()) {
             Pair<String, Integer> key = estadisticaPartida.getKey(); //Key = {idJugador, idPartida}
 
-            System.out.println("ANALITZANT partida : "+key.getSecond()+" jugador: "+key.getFirst());
             if (key.getFirst() == username && key.getSecond() == idPartida){
                 EstadistiquesPartida ed = estadisticaPartida.getValue();
-                System.out.println("ESTIC A CTRLESTATICS: "+ed.getPuntuacio());
                 return ed.getPuntuacio();
             }
         }

@@ -37,7 +37,7 @@ public class CtrlPersistencia {
     public Jugador obtenirJugador(String username) throws IOException, InstanciaNoExisteix, ClassNotFoundException {
         DAOJugador daoJ = gestorJugador.obtenirJugador(username);
         Jugador j = null;
-        System.out.println(daoJ.getIdPartides());
+        
         try {
             j = new Jugador(
                 daoJ.getId(),
@@ -47,7 +47,7 @@ public class CtrlPersistencia {
             );
         }
         catch (Exception e) {
-            System.out.println("Aquest error no hauria de passar.");
+            System.out.println(e.toString());
         }
         return j;
     }

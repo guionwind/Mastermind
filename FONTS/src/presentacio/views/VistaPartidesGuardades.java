@@ -45,7 +45,6 @@ public class VistaPartidesGuardades extends JFrame {
         lPartides.setModel(listModel);
 
         ArrayList<String[]> infoPartides = CtrlPresentacio.getInfoPartidesGuardades();
-        System.out.println(infoPartides.size() + "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
 
         for (int i = 0; i < infoPartides.size(); ++i) {
             String[] infoPartida = infoPartides.get(i);
@@ -103,7 +102,6 @@ public class VistaPartidesGuardades extends JFrame {
         Integer[][] combinacionsIntentades = CtrlPresentacio.getCombinacionsIntentades(idPartida, tipusPartida);
         String[] correccions = CtrlPresentacio.getCorrecions(idPartida, tipusPartida);
 
-        System.out.print("Vista partides guardades on guardar ");
         for (int i = 0; i < solutionCode.length; ++i) {
             System.out.print(solutionCode[i]);
         }
