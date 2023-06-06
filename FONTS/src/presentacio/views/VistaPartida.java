@@ -205,6 +205,8 @@ public class VistaPartida extends JFrame {
         for(int i = 0; i < pista.length(); i++){
             if(pista.charAt(i) != '?'){
                 String temp_color;
+                //cal restar 48 per passar del valor ascii del char al valor numeric, i +1 pels colors
+                int caracterPista = Integer.valueOf(pista.charAt(i)-48)+1;
                 switch (i) {
                     case 0:
                         temp_color = "VERMELL";
