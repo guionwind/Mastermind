@@ -3,6 +3,8 @@ package presentacio.views;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import domini.classes.exceptions.InstanciaJaExisteix;
+import domini.classes.exceptions.InstanciaNoExisteix;
 import presentacio.controllers.CtrlPresentacio;
 
 import javax.imageio.ImageIO;
@@ -83,12 +85,20 @@ public class VistaPrincipal extends JFrame {
                 System.exit(0);
             }
         });
+
+        // call onCancel() when cross is clicked
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
         bLogin.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
                     onLogin();
-                } catch (IOException ex) {
+                } catch (IOException | FontFormatException ex) {
                     throw new RuntimeException(ex);
                 }
             }
@@ -110,7 +120,7 @@ public class VistaPrincipal extends JFrame {
         dispose();
     }
 
-    private void onLogin() throws IOException {
+    private void onLogin() throws IOException, FontFormatException {
 
         CtrlPresentacio.vistaLogin(getLocation(), getExtendedState());
         dispose();

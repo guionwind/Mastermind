@@ -11,15 +11,15 @@ public class CorregeixAction {
      * @param solutionCode Codi Solucio
      * @return retorna un string amb la correcio
      */
-    public static String corregeix(Integer[] combinacioIntentada, Integer[] solutionCode) {
-        combinacioIntentada = combinacioIntentada.clone();
-        solutionCode = solutionCode.clone();
-
+    public static String corregeix(Integer[] combinacioIntentadaAux, Integer[] solutionCodeAux) {
+        Integer[] combinacioIntentada = combinacioIntentadaAux.clone();
+        Integer[] solutionCode = solutionCodeAux.clone();
+        
         StringBuilder resposta = new StringBuilder();
 
         // Black
         for (int i=0; i<combinacioIntentada.length; ++i) {
-            if (combinacioIntentada[i] == solutionCode[i]) {
+            if (combinacioIntentada[i].equals(solutionCode[i])) {
                 resposta.append("B");
                 combinacioIntentada[i] = -1;
                 solutionCode[i] = -1;
@@ -31,7 +31,7 @@ public class CorregeixAction {
             if (integer != -1) { // Encara no l'hem processat
                 boolean trobat = false;
                 for (int j = 0; j < combinacioIntentada.length && !trobat; ++j) {
-                    if (integer == solutionCode[j]) {
+                    if (integer.equals(solutionCode[j])) {
                         trobat = true;
                         resposta.append("W");
                         solutionCode[j] = -1;

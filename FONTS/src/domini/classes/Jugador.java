@@ -99,7 +99,19 @@ public class Jugador {
         estadistiquesPartides.add(estadistiquesPartida);
     }
 
-    public void afegirIdPartida(int id) {
-        idPartides.add(id);
+    public void afegirIdPartida(int idPartida) {
+        idPartides.add(idPartida);
+    }
+
+    public void eliminarPartida(int idPartida) {
+        idPartides.remove(idPartida);
+    }
+
+    public boolean existeixPartida(int idPartida) {
+        for (Integer idPartide : idPartides) {
+            if (idPartida == idPartide)
+                return true;
+        }
+        return false;
     }
 }

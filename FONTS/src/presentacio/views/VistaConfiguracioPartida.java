@@ -36,6 +36,7 @@ public class VistaConfiguracioPartida extends JFrame {
     private JLabel lIntents;
     private JLabel lColors;
     private JLabel lLongitud;
+    private JLabel lConfiguracioPartida;
     private int longitud = 4;
     private int colors = 6;
     private int intents = 5;
@@ -44,13 +45,23 @@ public class VistaConfiguracioPartida extends JFrame {
 
     public VistaConfiguracioPartida(Point location, int state) throws IOException {
         setLocation(location);
-
-
         setContentPane(contentPane);
         this.pack();
-        setLocationRelativeTo(null);
+        setResizable(true);
         setTitle("MASTERMIND");
         this.setIconImage(ImageIO.read(new File("./resources/antiDaltonic2.png")));
+        ImageIcon imageIconRegister = new ImageIcon("./resources/lConfiguracioPartida.png");
+        lConfiguracioPartida.setIcon(imageIconRegister);
+
+        ImageIcon imageIconEnrere = new ImageIcon("./resources/bEnrere.png");
+        bEnrere.setIcon(imageIconEnrere);
+        ImageIcon imageIconEnrerePressed = new ImageIcon("./resources/bEnrerePressed.png");
+        bEnrere.setPressedIcon(imageIconEnrerePressed);
+
+        ImageIcon imageIconJugar = new ImageIcon("./resources/bJugar.png");
+        bJugar.setIcon(imageIconJugar);
+        ImageIcon imageIconJugarPressed = new ImageIcon("./resources/bJugarPressed.png");
+        bJugar.setPressedIcon(imageIconJugarPressed);
 
         setExtendedState(state);
 
@@ -149,7 +160,7 @@ public class VistaConfiguracioPartida extends JFrame {
                     if (cbTipusPartida.getSelectedItem().toString().equals("Codemaker")) {
                         int current = button.getCurrentColor();
                         current = (current == sColors.getValue()) ? 1 : (current + 1);
-                        System.out.println(current + " color del boto");
+                        
                         button.setCurrentColor(colorList.get(current), current);
                         super.mouseClicked(e);
                     }
@@ -197,6 +208,10 @@ public class VistaConfiguracioPartida extends JFrame {
                 sLongitud.setEnabled(true);
             }
         } else { //CodeBreaker
+            for (RoundButton button : buttonList) {
+                button.setCurrentColor(Color.GRAY, 0);
+            }
+            sIntents.setMaximum(10);
             sColors.setMaximum(8);
             sLongitud.setMaximum(8);
 
@@ -211,22 +226,29 @@ public class VistaConfiguracioPartida extends JFrame {
         sIntents.setValue(intents);
         sColors.setValue(colors);
         sLongitud.setValue(longitud);
-
-
     }
 
     private void onJugar() throws Exception {
-        Integer[] combinacio = new Integer[longitud];
-        if (cbTipusPartida.getSelectedItem().toString() == "Codebreaker") {
+        Integer[] combinacio = new Integer[sLongitud.getValue()];
+        Boolean valid = true;
+        if (cbTipusPartida.getSelectedItem().toString().equals("Codebreaker")) {
             CtrlPresentacio.crearPartidaCodebreaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue());
         } else {
-            for (int i = 0; i < longitud; i++) {
+            for (int i = 0; i < sLongitud.getValue(); i++) {
                 combinacio[i] = buttonList.get(i).getCurrentColor();
+                if (combinacio[i].equals(0)) {
+                    JOptionPane.showMessageDialog(sIntents, "Has d'assignar tots els colors!", "Error creant Partida", JOptionPane.WARNING_MESSAGE);
+                    valid = false;
+                    break;
+                }
             }
-            CtrlPresentacio.crearPartidaCodemaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbAlgorisme.getSelectedItem().toString().toUpperCase());
+            if (valid)
+                CtrlPresentacio.crearPartidaCodemaker(sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbAlgorisme.getSelectedItem().toString().toUpperCase());
         }
-        CtrlPresentacio.vistaPartida(getLocation(), getExtendedState(), sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbTipusPartida.getSelectedItem().toString().toUpperCase(), null, null);
-        dispose();
+        if (valid) {
+            CtrlPresentacio.vistaPartida(getLocation(), getExtendedState(), sIntents.getValue(), sColors.getValue(), sLongitud.getValue(), combinacio, cbTipusPartida.getSelectedItem().toString().toUpperCase(), null, null);
+            dispose();
+        }
     }
 
     private void onEnrere() throws IOException {
@@ -283,7 +305,7 @@ public class VistaConfiguracioPartida extends JFrame {
         panel2.add(label2, new GridConstraints(5, 0, 1, 4, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         sColors = new JSlider();
         sColors.setMaximum(8);
-        sColors.setMinimum(1);
+        sColors.setMinimum(4);
         sColors.setPaintLabels(true);
         sColors.setPaintTicks(false);
         sColors.setValue(6);
@@ -293,7 +315,7 @@ public class VistaConfiguracioPartida extends JFrame {
         panel2.add(label3, new GridConstraints(7, 0, 1, 7, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         sLongitud = new JSlider();
         sLongitud.setMaximum(8);
-        sLongitud.setMinimum(1);
+        sLongitud.setMinimum(4);
         sLongitud.setPaintLabels(true);
         sLongitud.setPaintTicks(false);
         sLongitud.setValue(4);
@@ -330,24 +352,29 @@ public class VistaConfiguracioPartida extends JFrame {
         contentPane.add(spacer1, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
         contentPane.add(spacer2, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        final JLabel label4 = new JLabel();
-        Font label4Font = this.$$$getFont$$$(null, -1, 36, label4.getFont());
-        if (label4Font != null) label4.setFont(label4Font);
-        label4.setText("Configuració de la partida");
-        contentPane.add(label4, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        lConfiguracioPartida = new JLabel();
+        Font lConfiguracioPartidaFont = this.$$$getFont$$$(null, -1, 36, lConfiguracioPartida.getFont());
+        if (lConfiguracioPartidaFont != null) lConfiguracioPartida.setFont(lConfiguracioPartidaFont);
+        lConfiguracioPartida.setText("");
+        contentPane.add(lConfiguracioPartida, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel3 = new JPanel();
         panel3.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1, true, false));
         contentPane.add(panel3, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bJugar = new JButton();
         bJugar.setBackground(new Color(-6556135));
+        bJugar.setBorderPainted(false);
+        bJugar.setContentAreaFilled(false);
         Font bJugarFont = this.$$$getFont$$$(null, -1, 28, bJugar.getFont());
         if (bJugarFont != null) bJugar.setFont(bJugarFont);
-        bJugar.setText("Jugar");
+        bJugar.setText("");
         panel3.add(bJugar, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         bEnrere = new JButton();
+        bEnrere.setBorderPainted(false);
+        bEnrere.setContentAreaFilled(false);
+        bEnrere.setFocusPainted(false);
         Font bEnrereFont = this.$$$getFont$$$(null, -1, 28, bEnrere.getFont());
         if (bEnrereFont != null) bEnrere.setFont(bEnrereFont);
-        bEnrere.setText("Enrere");
+        bEnrere.setText("");
         panel3.add(bEnrere, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer3 = new Spacer();
         contentPane.add(spacer3, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));

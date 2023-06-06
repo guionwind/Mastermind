@@ -37,7 +37,7 @@ public class CtrlPresentacio {
         VistaTutorial vT = new VistaTutorial(location, state);
     }
 
-    public static void vistaLogin(Point location, int state) throws IOException {
+    public static void vistaLogin(Point location, int state) throws IOException, FontFormatException {
         VistaLogin vL = new VistaLogin(location, state);
     }
 
@@ -102,16 +102,16 @@ public class CtrlPresentacio {
         return ctrlDomini.jugarRondaCodebreaker(combinacio);
     }
 
-    public static String jugarRondaCodemaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
+    public static Integer[] jugarRondaCodemaker() throws LongitudCombinacioIncorrecte, NumeroColorsIncorrecte, LongitudRespostaIncorrecte, ValorsRespostaIncorrectes {
         return ctrlDomini.jugarRondaCodeMaker();
     }
 
-    public static int partidaAcabada(Boolean guanyada){
+    public static int partidaAcabada(Boolean guanyada) throws IOException, InstanciaJaExisteix{
         return ctrlDomini.partidaAcabada(guanyada);
     }
 
-    public static int partidaAcabadaCodemaker(){
-        return ctrlDomini.partidaAcabadaCodemaker();
+    public static int partidaAcabadaCodemaker(Boolean guanyada) throws IOException, InstanciaJaExisteix{
+        return ctrlDomini.partidaAcabadaCodemaker(guanyada);
     }
 
     public static Boolean setCorreccioRonda(String combinacio){
