@@ -5,8 +5,11 @@ Entrega final de Projectes de Programació (PROP)
 
 Autors:
 David Barranquero Morata
+
 Arnau Domenech Bravin
+
 Marc Ortiz Lopez
+
 Sheng Ye
 
 Per a executar el programa, consultar el manual d'usuari.
